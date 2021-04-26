@@ -1,0 +1,45 @@
+mat-card {
+  text-align: center;
+  width: 30%;
+  margin-top: 40px;
+  border-radius: 20px;
+
+  @media (max-width: 767.98px) {
+    width: 88%;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+  font-size: 20px;
+}
+
+mat-card-content {
+  width: 100%;
+}
+
+mat-card-header mat-card-title {
+  font-size: 3em;
+  font-family: sans-serif;
+  margin: 60px auto;
+}
+
+mat-card-actions button {
+  width: 100px;
+  height: 50px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.forget-password-text {
+  text-decoration: none;
+  color: red;
+  font-size: 1rem;
+}

@@ -1,0 +1,17 @@
+<div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="title">Sangular</span>
+      <app-lang-selector></app-lang-selector>
+      <app-theme-picker class="themepicker"></app-theme-picker>
+      <span class="spacer"></span>
+
+      <a mat-button routerLink="/auth/login"> {{ 'LOGIN.TITLE' | translate }}</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="loader">
+    <app-loader class="progressbar"></app-loader>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
