@@ -2,14 +2,14 @@
   "name": "santel",
   "version": "0.0.0",
   "scripts": {
-    "build:ci": "npm run build:prod && npm run scully:ci",
-    "scully:ci": "scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "buildprod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {
