@@ -1,7 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import * as AuthActions from './menu.actions';
 import { MenuItem } from '../../interfaces/ui/menu.interface';
-
 export const authFeatureKey = 'menu';
 export interface State {
   menu: MenuItem[];
@@ -10,7 +9,7 @@ export interface State {
 
 const initState: State = {
   menu: null,
-  title: 'Sangular',
+  title: '',
 };
 
 export const menuReducer = createReducer(
