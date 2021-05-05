@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { authRoot } from './state/auth/indexAuth';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { Reason } from './models/reason.model';
 import { User } from './models/user.model';
-import { RuserService } from './services/ruser.service';
-import { TranslateService } from '@ngx-translate/core';
+import { ReasonService } from './services/reason.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,33 +12,30 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'sangular';
   loading$: Observable<boolean>;
-  heroes$: Observable<User[]>;
+  heroes$: Observable<Reason[]>;
 
-  constructor(
-    private userStore: Store<{ user: any }>,
-    private ruserService: RuserService
-  ) {
-    this.heroes$ = ruserService.entities$;
-    this.loading$ = ruserService.loading$;
+  constructor(private reasonService: ReasonService) {
+    this.heroes$ = reasonService.entities$;
+    this.loading$ = reasonService.loading$;
   }
 
   ngOnInit() {
-    //this.getUsers();
+    this.getReasons();
   }
 
-  add(user: User) {
-    this.ruserService.add(user);
+  add(reason: Reason) {
+    this.reasonService.add(reason);
   }
 
-  delete(user: User) {
-    this.ruserService.delete(user.id);
+  delete(reason: Reason) {
+    this.reasonService.delete(reason.id);
   }
 
-  getUsers() {
-    this.ruserService.getAll();
+  getReasons() {
+    this.reasonService.getAll();
   }
 
-  update(user: User) {
-    this.ruserService.update(user);
+  update(reason: Reason) {
+    this.reasonService.update(reason);
   }
 }

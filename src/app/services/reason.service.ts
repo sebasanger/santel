@@ -3,13 +3,13 @@ import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory,
 } from '@ngrx/data';
-import { User } from '../models/user.model';
+import { Reason } from '../models/reason.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RuserService extends EntityCollectionServiceBase<User> {
+export class ReasonService extends EntityCollectionServiceBase<Reason> {
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
-    super('User', serviceElementsFactory);
+    super('Reason', serviceElementsFactory);
   }
 }
