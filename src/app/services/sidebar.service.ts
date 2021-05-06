@@ -44,11 +44,18 @@ export class SidebarService implements OnInit {
       ];
 
       if (this.user.roles.includes('ADMIN')) {
-        this.menu.push({
-          title: this.translate.instant('MENU.USERS'),
-          icon: 'people',
-          path: '../pages/users',
-        });
+        this.menu.push(
+          {
+            title: this.translate.instant('MENU.USERS'),
+            icon: 'people',
+            path: '../pages/users',
+          },
+          {
+            title: this.translate.instant('MENU.ADMINISTRATION'),
+            icon: 'settings',
+            path: '../pages/administration',
+          }
+        );
       }
     }
   }

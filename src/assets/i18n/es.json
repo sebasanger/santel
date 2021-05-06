@@ -9,7 +9,8 @@
   "MENU": {
     "DASHBOARD": "Inicio",
     "CHARTS": "Graficos",
-    "USERS": "Usuarios"
+    "USERS": "Usuarios",
+    "ADMINISTRATION": "Administracion"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"

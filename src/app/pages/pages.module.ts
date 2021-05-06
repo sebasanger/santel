@@ -30,6 +30,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTabsModule } from '@angular/material/tabs';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { AdministrationComponent } from './administration/administration.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -40,6 +41,7 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
     UpdateAcountComponent,
     ChartsComponent,
     UserDetailsComponent,
+    AdministrationComponent,
   ],
   exports: [
     PagesComponent,

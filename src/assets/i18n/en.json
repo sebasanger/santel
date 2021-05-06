@@ -9,7 +9,8 @@
   "MENU": {
     "DASHBOARD": "Dashboard",
     "CHARTS": "Charts",
-    "USERS": "Users"
+    "USERS": "Users",
+    "ADMINISTRATION": "Administration"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard"

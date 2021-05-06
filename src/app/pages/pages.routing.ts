@@ -10,6 +10,7 @@ import { CreateUpdateUserComponent } from './users/create-update-user/create-upd
 import { UpdateAcountComponent } from './update-acount/update-acount.component';
 import { ChartsComponent } from './charts/charts.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { AdministrationComponent } from './administration/administration.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,18 @@ const routes: Routes = [
             path: 'details/:id',
             component: UserDetailsComponent,
             data: { subtitle: 'Details user' },
+          },
+        ],
+      },
+      {
+        path: 'administration',
+        component: AdministrationComponent,
+        canActivate: [AdminGuard],
+        children: [
+          {
+            path: '',
+            component: UpdateAcountComponent,
+            pathMatch: 'full',
           },
         ],
       },
