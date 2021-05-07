@@ -1,8 +1,20 @@
-table {
+.table-container {
   width: 50%;
   margin: 0 auto;
 
   @media (max-width: 767.98px) {
-    width: 90%;
+    width: 95%;
   }
+}
+
+table {
+  width: 100%;
+}
+
+.table-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }

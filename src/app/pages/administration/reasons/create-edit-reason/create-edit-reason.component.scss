@@ -1,0 +1,19 @@
+.full-width {
+  width: 100%;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  font-size: 1.2em;
+  flex: 1;
+  margin-top: 40px;
+}
+
+button {
+  margin-top: 40px;
+}

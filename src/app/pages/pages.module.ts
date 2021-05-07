@@ -32,6 +32,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { ReasonsComponent } from './administration/reasons/reasons.component';
+import { CreateEditReasonComponent } from './administration/reasons/create-edit-reason/create-edit-reason.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -44,6 +45,7 @@ import { ReasonsComponent } from './administration/reasons/reasons.component';
     UserDetailsComponent,
     AdministrationComponent,
     ReasonsComponent,
+    CreateEditReasonComponent,
   ],
   exports: [
     PagesComponent,
