@@ -31,6 +31,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTabsModule } from '@angular/material/tabs';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { AdministrationComponent } from './administration/administration.component';
+import { ReasonsComponent } from './administration/reasons/reasons.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -42,6 +43,7 @@ import { AdministrationComponent } from './administration/administration.compone
     ChartsComponent,
     UserDetailsComponent,
     AdministrationComponent,
+    ReasonsComponent,
   ],
   exports: [
     PagesComponent,

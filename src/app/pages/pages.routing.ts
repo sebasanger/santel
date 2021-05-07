@@ -11,6 +11,7 @@ import { UpdateAcountComponent } from './update-acount/update-acount.component';
 import { ChartsComponent } from './charts/charts.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { AdministrationComponent } from './administration/administration.component';
+import { ReasonsComponent } from './administration/reasons/reasons.component';
 
 const routes: Routes = [
   {
@@ -68,7 +69,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: UpdateAcountComponent,
+            component: ReasonsComponent,
             pathMatch: 'full',
           },
         ],
