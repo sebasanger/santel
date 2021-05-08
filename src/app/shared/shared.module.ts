@@ -19,7 +19,6 @@ import { LangSelectorComponent } from './lang-selector/lang-selector.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatSelectModule } from '@angular/material/select';
 import { ComponentPageHeaderComponent } from './component-page-header/component-page-header.component';
-import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     NavigationComponent,
@@ -28,7 +27,6 @@ import { FooterComponent } from './footer/footer.component';
     LoaderComponent,
     LangSelectorComponent,
     ComponentPageHeaderComponent,
-    FooterComponent,
   ],
   exports: [
     NavigationComponent,
@@ -38,7 +36,6 @@ import { FooterComponent } from './footer/footer.component';
     TranslateModule,
     LangSelectorComponent,
     ComponentPageHeaderComponent,
-    FooterComponent,
   ],
   imports: [
     MatSelectModule,

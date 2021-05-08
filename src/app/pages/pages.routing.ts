@@ -12,6 +12,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { ReasonsComponent } from './administration/reasons/reasons.component';
+import { CategoriesComponent } from './administration/categories/categories.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,11 @@ const routes: Routes = [
           {
             path: 'reasons',
             component: ReasonsComponent,
+            pathMatch: 'full',
+          },
+          {
+            path: 'categories',
+            component: CategoriesComponent,
             pathMatch: 'full',
           },
         ],

@@ -16,7 +16,8 @@
     "CHARTS": "Graficos",
     "USERS": "Usuarios",
     "ADMINISTRATION": "Administracion",
-    "REASON": "Razones"
+    "REASON": "Razones",
+    "CATEGORY": "Categorias"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -30,7 +31,7 @@
     "SUCCESS": "Bienvenido"
   },
   "FORGOT-PASSWORD": {
-    "TITLE": "Cambiar contraseña",
+    "TITLE": "Restaurar contraseña",
     "ACEPT": "Enviar email",
     "EMAIL-SEND": "Email enviado",
     "EMAIL-SEND-INSTRUCTIONS": "Revise su correo electronico"
@@ -43,7 +44,7 @@
     "REPEAT-INCORRECT": "Las constraseñas no coinciden",
     "SUCCESS": "Contraseña cambiada",
     "TOKEN-INVALID": "Token no valido",
-    "TOKEN-INVALID-INSTRUCTIONS": "sigue el mail en tu correo pide de nuevo un cambio de contraseña"
+    "TOKEN-INVALID-INSTRUCTIONS": "Sigue el mail en tu correo pide de nuevo un cambio de contraseña"
   },
   "USERS": {
     "VIEW": {
@@ -57,6 +58,10 @@
   },
   "REASONS": {
     "REASON": "Razones",
-    "REASONS": "razon"
+    "REASONS": "Razon"
+  },
+  "CATEGORIES": {
+    "CATEGORY": "Categoria",
+    "CATEGORIES": "Categorias"
   }
 }

@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Reason } from 'src/app/models/reason.model';
-import { ReasonService } from 'src/app/services/reason.service';
+import { ReasonService } from 'src/app/services/EntityServices/reason.service';
 import Swal from 'sweetalert2';
 
 export interface DialogData {

@@ -10,6 +10,7 @@ import { authRoot } from '../../state/auth/indexAuth';
 })
 export class LoginComponent {
   public remember: boolean = false;
+  public showForgot: boolean = false;
   public loginForm = this.fb.group({
     email: [
       localStorage.getItem('remember'),
@@ -43,5 +44,6 @@ export class LoginComponent {
     };
 
     this.authStore.dispatch(authRoot.login({ payload: loginRequestPayload }));
+    this.showForgot = true;
   }
 }

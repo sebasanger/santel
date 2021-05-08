@@ -16,7 +16,8 @@
     "CHARTS": "Charts",
     "USERS": "Users",
     "ADMINISTRATION": "Administration",
-    "REASON": "Reasons"
+    "REASON": "Reasons",
+    "CATEGORY": "Categories"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard"
@@ -55,8 +56,8 @@
     "ROLES": "Roles",
     "EMAIL": "Email"
   },
-  "REASONS": {
-    "REASON": "Reasons",
-    "REASONS": "Reason"
+  "CATEGORIES": {
+    "CATEGORY": "Category",
+    "CATEGORIES": "Categories"
   }
 }

@@ -30,7 +30,7 @@
             </mat-form-field>
           </div>
         </div>
-        <div color="primary">
+        <div color="primary" *ngIf="showForgot">
           <a routerLink="/auth/forget-password"
             class="forget-password-text">{{ 'LOGIN.FORGOT_PASSWORD' | translate }}</a>
         </div>

@@ -33,6 +33,8 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { AdministrationComponent } from './administration/administration.component';
 import { ReasonsComponent } from './administration/reasons/reasons.component';
 import { CreateEditReasonComponent } from './administration/reasons/create-edit-reason/create-edit-reason.component';
+import { CategoriesComponent } from './administration/categories/categories.component';
+import { CreateEditCategoriesComponent } from './administration/categories/create-edit-categories/create-edit-categories.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -46,6 +48,8 @@ import { CreateEditReasonComponent } from './administration/reasons/create-edit-
     AdministrationComponent,
     ReasonsComponent,
     CreateEditReasonComponent,
+    CategoriesComponent,
+    CreateEditCategoriesComponent,
   ],
   exports: [
     PagesComponent,

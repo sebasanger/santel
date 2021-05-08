@@ -75,6 +75,11 @@ export class NavigationComponent implements OnInit {
             icon: 'api',
             path: '../pages/administration/reasons',
           },
+          {
+            title: this.translate.instant('MENU.CATEGORY'),
+            icon: 'receipt',
+            path: '../pages/administration/categories',
+          },
         ];
       }
     }

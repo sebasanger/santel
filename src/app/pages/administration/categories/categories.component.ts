@@ -4,33 +4,36 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, Subscription } from 'rxjs';
-import { Reason } from 'src/app/models/reason.model';
-import { ReasonService } from 'src/app/services/EntityServices/reason.service';
+import { Category } from 'src/app/models/category.model';
+import { CategoryService } from 'src/app/services/EntityServices/category.service';
 import Swal from 'sweetalert2';
-import { CreateEditReasonComponent } from './create-edit-reason/create-edit-reason.component';
+import { CreateEditCategoriesComponent } from './create-edit-categories/create-edit-categories.component';
 
 @Component({
-  selector: 'app-reasons',
-  templateUrl: './reasons.component.html',
-  styleUrls: ['./reasons.component.scss'],
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.scss'],
 })
-export class ReasonsComponent {
+export class CategoriesComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['id', 'reason', 'edit', 'delete'];
-  public dataSource: MatTableDataSource<Reason>;
+  displayedColumns: string[] = ['id', 'category', 'edit', 'delete'];
+  public dataSource: MatTableDataSource<Category>;
   private subscription: Subscription = new Subscription();
   loading$: Observable<boolean>;
-  reasons$: Observable<Reason[]>;
+  categories$: Observable<Category[]>;
 
-  constructor(private reasonService: ReasonService, public dialog: MatDialog) {
-    this.reasons$ = reasonService.entities$;
-    this.loading$ = reasonService.loading$;
+  constructor(
+    private categoryService: CategoryService,
+    public dialog: MatDialog
+  ) {
+    this.categories$ = categoryService.entities$;
+    this.loading$ = categoryService.loading$;
 
-    this.getReasons();
+    this.getCategories();
 
-    let registers$ = this.reasons$.subscribe((res: Reason[]) => {
+    let registers$ = this.categories$.subscribe((res: Category[]) => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -48,20 +51,15 @@ export class ReasonsComponent {
     }
   }
 
-  openDialog(title: string, id?: number, reason?: string): void {
-    const dialogRef = this.dialog.open(CreateEditReasonComponent, {
+  openDialog(title: string, id?: number, category?: string): void {
+    const dialogRef = this.dialog.open(CreateEditCategoriesComponent, {
       width: '400px',
       height: '300px',
-      data: { id: id, reason: reason, title: title },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
+      data: { id: id, category: category, title: title },
     });
   }
 
-  delete(reason: Reason) {
+  delete(category: Category) {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -72,16 +70,16 @@ export class ReasonsComponent {
       confirmButtonText: 'Yes, delete it!',
     }).then((result: any) => {
       if (result.isConfirmed) {
-        this.reasonService.delete(reason.id);
-        Swal.fire('Deleted', 'The reason is deleted', 'success');
+        this.categoryService.delete(category.id);
+        Swal.fire('Deleted', 'The category is deleted', 'success');
       } else {
-        Swal.fire('Cancelled', 'The reason is safe', 'success');
+        Swal.fire('Cancelled', 'The category is safe', 'success');
       }
     });
   }
 
-  getReasons() {
-    this.reasonService.getAll();
+  getCategories() {
+    this.categoryService.getAll();
   }
 
   public ngOnDestroy(): void {
