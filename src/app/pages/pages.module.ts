@@ -37,6 +37,8 @@ import { CategoriesComponent } from './administration/categories/categories.comp
 import { CreateEditCategoriesComponent } from './administration/categories/create-edit-categories/create-edit-categories.component';
 import { BrandsComponent } from './administration/brands/brands.component';
 import { CreateUpdateBrandsComponent } from './administration/brands/create-update-brands/create-update-brands.component';
+import { InvoicesComponent } from './administration/invoices/invoices.component';
+import { CreateEditInvoiceComponent } from './administration/invoices/create-edit-invoice/create-edit-invoice.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -54,6 +56,8 @@ import { CreateUpdateBrandsComponent } from './administration/brands/create-upda
     CreateEditCategoriesComponent,
     BrandsComponent,
     CreateUpdateBrandsComponent,
+    InvoicesComponent,
+    CreateEditInvoiceComponent,
   ],
   exports: [
     PagesComponent,

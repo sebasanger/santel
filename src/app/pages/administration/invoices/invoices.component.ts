@@ -4,33 +4,38 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, Subscription } from 'rxjs';
-import { Brand } from 'src/app/models/brand.model';
-import { BrandService } from 'src/app/services/EntityServices/brand.service';
+import { Invoice } from 'src/app/models/inovice.model';
+import { InvoiceService } from 'src/app/services/EntityServices/invoice.service';
 import Swal from 'sweetalert2';
-import { CreateUpdateBrandsComponent } from './create-update-brands/create-update-brands.component';
+import { CreateEditInvoiceComponent } from './create-edit-invoice/create-edit-invoice.component';
 
 @Component({
-  selector: 'app-brands',
-  templateUrl: './brands.component.html',
-  styleUrls: ['./brands.component.scss'],
+  selector: 'app-invoices',
+  templateUrl: './invoices.component.html',
+  styleUrls: ['./invoices.component.scss'],
 })
-export class BrandsComponent {
+export class InvoicesComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['id', 'brand', 'edit', 'delete'];
-  public dataSource: MatTableDataSource<Brand>;
+  displayedColumns: string[] = ['id', 'type', 'edit', 'delete'];
+  public dataSource: MatTableDataSource<Invoice>;
   private subscription: Subscription = new Subscription();
   loading$: Observable<boolean>;
-  brands$: Observable<Brand[]>;
+  invoices$: Observable<Invoice[]>;
 
-  constructor(private brandService: BrandService, public dialog: MatDialog) {
-    this.brands$ = brandService.entities$;
-    this.loading$ = brandService.loading$;
+  constructor(
+    private invoiceService: InvoiceService,
+    public dialog: MatDialog
+  ) {
+    this.invoices$ = invoiceService.entities$;
+    this.loading$ = invoiceService.loading$;
 
-    this.getBrands();
+    this.getInvoices();
 
-    let registers$ = this.brands$.subscribe((res: Brand[]) => {
+    let registers$ = this.invoices$.subscribe((res: Invoice[]) => {
+      console.log(res);
+
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -48,20 +53,15 @@ export class BrandsComponent {
     }
   }
 
-  openDialog(title: string, id?: number, brand?: string): void {
-    const dialogRef = this.dialog.open(CreateUpdateBrandsComponent, {
+  openDialog(title: string, id?: number, type?: string): void {
+    const dialogRef = this.dialog.open(CreateEditInvoiceComponent, {
       width: '400px',
       height: '300px',
-      data: { id: id, brand: brand, title: title },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
+      data: { id: id, type: type, title: title },
     });
   }
 
-  delete(brand: Brand) {
+  delete(invoice: Invoice) {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -72,16 +72,16 @@ export class BrandsComponent {
       confirmButtonText: 'Yes, delete it!',
     }).then((result: any) => {
       if (result.isConfirmed) {
-        this.brandService.delete(brand.id);
-        Swal.fire('Deleted', 'The brand is deleted', 'success');
+        this.invoiceService.delete(invoice.id);
+        Swal.fire('Deleted', 'The invoice type is deleted', 'success');
       } else {
-        Swal.fire('Cancelled', 'The brand is safe', 'success');
+        Swal.fire('Cancelled', 'The invoice type is safe', 'success');
       }
     });
   }
 
-  getBrands() {
-    this.brandService.getAll();
+  getInvoices() {
+    this.invoiceService.getAll();
   }
 
   public ngOnDestroy(): void {

@@ -14,6 +14,7 @@ import { AdministrationComponent } from './administration/administration.compone
 import { ReasonsComponent } from './administration/reasons/reasons.component';
 import { CategoriesComponent } from './administration/categories/categories.component';
 import { BrandsComponent } from './administration/brands/brands.component';
+import { InvoicesComponent } from './administration/invoices/invoices.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,11 @@ const routes: Routes = [
           {
             path: 'brands',
             component: BrandsComponent,
+            pathMatch: 'full',
+          },
+          {
+            path: 'invoices',
+            component: InvoicesComponent,
             pathMatch: 'full',
           },
         ],

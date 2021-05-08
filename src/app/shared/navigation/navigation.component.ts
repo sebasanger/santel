@@ -85,6 +85,11 @@ export class NavigationComponent implements OnInit {
             icon: 'bookmarks',
             path: '../pages/administration/brands',
           },
+          {
+            title: this.translate.instant('MENU.INVOICE'),
+            icon: 'article',
+            path: '../pages/administration/invoices',
+          },
         ];
       }
     }

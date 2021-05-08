@@ -18,7 +18,8 @@
     "ADMINISTRATION": "Administration",
     "REASON": "Reasons",
     "CATEGORY": "Categories",
-    "BRAND": "Brands"
+    "BRAND": "Brands",
+    "INVOICE": "Invoices types"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard"
@@ -68,5 +69,9 @@
   "BRANDS": {
     "BRANDS": "Brands",
     "BRAND": "Brand"
+  },
+  "INVOICES": {
+    "INVOICES": "Invoices types",
+    "INVOICE": "Invoice type"
   }
 }

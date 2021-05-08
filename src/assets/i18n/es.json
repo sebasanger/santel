@@ -18,7 +18,8 @@
     "ADMINISTRATION": "Administracion",
     "REASON": "Razones",
     "CATEGORY": "Categorias",
-    "BRAND": "Marcas"
+    "BRAND": "Marcas",
+    "INVOICE": "Tipos de factura"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -68,5 +69,9 @@
   "BRANDS": {
     "BRANDS": "Marcas",
     "BRAND": "Marca"
+  },
+  "INVOICES": {
+    "INVOICES": "Tipos de facturas",
+    "INVOICE": "Tipo de factura"
   }
 }
