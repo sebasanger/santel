@@ -6,10 +6,26 @@
     <mat-toolbar class="mat-elevation-z6" color="primary">Menu</mat-toolbar>
 
     <mat-nav-list>
+
       <a (click)="setTitle(item.title)" *ngFor="let item of menuItems" mat-list-item [routerLink]="[item.path]"
         routerLinkActive="item-selected">
         <mat-icon class="menu-icon" color="danger">{{ item.icon }}</mat-icon>{{ item.title }}
       </a>
+
+      <a [matMenuTriggerFor]="administration" mat-list-item *ngIf="user.roles.includes('ADMIN')">
+        <mat-icon class="menu-icon" color="danger">settings</mat-icon>Management
+      </a>
+
+      <mat-menu [ngStyle]="{'width':'200px'}" #administration="matMenu">
+        <a (click)="setTitle('Reasons')" mat-menu-item [routerLink]="'../pages/administration/reasons'"
+          routerLinkActive="item-selected">
+          <mat-icon>api</mat-icon>
+          <span class="menu-admin-text">Reasons</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
+      </mat-menu>
+
+
     </mat-nav-list>
   </mat-sidenav>
   <!-- Navigation menu in sidebar-->
@@ -20,9 +36,12 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+
       <span class="title" routerLink="dashboard">{{ title }}</span>
-      <app-lang-selector></app-lang-selector>
-      <app-theme-picker class="themepicker"></app-theme-picker>
+      <div class="selectors">
+        <app-theme-picker></app-theme-picker>
+        <app-lang-selector></app-lang-selector>
+      </div>
       <span class="spacer"></span>
       <span class="user-fullname" *ngIf="user != null && user.fullName != null">{{ user.fullName }}</span>
       <button mat-icon-button class="user-menu" aria-label="User avatar" [matMenuTriggerFor]="menu">

@@ -11,6 +11,7 @@ import { getMenuItems } from '../../state/menu/menu.selectors';
 import { loadMenu, setPageTitle } from 'src/app/state/menu/menu.actions';
 import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { MenuItem } from 'src/app/interfaces/ui/menu.interface';
 
 const page_title: string = environment.page_title;
 @Component({
@@ -19,7 +20,8 @@ const page_title: string = environment.page_title;
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent implements OnInit {
-  public menuItems: any[];
+  public menuItems: MenuItem[];
+  public adminMenuItems: MenuItem[];
   public user: User;
   public avatar: string;
   public title = page_title;
@@ -43,6 +45,7 @@ export class NavigationComponent implements OnInit {
     });
     this.menuStore.select(getMenuItems).subscribe((res) => {
       this.menuItems = res;
+      this.adminMenuItems = res;
     });
   }
 

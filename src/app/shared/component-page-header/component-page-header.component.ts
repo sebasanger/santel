@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -9,11 +9,18 @@ import { Store } from '@ngrx/store';
 })
 export class ComponentPageHeaderComponent implements OnInit {
   public title: string;
-  constructor(private menuStore: Store<{ menu: any }>) {}
+  constructor(
+    private menuStore: Store<{ menu: any }>,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    const lastUrlSegment = this.router.url.split('?')[0].split('/').pop();
+
     this.menuStore.select('menu').subscribe((res) => {
       this.title = res.title;
     });
+
+    this.title = lastUrlSegment;
   }
 }

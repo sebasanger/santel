@@ -33,6 +33,7 @@ export class AdminGuard implements CanActivate {
         if (res) {
           console.log('User is ADMIN');
         } else {
+          this.router.navigateByUrl('pages/dashboard');
           Swal.fire(
             'Forebidden',
             'you dont have permision to access this resource',

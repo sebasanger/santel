@@ -68,7 +68,7 @@ const routes: Routes = [
         canActivate: [AdminGuard],
         children: [
           {
-            path: '',
+            path: 'reasons',
             component: ReasonsComponent,
             pathMatch: 'full',
           },

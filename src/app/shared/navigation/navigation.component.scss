@@ -26,10 +26,8 @@
   padding-bottom: 6px;
 }
 
-.themepicker {
-  cursor: pointer;
-  margin-right: 10px;
-  padding-top: 5px;
+.config-list {
+  margin-bottom: 5px;
 }
 
 .progressbar {
@@ -75,4 +73,17 @@
   height: 100%;
   min-height: 100%;
   margin-bottom: 10%;
+}
+
+.menu-admin-text {
+  font-size: 1.2em;
+  width: 200px;
+}
+
+.selectors {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  align-items: center;
+  justify-content: space-around;
 }

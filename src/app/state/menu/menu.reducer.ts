@@ -4,11 +4,13 @@ import { MenuItem } from '../../interfaces/ui/menu.interface';
 export const authFeatureKey = 'menu';
 export interface State {
   menu: MenuItem[];
+  adminMenu: MenuItem[];
   title: string;
 }
 
 const initState: State = {
   menu: null,
+  adminMenu: null,
   title: '',
 };
 

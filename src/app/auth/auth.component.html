@@ -1,9 +1,17 @@
 <div>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span class="title">Sangular</span>
-      <app-lang-selector></app-lang-selector>
-      <app-theme-picker class="themepicker"></app-theme-picker>
+      <span class="title">{{title}}</span>
+
+      <mat-list fxLayout="row">
+        <mat-list-item>
+          <app-theme-picker></app-theme-picker>
+        </mat-list-item>
+        <mat-list-item>
+          <app-lang-selector></app-lang-selector>
+        </mat-list-item>
+      </mat-list>
+
       <span class="spacer"></span>
 
       <a mat-button routerLink="/auth/login"> {{ 'LOGIN.TITLE' | translate }}</a>

@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { ActivateAcountComponent } from './activate-acount/activate-acount.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     LoginComponent,
@@ -42,6 +44,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     SharedModule,
     MatCheckboxModule,
     SharedModule,
+    MatDividerModule,
+    MatListModule,
   ],
 })
 export class AuthModule {}
