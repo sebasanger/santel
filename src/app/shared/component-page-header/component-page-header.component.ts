@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -8,21 +8,17 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./component-page-header.component.scss'],
 })
 export class ComponentPageHeaderComponent implements OnInit {
-  public title: string;
-  constructor(
-    private menuStore: Store<{ menu: any }>,
-    private router: Router
-  ) {}
+  @Input() title: string;
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    let lastUrlSegment = this.router.url.split('?')[0].split('/').pop();
+    if (this.title == null) {
+      let lastUrlSegment = this.router.url.split('?')[0].split('/').pop();
 
-    this.menuStore.select('menu').subscribe((res) => {
-      this.title = res.title;
-    });
-
-    lastUrlSegment =
-      lastUrlSegment.charAt(0).toUpperCase() + lastUrlSegment.slice(1);
-    this.title = lastUrlSegment;
+      lastUrlSegment =
+        lastUrlSegment.charAt(0).toUpperCase() + lastUrlSegment.slice(1);
+      this.title = lastUrlSegment;
+    }
   }
 }

@@ -7,20 +7,20 @@
 
     <mat-nav-list>
 
-      <a (click)="setTitle(item.title)" *ngFor="let item of menuItems" mat-list-item [routerLink]="[item.path]"
-        routerLinkActive="item-selected">
-        <mat-icon class="menu-icon" color="danger">{{ item.icon }}</mat-icon>{{ item.title }}
+      <a (click)="setTitle(menuItem.title)" *ngFor="let menuItem of menuItems" mat-list-item
+        [routerLink]="[menuItem.path]" routerLinkActive="item-selected">
+        <mat-icon class="menu-icon" color="danger">{{ menuItem.icon }}</mat-icon>{{ menuItem.title}}
       </a>
 
       <a [matMenuTriggerFor]="administration" mat-list-item *ngIf="user.roles.includes('ADMIN')">
-        <mat-icon class="menu-icon" color="danger">settings</mat-icon>Management
+        <mat-icon class="menu-icon" color="danger">settings</mat-icon>{{ 'MENU.ADMINISTRATION' | translate }}
       </a>
 
-      <mat-menu [ngStyle]="{'width':'200px'}" #administration="matMenu">
-        <a (click)="setTitle('Reasons')" mat-menu-item [routerLink]="'../pages/administration/reasons'"
-          routerLinkActive="item-selected">
-          <mat-icon>api</mat-icon>
-          <span class="menu-admin-text">Reasons</span>
+      <mat-menu #administration="matMenu">
+        <a (click)="setTitle(adminMenuItem.title)" *ngFor="let adminMenuItem of adminMenuItems" mat-menu-item
+          [routerLink]="[adminMenuItem.path]" routerLinkActive="item-selected">
+          <mat-icon>{{ adminMenuItem.icon}}</mat-icon>
+          <span class="menu-admin-text">{{ adminMenuItem.title}}</span>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </a>
       </mat-menu>
@@ -42,9 +42,7 @@
         <app-theme-picker></app-theme-picker>
         <app-lang-selector></app-lang-selector>
       </div>
-      <audio controls>
-        <source src="https://www.bensound.com/bensound-music/bensound-moose.mp3" type="audio/mpeg">
-      </audio>
+
       <span class="spacer"></span>
       <span class="user-fullname" *ngIf="user != null && user.fullName != null">{{ user.fullName }}</span>
       <button mat-icon-button class="user-menu" aria-label="User avatar" [matMenuTriggerFor]="menu">
@@ -68,7 +66,7 @@
       <app-loader class="progressbar"></app-loader>
     </div>
     <!-- Progresbar -->
-    <app-component-page-header></app-component-page-header>
+    <app-component-page-header [title]="actualTitle"></app-component-page-header>
 
     <!-- Main content -->
     <section id="principal">

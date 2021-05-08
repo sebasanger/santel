@@ -2,16 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-
-import * as userAuthSelector from '../../state/auth/auth.selectors';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/models/user.model';
 import { apiUserAuthLogout } from 'src/app/state/auth/auth.actions';
-import { getMenuItems } from '../../state/menu/menu.selectors';
-import { loadMenu, setPageTitle } from 'src/app/state/menu/menu.actions';
 import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { MenuItem } from 'src/app/interfaces/ui/menu.interface';
+import { TranslateService } from '@ngx-translate/core';
 
 const page_title: string = environment.page_title;
 @Component({
@@ -25,33 +22,67 @@ export class NavigationComponent implements OnInit {
   public user: User;
   public avatar: string;
   public title = page_title;
-
+  public actualTitle: string;
   constructor(
     private breakpointObserver: BreakpointObserver,
     private authStore: Store<{ auth: any }>,
-    private menuStore: Store<{ menu: any }>,
-    private titleService: Title
+    private titleService: Title,
+    private translate: TranslateService
   ) {}
   ngOnInit(): void {
     this.authStore.select('auth').subscribe((data: any) => {
       if (data.user != null) {
         this.user = data.user;
         this.avatar = this.user.avatar;
+        this.setTraductionsAndChargeMenu();
       }
     });
-    this.menuStore.dispatch(loadMenu());
-    this.authStore.select(userAuthSelector.getUserAuth).subscribe((res) => {
-      this.user = res;
+  }
+
+  setTraductionsAndChargeMenu() {
+    this.translate.stream('MENU').subscribe((res) => {
+      if (res != undefined) {
+        this.chargeMenu();
+      }
     });
-    this.menuStore.select(getMenuItems).subscribe((res) => {
-      this.menuItems = res;
-      this.adminMenuItems = res;
-    });
+  }
+
+  chargeMenu() {
+    if (this.user != null) {
+      this.menuItems = [
+        {
+          title: this.translate.instant('MENU.DASHBOARD'),
+          icon: 'home',
+          path: '../pages/dashboard',
+        },
+        {
+          title: this.translate.instant('MENU.CHARTS'),
+          icon: 'analytics',
+          path: '../pages/charts',
+        },
+      ];
+
+      if (this.user.roles.includes('ADMIN')) {
+        this.menuItems.push({
+          title: this.translate.instant('MENU.USERS'),
+          icon: 'people',
+          path: '../pages/users',
+        });
+
+        this.adminMenuItems = [
+          {
+            title: this.translate.instant('MENU.REASON'),
+            icon: 'api',
+            path: '../pages/administration/reasons',
+          },
+        ];
+      }
+    }
   }
 
   public setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle + ' | ' + page_title);
-    this.menuStore.dispatch(setPageTitle({ title: newTitle }));
+    this.actualTitle = newTitle;
   }
 
   logout() {

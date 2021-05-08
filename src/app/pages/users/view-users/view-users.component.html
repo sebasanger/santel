@@ -1,12 +1,15 @@
-<div class="example-header" fxLayout="row">
-
-  <mat-form-field color="primary" class="filter">
-    <input matInput placeholder="{{ 'USERS.VIEW.FILTER' | translate }}"
-      (keyup)="filterSubject.next($any($event.target).value)" />
-  </mat-form-field>
-  <button mat-raised-button color="accent" (click)="addNewUser()" class="add-button">
-    {{ 'USERS.VIEW.ADD' | translate }}
-  </button>
+<div class="head">
+  <div>
+    <button mat-raised-button color="accent" (click)="addNewUser()" class="add-button">
+      {{ 'USERS.VIEW.ADD' | translate }}
+    </button>
+  </div>
+  <div>
+    <mat-form-field class="filter">
+      <input matInput placeholder="{{ 'USERS.VIEW.FILTER' | translate }}"
+        (keyup)="filterSubject.next($any($event.target).value)" />
+    </mat-form-field>
+  </div>
 </div>
 
 <div class="example-container mat-elevation-z8 animate__animated animate__fadeIn animate__delay-0.4s">

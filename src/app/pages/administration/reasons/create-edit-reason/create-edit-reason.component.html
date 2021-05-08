@@ -8,7 +8,7 @@
         <mat-form-field class="full-width">
           <input color="primary" matInput placeholder="Reason" formControlName="reason">
           <mat-error *ngIf="reasonForm.controls['reason'].hasError('required')">
-            Reason is <strong>required</strong>
+            {{ 'REASONS.REASON' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
         </mat-form-field>
       </div>

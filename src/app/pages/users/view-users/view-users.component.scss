@@ -1,10 +1,22 @@
-body {
-  font-family: 'Covered By Your Grace', cursive;
-  line-height: 1.25;
-
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.filter {
+  width: 250px;
+}
+
+
+
 @media screen and (max-width: 960px) {
+  .head {
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
   .mat-table {
     border: 0;
     vertical-align: middle;
@@ -26,6 +38,7 @@ body {
     width: 1px;
   }
   */
+
 
 
   .mat-table .mat-header-cell {
@@ -75,16 +88,6 @@ body {
     display: none;
   }
 }
-
-.add-button {
-  position: absolute;
-  right: 20px;
-}
-
-.filter {
-  width: 200px;
-}
-
 
 @media screen and (min-width: 960px) {
   .mat-column-id {

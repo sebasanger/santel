@@ -2,6 +2,11 @@
   "EDIT": "Editar",
   "DELETE": "Eliminar",
   "SAVE": "Guardar",
+  "ADDF": "Agregar nueva",
+  "ADDM": "Agregar nuevo",
+  "ITEMSPERPAGE": "Items por pagina:  ",
+  "NODATAFILTER": "No hay datos que coincidan con el filtro",
+  "FILTER": "Filtro",
   "REQUIRED": "es requerido",
   "EMAIL-NOT-VALID": "El email no es valido",
   "SUCCESS": "Exito",
@@ -10,7 +15,8 @@
     "DASHBOARD": "Inicio",
     "CHARTS": "Graficos",
     "USERS": "Usuarios",
-    "ADMINISTRATION": "Administracion"
+    "ADMINISTRATION": "Administracion",
+    "REASON": "Razones"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -48,5 +54,9 @@
     "FULLNAME": "Nombre completo",
     "ROLES": "Roles",
     "EMAIL": "Email"
+  },
+  "REASONS": {
+    "REASON": "Razones",
+    "REASONS": "razon"
   }
 }

@@ -2,6 +2,11 @@
   "EDIT": "Edit",
   "DELETE": "Delete",
   "SAVE": "Save",
+  "ADDF": "Add new",
+  "ADDM": "Add new",
+  "FILTER": "Filter",
+  "ITEMSPERPAGE": "Items per page:  ",
+  "NODATAFILTER": "No data matching the filter",
   "REQUIRED": "is required",
   "EMAIL-NOT-VALID": "Email not valid",
   "SUCCESS": "Success",
@@ -10,7 +15,8 @@
     "DASHBOARD": "Dashboard",
     "CHARTS": "Charts",
     "USERS": "Users",
-    "ADMINISTRATION": "Administration"
+    "ADMINISTRATION": "Administration",
+    "REASON": "Reasons"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard"
@@ -48,5 +54,9 @@
     "FULLNAME": "Full name",
     "ROLES": "Roles",
     "EMAIL": "Email"
+  },
+  "REASONS": {
+    "REASON": "Reasons",
+    "REASONS": "Reason"
   }
 }
