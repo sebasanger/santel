@@ -15,12 +15,14 @@ export class ComponentPageHeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const lastUrlSegment = this.router.url.split('?')[0].split('/').pop();
+    let lastUrlSegment = this.router.url.split('?')[0].split('/').pop();
 
     this.menuStore.select('menu').subscribe((res) => {
       this.title = res.title;
     });
 
+    lastUrlSegment =
+      lastUrlSegment.charAt(0).toUpperCase() + lastUrlSegment.slice(1);
     this.title = lastUrlSegment;
   }
 }

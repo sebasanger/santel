@@ -1,3 +1,3 @@
 FROM nginx:latest
 
-COPY /dist/sangular /usr/share/nginx/html
+COPY /dist/santel /usr/share/nginx/html

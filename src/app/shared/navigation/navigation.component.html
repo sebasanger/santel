@@ -42,6 +42,9 @@
         <app-theme-picker></app-theme-picker>
         <app-lang-selector></app-lang-selector>
       </div>
+      <audio controls>
+        <source src="https://www.bensound.com/bensound-music/bensound-moose.mp3" type="audio/mpeg">
+      </audio>
       <span class="spacer"></span>
       <span class="user-fullname" *ngIf="user != null && user.fullName != null">{{ user.fullName }}</span>
       <button mat-icon-button class="user-menu" aria-label="User avatar" [matMenuTriggerFor]="menu">

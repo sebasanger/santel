@@ -1,16 +1,15 @@
 {
-  "name": "sangular",
-  "short_name": "sangular",
+  "name": "santel",
+  "short_name": "santel",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
-  "icons": [
-    {
-      "src": "assets/icons/icon-72x72.png",
+  "icons": [{
+      "src": "assets/images/ss-icon.jpg",
       "sizes": "72x72",
-      "type": "image/png",
+      "type": "image/jpg",
       "purpose": "maskable any"
     },
     {
