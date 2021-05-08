@@ -1,4 +1,4 @@
-<form [formGroup]="categoryForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="brandForm" novalidate (ngSubmit)="onSubmit()">
   <div class="myform">
     <div class="header">
       <mat-card-header>
@@ -10,10 +10,9 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input color="primary" matInput placeholder="{{ 'CATEGORIES.CATEGORY' | translate }}"
-                formControlName="category">
-              <mat-error *ngIf="categoryForm.controls['category'].hasError('required')">
-                {{ 'CATEGORIES.CATEGORY' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              <input color="primary" matInput placeholder="{{ 'BRANDS.BRAND' | translate }}" formControlName="brand">
+              <mat-error *ngIf="brandForm.controls['brand'].hasError('required')">
+                {{ 'BRANDS.BRAND' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
               </mat-error>
             </mat-form-field>
           </div>

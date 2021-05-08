@@ -17,7 +17,8 @@
     "USERS": "Users",
     "ADMINISTRATION": "Administration",
     "REASON": "Reasons",
-    "CATEGORY": "Categories"
+    "CATEGORY": "Categories",
+    "BRAND": "Brands"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard"
@@ -56,8 +57,16 @@
     "ROLES": "Roles",
     "EMAIL": "Email"
   },
+  "REASONS": {
+    "REASONS": "Reasons",
+    "REASON": "Reason"
+  },
   "CATEGORIES": {
     "CATEGORY": "Category",
     "CATEGORIES": "Categories"
+  },
+  "BRANDS": {
+    "BRANDS": "Brands",
+    "BRAND": "Brand"
   }
 }

@@ -35,6 +35,8 @@ import { ReasonsComponent } from './administration/reasons/reasons.component';
 import { CreateEditReasonComponent } from './administration/reasons/create-edit-reason/create-edit-reason.component';
 import { CategoriesComponent } from './administration/categories/categories.component';
 import { CreateEditCategoriesComponent } from './administration/categories/create-edit-categories/create-edit-categories.component';
+import { BrandsComponent } from './administration/brands/brands.component';
+import { CreateUpdateBrandsComponent } from './administration/brands/create-update-brands/create-update-brands.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -50,6 +52,8 @@ import { CreateEditCategoriesComponent } from './administration/categories/creat
     CreateEditReasonComponent,
     CategoriesComponent,
     CreateEditCategoriesComponent,
+    BrandsComponent,
+    CreateUpdateBrandsComponent,
   ],
   exports: [
     PagesComponent,

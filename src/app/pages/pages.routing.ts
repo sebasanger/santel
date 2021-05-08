@@ -13,6 +13,7 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { AdministrationComponent } from './administration/administration.component';
 import { ReasonsComponent } from './administration/reasons/reasons.component';
 import { CategoriesComponent } from './administration/categories/categories.component';
+import { BrandsComponent } from './administration/brands/brands.component';
 
 const routes: Routes = [
   {
@@ -76,6 +77,11 @@ const routes: Routes = [
           {
             path: 'categories',
             component: CategoriesComponent,
+            pathMatch: 'full',
+          },
+          {
+            path: 'brands',
+            component: BrandsComponent,
             pathMatch: 'full',
           },
         ],

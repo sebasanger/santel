@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input color="primary" matInput placeholder="Reason" formControlName="reason">
+              <input color="primary" matInput placeholder="{{ 'REASONS.REASON' | translate }}" formControlName="reason">
               <mat-error *ngIf="reasonForm.controls['reason'].hasError('required')">
                 {{ 'REASONS.REASON' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
               </mat-error>
