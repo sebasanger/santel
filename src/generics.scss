@@ -1,0 +1,56 @@
+.table-container-extras {
+  width: 50%;
+  margin: 0 auto;
+
+  @media (max-width: 767.98px) {
+    width: 95%;
+  }
+}
+
+.table-extras {
+  width: 100%;
+}
+
+.table-header-extras {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-header-extras {
+  margin-bottom: 1px;
+}
+
+
+.full-width-extras {
+  width: 100%;
+}
+
+.row-extras {
+  display: flex;
+  flex-direction: row;
+}
+
+.col-extras {
+  font-size: 1.2em;
+  flex: 1;
+  margin-top: 40px;
+}
+
+.actions-extras {
+  margin-top: 50px;
+}
+
+
+.form-extras {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 1.7em;
+}

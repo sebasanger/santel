@@ -1,5 +1,5 @@
-<div class="table-container">
-  <div class="table-header">
+<div class="table-container-extras">
+  <div class="table-header-extras">
     <mat-form-field>
       <mat-label>{{ 'FILTER' | translate }}</mat-label>
       <input matInput (keyup)="applyFilter($event)" #input>
@@ -7,7 +7,7 @@
     <button mat-raised-button class="add" (click)="openDialog('Add new reason')">{{ 'ADDF' | translate }}</button>
   </div>
   <div class="mat-elevation-z8">
-    <table mat-table matSortActive="id" matSortDirection="asc" [dataSource]="dataSource" matSort>
+    <table class="table-extras" mat-table matSortActive="id" matSortDirection="asc" [dataSource]="dataSource" matSort>
 
       <!-- ID Column -->
       <ng-container matColumnDef="id">

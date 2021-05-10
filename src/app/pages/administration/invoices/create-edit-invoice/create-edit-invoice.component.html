@@ -1,14 +1,14 @@
 <form [formGroup]="inoviceForm" novalidate (ngSubmit)="onSubmit()">
-  <div class="myform">
-    <div class="header">
+  <div class="form-extras">
+    <div class="header-extras">
       <mat-card-header>
         <mat-card-title class="title">{{ data.title }}</mat-card-title>
       </mat-card-header>
     </div>
-    <div class="content">
+    <div class="content-extras">
       <mat-card-content>
-        <div class="row">
-          <div class="col">
+        <div class="row-extras">
+          <div class="col-extras">
             <mat-form-field class="full-width">
               <input color="primary" matInput placeholder="{{ 'INVOICES.INVOICE' | translate }}" formControlName="type">
               <mat-error *ngIf="inoviceForm.controls['type'].hasError('required')">
@@ -19,7 +19,7 @@
         </div>
       </mat-card-content>
     </div>
-    <div class="actions">
+    <div class="actions-extras">
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
       </mat-card-actions>

@@ -19,6 +19,8 @@ import { LangSelectorComponent } from './lang-selector/lang-selector.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatSelectModule } from '@angular/material/select';
 import { ComponentPageHeaderComponent } from './component-page-header/component-page-header.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     NavigationComponent,
@@ -36,13 +38,8 @@ import { ComponentPageHeaderComponent } from './component-page-header/component-
     TranslateModule,
     LangSelectorComponent,
     ComponentPageHeaderComponent,
-  ],
-  imports: [
-    MatSelectModule,
-    TranslateModule,
     RouterModule,
-    CommonModule,
-    LayoutModule,
+    MatSelectModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -50,6 +47,24 @@ import { ComponentPageHeaderComponent } from './component-page-header/component-
     MatListModule,
     MatMenuModule,
     MatProgressBarModule,
+    MatInputModule,
+    MatTableModule,
+  ],
+  imports: [
+    TranslateModule,
+    RouterModule,
+    CommonModule,
+    LayoutModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTableModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatInputModule,
   ],
   providers: [
     {

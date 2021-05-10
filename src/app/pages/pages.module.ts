@@ -30,15 +30,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTabsModule } from '@angular/material/tabs';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
-import { AdministrationComponent } from './administration/administration.component';
-import { ReasonsComponent } from './administration/reasons/reasons.component';
-import { CreateEditReasonComponent } from './administration/reasons/create-edit-reason/create-edit-reason.component';
-import { CategoriesComponent } from './administration/categories/categories.component';
-import { CreateEditCategoriesComponent } from './administration/categories/create-edit-categories/create-edit-categories.component';
-import { BrandsComponent } from './administration/brands/brands.component';
-import { CreateUpdateBrandsComponent } from './administration/brands/create-update-brands/create-update-brands.component';
-import { InvoicesComponent } from './administration/invoices/invoices.component';
-import { CreateEditInvoiceComponent } from './administration/invoices/create-edit-invoice/create-edit-invoice.component';
+import { AdministrationModule } from './administration/administration.module';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -49,15 +41,6 @@ import { CreateEditInvoiceComponent } from './administration/invoices/create-edi
     UpdateAcountComponent,
     ChartsComponent,
     UserDetailsComponent,
-    AdministrationComponent,
-    ReasonsComponent,
-    CreateEditReasonComponent,
-    CategoriesComponent,
-    CreateEditCategoriesComponent,
-    BrandsComponent,
-    CreateUpdateBrandsComponent,
-    InvoicesComponent,
-    CreateEditInvoiceComponent,
   ],
   exports: [
     PagesComponent,
@@ -70,23 +53,16 @@ import { CreateEditInvoiceComponent } from './administration/invoices/create-edi
   imports: [
     CommonModule,
     SharedModule,
+    AdministrationModule,
     ComponentsModule,
     RouterModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
     LayoutModule,
     MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatProgressSpinnerModule,
     MatInputModule,
-    MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
     FlexLayoutModule,
