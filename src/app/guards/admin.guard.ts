@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
@@ -6,13 +6,10 @@ import {
   UrlTree,
   Router,
 } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import Swal from 'sweetalert2';
-import { User } from '../models/user.model';
 import { AuthService } from '../services/auth.service';
-import { getUserAuth } from '../state/auth/auth.selectors';
 
 @Injectable({
   providedIn: 'root',

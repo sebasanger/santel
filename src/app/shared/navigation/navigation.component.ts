@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/models/user.model';
-import { apiUserAuthLogout } from 'src/app/state/auth/auth.actions';
+import { apiUserAuthLogout } from 'src/app/store/auth/auth.actions';
 import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { MenuItem } from 'src/app/interfaces/ui/menu.interface';

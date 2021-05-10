@@ -14,9 +14,8 @@ import { UploadImageComponent } from 'src/app/components/upload-image/upload-ima
 import { UpdateAcountPayload } from 'src/app/interfaces/user/form-update-acount-payload';
 import { User } from 'src/app/models/user.model';
 import { ReqValidatorsService } from 'src/app/services/req-validators.service';
-import { UserService } from 'src/app/services/user.service';
 import { EmailValidPayload } from '../../interfaces/user/EmailValidPayload';
-import * as authActions from '../../state/auth/auth.actions';
+import * as authActions from '../../store/auth/auth.actions';
 @Component({
   selector: 'app-update-acount',
   templateUrl: './update-acount.component.html',

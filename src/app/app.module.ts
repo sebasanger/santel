@@ -17,7 +17,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LangInterceptorService } from './interceptors/lang-interceptor.service';
-import { StateModule } from './state/state.module';
+import { StoreModule } from '@ngrx/store';
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
   root: environment.base_url,
@@ -31,7 +31,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StateModule,
+    StoreModule,
     PagesModule,
     AuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

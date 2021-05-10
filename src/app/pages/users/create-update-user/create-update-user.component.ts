@@ -14,7 +14,7 @@ import { EmailValidPayload } from 'src/app/interfaces/user/EmailValidPayload';
 import { UserCreateUpdatePayload } from 'src/app/interfaces/user/form-user.payload';
 import { ReqValidatorsService } from 'src/app/services/req-validators.service';
 import { environment } from 'src/environments/environment';
-import * as userApiActions from '../../../state/user/user.api.actions';
+import * as userApiActions from '../../../store/user/user.api.actions';
 
 const client_url = environment.client_url;
 @Component({

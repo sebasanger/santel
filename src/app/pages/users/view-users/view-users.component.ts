@@ -14,8 +14,8 @@ import { Store } from '@ngrx/store';
 import { merge, Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
-import * as userActions from 'src/app/state/user/user.actions';
-import * as userApiActions from 'src/app/state/user/user.api.actions';
+import * as userActions from 'src/app/store/user/user.actions';
+import * as userApiActions from 'src/app/store/user/user.api.actions';
 import Swal from 'sweetalert2';
 
 @Component({

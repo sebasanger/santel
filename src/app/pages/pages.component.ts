@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { apiGetUserAuth } from '../state/auth/auth.actions';
+import { apiGetUserAuth } from '../store/auth/auth.actions';
 
 @Component({
   selector: 'app-pages',

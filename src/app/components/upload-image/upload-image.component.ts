@@ -12,7 +12,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { UpdateImage } from 'src/app/interfaces/user/update-image.interface';
 import { Store } from '@ngrx/store';
-import { apiGetUserAuth } from 'src/app/state/auth/auth.actions';
+import { apiGetUserAuth } from 'src/app/store/auth/auth.actions';
 @Component({
   selector: 'app-upload-image',
   templateUrl: './upload-image.component.html',

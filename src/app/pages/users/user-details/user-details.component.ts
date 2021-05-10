@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
 import Swal from 'sweetalert2';
-import * as userApiActions from '../../../state/user/user.api.actions';
+import * as userApiActions from '../../../store/user/user.api.actions';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
