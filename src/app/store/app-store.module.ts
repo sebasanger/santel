@@ -25,6 +25,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   ],
   exports: [StoreModule],
 })
-export class StateModule {
+export class AppStoreModule {
   constructor(toastService: NgrxDataToastService) {}
 }
