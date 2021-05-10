@@ -1,9 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/EntityServices/category.service';
-import Swal from 'sweetalert2';
 
 export interface DialogData {
   id?: number;
@@ -36,11 +35,9 @@ export class CreateEditCategoriesComponent {
     if (this.data.id != null) {
       const newCategory = new Category(this.data.id, categoryValue);
       this.update(newCategory);
-      Swal.fire('Updated', 'Category now is ' + categoryValue, 'success');
     } else {
       const newCategory = new Category(null, categoryValue);
       this.add(newCategory);
-      Swal.fire('Added', 'Category ' + categoryValue + ' added', 'success');
     }
     this.dialogRef.close();
   }

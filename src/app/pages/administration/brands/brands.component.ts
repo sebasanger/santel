@@ -73,7 +73,6 @@ export class BrandsComponent {
     }).then((result: any) => {
       if (result.isConfirmed) {
         this.brandService.delete(brand.id);
-        Swal.fire('Deleted', 'The brand is deleted', 'success');
       } else {
         Swal.fire('Cancelled', 'The brand is safe', 'success');
       }

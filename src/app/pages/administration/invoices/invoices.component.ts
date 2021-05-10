@@ -73,7 +73,6 @@ export class InvoicesComponent {
     }).then((result: any) => {
       if (result.isConfirmed) {
         this.invoiceService.delete(invoice.id);
-        Swal.fire('Deleted', 'The invoice type is deleted', 'success');
       } else {
         Swal.fire('Cancelled', 'The invoice type is safe', 'success');
       }

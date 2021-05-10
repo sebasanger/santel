@@ -71,7 +71,6 @@ export class CategoriesComponent {
     }).then((result: any) => {
       if (result.isConfirmed) {
         this.categoryService.delete(category.id);
-        Swal.fire('Deleted', 'The category is deleted', 'success');
       } else {
         Swal.fire('Cancelled', 'The category is safe', 'success');
       }

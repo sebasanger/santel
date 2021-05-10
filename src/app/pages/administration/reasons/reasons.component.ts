@@ -22,11 +22,13 @@ export class ReasonsComponent {
   public dataSource: MatTableDataSource<Reason>;
   private subscription: Subscription = new Subscription();
   loading$: Observable<boolean>;
+  errors$: Observable<any>;
   reasons$: Observable<Reason[]>;
 
   constructor(private reasonService: ReasonService, public dialog: MatDialog) {
     this.reasons$ = reasonService.entities$;
     this.loading$ = reasonService.loading$;
+    this.errors$ = reasonService.errors$;
 
     this.getReasons();
 
@@ -49,15 +51,10 @@ export class ReasonsComponent {
   }
 
   openDialog(title: string, id?: number, reason?: string): void {
-    const dialogRef = this.dialog.open(CreateEditReasonComponent, {
+    this.dialog.open(CreateEditReasonComponent, {
       width: '400px',
       height: '300px',
       data: { id: id, reason: reason, title: title },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      console.log(result);
     });
   }
 
@@ -73,7 +70,6 @@ export class ReasonsComponent {
     }).then((result: any) => {
       if (result.isConfirmed) {
         this.reasonService.delete(reason.id);
-        Swal.fire('Deleted', 'The reason is deleted', 'success');
       } else {
         Swal.fire('Cancelled', 'The reason is safe', 'success');
       }

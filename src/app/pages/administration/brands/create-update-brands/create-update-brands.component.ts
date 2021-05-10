@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Brand } from 'src/app/models/brand.model';
 import { BrandService } from 'src/app/services/EntityServices/brand.service';
-import Swal from 'sweetalert2';
 
 export interface DialogData {
   id?: number;
@@ -37,11 +36,9 @@ export class CreateUpdateBrandsComponent {
     if (this.data.id != null) {
       const newBrand = new Brand(this.data.id, brandValue);
       this.update(newBrand);
-      Swal.fire('Updated', 'Brand now is ' + brandValue, 'success');
     } else {
       const newBrand = new Brand(null, brandValue);
       this.add(newBrand);
-      Swal.fire('Added', 'Brand ' + brandValue + ' added', 'success');
     }
     this.dialogRef.close();
   }

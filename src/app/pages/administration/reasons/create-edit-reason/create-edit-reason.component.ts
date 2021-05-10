@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EntityActionPayload, EntityOp, MergeStrategy } from '@ngrx/data';
 import { Reason } from 'src/app/models/reason.model';
 import { ReasonService } from 'src/app/services/EntityServices/reason.service';
 import Swal from 'sweetalert2';
@@ -37,16 +38,21 @@ export class CreateEditReasonComponent {
     if (this.data.id != null) {
       const newReason = new Reason(this.data.id, reasonValue);
       this.update(newReason);
-      Swal.fire('Updated', 'Reason now is ' + reasonValue, 'success');
     } else {
       const newReason = new Reason(null, reasonValue);
       this.add(newReason);
-      Swal.fire('Added', 'Reason ' + reasonValue + ' added', 'success');
     }
     this.dialogRef.close();
   }
 
   add(reason: Reason) {
+    const payload: EntityActionPayload = {
+      entityName: 'Reason',
+      entityOp: EntityOp.ADD_ONE,
+      data: reason,
+      mergeStrategy: MergeStrategy.IgnoreChanges,
+    };
+
     this.reasonService.add(reason);
   }
   update(reason: Reason) {

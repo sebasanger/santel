@@ -1,7 +1,9 @@
 import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
 
 const entityMetadata: EntityMetadataMap = {
-  Reason: {},
+  Reason: {
+    entityName: 'Reason',
+  },
   Category: {},
   Brand: {},
   Invoice: {},

@@ -6,10 +6,12 @@ import { userRoot } from './user/indexUser';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-
+import { NgrxDataToastService } from './ngrx-data-toast.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [],
   imports: [
+    MatSnackBarModule,
     StoreModule.forRoot({
       auth: authRoot.authReducer,
       user: userRoot.userReducer,
@@ -23,4 +25,6 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   exports: [StoreModule],
 })
-export class StateModule {}
+export class StateModule {
+  constructor(toastService: NgrxDataToastService) {}
+}
