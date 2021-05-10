@@ -1,8 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from '../guards/auth.guard';
 import { UsersComponent } from './users/users.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { ViewUsersComponent } from './users/view-users/view-users.component';
@@ -10,28 +8,20 @@ import { CreateUpdateUserComponent } from './users/create-update-user/create-upd
 import { UpdateAcountComponent } from './update-acount/update-acount.component';
 import { ChartsComponent } from './charts/charts.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { AdministrationModule } from './administration/administration.module';
 import { AdministrationComponent } from './administration/administration.component';
-import { ReasonsComponent } from './administration/reasons/reasons.component';
-import { CategoriesComponent } from './administration/categories/categories.component';
-import { BrandsComponent } from './administration/brands/brands.component';
-import { InvoicesComponent } from './administration/invoices/invoices.component';
 
 const routes: Routes = [
   {
-    path: 'pages',
-    component: PagesComponent,
-    canActivate: [AuthGuard],
-    data: { title: 'Pages' },
+    path: '',
     children: [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        data: { subtitle: 'Dashboard' },
       },
       {
         path: 'charts',
         component: ChartsComponent,
-        data: { subtitle: 'Charts' },
       },
       {
         path: '',
@@ -41,68 +31,27 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersComponent,
-        canActivate: [AdminGuard],
-        children: [
-          {
-            path: '',
-            component: ViewUsersComponent,
-            pathMatch: 'full',
-          },
-          {
-            path: 'create',
-            component: CreateUpdateUserComponent,
-            data: { subtitle: 'Add user' },
-          },
-          {
-            path: 'update/:id',
-            component: CreateUpdateUserComponent,
-            data: { subtitle: 'Update user' },
-          },
-          {
-            path: 'details/:id',
-            component: UserDetailsComponent,
-            data: { subtitle: 'Details user' },
-          },
-        ],
+        loadChildren: () =>
+          import('./users/users.module').then((m) => m.UsersModule),
       },
       {
         path: 'administration',
         component: AdministrationComponent,
-        canActivate: [AdminGuard],
-        children: [
-          {
-            path: 'reasons',
-            component: ReasonsComponent,
-            pathMatch: 'full',
-          },
-          {
-            path: 'categories',
-            component: CategoriesComponent,
-            pathMatch: 'full',
-          },
-          {
-            path: 'brands',
-            component: BrandsComponent,
-            pathMatch: 'full',
-          },
-          {
-            path: 'invoices',
-            component: InvoicesComponent,
-            pathMatch: 'full',
-          },
-        ],
+        loadChildren: () =>
+          import('./administration/administration.module').then(
+            (m) => m.AdministrationModule
+          ),
       },
       {
         path: 'update-acount',
         component: UpdateAcountComponent,
-        data: { subtitle: 'Update acount' },
       },
+      { path: '**', redirectTo: 'dashboard' },
     ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
 })
 export class PagesRoutingModule {}

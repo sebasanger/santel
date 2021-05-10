@@ -20,6 +20,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AdministrationRouting } from './administration.routing';
 @NgModule({
   declarations: [
     AdministrationComponent,
@@ -33,6 +34,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CreateEditInvoiceComponent,
   ],
   imports: [
+    AdministrationRouting,
     CommonModule,
     SharedModule,
     ComponentsModule,

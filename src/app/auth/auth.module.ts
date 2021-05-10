@@ -20,6 +20,7 @@ import { ActivateAcountComponent } from './activate-acount/activate-acount.compo
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { AuthRoutingModule } from './auth.routing';
 @NgModule({
   declarations: [
     LoginComponent,
@@ -46,6 +47,7 @@ import { MatListModule } from '@angular/material/list';
     SharedModule,
     MatDividerModule,
     MatListModule,
+    AuthRoutingModule,
   ],
 })
 export class AuthModule {}
