@@ -1,0 +1,12 @@
+.table-container {
+  width: 65%;
+  margin: 0 auto;
+
+  @media (max-width: 767.98px) {
+    width: 95%;
+  }
+}
+
+.table {
+  width: 100%;
+}

@@ -10,7 +10,7 @@
         <div class="row-extras">
           <div class="col-extras">
             <mat-form-field class="full-width">
-              <input color="primary" matInput placeholder="{{ 'ROOMPRICES.PRICE' | translate }}"
+              <input type="number" color="primary" matInput placeholder="{{ 'ROOMPRICES.PRICE' | translate }}"
                 formControlName="price">
               <mat-error *ngIf="roomPriceForm.controls['price'].hasError('required')">
                 {{ 'ROOMPRICES.PRICE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
@@ -21,7 +21,7 @@
         <div class="row-extras">
           <div class="col-extras">
             <mat-form-field class="full-width">
-              <input color="primary" matInput placeholder="{{ 'ROOMPRICES.DESCRIPTION' | translate }}"
+              <input type="text" color="primary" matInput placeholder="{{ 'ROOMPRICES.DESCRIPTION' | translate }}"
                 formControlName="description">
               <mat-error *ngIf="roomPriceForm.controls['description'].hasError('required')">
                 {{ 'ROOMPRICES.DESCRIPTION' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>

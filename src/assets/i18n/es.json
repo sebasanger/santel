@@ -6,6 +6,7 @@
   "ADDM": "Agregar nuevo",
   "ITEMSPERPAGE": "Items por pagina:  ",
   "NODATAFILTER": "No hay datos que coincidan con el filtro",
+  "NODATA": "No hay datos",
   "FILTER": "Filtro",
   "REQUIRED": "es requerido",
   "EMAIL-NOT-VALID": "El email no es valido",

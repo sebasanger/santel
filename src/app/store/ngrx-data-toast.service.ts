@@ -1,15 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Actions, ofType } from '@ngrx/effects';
-
-import { filter } from 'rxjs/operators';
-import {
-  EntityAction,
-  ofEntityOp,
-  OP_ERROR,
-  OP_SUCCESS,
-  EntityCacheAction,
-  EntityOp,
-} from '@ngrx/data';
+import { Actions } from '@ngrx/effects';
+import { ofEntityOp, EntityOp } from '@ngrx/data';
 import Swal from 'sweetalert2';
 
 /** Report ngrx-data success/error actions as toast messages **/
@@ -50,7 +41,7 @@ export class NgrxDataToastService {
 
     //On get all ERROR entity
     actions$.pipe(ofEntityOp(EntityOp.QUERY_ALL_ERROR)).subscribe((action) => {
-      Swal.fire('Error on get all', action.payload.entityName, 'error');
+      Swal.fire('Error get the data', action.payload.entityName, 'error');
     });
 
     //On delete SUCCESS entity
