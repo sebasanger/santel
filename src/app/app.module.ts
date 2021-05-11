@@ -11,7 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './interceptors/token-interceptor.service';
 import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
-import { entityConfig } from './entity-metadata';
+import { entityConfig } from './store/entity-metadata';
 import { GlobalErrorHandlerService } from './interceptors/global-error-handler.service';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';

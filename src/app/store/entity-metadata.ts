@@ -3,10 +3,17 @@ import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
 const entityMetadata: EntityMetadataMap = {
   Reason: {
     entityName: 'Reason',
+    entityDispatcherOptions: { optimisticDelete: false },
   },
-  Category: {},
-  Brand: {},
-  Invoice: {},
+  Category: {
+    entityDispatcherOptions: { optimisticDelete: false },
+  },
+  Brand: {
+    entityDispatcherOptions: { optimisticDelete: false },
+  },
+  Invoice: {
+    entityDispatcherOptions: { optimisticDelete: false },
+  },
 };
 
 const pluralNames = {
