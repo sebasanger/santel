@@ -90,6 +90,11 @@ export class NavigationComponent implements OnInit {
             icon: 'article',
             path: '../pages/administration/invoices',
           },
+          {
+            title: this.translate.instant('MENU.ROOMPRICE'),
+            icon: 'article',
+            path: '../pages/administration/room-prices',
+          },
         ];
       }
     }

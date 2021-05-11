@@ -19,7 +19,8 @@
     "REASON": "Razones",
     "CATEGORY": "Categorias",
     "BRAND": "Marcas",
-    "INVOICE": "Tipos de factura"
+    "INVOICE": "Tipos de factura",
+    "ROOMPRICE": "Precios habitaciones"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -73,5 +74,11 @@
   "INVOICES": {
     "INVOICES": "Tipos de facturas",
     "INVOICE": "Tipo de factura"
+  },
+  "ROOMPRICES": {
+    "ROOMPRICE": "Precio de habitacion",
+    "ROOMPRICES": "Precios de habitaciones",
+    "PRICE": "Precio",
+    "DESCRIPTION": "Descripcion"
   }
 }

@@ -21,6 +21,8 @@ import { MatCardModule } from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AdministrationRouting } from './administration.routing';
+import { RoomPricesComponent } from './room-prices/room-prices.component';
+import { CreateEditRoomPriceComponent } from './room-prices/create-edit-room-price/create-edit-room-price.component';
 @NgModule({
   declarations: [
     AdministrationComponent,
@@ -32,6 +34,8 @@ import { AdministrationRouting } from './administration.routing';
     CreateUpdateBrandsComponent,
     InvoicesComponent,
     CreateEditInvoiceComponent,
+    RoomPricesComponent,
+    CreateEditRoomPriceComponent,
   ],
   imports: [
     AdministrationRouting,

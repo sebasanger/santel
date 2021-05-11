@@ -19,7 +19,8 @@
     "REASON": "Reasons",
     "CATEGORY": "Categories",
     "BRAND": "Brands",
-    "INVOICE": "Invoices types"
+    "INVOICE": "Invoices types",
+    "ROOMPRICE": "Room prices"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard"
@@ -73,5 +74,11 @@
   "INVOICES": {
     "INVOICES": "Invoices types",
     "INVOICE": "Invoice type"
+  },
+  "ROOMPRICES": {
+    "ROOMPRICE": "Room price",
+    "ROOMPRICES": "Room prices",
+    "PRICE": "Price",
+    "DESCRIPTION": "Description"
   }
 }

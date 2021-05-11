@@ -46,13 +46,6 @@ export class CreateEditReasonComponent {
   }
 
   add(reason: Reason) {
-    const payload: EntityActionPayload = {
-      entityName: 'Reason',
-      entityOp: EntityOp.ADD_ONE,
-      data: reason,
-      mergeStrategy: MergeStrategy.IgnoreChanges,
-    };
-
     this.reasonService.add(reason);
   }
   update(reason: Reason) {

@@ -14,6 +14,9 @@ const entityMetadata: EntityMetadataMap = {
   Invoice: {
     entityDispatcherOptions: { optimisticDelete: false },
   },
+  RoomPrice: {
+    entityDispatcherOptions: { optimisticDelete: false },
+  },
 };
 
 const pluralNames = {
@@ -21,6 +24,7 @@ const pluralNames = {
   Category: 'category',
   Brand: 'brand',
   Invoice: 'invoice',
+  RoomPrice: 'roomprice',
 };
 
 export const entityConfig: EntityDataModuleConfig = {

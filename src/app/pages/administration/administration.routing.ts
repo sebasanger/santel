@@ -4,6 +4,7 @@ import { ReasonsComponent } from './reasons/reasons.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { BrandsComponent } from './brands/brands.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import { RoomPricesComponent } from './room-prices/room-prices.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
       {
         path: 'invoices',
         component: InvoicesComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'room-prices',
+        component: RoomPricesComponent,
         pathMatch: 'full',
       },
       { path: '**', redirectTo: 'reasons' },
