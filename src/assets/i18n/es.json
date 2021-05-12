@@ -22,7 +22,8 @@
     "BRAND": "Marcas",
     "INVOICE": "Tipos de factura",
     "ROOMPRICE": "Precios habitaciones",
-    "PAYMENTMETHOD": "Metodos de pagos"
+    "PAYMENTMETHOD": "Metodos de pagos",
+    "PRODUCTS": "Productos"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -89,5 +90,12 @@
     "METHOD": "Metodo",
     "DESCRIPTION": "Descripcion",
     "AMOUNTOFPAYMENTS": "Catntidad de pagos"
+  },
+  "PRODUCTS": {
+    "PRODUCTS": "Productos",
+    "PRODUCT": "Producto",
+    "NAME": "Nombre",
+    "PRICE": "Precio",
+    "STOCK": "Stock"
   }
 }

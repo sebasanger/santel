@@ -2,14 +2,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
-import { AdminGuard } from '../guards/admin.guard';
-import { ViewUsersComponent } from './users/view-users/view-users.component';
-import { CreateUpdateUserComponent } from './users/create-update-user/create-update-user.component';
 import { UpdateAcountComponent } from './update-acount/update-acount.component';
 import { ChartsComponent } from './charts/charts.component';
-import { UserDetailsComponent } from './users/user-details/user-details.component';
-import { AdministrationModule } from './administration/administration.module';
 import { AdministrationComponent } from './administration/administration.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -33,6 +29,12 @@ const routes: Routes = [
         component: UsersComponent,
         loadChildren: () =>
           import('./users/users.module').then((m) => m.UsersModule),
+      },
+      {
+        path: 'products',
+        component: ProductsComponent,
+        loadChildren: () =>
+          import('./products/products.module').then((m) => m.ProductsModule),
       },
       {
         path: 'administration',

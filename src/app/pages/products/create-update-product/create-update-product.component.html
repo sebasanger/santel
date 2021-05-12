@@ -1,0 +1,78 @@
+<form [formGroup]="productForm" novalidate (ngSubmit)="onSubmit()">
+  <div class="form-extras">
+    <div class="header-extras">
+      <mat-card-header>
+        <mat-card-title class="title-extras">{{ data.title }}</mat-card-title>
+      </mat-card-header>
+    </div>
+    <div class="content-extras">
+      <mat-card-content>
+        <div class="row-extras">
+          <div class="col-extras">
+            <mat-form-field class="full-width">
+              <input type="text" color="primary" matInput placeholder="{{ 'PRODUCTS.NAME' | translate }}"
+                formControlName="name">
+              <mat-error *ngIf="productForm.controls['name'].hasError('required')">
+                {{ 'PRODUCTS.NAME' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row-extras">
+          <div class="col-extras">
+            <mat-form-field class="full-width">
+              <input type="number" color="primary" matInput placeholder="{{ 'PRODUCTS.STOCK' | translate }}"
+                formControlName="stock">
+              <mat-error *ngIf="productForm.controls['stock'].hasError('required')">
+                {{ 'PRODUCTS.STOCK' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row-extras">
+          <div class="col-extras">
+            <mat-form-field class="full-width">
+              <input type="number" color="primary" matInput placeholder="{{ 'PRODUCTS.PRICE' | translate }}"
+                formControlName="price">
+              <mat-error *ngIf="productForm.controls['price'].hasError('required')">
+                {{ 'PRODUCTS.PRICE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row-extras">
+          <div class="col-extras">
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'CATEGORIES.CATEGORY' | translate }}</mat-label>
+              <mat-select formControlName="category">
+                <mat-option [value]="option.id" *ngFor="let option of categories$ | async">{{ option.category }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row-extras">
+          <div class="col-extras">
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'BRANDS.BRAND' | translate }}</mat-label>
+              <mat-select formControlName="brand" [(value)]="data.brand">
+                <mat-option [value]="option.id" *ngFor="let option of brands$ | async">{{ option.brand }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </div>
+    <div class="actions-extras">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
+      </mat-card-actions>
+    </div>
+  </div>
+
+</form>

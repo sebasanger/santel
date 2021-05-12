@@ -22,7 +22,8 @@
     "BRAND": "Brands",
     "INVOICE": "Invoices types",
     "ROOMPRICE": "Room prices",
-    "PAYMENTMETHOD": "Payment method"
+    "PAYMENTMETHOD": "Payment method",
+    "PRODUCTS": "Products"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard"
@@ -89,5 +90,12 @@
     "METHOD": "Method",
     "DESCRIPTION": "Description",
     "AMOUNTOFPAYMENTS": "Amount of payments"
+  },
+  "PRODUCTS": {
+    "PRODUCTS": "Products",
+    "PRODUCT": "Product",
+    "NAME": "Name",
+    "PRICE": "Price",
+    "STOCK": "Stock"
   }
 }
