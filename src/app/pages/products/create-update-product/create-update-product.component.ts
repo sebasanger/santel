@@ -14,9 +14,10 @@ export interface DialogData {
   id?: number;
   name?: string;
   stock?: number;
-  price?: string;
-  category?: Category;
-  brand?: Brand;
+  price?: number;
+  code?: string;
+  categoryId?: number;
+  brandId?: number;
 }
 
 @Component({
@@ -42,9 +43,10 @@ export class CreateUpdateProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getAll();
+    this.brandService.getAll();
+
     this.categories$ = this.categoryService.entities$;
 
-    this.brandService.getAll();
     this.brands$ = this.brandService.entities$;
   }
 
@@ -52,37 +54,47 @@ export class CreateUpdateProductComponent implements OnInit {
     name: [this.data.name, Validators.required],
     stock: [this.data.stock, Validators.required],
     price: [this.data.price, Validators.required],
-    brand: [this.data.brand.id, Validators.required],
-    category: [this.data.category.id, Validators.required],
+    code: [this.data.code, Validators.required],
+    brand: [this.data.brandId, Validators.required],
+    category: [this.data.categoryId, Validators.required],
   });
 
   onSubmit() {
-    // if (this.productForm.invalid) {
-    //   return;
-    // }
-    // const methodValue: string = this.productForm.controls['method'].value;
-    // const descriptionValue: string =
-    //   this.productForm.controls['description'].value;
-    // const amountOfPaymentsValue: number =
-    //   this.productForm.controls['amountOfPayments'].value;
-    // if (this.data.id != null) {
-    //   const newProduct = new Product(
-    //     this.data.id,
-    //     methodValue,
-    //     descriptionValue,
-    //     amountOfPaymentsValue
-    //   );
-    //   this.update(newProduct);
-    // } else {
-    //   const newProduct = new Product(
-    //     null,
-    //     methodValue,
-    //     descriptionValue,
-    //     amountOfPaymentsValue
-    //   );
-    //   this.add(newProduct);
-    // }
-    // this.dialogRef.close();
+    if (this.productForm.invalid) {
+      return;
+    }
+
+    const category = new Category(
+      this.productForm.controls['category'].value,
+      null
+    );
+
+    const brand = new Brand(this.productForm.controls['brand'].value, null);
+
+    if (this.data.id != null) {
+      const editProduct = new Product(
+        this.data.id,
+        this.productForm.controls['code'].value,
+        this.productForm.controls['name'].value,
+        this.productForm.controls['price'].value,
+        this.productForm.controls['stock'].value,
+        brand,
+        category
+      );
+      this.update(editProduct);
+    } else {
+      const newProduct = new Product(
+        null,
+        this.productForm.controls['code'].value,
+        this.productForm.controls['name'].value,
+        this.productForm.controls['price'].value,
+        this.productForm.controls['stock'].value,
+        brand,
+        category
+      );
+      this.add(newProduct);
+    }
+    this.dialogRef.close();
   }
 
   add(product: Product) {

@@ -7,8 +7,8 @@
     </div>
     <div class="content-extras">
       <mat-card-content>
-        <div class="row-extras">
-          <div class="col-extras">
+        <div class="row">
+          <div class="col">
             <mat-form-field class="full-width">
               <input type="text" color="primary" matInput placeholder="{{ 'PRODUCTS.NAME' | translate }}"
                 formControlName="name">
@@ -17,9 +17,8 @@
               </mat-error>
             </mat-form-field>
           </div>
-        </div>
-        <div class="row-extras">
-          <div class="col-extras">
+
+          <div class="col">
             <mat-form-field class="full-width">
               <input type="number" color="primary" matInput placeholder="{{ 'PRODUCTS.STOCK' | translate }}"
                 formControlName="stock">
@@ -30,8 +29,8 @@
           </div>
         </div>
 
-        <div class="row-extras">
-          <div class="col-extras">
+        <div class="row">
+          <div class="col">
             <mat-form-field class="full-width">
               <input type="number" color="primary" matInput placeholder="{{ 'PRODUCTS.PRICE' | translate }}"
                 formControlName="price">
@@ -40,31 +39,47 @@
               </mat-error>
             </mat-form-field>
           </div>
+
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input type="text" color="primary" matInput placeholder="{{ 'PRODUCTS.CODE' | translate }}"
+                formControlName="code">
+              <mat-error *ngIf="productForm.controls['code'].hasError('required')">
+                {{ 'PRODUCTS.CODE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
         </div>
 
-        <div class="row-extras">
-          <div class="col-extras">
-            <mat-form-field appearance="fill">
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
               <mat-label>{{ 'CATEGORIES.CATEGORY' | translate }}</mat-label>
               <mat-select formControlName="category">
                 <mat-option [value]="option.id" *ngFor="let option of categories$ | async">{{ option.category }}
                 </mat-option>
               </mat-select>
+              <mat-error *ngIf="productForm.controls['category'].hasError('required')">
+                {{ 'CATEGORIES.CATEGORY' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>{{ 'BRANDS.BRAND' | translate }}</mat-label>
+              <mat-select formControlName="brand">
+                <mat-option [value]="option.id" *ngFor="let option of brands$ | async">{{ option.brand }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="productForm.controls['brand'].hasError('required')">
+                {{ 'BRANDS.BRAND' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
             </mat-form-field>
           </div>
         </div>
 
-        <div class="row-extras">
-          <div class="col-extras">
-            <mat-form-field appearance="fill">
-              <mat-label>{{ 'BRANDS.BRAND' | translate }}</mat-label>
-              <mat-select formControlName="brand" [(value)]="data.brand">
-                <mat-option [value]="option.id" *ngFor="let option of brands$ | async">{{ option.brand }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
+
 
       </mat-card-content>
     </div>

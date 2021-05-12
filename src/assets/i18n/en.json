@@ -96,6 +96,7 @@
     "PRODUCT": "Product",
     "NAME": "Name",
     "PRICE": "Price",
-    "STOCK": "Stock"
+    "STOCK": "Stock",
+    "CODE": "Code"
   }
 }

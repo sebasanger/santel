@@ -4,8 +4,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, Subscription } from 'rxjs';
-import { Brand } from 'src/app/models/brand.model';
-import { Category } from 'src/app/models/category.model';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/EntityServices/product.service';
 import Swal from 'sweetalert2';
@@ -25,6 +23,7 @@ export class ViewProductsComponent {
     'name',
     'stock',
     'price',
+    'code',
     'category',
     'brand',
     'edit',
@@ -67,13 +66,14 @@ export class ViewProductsComponent {
     name?: string,
     stock?: number,
     price?: number,
-    category?: Category,
-    brand?: Brand
+    code?: string,
+    categoryId?: number,
+    brandId?: number
   ): void {
     const dialogRef = this.dialog.open(CreateUpdateProductComponent, {
-      width: '600px',
-      height: '800px',
-      data: { title, id, name, stock, price, category, brand },
+      width: '800px',
+      height: '600px',
+      data: { title, id, name, stock, price, code, categoryId, brandId },
     });
   }
 
