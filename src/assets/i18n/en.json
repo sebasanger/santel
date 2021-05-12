@@ -21,7 +21,8 @@
     "CATEGORY": "Categories",
     "BRAND": "Brands",
     "INVOICE": "Invoices types",
-    "ROOMPRICE": "Room prices"
+    "ROOMPRICE": "Room prices",
+    "PAYMENTMETHOD": "Payment method"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard"
@@ -81,5 +82,12 @@
     "ROOMPRICES": "Room prices",
     "PRICE": "Price",
     "DESCRIPTION": "Description"
+  },
+  "PAYMENTMETHOD": {
+    "PAYMENTMETHOD": "Payment method",
+    "PAYMENTMETHODS": "Payment methods",
+    "METHOD": "Method",
+    "DESCRIPTION": "Description",
+    "AMOUNTOFPAYMENTS": "Amount of payments"
   }
 }

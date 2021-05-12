@@ -23,6 +23,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AdministrationRouting } from './administration.routing';
 import { RoomPricesComponent } from './room-prices/room-prices.component';
 import { CreateEditRoomPriceComponent } from './room-prices/create-edit-room-price/create-edit-room-price.component';
+import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
+import { CreateEditPaymentMethodComponent } from './payment-methods/create-edit-payment-method/create-edit-payment-method.component';
 @NgModule({
   declarations: [
     AdministrationComponent,
@@ -36,6 +38,8 @@ import { CreateEditRoomPriceComponent } from './room-prices/create-edit-room-pri
     CreateEditInvoiceComponent,
     RoomPricesComponent,
     CreateEditRoomPriceComponent,
+    PaymentMethodsComponent,
+    CreateEditPaymentMethodComponent,
   ],
   imports: [
     AdministrationRouting,

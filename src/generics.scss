@@ -11,6 +11,14 @@
   width: 100%;
 }
 
+.filter-extras {
+  width: 300px;
+
+  @media (max-width: 767.98px) {
+    width: 150px;
+  }
+}
+
 .table-header-extras {
   display: flex;
   flex-direction: row;
@@ -53,4 +61,10 @@
 
 .title-extras {
   font-size: 2em !important;
+}
+
+.disappear-sm {
+  @media (max-width: 767.98px) {
+    display: none;
+  }
 }

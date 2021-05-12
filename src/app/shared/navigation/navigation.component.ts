@@ -95,6 +95,11 @@ export class NavigationComponent implements OnInit {
             icon: 'price_change',
             path: '../pages/administration/room-prices',
           },
+          {
+            title: this.translate.instant('MENU.PAYMENTMETHOD'),
+            icon: 'credit_card',
+            path: '../pages/administration/payment-methods',
+          },
         ];
       }
     }

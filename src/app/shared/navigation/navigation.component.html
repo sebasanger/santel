@@ -20,7 +20,7 @@
         <a (click)="setTitle(adminMenuItem.title)" *ngFor="let adminMenuItem of adminMenuItems" mat-menu-item
           [routerLink]="[adminMenuItem.path]" routerLinkActive="item-selected">
           <mat-icon>{{ adminMenuItem.icon}}</mat-icon>
-          <span class="menu-admin-text">{{ adminMenuItem.title}}</span>
+          <span>{{ adminMenuItem.title}}</span>
 
         </a>
       </mat-menu>

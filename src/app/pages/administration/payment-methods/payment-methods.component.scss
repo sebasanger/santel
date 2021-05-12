@@ -1,0 +1,19 @@
+.table-container {
+  width: 85%;
+  margin: 0 auto;
+
+  @media (max-width: 767.98px) {
+    width: 100%;
+  }
+}
+
+.table {
+  width: 100%;
+}
+
+
+
+
+.amount-of-payments {
+  text-align: center;
+}

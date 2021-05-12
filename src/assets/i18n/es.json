@@ -21,7 +21,8 @@
     "CATEGORY": "Categorias",
     "BRAND": "Marcas",
     "INVOICE": "Tipos de factura",
-    "ROOMPRICE": "Precios habitaciones"
+    "ROOMPRICE": "Precios habitaciones",
+    "PAYMENTMETHOD": "Metodos de pagos"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -81,5 +82,12 @@
     "ROOMPRICES": "Precios de habitaciones",
     "PRICE": "Precio",
     "DESCRIPTION": "Descripcion"
+  },
+  "PAYMENTMETHOD": {
+    "PAYMENTMETHOD": "Metodo de pago",
+    "PAYMENTMETHODS": "Metodos de pagos",
+    "METHOD": "Metodo",
+    "DESCRIPTION": "Descripcion",
+    "AMOUNTOFPAYMENTS": "Catntidad de pagos"
   }
 }
