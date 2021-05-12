@@ -6,6 +6,7 @@ import { UpdateAcountComponent } from './update-acount/update-acount.component';
 import { ChartsComponent } from './charts/charts.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { ProductsComponent } from './products/products.component';
+import { CustomersComponent } from './customers/customers.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,12 @@ const routes: Routes = [
         component: UsersComponent,
         loadChildren: () =>
           import('./users/users.module').then((m) => m.UsersModule),
+      },
+      {
+        path: 'customers',
+        component: CustomersComponent,
+        loadChildren: () =>
+          import('./customers/customers.module').then((m) => m.CustomersModule),
       },
       {
         path: 'products',

@@ -23,7 +23,8 @@
     "INVOICE": "Tipos de factura",
     "ROOMPRICE": "Precios habitaciones",
     "PAYMENTMETHOD": "Metodos de pagos",
-    "PRODUCTS": "Productos"
+    "PRODUCTS": "Productos",
+    "CUSTOMERS": "Clientes"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"

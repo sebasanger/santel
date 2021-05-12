@@ -23,10 +23,8 @@
     "INVOICE": "Invoices types",
     "ROOMPRICE": "Room prices",
     "PAYMENTMETHOD": "Payment method",
-    "PRODUCTS": "Products"
-  },
-  "DASHBOARD": {
-    "TITLE": "Dashboard"
+    "PRODUCTS": "Products",
+    "CUSTOMERS": "Customers"
   },
   "LOGIN": {
     "TITLE": "Login",

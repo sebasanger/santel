@@ -60,6 +60,11 @@ export class NavigationComponent implements OnInit {
           icon: 'analytics',
           path: '../pages/charts',
         },
+        {
+          title: this.translate.instant('MENU.CUSTOMERS'),
+          icon: 'groups',
+          path: '../pages/customers',
+        },
       ];
 
       if (this.user.roles.includes('ADMIN')) {
