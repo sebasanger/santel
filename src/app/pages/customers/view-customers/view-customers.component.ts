@@ -25,7 +25,6 @@ export class ViewCustomersComponent implements OnInit {
 
   public paginatedCustomers$ = this.customerService.paginatedCustomers$;
   public paginatedCustomers: GetPaginatedCustomers;
-
   public filterSubject = new Subject<string>();
   public loading: boolean;
   public error$: Observable<boolean>;
@@ -99,12 +98,11 @@ export class ViewCustomersComponent implements OnInit {
   }
 
   addNewCustomer() {
-    //this.userStore.dispatch(userActions.clearCustomers());
-    this.router.navigateByUrl('pages/users/create');
+    this.router.navigateByUrl('pages/customers/create');
   }
 
   editCustomer(userid: number) {
-    this.router.navigateByUrl('pages/users/update/' + userid);
+    this.router.navigateByUrl('pages/customers/update/' + userid);
   }
 
   deleteCustomer(id: number) {
@@ -126,5 +124,9 @@ export class ViewCustomersComponent implements OnInit {
         Swal.fire('Cancelled', 'the customer is safe', 'error');
       }
     });
+  }
+
+  onRowClicked(row: any) {
+    this.router.navigateByUrl('pages/customers/details/' + row.id);
   }
 }

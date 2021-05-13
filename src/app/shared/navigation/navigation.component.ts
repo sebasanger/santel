@@ -68,20 +68,18 @@ export class NavigationComponent implements OnInit {
       ];
 
       if (this.user.roles.includes('ADMIN')) {
-        this.menuItems.push(
+        this.menuItems.push({
+          title: this.translate.instant('MENU.PRODUCTS'),
+          icon: 'inventory_2',
+          path: '../pages/products',
+        });
+
+        this.adminMenuItems = [
           {
             title: this.translate.instant('MENU.USERS'),
             icon: 'people',
             path: '../pages/users',
           },
-          {
-            title: this.translate.instant('MENU.PRODUCTS'),
-            icon: 'inventory_2',
-            path: '../pages/products',
-          }
-        );
-
-        this.adminMenuItems = [
           {
             title: this.translate.instant('MENU.REASON'),
             icon: 'api',

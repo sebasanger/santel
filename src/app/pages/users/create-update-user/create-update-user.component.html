@@ -3,47 +3,43 @@
     <mat-card-header>
       <mat-card-title>{{ pageTitle }}</mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
+      <mat-form-field>
+        <input matInput placeholder="Full name" type="text" formControlName="fullName" />
+        <mat-error *ngIf="userForm.controls['fullName'].hasError('required')">
+          Full name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
 
-      <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
-        <mat-form-field fxFlex>
-          <input matInput placeholder="Full name" type="text" formControlName="fullName" />
-          <mat-error *ngIf="userForm.controls['fullName'].hasError('required')">
-            Full name is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" type="email" />
+        <mat-error *ngIf="userForm.controls['email'].hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="userForm.controls['email'].hasError('email')">
+          Must be a valid email
+        </mat-error>
+        <mat-error *ngIf="userForm.controls['email'].hasError('emailTaked')">
+          This email is <strong>already taked</strong>
+        </mat-error>
+      </mat-form-field>
 
-        <mat-form-field fxFlex>
-          <input matInput placeholder="Email" formControlName="email" type="email" />
-          <mat-error *ngIf="userForm.controls['email'].hasError('required')">
-            Email is <strong>required</strong>
-          </mat-error>
-          <mat-error *ngIf="userForm.controls['email'].hasError('email')">
-            Must be a valid email
-          </mat-error>
-          <mat-error *ngIf="userForm.controls['email'].hasError('emailTaked')">
-            This email is <strong>already taked</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-
-
-      <div class="input-row">
-        <mat-form-field fxFlex>
-          <mat-select placeholder="Roles" formControlName="roles" multiple>
-            <mat-option *ngFor="let role of roles" [value]="role.value">
-              {{ role.name }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="userForm.controls['roles'].hasError('required')">
-            Roles is<strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
+      <mat-form-field>
+        <mat-select placeholder="Roles" formControlName="roles" multiple>
+          <mat-option *ngFor="let role of roles" [value]="role.value">
+            {{ role.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="userForm.controls['roles'].hasError('required')">
+          Roles is<strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </mat-card-actions>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Save</button>
-    </mat-card-actions>
+
   </mat-card>
 
 </form>

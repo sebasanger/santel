@@ -1,0 +1,76 @@
+<form [formGroup]="customerForm" novalidate fxLayout="column">
+  <mat-card class="shipping-card animate__animated animate__fadeIn animate__delay-0.4s">
+    <mat-card-header>
+      <mat-card-title>Create</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.NAME' | translate }}" type="text" formControlName="name" />
+          <mat-error *ngIf="customerForm.controls['name'].hasError('required')">
+            Full name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.SURNAME' | translate }}" type="text" formControlName="surname" />
+          <mat-error *ngIf="customerForm.controls['surname'].hasError('required')">
+            Full name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email" type="email" />
+          <mat-error *ngIf="customerForm.controls['email'].hasError('email')">
+            Must be a valid email
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <input type="date" matInput placeholder="{{ 'CUSTOMERS.BIRTHDAY' | translate }}" type="text"
+            formControlName="birthday" />
+          <mat-error *ngIf="customerForm.controls['birthday'].hasError('required')">
+            Full name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.PHONE' | translate }}" type="tel" formControlName="phone" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.CELPHONE' | translate }}" type="tel" formControlName="celphone" />
+          <mat-error *ngIf="customerForm.controls['surname'].hasError('required')">
+            Full name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.CUIL' | translate }}" type="text" formControlName="cuil" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.CUIT' | translate }}" type="text" formControlName="cuit" />
+        </mat-form-field>
+      </div>
+
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Save</button>
+      </mat-card-actions>
+    </mat-card-content>
+
+  </mat-card>
+
+</form>

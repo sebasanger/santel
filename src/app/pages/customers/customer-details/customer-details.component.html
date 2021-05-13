@@ -1,0 +1,52 @@
+<section>
+  <div class="grid-container animate__animated animate__fadeIn animate__delay-0.4s">
+    <mat-grid-list cols="1" rowHeight="500">
+      <mat-grid-tile>
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>{{customer.name + " " + customer.surname}}</mat-card-title>
+            <mat-card-subtitle>{{customer.dni}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              Email: {{customer.email}}
+            </p>
+            <p>
+              Brithday: {{customer.birthday | date: 'dd/MM/yyyy'}}
+            </p>
+            <p *ngIf="customer.phone != ''">
+              Phone: {{customer.phone}}
+            </p>
+            <p *ngIf="customer.celphone != ''">
+              Celphone: {{customer.celphone}}
+            </p>
+            <p *ngIf="customer.invoiceType != null">
+              Invoice type: {{customer.invoiceType.type}}
+            </p>
+            <p *ngIf="customer.cuil != ''">
+              Cuil: {{customer.cuil}}
+            </p>
+            <p *ngIf="customer.cuit != ''">
+              Cuit: {{customer.cuit}}
+            </p>
+            <p *ngIf="customer.createdAt != null">
+              Created at: {{customer.createdAt |  date: 'dd/MM/yyyy'}}
+            </p>
+            <p *ngIf="customer.updatedAt != null">
+              Updated at: {{customer.updatedAt |  date: 'dd/MM/yyyy'}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button color="accent" (click)="editCustomer(customer.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteCustomer(customer.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+      <!-- <mat-grid-tile>2</mat-grid-tile> -->
+    </mat-grid-list>
+  </div>
+</section>

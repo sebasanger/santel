@@ -14,9 +14,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CustomerRouting } from './customer.routing';
 import { ViewCustomersComponent } from './view-customers/view-customers.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { CreateUpdateCustomerComponent } from './create-update-customer/create-update-customer.component';
 
 @NgModule({
-  declarations: [CustomersComponent, ViewCustomersComponent],
+  declarations: [CustomersComponent, ViewCustomersComponent, CustomerDetailsComponent, CreateUpdateCustomerComponent],
   imports: [
     CommonModule,
     CustomerRouting,
