@@ -99,5 +99,20 @@
     "PRICE": "Precio",
     "STOCK": "Stock",
     "CODE": "Codigo"
+  },
+  "CUSTOMERS": {
+    "CUSTOMER": "Cliente",
+    "CUSTOMERS": "Clientes",
+    "ADD": "Agregar cliente",
+    "FULLNAME": "Nombre completo",
+    "NAME": "Nombre",
+    "SURNAME": "Apellido",
+    "EMAIL": "Email",
+    "DNI": "DNI",
+    "BIRTHDAY": "Fecha de nacimiento",
+    "PHONE": "Telefono",
+    "CELPHONE": "Celular",
+    "CUIL": "Cuil",
+    "CUIT": "Cuit"
   }
 }

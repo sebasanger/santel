@@ -1,1 +1,74 @@
-<p>view-customers works!</p>
+<div class="head">
+  <div>
+    <button mat-raised-button color="accent" (click)="addNewCustomer()" class="add-button">
+      {{ 'CUSTOMERS.ADD' | translate }}
+    </button>
+  </div>
+  <div>
+    <mat-form-field class="filter">
+      <input matInput placeholder="{{ 'FILTER' | translate }}"
+        (keyup)="filterSubject.next($any($event.target).value)" />
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="example-container mat-elevation-z8 animate__animated animate__fadeIn animate__delay-0.4s">
+  <mat-table matSort matSortActive="id" matSortDirection="asc" matSortDisableClear [dataSource]="dataSource">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
+    </ng-container>
+
+    <!-- fullName Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.FULLNAME' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Name"> {{row.name + " " + row.surname}} </mat-cell>
+    </ng-container>
+
+    <!-- roles Column -->
+    <ng-container matColumnDef="dni">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.DNI' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="dni"> {{row.dni}} </mat-cell>
+    </ng-container>
+
+    <!-- roles Column -->
+    <ng-container matColumnDef="birthday">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.BIRTHDAY' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="birthday"> {{row.birthday  | date: 'dd/MM/yyyy'}} </mat-cell>
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.EMAIL' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
+    </ng-container>
+
+    <!-- delete Column -->
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="edit">
+        <button mat-icon-button color="accent" (click)="editCustomer(row.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- delete Column -->
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'DELETE' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="delete">
+        <button mat-icon-button color="warn" (click)="deleteCustomer(row.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
+
+  </mat-table>
+
+  <mat-paginator #paginator [length]="totalElements" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 8, 10, 15]">
+  </mat-paginator>
+</div>

@@ -21,7 +21,7 @@ export class CustomerEffects {
       ofType(customerApiActions.getCustomersPaginated),
       mergeMap((action) => {
         return this.customerService
-          .getPaginatedCustomers(
+          .paginatedCustomers(
             action.filter,
             action.sortDirection,
             action.sort,
