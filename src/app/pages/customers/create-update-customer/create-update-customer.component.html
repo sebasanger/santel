@@ -9,33 +9,29 @@
         <mat-form-field>
           <input matInput placeholder="{{ 'CUSTOMERS.NAME' | translate }}" type="text" formControlName="name" />
           <mat-error *ngIf="customerForm.controls['name'].hasError('required')">
-            Full name is <strong>required</strong>
+            {{ 'CUSTOMERS.NAME' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <input matInput placeholder="{{ 'CUSTOMERS.SURNAME' | translate }}" type="text" formControlName="surname" />
           <mat-error *ngIf="customerForm.controls['surname'].hasError('required')">
-            Full name is <strong>required</strong>
+            {{ 'CUSTOMERS.SURNAME' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
         </mat-form-field>
       </div>
 
       <div class="row">
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email" type="email" />
-          <mat-error *ngIf="customerForm.controls['email'].hasError('email')">
-            Must be a valid email
+          <input matInput placeholder="{{ 'CUSTOMERS.DNI' | translate }}" formControlName="dni" type="number" />
+          <mat-error *ngIf="customerForm.controls['dni'].hasError('required')">
+            {{ 'CUSTOMERS.DNI' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
         </mat-form-field>
-
 
         <mat-form-field>
           <input type="date" matInput placeholder="{{ 'CUSTOMERS.BIRTHDAY' | translate }}" type="text"
             formControlName="birthday" />
-          <mat-error *ngIf="customerForm.controls['birthday'].hasError('required')">
-            Full name is <strong>required</strong>
-          </mat-error>
         </mat-form-field>
       </div>
 
@@ -46,14 +42,8 @@
 
         <mat-form-field>
           <input matInput placeholder="{{ 'CUSTOMERS.CELPHONE' | translate }}" type="tel" formControlName="celphone" />
-          <mat-error *ngIf="customerForm.controls['surname'].hasError('required')">
-            Full name is <strong>required</strong>
-          </mat-error>
         </mat-form-field>
       </div>
-
-
-
 
       <div class="row">
         <mat-form-field>
@@ -65,6 +55,22 @@
         </mat-form-field>
       </div>
 
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email" type="email" />
+          <mat-error *ngIf="customerForm.controls['email'].hasError('email')">
+            Must be a valid email
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>{{ 'INVOICES.INVOICE' | translate }}</mat-label>
+          <mat-select formControlName="invoice">
+            <mat-option [value]="option.id" *ngFor="let option of invoices$ | async">{{ option.type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
       <mat-card-actions>
         <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Save</button>

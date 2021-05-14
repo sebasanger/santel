@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Customer } from 'src/app/models/customer.model';
+import { Invoice } from 'src/app/models/inovice.model';
 import { CustomerService } from 'src/app/services/EntityServices/customer.service';
+import { InvoiceService } from 'src/app/services/EntityServices/invoice.service';
 import { environment } from 'src/environments/environment';
 
-const client_url = environment.client_url;
 @Component({
   selector: 'app-create-update-customer',
   templateUrl: './create-update-customer.component.html',
@@ -14,12 +16,17 @@ const client_url = environment.client_url;
 export class CreateUpdateCustomerComponent implements OnInit {
   private customerId: number;
   public customer: Customer;
+  public invoices$: Observable<Invoice[]>;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private customerService: CustomerService
+    private router: Router,
+    private customerService: CustomerService,
+    private invoiceService: InvoiceService
   ) {}
   ngOnInit(): void {
+    this.invoiceService.getAll();
+    this.invoices$ = this.invoiceService.entities$;
     this.route.params.subscribe((params) => {
       this.customerId = params['id'];
 
@@ -35,6 +42,7 @@ export class CreateUpdateCustomerComponent implements OnInit {
           this.customerForm.controls['cuit'].setValue(res.cuit);
           this.customerForm.controls['phone'].setValue(res.phone);
           this.customerForm.controls['celphone'].setValue(res.celphone);
+          this.customerForm.controls['invoice'].setValue(res.invoiceType.id);
         });
       }
     });
@@ -61,14 +69,29 @@ export class CreateUpdateCustomerComponent implements OnInit {
     cuit: [null],
     phone: [null],
     celphone: [null],
+    invoice: [null],
   });
 
   onSubmit() {
     if (this.customerForm.invalid) {
       return;
     }
-    const { name, surname, dni, email, cuil, cuit, phone, celphone, birthday } =
-      this.customerForm.controls;
+    const {
+      name,
+      surname,
+      dni,
+      email,
+      cuil,
+      cuit,
+      phone,
+      celphone,
+      birthday,
+      invoice,
+    } = this.customerForm.controls;
+    let newInvoice: Invoice;
+    if (invoice.value != null) {
+      newInvoice = new Invoice(invoice.value, null);
+    }
     const customer: Customer = new Customer(
       null,
       name.value,
@@ -79,7 +102,8 @@ export class CreateUpdateCustomerComponent implements OnInit {
       phone.value,
       celphone.value,
       cuil.value,
-      cuit.value
+      cuit.value,
+      newInvoice
     );
 
     if (this.customerId != null) {
@@ -88,5 +112,6 @@ export class CreateUpdateCustomerComponent implements OnInit {
     } else {
       this.customerService.add(customer);
     }
+    this.router.navigateByUrl('pages/customers');
   }
 }
