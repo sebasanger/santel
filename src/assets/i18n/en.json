@@ -12,6 +12,8 @@
   "EMAIL-NOT-VALID": "Email not valid",
   "SUCCESS": "Success",
   "ERROR": "Error",
+  "ALREADYTAKED": "already taked",
+  "VALIDEMAIL": "Must be a valid email",
   "MENU": {
     "DASHBOARD": "Dashboard",
     "CHARTS": "Charts",
@@ -98,6 +100,8 @@
     "CODE": "Code"
   },
   "CUSTOMERS": {
+    "CREATE": "Add customer",
+    "UPDATE": "Update customer",
     "CUSTOMER": "Customer",
     "CUSTOMERS": "Customers",
     "ADD": "Add customer",

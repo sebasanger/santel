@@ -12,6 +12,8 @@
   "EMAIL-NOT-VALID": "El email no es valido",
   "SUCCESS": "Exito",
   "ERROR": "Error",
+  "ALREADYTAKED": "actualmente en uso",
+  "VALIDEMAIL": "Tiene que ser un email valido",
   "MENU": {
     "DASHBOARD": "Inicio",
     "CHARTS": "Graficos",
@@ -101,6 +103,8 @@
     "CODE": "Codigo"
   },
   "CUSTOMERS": {
+    "CREATE": "Add customer",
+    "UPDATE": "Update customer",
     "CUSTOMER": "Cliente",
     "CUSTOMERS": "Clientes",
     "ADD": "Agregar cliente",

@@ -1,7 +1,8 @@
 <form [formGroup]="customerForm" novalidate fxLayout="column">
   <mat-card class="shipping-card animate__animated animate__fadeIn animate__delay-0.4s">
     <mat-card-header>
-      <mat-card-title>Create</mat-card-title>
+      <mat-card-title *ngIf="customerId == null">{{ 'CUSTOMERS.CREATE' | translate }}</mat-card-title>
+      <mat-card-title *ngIf="customerId != null">{{ 'CUSTOMERS.UPDATE' | translate }}</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
@@ -27,12 +28,22 @@
           <mat-error *ngIf="customerForm.controls['dni'].hasError('required')">
             {{ 'CUSTOMERS.DNI' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
+          <mat-error *ngIf="customerForm.controls['dni'].hasError('dniTaked')">
+            This {{ 'CUSTOMERS.DNI' | translate }} is <strong>{{ 'ALREADYTAKED' | translate }}</strong>
+          </mat-error>
         </mat-form-field>
 
-        <mat-form-field>
-          <input type="date" matInput placeholder="{{ 'CUSTOMERS.BIRTHDAY' | translate }}" type="text"
-            formControlName="birthday" />
+
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'CUSTOMERS.BIRTHDAY' | translate }}</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthday">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+
+
+
+
       </div>
 
       <div class="row">
@@ -59,7 +70,10 @@
         <mat-form-field>
           <input matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email" type="email" />
           <mat-error *ngIf="customerForm.controls['email'].hasError('email')">
-            Must be a valid email
+            {{ 'VALIDEMAIL' | translate }}
+          </mat-error>
+          <mat-error *ngIf="customerForm.controls['email'].hasError('emailTaked')">
+            This email is <strong>{{ 'ALREADYTAKED' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 

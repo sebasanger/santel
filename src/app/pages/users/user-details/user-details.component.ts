@@ -40,7 +40,6 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
 
       if (selectedUser != null) {
         this.user = selectedUser;
-        console.log(this.user);
       }
     });
   }

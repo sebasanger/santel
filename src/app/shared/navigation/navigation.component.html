@@ -12,7 +12,7 @@
         <mat-icon class="menu-icon" color="danger">{{ menuItem.icon }}</mat-icon>{{ menuItem.title}}
       </a>
 
-      <a [matMenuTriggerFor]="administration" mat-list-item *ngIf="user.roles.includes('ADMIN')">
+      <a [matMenuTriggerFor]="administration" mat-list-item *ngIf="user != null && user.roles.includes('ADMIN')">
         <mat-icon class="menu-icon" color="danger">settings</mat-icon>{{ 'MENU.ADMINISTRATION' | translate }}
       </a>
 

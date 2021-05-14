@@ -16,9 +16,15 @@ import { CustomerRouting } from './customer.routing';
 import { ViewCustomersComponent } from './view-customers/view-customers.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { CreateUpdateCustomerComponent } from './create-update-customer/create-update-customer.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
-  declarations: [CustomersComponent, ViewCustomersComponent, CustomerDetailsComponent, CreateUpdateCustomerComponent],
+  declarations: [
+    CustomersComponent,
+    ViewCustomersComponent,
+    CustomerDetailsComponent,
+    CreateUpdateCustomerComponent,
+  ],
   imports: [
     CommonModule,
     CustomerRouting,
@@ -33,6 +39,8 @@ import { CreateUpdateCustomerComponent } from './create-update-customer/create-u
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 export class CustomersModule {}

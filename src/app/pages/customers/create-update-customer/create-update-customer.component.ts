@@ -1,35 +1,50 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AbstractControl,
+  AsyncValidatorFn,
+  FormBuilder,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { map, takeUntil } from 'rxjs/operators';
+import { DniValidPayload } from 'src/app/interfaces/customers/DniValidPayload';
+import { EmailValidPayload } from 'src/app/interfaces/user/form-user.payload';
 import { Customer } from 'src/app/models/customer.model';
 import { Invoice } from 'src/app/models/inovice.model';
 import { CustomerService } from 'src/app/services/EntityServices/customer.service';
 import { InvoiceService } from 'src/app/services/EntityServices/invoice.service';
-import { environment } from 'src/environments/environment';
+import { ReqValidatorsService } from 'src/app/services/req-validators.service';
 
 @Component({
   selector: 'app-create-update-customer',
   templateUrl: './create-update-customer.component.html',
   styleUrls: ['./create-update-customer.component.scss'],
 })
-export class CreateUpdateCustomerComponent implements OnInit {
-  private customerId: number;
+export class CreateUpdateCustomerComponent implements OnInit, OnDestroy {
+  public customerId: number;
   public customer: Customer;
+  private ngUnsubscribe: Subject<boolean> = new Subject();
   public invoices$: Observable<Invoice[]>;
+  private emailValidPayload: EmailValidPayload;
+  private dniValidPayload: DniValidPayload;
+  public title: string = 'Customer';
   constructor(
     private fb: FormBuilder,
+    private reqValidators: ReqValidatorsService,
     private route: ActivatedRoute,
     private router: Router,
     private customerService: CustomerService,
     private invoiceService: InvoiceService
   ) {}
+
   ngOnInit(): void {
     this.invoiceService.getAll();
     this.invoices$ = this.invoiceService.entities$;
     this.route.params.subscribe((params) => {
       this.customerId = params['id'];
-
+      takeUntil(this.ngUnsubscribe);
       if (this.customerId > 0) {
         this.customerService.getByKey(this.customerId).subscribe((res) => {
           this.customer = res;
@@ -57,11 +72,20 @@ export class CreateUpdateCustomerComponent implements OnInit {
       null,
       [Validators.required, Validators.minLength(3), Validators.maxLength(30)],
     ],
-    dni: [null, [Validators.required]],
+    dni: [
+      null,
+      {
+        validators: [Validators.required, Validators.minLength(6)],
+        asyncValidators: [this.checkDniIsTaked()],
+        updateOn: 'blur',
+      },
+    ],
     email: [
       null,
       {
         validators: [Validators.email],
+        asyncValidators: [this.checkEmailIsTaked()],
+        updateOn: 'blur',
       },
     ],
     birthday: [null],
@@ -113,5 +137,44 @@ export class CreateUpdateCustomerComponent implements OnInit {
       this.customerService.add(customer);
     }
     this.router.navigateByUrl('pages/customers');
+  }
+
+  checkEmailIsTaked(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      this.emailValidPayload = {
+        id: this.customerId | 0,
+        email: control.value,
+      };
+
+      return this.reqValidators
+        .customerEmailIsValid(this.emailValidPayload)
+        .pipe(
+          takeUntil(this.ngUnsubscribe),
+          map((res) => {
+            return res ? { emailTaked: true } : null;
+          })
+        );
+    };
+  }
+
+  checkDniIsTaked(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      this.dniValidPayload = {
+        id: this.customerId | 0,
+        dni: control.value,
+      };
+
+      return this.reqValidators.customerDniIsValid(this.dniValidPayload).pipe(
+        takeUntil(this.ngUnsubscribe),
+        map((res) => {
+          return res ? { dniTaked: true } : null;
+        })
+      );
+    };
+  }
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next(true);
+    this.ngUnsubscribe.complete();
   }
 }

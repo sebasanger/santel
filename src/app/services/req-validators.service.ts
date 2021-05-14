@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { pipe } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { DniValidPayload } from '../interfaces/customers/DniValidPayload';
 import { EmailValidPayload } from '../interfaces/user/EmailValidPayload';
 const base_url = environment.base_url;
 @Injectable({
@@ -12,5 +12,13 @@ export class ReqValidatorsService {
 
   emailIsValid(emailValid: EmailValidPayload) {
     return this.http.post(base_url + 'user/checkEmailIsValid', emailValid);
+  }
+
+  customerEmailIsValid(emailValid: EmailValidPayload) {
+    return this.http.post(base_url + 'customer/checkEmailIsValid', emailValid);
+  }
+
+  customerDniIsValid(dniValid: DniValidPayload) {
+    return this.http.post(base_url + 'customer/checkDniIsValid', dniValid);
   }
 }
