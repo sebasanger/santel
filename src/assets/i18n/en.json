@@ -27,7 +27,8 @@
     "PAYMENTMETHOD": "Payment method",
     "PRODUCTS": "Products",
     "CUSTOMERS": "Customers",
-    "ENTRYPRODUCTS": "Entry products"
+    "ENTRYPRODUCTS": "Entry products",
+    "ROOMS": "Rooms"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -125,5 +126,19 @@
     "CELPHONE": "Celphone",
     "CUIL": "Cuil",
     "CUIT": "Cuit"
+  },
+  "ROOMS": {
+    "ROOMS": "Rooms",
+    "ROOM": "Room",
+    "CAPACITY": "Capacity",
+    "FLOOR": "Floor",
+    "AVAILABLE": "Availability",
+    "ENABLED": "Enabled",
+    "NUMBER": "Number",
+    "IMAGE": "Image",
+    "IMAGE2": "Image 2",
+    "IMAGE3": "Image 3",
+    "SINGLEBED": "Single beds",
+    "DOUBLEBED": "Double beds"
   }
 }

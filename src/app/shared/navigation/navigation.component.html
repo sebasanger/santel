@@ -32,6 +32,8 @@
   <mat-sidenav-content>
     <!-- Rigth side of navbar-->
     <mat-toolbar color="primary" class="mat-elevation-z6">
+
+
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
@@ -42,6 +44,7 @@
         <app-theme-picker></app-theme-picker>
         <app-lang-selector></app-lang-selector>
       </div>
+      <span class="easter-egg">The<mat-icon>cake</mat-icon>is a lie</span>
 
       <span class="spacer"></span>
       <span class="user-fullname" *ngIf="user != null && user.fullName != null">{{ user.fullName }}</span>

@@ -81,3 +81,16 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.easter-egg {
+  display: none;
+
+  @media (width: 1888px) {
+    display: block;
+
+  }
+}
+
+.easter-egg mat-icon {
+  padding: 3px;
+}

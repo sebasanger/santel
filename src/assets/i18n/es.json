@@ -27,7 +27,8 @@
     "PAYMENTMETHOD": "Metodos de pagos",
     "PRODUCTS": "Productos",
     "CUSTOMERS": "Clientes",
-    "ENTRYPRODUCTS": "Entrada de productos"
+    "ENTRYPRODUCTS": "Entrada de productos",
+    "ROOMS": "Habitaciones"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -128,5 +129,19 @@
     "CELPHONE": "Celular",
     "CUIL": "Cuil",
     "CUIT": "Cuit"
+  },
+  "ROOMS": {
+    "ROOMS": "Habitaciones",
+    "ROOM": "Habitacion",
+    "CAPACITY": "Capacidad",
+    "FLOOR": "Piso",
+    "AVAILABLE": "Disponibilidad",
+    "ENABLED": "En uso",
+    "NUMBER": "Numero",
+    "IMAGE": "Imagen",
+    "IMAGE2": "Imagen 2",
+    "IMAGE3": "Imagen 3",
+    "SINGLEBED": "Camas singles",
+    "DOUBLEBED": "Camas dobles"
   }
 }

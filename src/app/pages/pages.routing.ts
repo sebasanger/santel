@@ -8,6 +8,7 @@ import { AdministrationComponent } from './administration/administration.compone
 import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AdminGuard } from '../guards/admin.guard';
+import { RoomsComponent } from './rooms/rooms.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,12 @@ const routes: Routes = [
         component: ProductsComponent,
         loadChildren: () =>
           import('./products/products.module').then((m) => m.ProductsModule),
+      },
+      {
+        path: 'rooms',
+        component: RoomsComponent,
+        loadChildren: () =>
+          import('./rooms/rooms.module').then((m) => m.RoomsModule),
       },
       {
         path: 'administration',
