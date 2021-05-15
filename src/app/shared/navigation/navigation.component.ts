@@ -110,6 +110,11 @@ export class NavigationComponent implements OnInit {
             icon: 'credit_card',
             path: '../pages/administration/payment-methods',
           },
+          {
+            title: this.translate.instant('MENU.ENTRYPRODUCTS'),
+            icon: 'local_shipping',
+            path: '../pages/administration/entry-products',
+          },
         ];
       }
     }

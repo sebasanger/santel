@@ -26,7 +26,8 @@
     "ROOMPRICE": "Room prices",
     "PAYMENTMETHOD": "Payment method",
     "PRODUCTS": "Products",
-    "CUSTOMERS": "Customers"
+    "CUSTOMERS": "Customers",
+    "ENTRYPRODUCTS": "Entry products"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -77,6 +78,15 @@
   "INVOICES": {
     "INVOICES": "Invoices types",
     "INVOICE": "Invoice type"
+  },
+  "ENTRYPRODUCTS": {
+    "ENTRYPRODUCTS": "Entry products",
+    "ENTRYPRODUCT": "Entry product",
+    "INCHARGE": "In charge",
+    "BUYPRICE": "Entry product",
+    "AMOUNT": "Amount",
+    "PRODUCT": "Product",
+    "DATE": "Date"
   },
   "ROOMPRICES": {
     "ROOMPRICE": "Room price",

@@ -25,6 +25,8 @@ import { RoomPricesComponent } from './room-prices/room-prices.component';
 import { CreateEditRoomPriceComponent } from './room-prices/create-edit-room-price/create-edit-room-price.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { CreateEditPaymentMethodComponent } from './payment-methods/create-edit-payment-method/create-edit-payment-method.component';
+import { EntryProductsComponent } from './entry-products/entry-products.component';
+import { CreateUpdateEntryProductComponent } from './entry-products/create-update-entry-product/create-update-entry-product.component';
 @NgModule({
   declarations: [
     AdministrationComponent,
@@ -40,6 +42,8 @@ import { CreateEditPaymentMethodComponent } from './payment-methods/create-edit-
     CreateEditRoomPriceComponent,
     PaymentMethodsComponent,
     CreateEditPaymentMethodComponent,
+    EntryProductsComponent,
+    CreateUpdateEntryProductComponent,
   ],
   imports: [
     AdministrationRouting,

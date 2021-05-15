@@ -26,7 +26,8 @@
     "ROOMPRICE": "Precios habitaciones",
     "PAYMENTMETHOD": "Metodos de pagos",
     "PRODUCTS": "Productos",
-    "CUSTOMERS": "Clientes"
+    "CUSTOMERS": "Clientes",
+    "ENTRYPRODUCTS": "Entrada de productos"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -80,6 +81,15 @@
   "INVOICES": {
     "INVOICES": "Tipos de facturas",
     "INVOICE": "Tipo de factura"
+  },
+  "ENTRYPRODUCTS": {
+    "ENTRYPRODUCTS": "Entrada de productos",
+    "ENTRYPRODUCT": "Entrada de producto",
+    "INCHARGE": "A cargo",
+    "BUYPRICE": "Precio de compra",
+    "AMOUNT": "Cantidad",
+    "PRODUCT": "Producto",
+    "DATE": "Fecha"
   },
   "ROOMPRICES": {
     "ROOMPRICE": "Precio de habitacion",

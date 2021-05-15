@@ -1,0 +1,20 @@
+.full-width {
+  width: 250px
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 600px;
+}
+
+.col {
+  font-size: 1.4em;
+  margin-top: 40px;
+}
+
+.actions {
+  margin-top: 50px;
+}

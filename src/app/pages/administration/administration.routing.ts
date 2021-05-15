@@ -6,6 +6,7 @@ import { BrandsComponent } from './brands/brands.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { RoomPricesComponent } from './room-prices/room-prices.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
+import { EntryProductsComponent } from './entry-products/entry-products.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,11 @@ const routes: Routes = [
       {
         path: 'payment-methods',
         component: PaymentMethodsComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'entry-products',
+        component: EntryProductsComponent,
         pathMatch: 'full',
       },
       { path: '**', redirectTo: 'reasons' },

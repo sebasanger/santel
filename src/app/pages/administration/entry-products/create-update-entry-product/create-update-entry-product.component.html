@@ -1,0 +1,60 @@
+<form [formGroup]="productForm" novalidate (ngSubmit)="onSubmit()">
+  <div class="form-extras">
+    <div class="header-extras">
+      <mat-card-header>
+        <mat-card-title class="title-extras">{{ data.title }}</mat-card-title>
+      </mat-card-header>
+    </div>
+    <div class="content-extras">
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input type="number" color="primary" matInput placeholder="{{ 'ENTRYPRODUCTS.AMOUNT' | translate }}"
+                formControlName="amount">
+              <mat-error *ngIf="productForm.controls['amount'].hasError('required')">
+                {{  'ENTRYPRODUCTS.AMOUNT'  | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input type="number" color="primary" matInput placeholder="{{ 'ENTRYPRODUCTS.BUYPRICE' | translate }}"
+                formControlName="buyPrice">
+              <mat-error *ngIf="productForm.controls['buyPrice'].hasError('required')">
+                {{ 'ENTRYPRODUCTS.BUYPRICE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>{{ 'ENTRYPRODUCTS.PRODUCT' | translate }}</mat-label>
+              <mat-select formControlName="product">
+                <mat-option [value]="option.id" *ngFor="let option of products$ | async">{{ option.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="productForm.controls['product'].hasError('required')">
+                {{ 'ENTRYPRODUCTS.PRODUCT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+
+
+      </mat-card-content>
+    </div>
+    <div class="actions-extras">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
+      </mat-card-actions>
+    </div>
+  </div>
+
+</form>

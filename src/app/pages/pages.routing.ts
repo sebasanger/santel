@@ -7,6 +7,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
       },
       {
         path: 'users',
+        canActivate: [AdminGuard],
         component: UsersComponent,
         loadChildren: () =>
           import('./users/users.module').then((m) => m.UsersModule),
@@ -45,6 +47,7 @@ const routes: Routes = [
       },
       {
         path: 'administration',
+        canActivate: [AdminGuard],
         component: AdministrationComponent,
         loadChildren: () =>
           import('./administration/administration.module').then(
