@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RoomsRoutingModule } from './rooms.routing';
 import { ViewRoomsComponent } from './view-rooms/view-rooms.component';
 import { CreateUpdateRoomComponent } from './create-update-room/create-update-room.component';
-import { ViewRoomComponent } from './view-room/view-room.component';
 import { RoomsComponent } from './rooms.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -16,13 +15,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RoomDetailsComponent } from './room-details/room-details.component';
 
 @NgModule({
   declarations: [
     ViewRoomsComponent,
     CreateUpdateRoomComponent,
-    ViewRoomComponent,
     RoomsComponent,
+    RoomDetailsComponent,
   ],
   imports: [
     CommonModule,

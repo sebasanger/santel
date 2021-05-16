@@ -1,1 +1,88 @@
-<p>view-rooms works!</p>
+<div class="table-container">
+  <div class="table-header-extras">
+    <mat-form-field class="filter">
+      <mat-label>{{ 'FILTER' | translate }}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+    <button mat-raised-button class="add" (click)="addNewRoom()">{{ 'ADDM' | translate }}</button>
+  </div>
+  <div class="mat-elevation-z8">
+    <mat-table matSort matSortActive="id" matSortDirection="asc" [dataSource]="dataSource">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="number">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.NUMBER' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Number"> {{row.number}} </mat-cell>
+      </ng-container>
+
+      <!-- stock Column -->
+      <ng-container matColumnDef="capacity">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.CAPACITY' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Capacity"> {{row.capacity}} </mat-cell>
+      </ng-container>
+
+      <!-- price Column -->
+      <ng-container matColumnDef="floor">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.FLOOR' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Floor"> {{row.floor}} </mat-cell>
+      </ng-container>
+
+      <!-- code Column -->
+      <ng-container matColumnDef="singleBed">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.SINGLEBED' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Single bed"> {{row.singleBed}} </mat-cell>
+      </ng-container>
+
+      <!-- code Column -->
+      <ng-container matColumnDef="doubleBed">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.DOUBLEBED' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Double bed"> {{row.doubleBed}} </mat-cell>
+      </ng-container>
+
+      <!-- Category Column -->
+      <ng-container matColumnDef="available">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.AVAILABLE' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Available"> {{row.available}} </mat-cell>
+      </ng-container>
+
+      <!-- Brand Column -->
+      <ng-container matColumnDef="enabled">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.ENABLED' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Enabled"> {{row.enabled}} </mat-cell>
+      </ng-container>
+
+      <!-- Edit Column -->
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="edit">
+          <button mat-icon-button color="accent" (click)="editRoom(row.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <!-- delete Column -->
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'DELETE' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="delete">
+          <button mat-icon-button color="warn" (click)="delete(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10,15]"></mat-paginator>
+  </div>
+</div>

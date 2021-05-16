@@ -139,6 +139,8 @@
     "IMAGE2": "Image 2",
     "IMAGE3": "Image 3",
     "SINGLEBED": "Single beds",
-    "DOUBLEBED": "Double beds"
+    "DOUBLEBED": "Double beds",
+    "ADDTITLE": "Add room",
+    "UPDATETITLE": "Update room"
   }
 }

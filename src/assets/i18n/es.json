@@ -142,6 +142,8 @@
     "IMAGE2": "Imagen 2",
     "IMAGE3": "Imagen 3",
     "SINGLEBED": "Camas singles",
-    "DOUBLEBED": "Camas dobles"
+    "DOUBLEBED": "Camas dobles",
+    "ADDTITLE": "Agregar habitacion",
+    "UPDATETITLE": "Configurar habitacion"
   }
 }
