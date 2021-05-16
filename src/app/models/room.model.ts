@@ -11,6 +11,8 @@ export class Room {
     public deleted?: boolean,
     public iamge?: string,
     public iamge2?: string,
-    public iamge3?: string
+    public iamge3?: string,
+    public createdAt?: Date,
+    public updatedAt?: Date
   ) {}
 }

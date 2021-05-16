@@ -95,4 +95,8 @@ export class ViewRoomsComponent {
   public ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+  onRowClicked(row: any) {
+    this.router.navigateByUrl('pages/rooms/details/' + row.id);
+  }
 }

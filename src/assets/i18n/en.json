@@ -4,6 +4,10 @@
   "SAVE": "Save",
   "ADDF": "Add new",
   "ADDM": "Add new",
+  "YES": "Yes",
+  "NO": "No",
+  "TRUE": "True",
+  "FALSE": "False",
   "FILTER": "Filter",
   "ITEMSPERPAGE": "Items per page:  ",
   "NODATA": "No data",
@@ -132,7 +136,7 @@
     "ROOM": "Room",
     "CAPACITY": "Capacity",
     "FLOOR": "Floor",
-    "AVAILABLE": "Availability",
+    "AVAILABLE": "Available",
     "ENABLED": "Enabled",
     "NUMBER": "Number",
     "IMAGE": "Image",
@@ -141,6 +145,9 @@
     "SINGLEBED": "Single beds",
     "DOUBLEBED": "Double beds",
     "ADDTITLE": "Add room",
-    "UPDATETITLE": "Update room"
+    "UPDATETITLE": "Update room",
+    "CREATEDAT": "Create date",
+    "UPDATEDAT": "Last update date",
+    "DELETED": "Out of service"
   }
 }

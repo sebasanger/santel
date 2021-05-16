@@ -36,7 +36,7 @@
       <!-- code Column -->
       <ng-container matColumnDef="singleBed">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.SINGLEBED' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Single bed"> {{row.singleBed}} </mat-cell>
+        <mat-cell *matCellDef="let row" data-label="Single bed"> {{row.singleBed }} </mat-cell>
       </ng-container>
 
       <!-- code Column -->
@@ -48,13 +48,19 @@
       <!-- Category Column -->
       <ng-container matColumnDef="available">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.AVAILABLE' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Available"> {{row.available}} </mat-cell>
+        <mat-cell *matCellDef="let row" data-label="Available">
+          <span *ngIf="row.available">{{ 'YES' | translate}}</span>
+          <span *ngIf="!row.available">{{ 'NO' | translate}}</span>
+        </mat-cell>
       </ng-container>
 
       <!-- Brand Column -->
       <ng-container matColumnDef="enabled">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.ENABLED' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Enabled"> {{row.enabled}} </mat-cell>
+        <mat-cell *matCellDef="let row" data-label="Enabled">
+          <span *ngIf="row.enabled">{{ 'YES' | translate}}</span>
+          <span *ngIf="!row.enabled">{{ 'NO' | translate}}</span>
+        </mat-cell>
       </ng-container>
 
       <!-- Edit Column -->
@@ -78,7 +84,7 @@
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></mat-row>
 
 
     </mat-table>

@@ -34,8 +34,8 @@
         <div class="col">
           <mat-form-field>
             <mat-select placeholder="{{ 'ROOMS.ENABLED' | translate }}" formControlName="enabled">
-              <mat-option [value]="true">Yes</mat-option>
-              <mat-option [value]="false">No</mat-option>
+              <mat-option [value]="true">{{ 'YES' | translate }}</mat-option>
+              <mat-option [value]="false">{{ 'NO' | translate }}</mat-option>
             </mat-select>
             <mat-error *ngIf="roomForm.controls['enabled'].hasError('required')">
               {{ 'ROOMS.ENABLED' | translate }}<strong> {{ 'REQUIRED' | translate }}</strong>
@@ -46,8 +46,8 @@
         <div class="col">
           <mat-form-field>
             <mat-select placeholder="{{ 'ROOMS.AVAILABLE' | translate }}" formControlName="available">
-              <mat-option [value]="true">Yes</mat-option>
-              <mat-option [value]="false">No</mat-option>
+              <mat-option [value]="true">{{ 'YES' | translate }}</mat-option>
+              <mat-option [value]="false">{{ 'NO' | translate }}</mat-option>
             </mat-select>
             <mat-error *ngIf="roomForm.controls['available'].hasError('required')">
               {{ 'ROOMS.AVAILABLE' | translate }}<strong> {{ 'REQUIRED' | translate }}</strong>

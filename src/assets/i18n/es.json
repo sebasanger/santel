@@ -4,6 +4,10 @@
   "SAVE": "Guardar",
   "ADDF": "Agregar nueva",
   "ADDM": "Agregar nuevo",
+  "YES": "Si",
+  "NO": "No",
+  "TRUE": "Verdadero",
+  "FALSE": "Falso",
   "ITEMSPERPAGE": "Items por pagina:  ",
   "NODATAFILTER": "No hay datos que coincidan con el filtro",
   "NODATA": "No hay datos",
@@ -135,7 +139,7 @@
     "ROOM": "Habitacion",
     "CAPACITY": "Capacidad",
     "FLOOR": "Piso",
-    "AVAILABLE": "Disponibilidad",
+    "AVAILABLE": "Disponible",
     "ENABLED": "En uso",
     "NUMBER": "Numero",
     "IMAGE": "Imagen",
@@ -144,6 +148,9 @@
     "SINGLEBED": "Camas singles",
     "DOUBLEBED": "Camas dobles",
     "ADDTITLE": "Agregar habitacion",
-    "UPDATETITLE": "Configurar habitacion"
+    "UPDATETITLE": "Configurar habitacion",
+    "CREATEDAT": "Fecha de creacion",
+    "UPDATEDAT": "Fecha de ultima actualizacion",
+    "DELETED": "Fuera de uso"
   }
 }

@@ -61,6 +61,11 @@ export class NavigationComponent implements OnInit {
           path: '../pages/charts',
         },
         {
+          title: this.translate.instant('MENU.CUSTOMERS'),
+          icon: 'groups',
+          path: '../pages/customers',
+        },
+        {
           title: this.translate.instant('MENU.ROOMS'),
           icon: 'meeting_room',
           path: '../pages/rooms',
