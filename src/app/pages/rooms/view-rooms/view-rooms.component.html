@@ -63,6 +63,17 @@
         </mat-cell>
       </ng-container>
 
+
+      <!-- Images Column -->
+      <ng-container matColumnDef="images">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.IMAGES' | translate}} </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Images">
+          <button mat-icon-button color="primary" (click)="openDialog(row.id, row.images)">
+            <mat-icon>image</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
       <!-- Edit Column -->
       <ng-container matColumnDef="edit">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>

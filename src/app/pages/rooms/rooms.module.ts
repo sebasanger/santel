@@ -16,13 +16,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RoomDetailsComponent } from './room-details/room-details.component';
-
+import { NgImageSliderModule } from 'ng-image-slider';
+import { ViewImagesComponent } from './view-images/view-images.component';
 @NgModule({
   declarations: [
     ViewRoomsComponent,
     CreateUpdateRoomComponent,
     RoomsComponent,
     RoomDetailsComponent,
+    ViewImagesComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    NgImageSliderModule,
   ],
 })
 export class RoomsModule {}

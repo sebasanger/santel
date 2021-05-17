@@ -5,9 +5,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { Image } from 'src/app/models/image.model';
 import { Room } from 'src/app/models/room.model';
 import { RoomService } from 'src/app/services/EntityServices/room.service';
 import Swal from 'sweetalert2';
+import { ViewImagesComponent } from '../view-images/view-images.component';
 
 @Component({
   selector: 'app-view-rooms',
@@ -27,6 +29,7 @@ export class ViewRoomsComponent {
     'doubleBed',
     'available',
     'enabled',
+    'images',
     'edit',
     'delete',
   ];
@@ -97,6 +100,14 @@ export class ViewRoomsComponent {
   }
 
   onRowClicked(row: any) {
-    this.router.navigateByUrl('pages/rooms/details/' + row.id);
+    //this.router.navigateByUrl('pages/rooms/details/' + row.id);
+  }
+
+  openDialog(id: number, images: Image[]): void {
+    const dialogRef = this.dialog.open(ViewImagesComponent, {
+      width: '1000px',
+      height: '1000px',
+      data: { id, images },
+    });
   }
 }

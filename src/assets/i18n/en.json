@@ -6,6 +6,7 @@
   "ADDM": "Add new",
   "YES": "Yes",
   "NO": "No",
+  "COLSE": "Close",
   "TRUE": "True",
   "FALSE": "False",
   "FILTER": "Filter",
@@ -148,6 +149,7 @@
     "UPDATETITLE": "Update room",
     "CREATEDAT": "Create date",
     "UPDATEDAT": "Last update date",
-    "DELETED": "Out of service"
+    "DELETED": "Out of service",
+    "IMAGES": "Images"
   }
 }

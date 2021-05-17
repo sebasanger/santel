@@ -1,3 +1,5 @@
+import { Image } from './image.model';
+
 export class Room {
   constructor(
     public number: number,
@@ -9,9 +11,7 @@ export class Room {
     public enabled: boolean,
     public id?: number,
     public deleted?: boolean,
-    public iamge?: string,
-    public iamge2?: string,
-    public iamge3?: string,
+    public images?: Image[],
     public createdAt?: Date,
     public updatedAt?: Date
   ) {}

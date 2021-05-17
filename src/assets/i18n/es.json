@@ -6,6 +6,7 @@
   "ADDM": "Agregar nuevo",
   "YES": "Si",
   "NO": "No",
+  "COLSE": "Cerrar",
   "TRUE": "Verdadero",
   "FALSE": "Falso",
   "ITEMSPERPAGE": "Items por pagina:  ",
@@ -151,6 +152,7 @@
     "UPDATETITLE": "Configurar habitacion",
     "CREATEDAT": "Fecha de creacion",
     "UPDATEDAT": "Fecha de ultima actualizacion",
-    "DELETED": "Fuera de uso"
+    "DELETED": "Fuera de uso",
+    "IMAGES": "Imagenes"
   }
 }

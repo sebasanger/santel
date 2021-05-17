@@ -14,7 +14,7 @@ import { RoomService } from 'src/app/services/EntityServices/room.service';
 export class CreateUpdateRoomComponent implements OnInit {
   public roomId: number;
   private ngUnsubscribe: Subject<boolean> = new Subject();
-  public pageTitle: string = 'agregar';
+  public room: Room;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -46,6 +46,7 @@ export class CreateUpdateRoomComponent implements OnInit {
   loadRoom(room: Room) {
     if (room != null) {
       this.roomId = room.id;
+      this.room = room;
       this.roomForm.controls['number'].setValue(room.number);
       this.roomForm.controls['capacity'].setValue(room.capacity);
       this.roomForm.controls['floor'].setValue(room.floor);

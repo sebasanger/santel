@@ -18,6 +18,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LangInterceptorService } from './interceptors/lang-interceptor.service';
 import { AppStoreModule } from './store/app-store.module';
+import { ImagePipe } from './pipes/image.pipe';
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
   root: environment.base_url,
@@ -26,7 +27,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ImagePipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,0 +1,18 @@
+<div class="contianer-view">
+
+  <div class="header">
+    <h1>{{ 'ROOMS.IMAGES' | translate }}</h1>
+  </div>
+
+
+  <div class="middle">
+    <ng-image-slider *ngIf="imageObject !=null" [images]="imageObject" #slide [infinite]="false" [autoSlide]="1"
+      [imageSize]="{width: '50%', height: '40%'}" slideImage="1"></ng-image-slider>
+  </div>
+
+
+
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="close()">{{ 'CLOSE' | translate  }}</button>
+  </div>
+</div>
