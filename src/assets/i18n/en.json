@@ -150,6 +150,7 @@
     "CREATEDAT": "Create date",
     "UPDATEDAT": "Last update date",
     "DELETED": "Out of service",
-    "IMAGES": "Images"
+    "IMAGES": "Images",
+    "MANAGEIMAGES": "Manage images"
   }
 }

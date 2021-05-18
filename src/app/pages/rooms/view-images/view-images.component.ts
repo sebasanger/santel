@@ -38,8 +38,8 @@ export class ViewImagesComponent implements OnInit {
     this.imageObject = [];
     this.data.images.forEach((image: Image) => {
       this.imageObject.push({
-        image: environment.base_url + 'files/' + image.path,
-        thumbImage: environment.base_url + 'files/' + image.path,
+        image: image.path,
+        thumbImage: image.path,
         alt: image.title,
         title: image.title,
       });

@@ -12,40 +12,42 @@
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> ID </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
+        <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="number">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.NUMBER' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Number"> {{row.number}} </mat-cell>
+        <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Number"> {{row.number}} </mat-cell>
       </ng-container>
 
       <!-- stock Column -->
       <ng-container matColumnDef="capacity">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.CAPACITY' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Capacity"> {{row.capacity}} </mat-cell>
+        <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Capacity"> {{row.capacity}} </mat-cell>
       </ng-container>
 
       <!-- price Column -->
       <ng-container matColumnDef="floor">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.FLOOR' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Floor"> {{row.floor}} </mat-cell>
+        <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Floor"> {{row.floor}} </mat-cell>
       </ng-container>
 
       <!-- code Column -->
       <ng-container matColumnDef="singleBed">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.SINGLEBED' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Single bed"> {{row.singleBed }} </mat-cell>
+        <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Single bed"> {{row.singleBed }}
+        </mat-cell>
       </ng-container>
 
       <!-- code Column -->
       <ng-container matColumnDef="doubleBed">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.DOUBLEBED' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Double bed"> {{row.doubleBed}} </mat-cell>
+        <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Double bed"> {{row.doubleBed}}
+        </mat-cell>
       </ng-container>
 
-      <!-- Category Column -->
+      <!-- Available Column -->
       <ng-container matColumnDef="available">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.AVAILABLE' | translate }} </mat-header-cell>
         <mat-cell *matCellDef="let row" data-label="Available">
@@ -54,7 +56,7 @@
         </mat-cell>
       </ng-container>
 
-      <!-- Brand Column -->
+      <!-- enable Column -->
       <ng-container matColumnDef="enabled">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.ENABLED' | translate }} </mat-header-cell>
         <mat-cell *matCellDef="let row" data-label="Enabled">
@@ -70,6 +72,16 @@
         <mat-cell *matCellDef="let row" data-label="Images">
           <button mat-icon-button color="primary" (click)="openDialog(row.id, row.images)">
             <mat-icon>image</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Image managment Column -->
+      <ng-container matColumnDef="manage images">
+        <mat-header-cell *matHeaderCellDef class="no-sort">{{ 'ROOMS.MANAGEIMAGES' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Manage images">
+          <button mat-icon-button color="primary" (click)="manageImages(row.id)">
+            <mat-icon>upload</mat-icon>
           </button>
         </mat-cell>
       </ng-container>
@@ -95,7 +107,7 @@
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></mat-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
 
     </mat-table>

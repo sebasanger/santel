@@ -1,14 +1,7 @@
-import {
-  Component,
-  EventEmitter,
-  Inject,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { UpdateImage } from 'src/app/interfaces/user/update-image.interface';
 import { Store } from '@ngrx/store';
@@ -38,14 +31,11 @@ export class UploadImageComponent implements OnInit {
   changeImage(e: any) {
     const file: File = e.files[0];
     if (!file) {
-      console.log(file);
-
       this.temporalImage = null;
       return;
     }
 
     const reader = new FileReader();
-    const url64 = reader.readAsDataURL(file);
     reader.onloadend = () => {
       this.temporalImage = reader.result;
     };

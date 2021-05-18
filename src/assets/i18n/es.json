@@ -153,6 +153,7 @@
     "CREATEDAT": "Fecha de creacion",
     "UPDATEDAT": "Fecha de ultima actualizacion",
     "DELETED": "Fuera de uso",
-    "IMAGES": "Imagenes"
+    "IMAGES": "Imagenes",
+    "MANAGEIMAGES": "Gestion de imagenes"
   }
 }

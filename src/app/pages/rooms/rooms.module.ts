@@ -18,6 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { ViewImagesComponent } from './view-images/view-images.component';
+import { AddRemoveImagesComponent } from './add-remove-images/add-remove-images.component';
 @NgModule({
   declarations: [
     ViewRoomsComponent,
@@ -25,6 +26,7 @@ import { ViewImagesComponent } from './view-images/view-images.component';
     RoomsComponent,
     RoomDetailsComponent,
     ViewImagesComponent,
+    AddRemoveImagesComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,23 @@
+<mat-grid-list [cols]="cols" rowHeight="400px" *ngIf="room != null">
+  <mat-grid-tile *ngFor="let image of room.images">
+    <mat-card class="card-images">
+      <mat-card-header>
+        <mat-card-title>{{ image.title }}</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <img class="images" mat-card-image [src]="image.path" [alt]="image.title">
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Update</button>
+        <button mat-button>Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+
+<button mat-raised-button color="accent" type="button" (click)="openDialog()">
+  Upload image
+</button>

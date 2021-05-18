@@ -30,6 +30,7 @@ export class ViewRoomsComponent {
     'available',
     'enabled',
     'images',
+    'manage images',
     'edit',
     'delete',
   ];
@@ -100,7 +101,7 @@ export class ViewRoomsComponent {
   }
 
   onRowClicked(row: any) {
-    //this.router.navigateByUrl('pages/rooms/details/' + row.id);
+    this.router.navigateByUrl('pages/rooms/details/' + row.id);
   }
 
   openDialog(id: number, images: Image[]): void {
@@ -109,5 +110,9 @@ export class ViewRoomsComponent {
       height: '1000px',
       data: { id, images },
     });
+  }
+
+  manageImages(id: number) {
+    this.router.navigateByUrl('pages/rooms/images/' + id);
   }
 }
