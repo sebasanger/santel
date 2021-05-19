@@ -18,6 +18,7 @@
   </mat-grid-tile>
 
   <mat-grid-tile>
+
     <mat-card class="card-images">
       <mat-card-header>
 
@@ -44,11 +45,11 @@
       <mat-card-actions>
         <button mat-raised-button color="warn" *ngIf="temporalImage" mat-button
           (click)="clean()">{{ 'CANCEL' | translate}}</button>
-        <button mat-raised-button type="submit" color="primary" *ngIf="temporalImage" mat-button
-          (click)="saveImage()">{{ 'SAVE' | translate}}</button>
-
+        <button mat-raised-button [disabled]="titleFormControl.value == ''" type="submit" color="primary"
+          *ngIf="temporalImage" mat-button (click)="saveImage()">{{ 'SAVE' | translate}}</button>
       </mat-card-actions>
     </mat-card>
+
   </mat-grid-tile>
 
 </mat-grid-list>

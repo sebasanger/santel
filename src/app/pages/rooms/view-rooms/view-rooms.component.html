@@ -50,7 +50,7 @@
       <!-- Available Column -->
       <ng-container matColumnDef="available">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.AVAILABLE' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Available">
+        <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Available">
           <span *ngIf="row.available">{{ 'YES' | translate}}</span>
           <span *ngIf="!row.available">{{ 'NO' | translate}}</span>
         </mat-cell>
@@ -59,22 +59,24 @@
       <!-- enable Column -->
       <ng-container matColumnDef="enabled">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.ENABLED' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Enabled">
+        <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Enabled">
           <span *ngIf="row.enabled">{{ 'YES' | translate}}</span>
           <span *ngIf="!row.enabled">{{ 'NO' | translate}}</span>
         </mat-cell>
       </ng-container>
 
 
-      <!-- Images Column -->
+      <!-- view Images Column -->
       <ng-container matColumnDef="images">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.IMAGES' | translate}} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Images">
-          <button mat-icon-button color="primary" (click)="openDialog(row.id, row.images)">
+        <mat-cell *matCellDef="let row" data-label="View images">
+          <button [disabled]="row.images.length == 0" mat-icon-button color="primary"
+            (click)="openDialog(row.id, row.images)">
             <mat-icon>image</mat-icon>
           </button>
         </mat-cell>
       </ng-container>
+
 
       <!-- Image managment Column -->
       <ng-container matColumnDef="manage images">
