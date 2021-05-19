@@ -4,6 +4,7 @@
   "SAVE": "Guardar",
   "ADDF": "Agregar nueva",
   "ADDM": "Agregar nuevo",
+  "CANCEL": "Cancelar",
   "YES": "Si",
   "NO": "No",
   "COLSE": "Cerrar",
@@ -154,6 +155,7 @@
     "UPDATEDAT": "Fecha de ultima actualizacion",
     "DELETED": "Fuera de uso",
     "IMAGES": "Imagenes",
-    "MANAGEIMAGES": "Gestion de imagenes"
+    "MANAGEIMAGES": "Gestion de imagenes",
+    "UPLOADIMAGE": "Cargar imagen"
   }
 }

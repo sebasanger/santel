@@ -36,6 +36,7 @@ export class UploadImageComponent implements OnInit {
     }
 
     const reader = new FileReader();
+    const url64 = reader.readAsDataURL(file);
     reader.onloadend = () => {
       this.temporalImage = reader.result;
     };

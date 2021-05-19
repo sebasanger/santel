@@ -7,6 +7,7 @@
   "YES": "Yes",
   "NO": "No",
   "COLSE": "Close",
+  "CANCEL": "Cancel",
   "TRUE": "True",
   "FALSE": "False",
   "FILTER": "Filter",
@@ -151,6 +152,7 @@
     "UPDATEDAT": "Last update date",
     "DELETED": "Out of service",
     "IMAGES": "Images",
-    "MANAGEIMAGES": "Manage images"
+    "MANAGEIMAGES": "Manage images",
+    "UPLOADIMAGE": "Upload image"
   }
 }

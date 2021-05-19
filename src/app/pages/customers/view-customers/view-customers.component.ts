@@ -121,7 +121,7 @@ export class ViewCustomersComponent implements OnInit {
           this.loadCustomerPage();
         }, 500);
       } else {
-        Swal.fire('Cancelled', 'the customer is safe', 'error');
+        Swal.fire('Cancelled', 'the customer is safe', 'warning');
       }
     });
   }
