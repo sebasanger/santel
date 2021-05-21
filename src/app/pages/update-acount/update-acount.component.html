@@ -19,9 +19,20 @@
               </mat-error>
             </mat-form-field>
           </div>
-        </div>
-        <div class="row">
+
+
           <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Email" formControlName="email" />
+              <mat-error *ngIf="updateAcountForm.controls['email'].hasError('required')">
+                Email name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col change-image">
             <button mat-raised-button color="accent" type="button" (click)="openDialog()">
               Change avatar
             </button>
