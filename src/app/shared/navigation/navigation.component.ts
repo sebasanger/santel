@@ -70,6 +70,27 @@ export class NavigationComponent implements OnInit {
           icon: 'meeting_room',
           path: '../pages/rooms',
         },
+
+        {
+          title: this.translate.instant('MENU.REGISTERS'),
+          icon: 'point_of_sale',
+          path: '../pages/registers',
+        },
+        {
+          title: this.translate.instant('MENU.STAYS'),
+          icon: 'event',
+          path: '../pages/stays',
+        },
+        {
+          title: this.translate.instant('MENU.CONSUMPTIONS'),
+          icon: 'shopping_cart',
+          path: '../pages/consumtions',
+        },
+        {
+          title: this.translate.instant('MENU.PAYMENTS'),
+          icon: 'attach_money',
+          path: '../pages/payments',
+        },
       ];
 
       if (this.user.roles.includes('ADMIN')) {

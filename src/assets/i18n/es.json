@@ -34,7 +34,11 @@
     "PRODUCTS": "Productos",
     "CUSTOMERS": "Clientes",
     "ENTRYPRODUCTS": "Entrada de productos",
-    "ROOMS": "Habitaciones"
+    "ROOMS": "Habitaciones",
+    "REGISTERS": "Cajas",
+    "STAYS": "Estadias",
+    "PAYMENTS": "Pagos",
+    "CONSUMPTIONS": "Consumiciones"
   },
   "DASHBOARD": {
     "TITLE": "Inicio"
@@ -157,5 +161,19 @@
     "IMAGES": "Imagenes",
     "MANAGEIMAGES": "Gestion de imagenes",
     "UPLOADIMAGE": "Cargar imagen"
+  },
+  "REGISTERS": {
+    "REGISTERS": "Cajas",
+    "REGISTER": "Caja",
+    "ADD": "Abrir caja",
+    "BALANCE": "Saldo",
+    "OPENDATE": "Fecha de apertura",
+    "CLOSEDATE": "Fecha de cierre",
+    "OPENMOUNT": "Monto de apertura",
+    "CLOSEMOUNT": "Monto de cierre",
+    "STATUS": "Estado",
+    "ACTIVE": "En uso",
+    "DEACTIVATE": "Cerrada",
+    "USER": "A cargo"
   }
 }

@@ -9,6 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { RoomsComponent } from './rooms/rooms.component';
+import { RegistersComponent } from './registers/registers.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,13 @@ const routes: Routes = [
         component: RoomsComponent,
         loadChildren: () =>
           import('./rooms/rooms.module').then((m) => m.RoomsModule),
+      },
+      {
+        path: 'registers',
+        canActivate: [AdminGuard],
+        component: RegistersComponent,
+        loadChildren: () =>
+          import('./registers/registers.module').then((m) => m.RegistersModule),
       },
       {
         path: 'administration',

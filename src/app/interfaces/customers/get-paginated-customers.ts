@@ -1,19 +1,17 @@
+import { User } from 'src/app/models/user.model';
+
 export interface GetPaginatedCustomers {
   content: [
     {
       id: number;
-      name: string;
-      surname: string;
-      email: string;
-      dni: string;
-      brithday: Date;
-      cuil: string;
-      cuit: string;
-      phone: string;
-      telephone: string;
-      invoiceType: {
-        type: string;
-      };
+      active: boolean;
+      balance: number;
+      closeMount: number;
+      openMount: number;
+      closeTime: Date;
+      createdAt: Date;
+      updatedAt: Date;
+      user: User;
     }
   ];
   pageable: {

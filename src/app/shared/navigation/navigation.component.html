@@ -9,11 +9,12 @@
 
       <a (click)="setTitle(menuItem.title)" *ngFor="let menuItem of menuItems" mat-list-item
         [routerLink]="[menuItem.path]" routerLinkActive="item-selected">
-        <mat-icon class="menu-icon" color="danger">{{ menuItem.icon }}</mat-icon>{{ menuItem.title}}
+        <mat-icon color="accent" class="menu-icon">{{ menuItem.icon }}</mat-icon>{{ menuItem.title}}
       </a>
 
       <a [matMenuTriggerFor]="administration" mat-list-item *ngIf="user != null && user.roles.includes('ADMIN')">
-        <mat-icon class="menu-icon" color="danger">settings</mat-icon>{{ 'MENU.ADMINISTRATION' | translate }}
+        <mat-icon color="accent" class="menu-icon">settings</mat-icon>
+        {{ 'MENU.ADMINISTRATION' | translate }}
       </a>
 
       <mat-menu #administration="matMenu">

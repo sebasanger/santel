@@ -34,7 +34,11 @@
     "PRODUCTS": "Products",
     "CUSTOMERS": "Customers",
     "ENTRYPRODUCTS": "Entry products",
-    "ROOMS": "Rooms"
+    "ROOMS": "Rooms",
+    "REGISTERS": "Registers",
+    "STAYS": "Stays",
+    "PAYMENTS": "Payments",
+    "CONSUMPTIONS": "Consumtions"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -154,5 +158,19 @@
     "IMAGES": "Images",
     "MANAGEIMAGES": "Manage images",
     "UPLOADIMAGE": "Upload image"
+  },
+  "REGISTERS": {
+    "REGISTERS": "Registers",
+    "REGISTER": "Register",
+    "ADD": "Open register",
+    "BALANCE": "Balance",
+    "OPENDATE": "Open date",
+    "CLOSEDATE": "Close date",
+    "OPENMOUNT": "Open mount",
+    "CLOSEMOUNT": "Close mount",
+    "STATUS": "Status",
+    "ACTIVE": "In use",
+    "DEACTIVATE": "Close",
+    "USER": "in charge"
   }
 }
