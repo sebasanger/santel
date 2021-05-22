@@ -41,6 +41,9 @@ const entityMetadata: EntityMetadataMap = {
   Register: {
     entityDispatcherOptions: { optimisticDelete: false },
   },
+  Room: {
+    entityDispatcherOptions: { optimisticDelete: false },
+  },
 };
 
 const pluralNames = {

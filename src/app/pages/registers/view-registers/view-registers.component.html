@@ -1,6 +1,6 @@
 <div class="head">
   <div>
-    <button mat-raised-button color="accent" (click)="openDialog()" class="add-button">
+    <button mat-raised-button color="accent" (click)="openRegister()" class="add-button">
       {{ 'REGISTERS.ADD' | translate }}
     </button>
   </div>
@@ -17,49 +17,53 @@
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
     </ng-container>
 
     <!-- balance Column -->
     <ng-container matColumnDef="balance">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.BALANCE' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Balance"> {{ row.balance }} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Balance"> {{ row.balance }} </mat-cell>
     </ng-container>
 
     <!-- createdAt Column -->
     <ng-container matColumnDef="createdAt">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.OPENDATE' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Open date"> {{row.createdAt | date:'hh:mm dd/MM/yyy'}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Open date">
+        {{row.createdAt | date:'hh:mm dd/MM/yyy'}} </mat-cell>
     </ng-container>
 
     <!-- roles Column -->
     <ng-container matColumnDef="closeTime">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.CLOSEDATE' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Clsoe date"> {{row.closeTime | date:'hh:mm dd/MM/yyy'}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Clsoe date">
+        {{row.closeTime | date:'hh:mm dd/MM/yyy'}} </mat-cell>
     </ng-container>
 
     <!-- openMount Column -->
     <ng-container matColumnDef="openMount">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.OPENMOUNT' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Open mount"> {{row.openMount}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Open mount"> {{row.openMount}} </mat-cell>
     </ng-container>
 
     <!-- closeMount Column -->
     <ng-container matColumnDef="closeMount">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.CLOSEMOUNT' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Close mount"> {{row.closeMount}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Close mount"> {{row.closeMount}}
+      </mat-cell>
     </ng-container>
 
     <!-- closeMount Column -->
     <ng-container matColumnDef="user">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.USER' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="In charge"> {{row.user.fullName}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="In charge"> {{row.user.fullName}}
+      </mat-cell>
     </ng-container>
 
     <!-- active Column -->
     <ng-container matColumnDef="active">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.STATUS' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Status">
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Status">
         <span *ngIf="row.active"> {{ 'REGISTERS.ACTIVE' | translate }} </span>
         <span *ngIf="!row.active"> {{ 'REGISTERS.DEACTIVATE' | translate }} </span>
       </mat-cell>
@@ -79,7 +83,7 @@
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="edit">
-        <button mat-icon-button color="accent" (click)="openDialog(row.id, row.openMount)">
+        <button [disabled]="!row.active" mat-icon-button color="accent" (click)="openRegister(row.id, row.openMount)">
           <mat-icon>edit</mat-icon>
         </button>
       </mat-cell>
@@ -89,14 +93,14 @@
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'DELETE' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="delete">
-        <button mat-icon-button color="warn" (click)="deleteRegister(row.id)">
+        <button [disabled]="!row.active" mat-icon-button color="warn" (click)="deleteRegister(row.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"> </mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
 
   </mat-table>
 

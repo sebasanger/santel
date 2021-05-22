@@ -19,6 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CloseRegisterComponent } from './close-register/close-register.component';
+import { PaymentsTableComponent } from './register-details/payments-table/payments-table.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CloseRegisterComponent } from './close-register/close-register.componen
     CreateUpdateRegisterComponent,
     RegisterDetailsComponent,
     CloseRegisterComponent,
+    PaymentsTableComponent,
   ],
   imports: [
     CommonModule,

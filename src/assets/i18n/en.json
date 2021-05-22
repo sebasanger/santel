@@ -174,5 +174,13 @@
     "DEACTIVATE": "Close",
     "USER": "in charge",
     "CLOSEREGISTER": "Close register"
+  },
+  "PAYMENTS": {
+    "PAYMENTS": "Payments",
+    "PAYMENT": "Payment",
+    "STAY": "Stay",
+    "USER": "User",
+    "AMOUNT": "Amount",
+    "METHOD": "Method"
   }
 }

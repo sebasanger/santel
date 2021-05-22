@@ -1,1 +1,50 @@
-<p>register-details works!</p>
+<section>
+  <div class="grid-container animate__animated animate__fadeIn animate__delay-0.4s">
+    <mat-grid-list [cols]="cols" rowHeight="550px">
+      <mat-grid-tile>
+        <mat-card *ngIf="register != null">
+          <mat-card-header>
+            <mat-card-title> {{ 'REGISTERS.USER' | translate}}: {{ register.user.fullName }}</mat-card-title>
+            <mat-card-subtitle>ID: {{register.id}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ 'REGISTERS.BALANCE' | translate}}: {{register.balance || ''}}
+            </p>
+            <p>
+              {{ 'REGISTERS.OPENDATE' | translate}}: {{register.createdAt |  date: 'dd/MM/yyyy'}}
+            </p>
+            <p *ngIf="register.closeTime != null">
+              {{ 'REGISTERS.CLOSEDATE' | translate}}: {{register.closeTime |  date: 'dd/MM/yyyy'}}
+            </p>
+            <p>
+              {{ 'REGISTERS.OPENMOUNT' | translate}}: {{register.openMount}}
+            </p>
+            <p *ngIf="register.closeMount != null">
+              {{ 'REGISTERS.CLOSEMOUNT' | translate}}: {{register.closeMount}}
+            </p>
+            <p>
+              {{ 'REGISTERS.STATUS' | translate}}:
+              <span *ngIf="register.active">{{ 'REGISTERS.ACTIVE'| translate}}</span>
+              <span *ngIf="!register.active">{{ 'REGISTERS.DEACTIVATE'| translate}}</span>
+            </p>
+
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button color="accent" (click)="editRegister(register.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteRegister(register.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile *ngIf="payments">
+        <app-payments-table class="payments" [payments]="payments"></app-payments-table>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </div>
+</section>

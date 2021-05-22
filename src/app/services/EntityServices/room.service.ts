@@ -4,7 +4,6 @@ import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory,
 } from '@ngrx/data';
-import { tap } from 'rxjs/operators';
 import { UploadRoomImagePayload } from 'src/app/interfaces/rooms/upload-room-image.interface';
 import { Room } from 'src/app/models/room.model';
 import { environment } from 'src/environments/environment';

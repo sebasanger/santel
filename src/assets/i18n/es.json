@@ -178,5 +178,13 @@
     "USER": "A cargo",
     "CLOSE": "Cerrar",
     "CLOSEREGISTER": "Cerrar caja"
+  },
+  "PAYMENTS": {
+    "PAYMENTS": "Pagos",
+    "PAYMENT": "Pago",
+    "STAY": "Estadia",
+    "USER": "Encargado",
+    "AMOUNT": "Valor",
+    "METHOD": "Metodo"
   }
 }

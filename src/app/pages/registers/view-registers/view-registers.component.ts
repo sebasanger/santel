@@ -134,7 +134,7 @@ export class ViewRegistersComponent implements OnInit {
       data: { id },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(() => {
       this.loadRegisterPage();
     });
   }
@@ -143,7 +143,7 @@ export class ViewRegistersComponent implements OnInit {
     this.router.navigateByUrl('pages/registers/details/' + row.id);
   }
 
-  openDialog(id?: number, openMount?: number): void {
+  openRegister(id?: number, openMount?: number): void {
     this.dialog.open(CreateUpdateRegisterComponent, {
       width: '600px',
       height: '400px',
