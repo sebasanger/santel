@@ -6,4 +6,6 @@ export const setPaginatedRegisters = createAction(
   props<{ paginatedRegisters: GetPaginatedRegisters }>()
 );
 
+export const closeRegister = createAction('[Register]  Set close register...');
+
 export const clearUsers = createAction('[Register] Clear registers');

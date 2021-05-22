@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CloseRegisterComponent } from './close-register/close-register.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ViewRegistersComponent,
     CreateUpdateRegisterComponent,
     RegisterDetailsComponent,
+    CloseRegisterComponent,
   ],
   imports: [
     CommonModule,

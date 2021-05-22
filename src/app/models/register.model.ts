@@ -23,12 +23,12 @@ export class Register {
 }
 
 export interface RegisterInterface {
-  id: number;
-  user: User;
-  balance: number;
-  active: boolean;
-  openMount: number;
-  closeMount: number;
-  createdAt: Date;
-  closeTime: Date;
+  id?: number;
+  user?: User;
+  balance?: number;
+  active?: boolean;
+  openMount?: number;
+  closeMount?: number;
+  createdAt?: Date;
+  closeTime?: Date;
 }

@@ -16,14 +16,6 @@ const routes: Routes = [
         path: 'create',
         component: CreateUpdateRegisterComponent,
       },
-      {
-        path: 'update/:id',
-        component: CreateUpdateRegisterComponent,
-      },
-      {
-        path: 'details/:id',
-        component: RegisterDetailsComponent,
-      },
 
       { path: '**', redirectTo: '' },
     ],

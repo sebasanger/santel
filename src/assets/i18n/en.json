@@ -163,6 +163,7 @@
     "REGISTERS": "Registers",
     "REGISTER": "Register",
     "ADD": "Open register",
+    "UPDATE": "Update register",
     "BALANCE": "Balance",
     "OPENDATE": "Open date",
     "CLOSEDATE": "Close date",
@@ -171,6 +172,7 @@
     "STATUS": "Status",
     "ACTIVE": "In use",
     "DEACTIVATE": "Close",
-    "USER": "in charge"
+    "USER": "in charge",
+    "CLOSEREGISTER": "Close register"
   }
 }

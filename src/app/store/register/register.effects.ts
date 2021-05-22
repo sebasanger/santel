@@ -4,6 +4,7 @@ import { catchError, map, mergeMap } from 'rxjs/operators';
 import * as registerApiActions from './register.api.actions';
 import * as registerActions from './register.actions';
 import { RegisterService } from 'src/app/services/EntityServices/register.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class RegisterEffects {
     private registerService: RegisterService
   ) {}
 
-  getPaginatedUsers$ = createEffect(() => {
+  getPaginatedRegisters$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(registerApiActions.getRegistersPaginated),
       mergeMap((action) => {
@@ -31,6 +32,25 @@ export class RegisterEffects {
               return registerActions.setPaginatedRegisters({
                 paginatedRegisters: res,
               });
+            }),
+            catchError((error: any) => {
+              throw error;
+            })
+          );
+      })
+    );
+  });
+
+  closeRegister$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(registerApiActions.apiCloseRegister),
+      mergeMap((action) => {
+        return this.registerService
+          .closeRegister(action.closeRegisterPayload)
+          .pipe(
+            map((res: any) => {
+              Swal.fire('Success', 'Register now is closed', 'success');
+              return registerActions.closeRegister();
             }),
             catchError((error: any) => {
               throw error;

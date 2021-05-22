@@ -7,6 +7,7 @@ import {
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { GetPaginatedCustomers } from 'src/app/interfaces/customers/get-paginated-customers';
+import { CloseRegisterPayload } from 'src/app/interfaces/registers/closer-register-payload';
 import { GetPaginatedRegisters } from 'src/app/interfaces/registers/get-paginated-registers';
 import { Register } from 'src/app/models/register.model';
 import { getRegistersPaginated } from 'src/app/store/register/register.api.actions';
@@ -66,6 +67,13 @@ export class RegisterService extends EntityCollectionServiceBase<Register> {
         sortDirection,
         sort,
       })
+    );
+  }
+
+  closeRegister(closeRegisterPayload: CloseRegisterPayload) {
+    return this.http.put<null>(
+      `${base_url}register/close/${closeRegisterPayload.id}`,
+      closeRegisterPayload
     );
   }
 }

@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as CustomerActions from './register.actions';
+import * as registerActions from './register.actions';
 import { User } from '../../models/user.model';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -15,6 +15,7 @@ export interface State extends EntityState<User> {
   paginatedRegisters: GetPaginatedRegisters;
   error: HttpErrorResponse;
   loading: boolean;
+  activateRegister: Register;
 }
 export const initialState: State = registerAdapter.getInitialState({
   entities: null,
@@ -22,17 +23,22 @@ export const initialState: State = registerAdapter.getInitialState({
   loading: false,
   ids: null,
   paginatedRegisters: null,
+  activateRegister: null,
 });
 
 export const registerReducer = createReducer(
   initialState,
   on(
-    CustomerActions.setPaginatedRegisters,
+    registerActions.setPaginatedRegisters,
     (state, { paginatedRegisters }) => ({
       ...state,
       paginatedRegisters,
       error: null,
       loading: false,
     })
-  )
+  ),
+  on(registerActions.closeRegister, (state) => ({
+    ...state,
+    activateRegister: null,
+  }))
 );

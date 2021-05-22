@@ -166,6 +166,7 @@
     "REGISTERS": "Cajas",
     "REGISTER": "Caja",
     "ADD": "Abrir caja",
+    "UPDATE": "Modificar caja",
     "BALANCE": "Saldo",
     "OPENDATE": "Fecha de apertura",
     "CLOSEDATE": "Fecha de cierre",
@@ -174,6 +175,8 @@
     "STATUS": "Estado",
     "ACTIVE": "En uso",
     "DEACTIVATE": "Cerrada",
-    "USER": "A cargo"
+    "USER": "A cargo",
+    "CLOSE": "Cerrar",
+    "CLOSEREGISTER": "Cerrar caja"
   }
 }

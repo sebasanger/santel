@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { CloseRegisterPayload } from 'src/app/interfaces/registers/closer-register-payload';
 
 export const getRegistersPaginated = createAction(
   '[REGISTER API]  Api get register paginated...',
@@ -8,5 +9,12 @@ export const getRegistersPaginated = createAction(
     sort: string;
     pageIndex: number;
     pageSize: number;
+  }>()
+);
+
+export const apiCloseRegister = createAction(
+  '[REGISTER API]  Api get register paginated...',
+  props<{
+    closeRegisterPayload: CloseRegisterPayload;
   }>()
 );
