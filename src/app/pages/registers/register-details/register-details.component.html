@@ -41,9 +41,27 @@
         </mat-card>
       </mat-grid-tile>
 
-      <mat-grid-tile *ngIf="payments">
-        <app-payments-table class="payments" [payments]="payments"></app-payments-table>
+      <mat-grid-tile>
+
+        <mat-tab-group class="tabs-extras">
+
+          <mat-tab label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
+            <div *ngIf="payments">
+              <app-payments-table [payments]="payments"></app-payments-table>
+            </div>
+
+          </mat-tab>
+
+          <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
+            <div *ngIf="consumptions">
+              <app-consumptions-table [consumptions]="consumptions"></app-consumptions-table>
+            </div>
+          </mat-tab>
+
+        </mat-tab-group>
+
       </mat-grid-tile>
+
 
     </mat-grid-list>
   </div>

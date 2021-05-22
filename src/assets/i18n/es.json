@@ -186,5 +186,15 @@
     "USER": "Encargado",
     "AMOUNT": "Valor",
     "METHOD": "Metodo"
+  },
+  "CONSUMPTIONS": {
+    "CONSUMPTIONS": "Consumciones",
+    "CONSUMPTION": "Consumicion",
+    "STAY": "Estadia",
+    "USER": "Encargado",
+    "AMOUNT": "Cantidad",
+    "METHOD": "Metodo de pago",
+    "PRICE": "Precio",
+    "PRODUCT": "Producto"
   }
 }

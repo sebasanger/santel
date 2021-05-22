@@ -182,5 +182,15 @@
     "USER": "User",
     "AMOUNT": "Amount",
     "METHOD": "Method"
+  },
+  "CONSUMPTIONS": {
+    "CONSUMPTIONS": "Consumptions",
+    "CONSUMPTION": "Consumption",
+    "STAY": "Stay",
+    "USER": "User",
+    "AMOUNT": "Amount",
+    "METHOD": "Method",
+    "PRICE": "Price",
+    "PRODUCT": "Product"
   }
 }

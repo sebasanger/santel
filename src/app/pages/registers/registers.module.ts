@@ -20,7 +20,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CloseRegisterComponent } from './close-register/close-register.component';
 import { PaymentsTableComponent } from './register-details/payments-table/payments-table.component';
-
+import { ConsumptionsTableComponent } from './register-details/consumptions-table/consumptions-table.component';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     RegistersComponent,
@@ -29,6 +30,7 @@ import { PaymentsTableComponent } from './register-details/payments-table/paymen
     RegisterDetailsComponent,
     CloseRegisterComponent,
     PaymentsTableComponent,
+    ConsumptionsTableComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +48,7 @@ import { PaymentsTableComponent } from './register-details/payments-table/paymen
     FlexLayoutModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTabsModule,
   ],
 })
 export class RegistersModule {}

@@ -3,35 +3,42 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Payment } from 'src/app/models/payment.model';
-import { PaymentService } from 'src/app/services/EntityServices/payment.service';
+import { Consumption } from 'src/app/models/consuption.model';
+import { ConsumptionService } from 'src/app/services/EntityServices/consumption.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-payments-table',
-  templateUrl: './payments-table.component.html',
-  styleUrls: ['./payments-table.component.scss'],
+  selector: 'app-consumptions-table',
+  templateUrl: './consumptions-table.component.html',
+  styleUrls: ['./consumptions-table.component.scss'],
 })
-export class PaymentsTableComponent implements OnInit {
-  @Input() payments: Payment[];
+export class ConsumptionsTableComponent implements OnInit {
+  @Input() consumptions: Consumption[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  public dataSource: MatTableDataSource<Payment>;
+  public dataSource: MatTableDataSource<Consumption>;
 
-  displayedColumns: string[] = ['amount', 'method', 'user', 'delete'];
+  displayedColumns: string[] = [
+    'amount',
+    'price',
+    'product',
+    'method',
+    'user',
+    'delete',
+  ];
 
   constructor(
     public dialog: MatDialog,
-    private paymentService: PaymentService
+    private consumptionService: ConsumptionService
   ) {}
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.payments);
+    this.dataSource = new MatTableDataSource(this.consumptions);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
-  delete(payment: Payment) {
+  delete(consumption: Consumption) {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -42,9 +49,9 @@ export class PaymentsTableComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!',
     }).then((result: any) => {
       if (result.isConfirmed) {
-        this.paymentService.delete(payment.id);
+        this.consumptionService.delete(consumption.id);
       } else {
-        Swal.fire('Cancelled', 'The payment is safe', 'success');
+        Swal.fire('Cancelled', 'The consumption is safe', 'success');
       }
     });
   }
