@@ -10,6 +10,9 @@ import { CustomersComponent } from './customers/customers.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RegistersComponent } from './registers/registers.component';
+import { StaysComponent } from './stays/stays.component';
+import { ConsumptionsComponent } from './consumptions/consumptions.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 const routes: Routes = [
   {
@@ -36,10 +39,30 @@ const routes: Routes = [
           import('./users/users.module').then((m) => m.UsersModule),
       },
       {
+        path: 'stays',
+        component: StaysComponent,
+        loadChildren: () =>
+          import('./stays/stays.module').then((m) => m.StaysModule),
+      },
+      {
         path: 'customers',
         component: CustomersComponent,
         loadChildren: () =>
           import('./customers/customers.module').then((m) => m.CustomersModule),
+      },
+      {
+        path: 'payments',
+        component: PaymentsComponent,
+        loadChildren: () =>
+          import('./payments/payments.module').then((m) => m.PaymentsModule),
+      },
+      {
+        path: 'consumptions',
+        component: ConsumptionsComponent,
+        loadChildren: () =>
+          import('./consumptions/consumptions.module').then(
+            (m) => m.ConsumptionsModule
+          ),
       },
       {
         path: 'products',

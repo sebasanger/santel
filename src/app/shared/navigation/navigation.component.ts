@@ -84,7 +84,7 @@ export class NavigationComponent implements OnInit {
         {
           title: this.translate.instant('MENU.CONSUMPTIONS'),
           icon: 'shopping_cart',
-          path: '../pages/consumtions',
+          path: '../pages/consumptions',
         },
         {
           title: this.translate.instant('MENU.PAYMENTS'),
