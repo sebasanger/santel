@@ -5,6 +5,7 @@ import { authRoot } from './auth/indexAuth';
 import { userRoot } from './user/indexUser';
 import { customerRoot } from './customer/indexCustomer';
 import { registerRoot } from './register/indexCustomer';
+import { paymentRoot } from './payments/indexPAyment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
@@ -19,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       user: userRoot.userReducer,
       customer: customerRoot.customerReducer,
       register: registerRoot.registerReducer,
+      payment: paymentRoot.paymentReducer,
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
@@ -29,6 +31,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       userRoot.UserEffects,
       customerRoot.CustomerEffects,
       registerRoot.RegisterEffects,
+      paymentRoot.PaymentEffects,
     ]),
     CommonModule,
   ],

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { GetPaginatedCustomers } from 'src/app/interfaces/customers/get-paginated-customers';
 import { Customer } from 'src/app/models/customer.model';
 import { getCustomersPaginated } from 'src/app/store/customer/customer.api.actions';
-import { selectPaginatedUsers } from 'src/app/store/customer/customer.selectors';
+import { selectPaginatedCustomers } from 'src/app/store/customer/customer.selectors';
 import { environment } from 'src/environments/environment';
 
 const base_url = environment.base_url;
@@ -27,7 +27,7 @@ export class CustomerService extends EntityCollectionServiceBase<Customer> {
     super('Customer', serviceElementsFactory);
 
     this.paginatedCustomers$ = this.customerStore.pipe(
-      select(selectPaginatedUsers)
+      select(selectPaginatedCustomers)
     );
   }
 

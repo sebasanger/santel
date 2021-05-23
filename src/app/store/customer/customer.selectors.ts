@@ -5,7 +5,7 @@ export const customerStateSelector = createFeatureSelector<fromCustomer.State>(
   fromCustomer.customerFeatureKey
 );
 
-export const selectPaginatedUsers = createSelector(
+export const selectPaginatedCustomers = createSelector(
   customerStateSelector,
   (state: fromCustomer.State) => state.paginatedCustomers
 );
