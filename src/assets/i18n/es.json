@@ -183,9 +183,11 @@
     "PAYMENTS": "Pagos",
     "PAYMENT": "Pago",
     "STAY": "Estadia",
+    "REGISTER": "Caja",
     "USER": "Encargado",
     "AMOUNT": "Valor",
-    "METHOD": "Metodo"
+    "METHOD": "Metodo",
+    "ADD": "Agregar pago"
   },
   "CONSUMPTIONS": {
     "CONSUMPTIONS": "Consumciones",
@@ -195,6 +197,9 @@
     "AMOUNT": "Cantidad",
     "METHOD": "Metodo de pago",
     "PRICE": "Precio",
-    "PRODUCT": "Producto"
+    "PAID": "Pagado",
+    "REGISTER": "Caja",
+    "PRODUCT": "Producto",
+    "ADD": "Agregar consumicion"
   }
 }

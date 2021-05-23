@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import * as customerApiActions from './customer.api.actions';
-import * as customerActions from './customer.actions';
-import { CustomerService } from 'src/app/services/EntityServices/customer.service';
+import * as consumptionApiActions from './consumption.api.actions';
+import * as consumptionActions from './consumption.actions';
+import { ConsumptionService } from 'src/app/services/EntityServices/consumption.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CustomerEffects {
+export class ConsumptionEffects {
   constructor(
     private actions$: Actions,
-    private customerService: CustomerService
+    private consumptionService: ConsumptionService
   ) {}
 
   getPaginatedUsers$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(customerApiActions.getCustomersPaginated),
+      ofType(consumptionApiActions.getConsumptionsPaginated),
       mergeMap((action) => {
-        return this.customerService
-          .paginatedCustomers(
+        return this.consumptionService
+          .paginatedConsumptions(
             action.filter,
             action.sortDirection,
             action.sort,
@@ -28,8 +28,8 @@ export class CustomerEffects {
           )
           .pipe(
             map((res: any) => {
-              return customerActions.setPaginatedCustomers({
-                paginatedCustomers: res,
+              return consumptionActions.setPaginatedConsumptions({
+                paginatedConsumptions: res,
               });
             }),
             catchError((error: any) => {

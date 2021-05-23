@@ -179,9 +179,11 @@
     "PAYMENTS": "Payments",
     "PAYMENT": "Payment",
     "STAY": "Stay",
-    "USER": "User",
+    "REGISTER": "Register",
+    "USER": "In charge",
     "AMOUNT": "Amount",
-    "METHOD": "Method"
+    "METHOD": "Method",
+    "ADD": "Add payment"
   },
   "CONSUMPTIONS": {
     "CONSUMPTIONS": "Consumptions",
@@ -191,6 +193,9 @@
     "AMOUNT": "Amount",
     "METHOD": "Method",
     "PRICE": "Price",
-    "PRODUCT": "Product"
+    "PAID": "Paid",
+    "REGISTER": "Register",
+    "PRODUCT": "Product",
+    "ADD": "Add consumption"
   }
 }

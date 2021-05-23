@@ -1,7 +1,7 @@
 <div class="head">
   <div>
     <button mat-raised-button color="accent" (click)="addNewPayment()" class="add-button">
-      {{ 'CUSTOMERS.ADD' | translate }}
+      {{ 'PAYMENTS.ADD' | translate }}
     </button>
   </div>
   <div>
@@ -20,37 +20,37 @@
       <mat-cell *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
     </ng-container>
 
-    <!-- fullName Column -->
+    <!-- amount Column -->
     <ng-container matColumnDef="amount">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.FULLNAME' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Name"> {{row.amount }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.AMOUNT' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Amount"> {{row.amount }} </mat-cell>
     </ng-container>
 
-    <!-- roles Column -->
+    <!-- method Column -->
     <ng-container matColumnDef="method">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.DNI' | translate }} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.METHOD' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="dni"> {{row.paymentMethod}} </mat-cell>
     </ng-container>
 
-    <!-- roles Column -->
+    <!-- register Column -->
     <ng-container matColumnDef="register">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.BIRTHDAY' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="birthday"> {{row.registerId  }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.REGISTER' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Register"> {{row.registerId  }} </mat-cell>
     </ng-container>
 
-    <!-- email Column -->
+    <!-- stay Column -->
     <ng-container matColumnDef="stay">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.EMAIL' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="email"> {{row.stayId}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.STAY' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Stay"> {{row.stayId}} </mat-cell>
     </ng-container>
 
-    <!-- email Column -->
+    <!-- user Column -->
     <ng-container matColumnDef="user">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CUSTOMERS.EMAIL' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="email"> {{row.user}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.USER' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="User"> {{row.user}} </mat-cell>
     </ng-container>
 
-    <!-- delete Column -->
+    <!-- edit Column -->
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="edit">

@@ -7,6 +7,7 @@ export interface GetPaginatedPayments {
   content: [
     {
       id: number;
+      amount: number;
       paymentMethod: PaymentMethod;
       register: Register;
       stay: Stay;
