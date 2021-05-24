@@ -197,5 +197,21 @@
     "REGISTER": "Register",
     "PRODUCT": "Product",
     "ADD": "Add consumption"
+  },
+  "STAYS": {
+    "STAYS": "Stays",
+    "STAY": "Stay",
+    "ROOM": "Room",
+    "TOTALGUEST": "Total guests",
+    "CHECKIN": "Check in",
+    "CHECKOUT": "Check out",
+    "ACTIVE": "Status",
+    "REASON": "Reason",
+    "PRICE": "Price",
+    "PAID": "Total paid",
+    "TOTALTOPAY": "Total to pay",
+    "PRICEPERDAY": "Precio por dia",
+    "ADD": "Add stay",
+    "STATUS": "Status"
   }
 }

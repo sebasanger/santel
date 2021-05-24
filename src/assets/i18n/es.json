@@ -201,5 +201,21 @@
     "REGISTER": "Caja",
     "PRODUCT": "Producto",
     "ADD": "Agregar consumicion"
+  },
+  "STAYS": {
+    "STAYS": "Estadias",
+    "STAY": "Estadia",
+    "ROOM": "Habitacion",
+    "TOTALGUEST": "Total de huespedes",
+    "CHECKIN": "Ingreso",
+    "CHECKOUT": "Egreso",
+    "ACTIVE": "Estado",
+    "REASON": "Razon",
+    "PRICE": "PRecio",
+    "PAID": "Total pagado",
+    "TOTALTOPAY": "Total a pagar",
+    "PRICEPERDAY": "Price per day",
+    "ADD": "Agregar estadia",
+    "STATUS": "Estado"
   }
 }

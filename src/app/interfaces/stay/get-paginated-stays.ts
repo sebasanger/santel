@@ -1,12 +1,17 @@
-export interface GetPaginatedPayments {
+export interface GetPaginatedStays {
   content: [
     {
       id: number;
-      amount: number;
-      paymentMethod: string;
-      register: number;
-      stay: number;
-      user: string;
+      room: string;
+      totalGuest: number;
+      checkIn: Date;
+      checkOut: Date;
+      active: Boolean;
+      reason: string;
+      price: number;
+      pricePerDay: number;
+      paid: number;
+      totalToPay: number;
       createdAt: Date;
       updatedAt: Date;
     }
