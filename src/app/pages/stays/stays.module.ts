@@ -16,9 +16,19 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { StaysRouting } from './stays.routing';
+import { StayDetailsComponent } from './stay-details/stay-details.component';
+import { ConsumptionsTableComponent } from './stay-details/consumptions-table/consumptions-table.component';
+import { PaymentsTableComponent } from './stay-details/payments-table/payments-table.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
-  declarations: [StaysComponent, ViewStaysComponent],
+  declarations: [
+    StaysComponent,
+    ViewStaysComponent,
+    StayDetailsComponent,
+    ConsumptionsTableComponent,
+    PaymentsTableComponent,
+  ],
   imports: [
     CommonModule,
     StaysRouting,
@@ -35,6 +45,7 @@ import { StaysRouting } from './stays.routing';
     FlexLayoutModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTabsModule,
   ],
 })
 export class StaysModule {}

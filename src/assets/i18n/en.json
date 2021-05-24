@@ -205,13 +205,17 @@
     "TOTALGUEST": "Total guests",
     "CHECKIN": "Check in",
     "CHECKOUT": "Check out",
-    "ACTIVE": "Status",
+    "ACTIVE": "Active",
+    "FINISHED": "Finished",
+    "STATUS": "Status",
     "REASON": "Reason",
     "PRICE": "Price",
     "PAID": "Total paid",
     "TOTALTOPAY": "Total to pay",
     "PRICEPERDAY": "Precio por dia",
     "ADD": "Add stay",
-    "STATUS": "Status"
+    "CREATEDAT": "Creation date",
+    "UPDATEDAT": "Update date",
+    "CUSTOMERNAME": "Customer "
   }
 }

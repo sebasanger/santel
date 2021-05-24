@@ -206,16 +206,20 @@
     "STAYS": "Estadias",
     "STAY": "Estadia",
     "ROOM": "Habitacion",
+    "ACTIVE": "Activa",
+    "FINISHED": "Finalizada",
     "TOTALGUEST": "Total de huespedes",
     "CHECKIN": "Ingreso",
     "CHECKOUT": "Egreso",
-    "ACTIVE": "Estado",
+    "STATUS": "Estado",
     "REASON": "Razon",
-    "PRICE": "PRecio",
+    "PRICE": "Precio",
     "PAID": "Total pagado",
     "TOTALTOPAY": "Total a pagar",
     "PRICEPERDAY": "Price per day",
     "ADD": "Agregar estadia",
-    "STATUS": "Estado"
+    "CREATEDAT": "Fecha de creacion",
+    "UPDATEDAT": "Fecha de actualizacion",
+    "CUSTOMERNAME": "Huesped "
   }
 }

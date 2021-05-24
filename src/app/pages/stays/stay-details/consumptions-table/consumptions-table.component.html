@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="mat-elevation-z8">
+    <table class="table" mat-table matSortActive="amount" matSortDirection="asc" [dataSource]="dataSource" matSort>
+
+      <!-- amount Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CONSUMPTIONS.AMOUNT' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.amount}} </td>
+      </ng-container>
+
+      <!-- Method Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CONSUMPTIONS.PRICE' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.price}} </td>
+      </ng-container>
+
+      <!-- Method Column -->
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CONSUMPTIONS.PRODUCT' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.product.name}} </td>
+      </ng-container>
+
+
+      <!-- Method Column -->
+      <ng-container matColumnDef="method">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CONSUMPTIONS.METHOD' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.paymentMethod.method }} </td>
+      </ng-container>
+
+
+      <!-- user Column -->
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CONSUMPTIONS.USER' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.user.fullName}} </td>
+      </ng-container>
+
+      <!-- delete Column -->
+      <ng-container matColumnDef="delete">
+        <th class="delete-extras" mat-header-cell *matHeaderCellDef> {{ 'DELETE' | translate }} </th>
+        <td class="delete-extras" mat-cell *matCellDef="let row">
+          <button mat-icon-button color="warn" (click)="delete(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10,15]"></mat-paginator>
+  </div>
+</div>

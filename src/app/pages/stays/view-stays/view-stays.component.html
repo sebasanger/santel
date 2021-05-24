@@ -17,69 +17,81 @@
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
     </ng-container>
 
     <!-- room Column -->
     <ng-container matColumnDef="room">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.ROOM' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Room"> {{row.room }} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Room"> {{row.room }} </mat-cell>
     </ng-container>
 
     <!-- totalGuest Column -->
     <ng-container matColumnDef="totalGuest">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.TOTALGUEST' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Total guests"> {{row.totalGuest}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'STAYS.TOTALGUEST' | translate }}
+      </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Total guests"> {{row.totalGuest}}
+      </mat-cell>
     </ng-container>
 
-    <!-- totalGuest Column -->
+    <!-- active Column -->
     <ng-container matColumnDef="active">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.STATUS' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Status"> {{row.active}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Status">
+        <span *ngIf="row.active">{{ 'STAYS.ACTIVE' | translate}}</span>
+        <span *ngIf="!row.active">{{ 'STAYS.FINISHED' | translate}}</span>
+      </mat-cell>
     </ng-container>
 
-    <!-- totalGuest Column -->
+    <!-- reason Column -->
     <ng-container matColumnDef="reason">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.REASON' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Reason"> {{row.reason}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'STAYS.REASON' | translate }}
+      </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Reason"> {{row.reason}} </mat-cell>
     </ng-container>
 
     <!-- checkIn Column -->
     <ng-container matColumnDef="checkIn">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.CHECKIN' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Check in"> {{row.checkIn | date:'dd/MM/yyyy'  }} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Check in">
+        {{row.checkIn | date:'dd/MM/yyyy'  }} </mat-cell>
     </ng-container>
 
     <!-- checkOut Column -->
     <ng-container matColumnDef="checkOut">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.CHECKOUT' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Check out"> {{row.checkOut | date:'dd/MM/yyyy'}} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Check out">
+        {{row.checkOut | date:'dd/MM/yyyy'}} </mat-cell>
     </ng-container>
 
     <!-- price Column -->
     <ng-container matColumnDef="price">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.PRICE' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Price"> {{row.price}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'STAYS.PRICE' | translate }}
+      </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Price"> {{row.price}} </mat-cell>
     </ng-container>
 
     <!-- pricePerDay Column -->
     <ng-container matColumnDef="pricePerDay">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.PRICEPERDAY' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Price per day"> {{row.pricePerDay}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'STAYS.PRICEPERDAY' | translate }}
+      </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Price per day"> {{row.pricePerDay}}
+      </mat-cell>
     </ng-container>
 
     <!-- paid Column -->
     <ng-container matColumnDef="paid">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.PAID' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Paid"> {{row.paid}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'STAYS.PAID' | translate }}
+      </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Paid"> {{row.paid}} </mat-cell>
     </ng-container>
 
-
-
-    <!-- price Column -->
+    <!-- totalToPay Column -->
     <ng-container matColumnDef="totalToPay">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.TOTALTOPAY' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Total to pay"> {{row.totalToPay}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'STAYS.TOTALTOPAY' | translate }}
+      </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Total to pay"> {{row.totalToPay}}
+      </mat-cell>
     </ng-container>
 
     <!-- edit Column -->
@@ -103,7 +115,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"> </mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
 
   </mat-table>
 
