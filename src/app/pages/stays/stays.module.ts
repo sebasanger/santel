@@ -20,6 +20,8 @@ import { StayDetailsComponent } from './stay-details/stay-details.component';
 import { ConsumptionsTableComponent } from './stay-details/consumptions-table/consumptions-table.component';
 import { PaymentsTableComponent } from './stay-details/payments-table/payments-table.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { StayTableComponent } from './stay-details/stay-table/stay-table.component';
+import { CustomerTablesComponent } from './stay-details/customer-tables/customer-tables.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     StayDetailsComponent,
     ConsumptionsTableComponent,
     PaymentsTableComponent,
+    StayTableComponent,
+    CustomerTablesComponent,
   ],
   imports: [
     CommonModule,

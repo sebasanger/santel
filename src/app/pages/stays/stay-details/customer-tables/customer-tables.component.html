@@ -1,0 +1,19 @@
+<mat-card *ngIf="customer != null">
+  <mat-card-header>
+    <mat-card-title> Name: {{ customer.name + " " + customer.surname }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ 'STAYS.ROOM' | translate}}: {{ customer.dni }}
+    </p>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button color="accent" (click)="editCustomer(customer.id)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="deleteCustomer(customer.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

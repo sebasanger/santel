@@ -2,63 +2,17 @@
   <div class="grid-container animate__animated animate__fadeIn animate__delay-0.4s">
     <mat-grid-list [cols]="cols" rowHeight="550px">
       <mat-grid-tile>
-        <mat-card *ngIf="stay != null">
-          <mat-card-header>
-            <mat-card-title> ID: {{stay.id}}</mat-card-title>
-            <mat-card-subtitle>{{ 'STAYS.ROOM' | translate}}: {{ stay.room.number }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ 'STAYS.STATUS' | translate}}:
-              <span *ngIf="stay.active">{{ 'STAYS.ACTIVE'| translate}}</span>
-              <span *ngIf="!stay.active">{{ 'STAYS.FINISHED'| translate}}</span>
-            </p>
 
-            <p>
-              {{ 'STAYS.PAID' | translate}}: {{ stay.paid}}
-            </p>
+        <mat-tab-group animationDuration="0ms">
+          <mat-tab label="Stay">
+            <app-stay-table [stay]="stay"></app-stay-table>
+          </mat-tab>
 
-
-            <p>
-              {{ 'STAYS.TOTALTOPAY' | translate}}: {{ stay.totalToPay}}
-            </p>
-
-
-            <p>
-              {{ 'STAYS.PRICEPERDAY' | translate}}: {{ stay.pricePerDay}}
-            </p>
-
-
-            <p>
-              {{ 'STAYS.CHECKIN' | translate}}: {{ stay.checkIn | date:'hh:mm dd/MM/yyyy'}}
-            </p>
-
-
-            <p>
-              {{ 'STAYS.CHECKOUT' | translate}}: {{ stay.checkOut  | date:'hh:mm dd/MM/yyyy'}}
-            </p>
-
-
-            <p>
-              {{ 'STAYS.CREATEDAT' | translate}}: {{ stay.createdAt  | date:'dd/MM/yyyy'}}
-            </p>
-
-            <p *ngFor="let customer of customers, let i = index">
-              {{ 'STAYS.CUSTOMERNAME' | translate }}{{ i+1 }}: {{   customer.name + " " + customer.surname}}
-            </p>
-
-
-
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-icon-button color="accent" (click)="editStay(stay.id)">
-              <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-icon-button color="warn" (click)="deleteStay(stay.id)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </mat-card-actions>
-        </mat-card>
+          <mat-tab *ngFor="let customer of stay.customers, let i = index"
+            label="Customer {{ i+1 }}: {{ customer.name }}">
+            <app-customer-tables [customer]="customer"></app-customer-tables>
+          </mat-tab>
+        </mat-tab-group>
       </mat-grid-tile>
 
       <mat-grid-tile>
@@ -69,7 +23,6 @@
             <div *ngIf="payments">
               <app-payments-table [payments]="payments"></app-payments-table>
             </div>
-
           </mat-tab>
 
           <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">

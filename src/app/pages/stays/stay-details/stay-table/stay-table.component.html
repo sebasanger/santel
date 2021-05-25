@@ -1,0 +1,56 @@
+<mat-card *ngIf="stay != null">
+  <mat-card-header>
+    <mat-card-title> ID: {{stay.id}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ 'STAYS.ROOM' | translate}}: {{ stay.room.number }}
+    </p>
+    <p>
+      {{ 'STAYS.STATUS' | translate}}:
+      <span *ngIf="stay.active">{{ 'STAYS.ACTIVE'| translate}}</span>
+      <span *ngIf="!stay.active">{{ 'STAYS.FINISHED'| translate}}</span>
+    </p>
+
+    <p>
+      {{ 'STAYS.PAID' | translate}}: {{ stay.paid}}
+    </p>
+
+
+    <p>
+      {{ 'STAYS.TOTALTOPAY' | translate}}: {{ stay.totalToPay}}
+    </p>
+
+
+    <p>
+      {{ 'STAYS.PRICEPERDAY' | translate}}: {{ stay.pricePerDay}}
+    </p>
+
+
+    <p>
+      {{ 'STAYS.CHECKIN' | translate}}: {{ stay.checkIn | date:'hh:mm dd/MM/yyyy'}}
+    </p>
+
+
+    <p>
+      {{ 'STAYS.CHECKOUT' | translate}}: {{ stay.checkOut  | date:'hh:mm dd/MM/yyyy'}}
+    </p>
+
+
+    <p>
+      {{ 'STAYS.CREATEDAT' | translate}}: {{ stay.createdAt  | date:'dd/MM/yyyy'}}
+    </p>
+
+    <p *ngFor="let customer of stay.customers, let i = index">
+      {{ 'STAYS.CUSTOMERNAME' | translate }}{{ i+1 }}: {{   customer.name + " " + customer.surname}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button color="accent" (click)="editStay(stay.id)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="deleteStay(stay.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
