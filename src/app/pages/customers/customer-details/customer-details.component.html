@@ -9,31 +9,31 @@
           </mat-card-header>
           <mat-card-content>
             <p *ngIf="customer.email != null">
-              Email: {{customer.email || ''}}
+              {{'CUSTOMERS.EMAIL' | translate}}: {{customer.email || ''}}
             </p>
             <p>
-              Brithday: {{customer.birthday | date: 'dd/MM/yyyy'}}
+              {{'CUSTOMERS.BIRTHDAY' | translate}}: {{customer.birthday | date: 'dd/MM/yyyy'}}
             </p>
             <p *ngIf="customer.phone != ''">
-              Phone: {{customer.phone || ''}}
+              {{'CUSTOMERS.PHONE' | translate}}: {{customer.phone || ''}}
             </p>
             <p *ngIf="customer.celphone != ''">
-              Celphone: {{customer.celphone}}
+              {{'CUSTOMERS.CELPHONE' | translate}}: {{customer.celphone}}
             </p>
             <p *ngIf="customer.invoiceType != null">
-              Invoice type: {{customer.invoiceType.type}}
+              {{'CUSTOMERS.INVOICETYPE' | translate}}: {{customer.invoiceType.type}}
             </p>
             <p *ngIf="customer.cuil != ''">
-              Cuil: {{customer.cuil}}
+              {{'CUSTOMERS.CUIL' | translate}}: {{customer.cuil}}
             </p>
             <p *ngIf="customer.cuit != ''">
-              Cuit: {{customer.cuit}}
+              {{'CUSTOMERS.CUIT' | translate}}: {{customer.cuit}}
             </p>
             <p *ngIf="customer.createdAt != null">
-              Created at: {{customer.createdAt |  date: 'dd/MM/yyyy'}}
+              {{'CUSTOMERS.CREATEDAT' | translate}} : {{customer.createdAt |  date: 'dd/MM/yyyy'}}
             </p>
             <p *ngIf="customer.updatedAt != null">
-              Updated at: {{customer.updatedAt |  date: 'dd/MM/yyyy'}}
+              {{'CUSTOMERS.UPDATEDAT' | translate}}: {{customer.updatedAt |  date: 'dd/MM/yyyy'}}
             </p>
           </mat-card-content>
           <mat-card-actions>

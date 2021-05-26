@@ -57,7 +57,9 @@ export class CreateUpdateCustomerComponent implements OnInit, OnDestroy {
           this.customerForm.controls['cuit'].setValue(res.cuit);
           this.customerForm.controls['phone'].setValue(res.phone);
           this.customerForm.controls['celphone'].setValue(res.celphone);
-          this.customerForm.controls['invoice'].setValue(res.invoiceType.id);
+          if (res.invoiceType) {
+            this.customerForm.controls['invoice'].setValue(res.invoiceType.id);
+          }
         });
       }
     });

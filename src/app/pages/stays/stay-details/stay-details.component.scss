@@ -1,37 +1,3 @@
-mat-card-title {
-  font-size: 1.3em !important;
-  font-weight: bold;
-}
-
-mat-card-subtitle {
-  font-size: 1.4em !important;
-}
-
-mat-card {
-  width: 40%;
-  padding: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-mat-card-header {
-  margin-top: 15px;
-  height: 15 0px;
-}
-
-mat-card-content p {
-  font-size: 1.2em;
-}
-
-mat-card-actions {
-  margin-top: 40px;
-  align-items: start;
-}
-
-
-
 section {
   margin-bottom: 15%;
 }
@@ -42,4 +8,9 @@ section {
 
 .tabs-extras {
   width: 100%;
+}
+
+.stay-tabs {
+  min-width: 50%;
+  max-width: 80%;
 }

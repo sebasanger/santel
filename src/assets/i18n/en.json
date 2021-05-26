@@ -135,7 +135,10 @@
     "PHONE": "Phone",
     "CELPHONE": "Celphone",
     "CUIL": "Cuil",
-    "CUIT": "Cuit"
+    "CUIT": "Cuit",
+    "INVOICETYPE": "Invoice type",
+    "CREATEDAT": "Created at",
+    "UPDATEDAT": "Updated at"
   },
   "ROOMS": {
     "ROOMS": "Rooms",

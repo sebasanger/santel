@@ -1,0 +1,29 @@
+mat-card-title {
+  font-size: 1.3em !important;
+  font-weight: bold;
+}
+
+mat-card-subtitle {
+  font-size: 1.4em !important;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+mat-card-header {
+  margin-top: 15px;
+  height: 15 0px;
+}
+
+mat-card-content p {
+  font-size: 1.2em;
+}
+
+mat-card-actions {
+  margin-top: 40px;
+  align-items: start;
+}

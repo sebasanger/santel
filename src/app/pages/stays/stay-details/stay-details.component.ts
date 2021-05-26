@@ -38,7 +38,6 @@ export class StayDetailsComponent implements OnInit {
       if (this.stayId > 0) {
         this.stayService.getByKey(this.stayId).subscribe((res) => {
           this.stay = res;
-          console.log(res);
           this.customers = res.customers;
           this.payments = res.payments;
           this.consumptions = res.consumptions;

@@ -138,7 +138,10 @@
     "PHONE": "Telefono",
     "CELPHONE": "Celular",
     "CUIL": "Cuil",
-    "CUIT": "Cuit"
+    "CUIT": "Cuit",
+    "INVOICETYPE": "Tipo de factura",
+    "CREATEDAT": "fecha de creacion",
+    "UPDATEDAT": "Fecha de actualizacion"
   },
   "ROOMS": {
     "ROOMS": "Habitaciones",
