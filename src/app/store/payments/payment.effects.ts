@@ -14,7 +14,7 @@ export class PaymentEffects {
     private paymentService: PaymentService
   ) {}
 
-  getPaginatedUsers$ = createEffect(() => {
+  getPaginatedPayments$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(paymentApiActions.getPaymentsPaginated),
       mergeMap((action) => {

@@ -20,6 +20,8 @@
   "ERROR": "Error",
   "ALREADYTAKED": "already taked",
   "VALIDEMAIL": "Must be a valid email",
+  "MINIMUM": "Minimum",
+  "MAXIMUM": "Maximum",
   "MENU": {
     "DASHBOARD": "Dashboard",
     "CHARTS": "Charts",
@@ -219,6 +221,7 @@
     "ADD": "Add stay",
     "CREATEDAT": "Creation date",
     "UPDATEDAT": "Update date",
-    "CUSTOMERNAME": "Customer "
+    "CUSTOMERNAME": "Customer ",
+    "SELECTROOM": "Select room "
   }
 }

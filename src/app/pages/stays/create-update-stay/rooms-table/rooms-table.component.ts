@@ -1,22 +1,31 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Store } from '@ngrx/store';
 import { Image } from 'src/app/models/image.model';
 import { Room } from 'src/app/models/room.model';
 import { ViewImagesComponent } from 'src/app/pages/rooms/view-images/view-images.component';
-
+import { selectAvailableRooms } from 'src/app/store/room/room.selectors';
 @Component({
   selector: 'app-rooms-table',
   templateUrl: './rooms-table.component.html',
   styleUrls: ['./rooms-table.component.scss'],
 })
 export class RoomsTableComponent implements OnInit {
-  @Input() public rooms: Room[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   public dataSource: MatTableDataSource<Room>;
+  public roomSelectedId: number;
+
+  @Output() selectRoomId = new EventEmitter<number>();
 
   displayedColumns: string[] = [
     'id',
@@ -30,14 +39,17 @@ export class RoomsTableComponent implements OnInit {
     'images',
   ];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private roomStore: Store<{ room: any }>
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.rooms);
-
-    this.dataSource = new MatTableDataSource(this.rooms);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.roomStore.select(selectAvailableRooms).subscribe((res) => {
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(event: Event) {
@@ -55,5 +67,10 @@ export class RoomsTableComponent implements OnInit {
       height: '1000px',
       data: { id, images },
     });
+  }
+
+  selectRoom(id: number) {
+    this.roomSelectedId = id;
+    this.selectRoomId.emit(id);
   }
 }

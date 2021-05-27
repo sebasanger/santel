@@ -5,6 +5,7 @@ import {
   EntityCollectionServiceElementsFactory,
 } from '@ngrx/data';
 import { UploadRoomImagePayload } from 'src/app/interfaces/rooms/upload-room-image.interface';
+import { GetFreeRoomsPayload } from 'src/app/interfaces/stay/GetFreeRomsPayload';
 import { Room } from 'src/app/models/room.model';
 import { environment } from 'src/environments/environment';
 
@@ -33,6 +34,13 @@ export class RoomService extends EntityCollectionServiceBase<Room> {
     return this.http.put<string>(
       `${base_url}room/upload/image/${payload.roomId}`,
       formData
+    );
+  }
+
+  getFreeRooms(getFreeRoomsPayload: GetFreeRoomsPayload) {
+    return this.http.post<Room[]>(
+      `${base_url}room/abailability`,
+      getFreeRoomsPayload
     );
   }
 }

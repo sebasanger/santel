@@ -20,6 +20,8 @@
   "ERROR": "Error",
   "ALREADYTAKED": "actualmente en uso",
   "VALIDEMAIL": "Tiene que ser un email valido",
+  "MINIMUM": "Minimo",
+  "MAXIMUM": "Maximo",
   "MENU": {
     "DASHBOARD": "Inicio",
     "CHARTS": "Graficos",
@@ -223,6 +225,7 @@
     "ADD": "Agregar estadia",
     "CREATEDAT": "Fecha de creacion",
     "UPDATEDAT": "Fecha de actualizacion",
-    "CUSTOMERNAME": "Huesped "
+    "CUSTOMERNAME": "Huesped ",
+    "SELECTROOM": "Seleccionar habitacion"
   }
 }

@@ -63,11 +63,4 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
       })
     );
   }
-
-  getFreeRooms(getFreeRoomsPayload: GetFreeRoomsPayload) {
-    return this.http.post<Room[]>(
-      `${base_url}room/abailability`,
-      getFreeRoomsPayload
-    );
-  }
 }

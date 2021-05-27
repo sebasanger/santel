@@ -14,7 +14,7 @@ export class CustomerEffects {
     private customerService: CustomerService
   ) {}
 
-  getPaginatedUsers$ = createEffect(() => {
+  getPaginatedCustomers$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(customerApiActions.getCustomersPaginated),
       mergeMap((action) => {

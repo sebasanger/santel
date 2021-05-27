@@ -14,7 +14,7 @@ export class ConsumptionEffects {
     private consumptionService: ConsumptionService
   ) {}
 
-  getPaginatedUsers$ = createEffect(() => {
+  getPaginatedConsumptions$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(consumptionApiActions.getConsumptionsPaginated),
       mergeMap((action) => {
