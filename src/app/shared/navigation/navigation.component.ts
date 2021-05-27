@@ -56,9 +56,9 @@ export class NavigationComponent implements OnInit {
           path: '../pages/dashboard',
         },
         {
-          title: this.translate.instant('MENU.CHARTS'),
-          icon: 'analytics',
-          path: '../pages/charts',
+          title: this.translate.instant('MENU.STAYS'),
+          icon: 'event',
+          path: '../pages/stays',
         },
         {
           title: this.translate.instant('MENU.CUSTOMERS'),
@@ -76,11 +76,7 @@ export class NavigationComponent implements OnInit {
           icon: 'point_of_sale',
           path: '../pages/registers',
         },
-        {
-          title: this.translate.instant('MENU.STAYS'),
-          icon: 'event',
-          path: '../pages/stays',
-        },
+
         {
           title: this.translate.instant('MENU.CONSUMPTIONS'),
           icon: 'shopping_cart',
@@ -90,6 +86,11 @@ export class NavigationComponent implements OnInit {
           title: this.translate.instant('MENU.PAYMENTS'),
           icon: 'attach_money',
           path: '../pages/payments',
+        },
+        {
+          title: this.translate.instant('MENU.CHARTS'),
+          icon: 'analytics',
+          path: '../pages/charts',
         },
       ];
 

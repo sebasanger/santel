@@ -1,0 +1,67 @@
+<mat-vertical-stepper #stepper>
+
+  <mat-step [stepControl]="stayFormGroup" errorMessage="Stay data is required.">
+    <form [formGroup]="stayFormGroup">
+      <ng-template matStepLabel>Stay data</ng-template>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Capacity</mat-label>
+          <input type="number" autocomplete="off" matInput placeholder="Capacity" formControlName="capacity" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [formGroup]="stayFormGroup" [rangePicker]="picker">
+            <input matStartDate formControlName="start" placeholder="Start date">
+            <input matEndDate formControlName="end" placeholder="End date">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+          <mat-error *ngIf="stayFormGroup.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+          <mat-error *ngIf="stayFormGroup.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <button [disabled]="stayFormGroup.invalid" mat-raised-button color="primary" matStepperNext
+          (click)="findRoomsAvailables()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="roomFormGroup" errorMessage="Select room." #roomsteep>
+    <form [formGroup]="roomFormGroup">
+      <ng-template matStepLabel>Select room</ng-template>
+      <div *ngIf="availableRooms && availableRooms.length > 0">
+        <app-rooms-table [rooms]="availableRooms"></app-rooms-table>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="customersFormGroup" errorMessage="Select/create customers.">
+    <form [formGroup]="customersFormGroup">
+      <ng-template matStepLabel>Select/create customers</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="customers" required>
+      </mat-form-field>
+      <div>
+        <p>Go to a different step to see the error state</p>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Finish</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+
+</mat-vertical-stepper>

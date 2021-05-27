@@ -7,6 +7,8 @@ import {
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { GetPaginatedStays } from 'src/app/interfaces/stay/get-paginated-stays';
+import { GetFreeRoomsPayload } from 'src/app/interfaces/stay/GetFreeRomsPayload';
+import { Room } from 'src/app/models/room.model';
 import { Stay } from 'src/app/models/stay.model';
 import { getStaysPaginated } from 'src/app/store/stay/stay.api.actions';
 import { selectPaginatedStays } from 'src/app/store/stay/stay.selectors';
@@ -59,6 +61,13 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
         sortDirection,
         sort,
       })
+    );
+  }
+
+  getFreeRooms(getFreeRoomsPayload: GetFreeRoomsPayload) {
+    return this.http.post<Room[]>(
+      `${base_url}room/abailability`,
+      getFreeRoomsPayload
     );
   }
 }

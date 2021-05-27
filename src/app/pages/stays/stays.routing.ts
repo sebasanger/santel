@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ViewStaysComponent } from './view-stays/view-stays.component';
 import { StayDetailsComponent } from './stay-details/stay-details.component';
+import { CreateUpdateStayComponent } from './create-update-stay/create-update-stay.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,14 @@ const routes: Routes = [
         path: '',
         component: ViewStaysComponent,
         pathMatch: 'full',
+      },
+      {
+        path: 'create',
+        component: CreateUpdateStayComponent,
+      },
+      {
+        path: 'update/:id',
+        component: CreateUpdateStayComponent,
       },
       {
         path: 'details/:id',

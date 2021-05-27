@@ -16,9 +16,7 @@ export class CustomerTablesComponent implements OnInit {
     private customerService: CustomerService
   ) {}
 
-  ngOnInit(): void {
-    console.log(this.customer);
-  }
+  ngOnInit(): void {}
 
   editCustomer(userid: number) {
     this.router.navigateByUrl('pages/customers/update/' + userid);

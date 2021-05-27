@@ -22,7 +22,9 @@ import { PaymentsTableComponent } from './stay-details/payments-table/payments-t
 import { MatTabsModule } from '@angular/material/tabs';
 import { StayTableComponent } from './stay-details/stay-table/stay-table.component';
 import { CustomerTablesComponent } from './stay-details/customer-tables/customer-tables.component';
-
+import { CreateUpdateStayComponent } from './create-update-stay/create-update-stay.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { RoomsTableComponent } from './create-update-stay/rooms-table/rooms-table.component';
 @NgModule({
   declarations: [
     StaysComponent,
@@ -32,6 +34,8 @@ import { CustomerTablesComponent } from './stay-details/customer-tables/customer
     PaymentsTableComponent,
     StayTableComponent,
     CustomerTablesComponent,
+    CreateUpdateStayComponent,
+    RoomsTableComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +54,7 @@ import { CustomerTablesComponent } from './stay-details/customer-tables/customer
     MatDatepickerModule,
     MatNativeDateModule,
     MatTabsModule,
+    MatStepperModule,
   ],
 })
 export class StaysModule {}

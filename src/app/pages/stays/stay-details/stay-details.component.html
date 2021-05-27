@@ -1,6 +1,6 @@
 <section>
   <div class="grid-container animate__animated animate__fadeIn animate__delay-0.4s">
-    <mat-grid-list [cols]="cols">
+    <mat-grid-list [cols]="cols" rowHeight="600px">
       <mat-grid-tile>
 
         <mat-tab-group mat-align-tabs="start" class="stay-tabs">
@@ -15,26 +15,24 @@
         </mat-tab-group>
       </mat-grid-tile>
 
-      <mat-grid-tile>
-
+      <mat-grid-tile *ngIf="consumptions && consumptions.length > 0 || payments && payments.length > 0">
         <mat-tab-group class="tabs-extras">
 
-          <mat-tab label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
-            <div *ngIf="payments">
+          <div *ngIf="payments && payments.length > 0">
+            <mat-tab label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
               <app-payments-table [payments]="payments"></app-payments-table>
-            </div>
-          </mat-tab>
+            </mat-tab>
+          </div>
 
-          <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
-            <div *ngIf="consumptions">
+          <div *ngIf="consumptions && consumptions.length > 0">
+            <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
               <app-consumptions-table [consumptions]="consumptions"></app-consumptions-table>
-            </div>
-          </mat-tab>
+            </mat-tab>
+          </div>
 
         </mat-tab-group>
 
       </mat-grid-tile>
-
 
     </mat-grid-list>
   </div>
