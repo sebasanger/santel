@@ -25,6 +25,8 @@ import { CustomerTablesComponent } from './stay-details/customer-tables/customer
 import { CreateUpdateStayComponent } from './create-update-stay/create-update-stay.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { RoomsTableComponent } from './create-update-stay/rooms-table/rooms-table.component';
+import { AddCustomersComponent } from './create-update-stay/add-customers/add-customers.component';
+import { CustomerListComponent } from './create-update-stay/customer-list/customer-list.component';
 @NgModule({
   declarations: [
     StaysComponent,
@@ -36,6 +38,8 @@ import { RoomsTableComponent } from './create-update-stay/rooms-table/rooms-tabl
     CustomerTablesComponent,
     CreateUpdateStayComponent,
     RoomsTableComponent,
+    AddCustomersComponent,
+    CustomerListComponent,
   ],
   imports: [
     CommonModule,

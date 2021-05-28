@@ -1,0 +1,95 @@
+<form [formGroup]="customerForm" novalidate fxLayout="column">
+  <mat-card class="shipping-card animate__animated animate__fadeIn animate__delay-0.4s">
+    <mat-card-header>
+      <mat-card-title *ngIf="customerId == null">{{ 'CUSTOMERS.CREATE' | translate }}</mat-card-title>
+      <mat-card-title *ngIf="customerId != null">{{ 'CUSTOMERS.UPDATE' | translate }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.DNI' | translate }}" formControlName="dni" type="number" />
+          <mat-error *ngIf="customerForm.controls['dni'].hasError('required')">
+            {{ 'CUSTOMERS.DNI' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+          <mat-error *ngIf="customerForm.controls['dni'].hasError('dniTaked')">
+            This {{ 'CUSTOMERS.DNI' | translate }} is <strong>{{ 'ALREADYTAKED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.NAME' | translate }}" type="text" formControlName="name" />
+          <mat-error *ngIf="customerForm.controls['name'].hasError('required')">
+            {{ 'CUSTOMERS.NAME' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.SURNAME' | translate }}" type="text" formControlName="surname" />
+          <mat-error *ngIf="customerForm.controls['surname'].hasError('required')">
+            {{ 'CUSTOMERS.SURNAME' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'CUSTOMERS.BIRTHDAY' | translate }}</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthday">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.PHONE' | translate }}" type="tel" formControlName="phone" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.CELPHONE' | translate }}" type="tel" formControlName="celphone" />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.CUIL' | translate }}" type="text" formControlName="cuil" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.CUIT' | translate }}" type="text" formControlName="cuit" />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email" type="email" />
+          <mat-error *ngIf="customerForm.controls['email'].hasError('email')">
+            {{ 'VALIDEMAIL' | translate }}
+          </mat-error>
+          <mat-error *ngIf="customerForm.controls['email'].hasError('emailTaked')">
+            This email is <strong>{{ 'ALREADYTAKED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>{{ 'INVOICES.INVOICE' | translate }}</mat-label>
+          <mat-select formControlName="invoice">
+            <mat-option [value]="option.id" *ngFor="let option of invoices$ | async">{{ option.type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Save</button>
+      </mat-card-actions>
+    </mat-card-content>
+
+  </mat-card>
+
+</form>

@@ -9,3 +9,8 @@ export const selectPaginatedStays = createSelector(
   stayStateSelector,
   (state: fromStay.State) => state.paginatedStays
 );
+
+export const selectSelectedCustomers = createSelector(
+  stayStateSelector,
+  (state: fromStay.State) => state.selectedCustomers
+);

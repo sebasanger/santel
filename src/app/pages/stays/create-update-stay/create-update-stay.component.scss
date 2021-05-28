@@ -25,3 +25,19 @@
 .action {
   margin-top: 50px;
 }
+
+.customer-site {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width: 1400px) {
+    flex-direction: column;
+  }
+}
+
+.max {
+  width: 100%;
+}

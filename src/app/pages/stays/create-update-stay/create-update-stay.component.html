@@ -60,8 +60,6 @@
         </mat-form-field>
       </div>
 
-
-
       <div>
         <button [disabled]="stayFormGroup.invalid" mat-raised-button color="primary" matStepperNext
           (click)="findRoomsAvailables()">Next</button>
@@ -84,14 +82,15 @@
   <mat-step [stepControl]="customersFormGroup" errorMessage="Select/create customers.">
     <form [formGroup]="customersFormGroup">
       <ng-template matStepLabel>Select/create customers</ng-template>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="customers" required>
-      </mat-form-field>
-      <div>
-        <p>Go to a different step to see the error state</p>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+
+      <div class="customer-site">
+        <app-add-customers class="max"></app-add-customers>
+
+        <app-customer-list class="max"></app-customer-list>
+      </div>
+
+      <div class="action">
+        <button [disabled]="roomFormGroup.invalid" mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -99,9 +98,10 @@
   <mat-step>
     <ng-template matStepLabel>Finish</ng-template>
     <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+    <div class="action">
+      <button [disabled]="roomFormGroup.invalid || stayFormGroup.invalid || customersFormGroup.invalid"
+        mat-raised-button color="primary">Save</button>
+      <button style="margin-left: 15px;" mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 
