@@ -10,13 +10,7 @@ export const stayFeatureKey = 'stay';
 
 export const stayAdapter: EntityAdapter<Stay> = createEntityAdapter<Stay>();
 
-const base: Customer[] = [
-  { id: 1, name: 'Carlos', surname: 'rivera', dni: '1231231', birthday: null },
-
-  { id: 2, name: 'Nico', surname: 'rivera', dni: '123132', birthday: null },
-
-  { id: 3, name: 'Franco', surname: 'rivera', dni: '1234325', birthday: null },
-];
+const base: Customer[] = [];
 export interface State extends EntityState<Stay> {
   paginatedStays: GetPaginatedStays;
   selectedCustomers: Customer[];
@@ -40,6 +34,6 @@ export const stayReducer = createReducer(
   })),
   on(StayActions.addSelectCustomer, (state, { customer }) => ({
     ...state,
-    customer,
+    selectedCustomers: [...state.selectedCustomers, customer],
   }))
 );

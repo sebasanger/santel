@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { DniValidPayload } from '../interfaces/customers/DniValidPayload';
 import { EmailValidPayload } from '../interfaces/user/EmailValidPayload';
+import { Customer } from '../models/customer.model';
 const base_url = environment.base_url;
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,9 @@ export class ReqValidatorsService {
   }
 
   customerDniIsValid(dniValid: DniValidPayload) {
-    return this.http.post(base_url + 'customer/checkDniIsValid', dniValid);
+    return this.http.post<Customer>(
+      base_url + 'customer/checkDniIsValid',
+      dniValid
+    );
   }
 }

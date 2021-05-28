@@ -3,20 +3,20 @@ import {
   AbstractControl,
   AsyncValidatorFn,
   FormBuilder,
+  FormGroup,
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { DniValidPayload } from 'src/app/interfaces/customers/DniValidPayload';
 import { EmailValidPayload } from 'src/app/interfaces/user/form-user.payload';
 import { Customer } from 'src/app/models/customer.model';
 import { Invoice } from 'src/app/models/inovice.model';
-import { CustomerService } from 'src/app/services/EntityServices/customer.service';
 import { InvoiceService } from 'src/app/services/EntityServices/invoice.service';
 import { ReqValidatorsService } from 'src/app/services/req-validators.service';
-
+import { addSelectCustomer } from 'src/app/store/stay/stay.actions';
 @Component({
   selector: 'app-add-customers',
   templateUrl: './add-customers.component.html',
@@ -24,48 +24,39 @@ import { ReqValidatorsService } from 'src/app/services/req-validators.service';
 })
 export class AddCustomersComponent implements OnInit, OnDestroy {
   public customerId: number;
-  public customer: Customer;
   private ngUnsubscribe: Subject<boolean> = new Subject();
   public invoices$: Observable<Invoice[]>;
   private emailValidPayload: EmailValidPayload;
   private dniValidPayload: DniValidPayload;
-  public title: string = 'Customer';
   constructor(
+    private stayStore: Store<{ stay: any }>,
     private fb: FormBuilder,
     private reqValidators: ReqValidatorsService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private customerService: CustomerService,
     private invoiceService: InvoiceService
   ) {}
 
   ngOnInit(): void {
     this.invoiceService.getAll();
     this.invoices$ = this.invoiceService.entities$;
-    this.route.params.subscribe((params) => {
-      this.customerId = params['id'];
-      takeUntil(this.ngUnsubscribe);
-      if (this.customerId > 0) {
-        this.customerService.getByKey(this.customerId).subscribe((res) => {
-          this.customer = res;
-          this.customerForm.controls['name'].setValue(res.name);
-          this.customerForm.controls['surname'].setValue(res.surname);
-          this.customerForm.controls['dni'].setValue(res.dni);
-          this.customerForm.controls['email'].setValue(res.email);
-          this.customerForm.controls['birthday'].setValue(res.birthday);
-          this.customerForm.controls['cuil'].setValue(res.cuil);
-          this.customerForm.controls['cuit'].setValue(res.cuit);
-          this.customerForm.controls['phone'].setValue(res.phone);
-          this.customerForm.controls['celphone'].setValue(res.celphone);
-          if (res.invoiceType) {
-            this.customerForm.controls['invoice'].setValue(res.invoiceType.id);
-          }
-        });
-      }
-    });
   }
 
-  customerForm = this.fb.group({
+  chargeCustomer(customer: Customer) {
+    this.customerId = customer.id | 0;
+    this.customerForm.controls['name'].setValue(customer.name);
+    this.customerForm.controls['surname'].setValue(customer.surname);
+    this.customerForm.controls['dni'].setValue(customer.dni);
+    this.customerForm.controls['email'].setValue(customer.email);
+    this.customerForm.controls['birthday'].setValue(customer.birthday);
+    this.customerForm.controls['cuil'].setValue(customer.cuil);
+    this.customerForm.controls['cuit'].setValue(customer.cuit);
+    this.customerForm.controls['phone'].setValue(customer.phone);
+    this.customerForm.controls['celphone'].setValue(customer.celphone);
+    if (customer.invoiceType) {
+      this.customerForm.controls['invoice'].setValue(customer.invoiceType.id);
+    }
+  }
+
+  customerForm: FormGroup = this.fb.group({
     name: [
       null,
       [Validators.required, Validators.minLength(3), Validators.maxLength(30)],
@@ -131,14 +122,30 @@ export class AddCustomersComponent implements OnInit, OnDestroy {
       cuit.value,
       newInvoice
     );
-
     if (this.customerId != null) {
       customer.id = this.customerId;
-      this.customerService.update(customer);
-    } else {
-      this.customerService.add(customer);
     }
-    this.router.navigateByUrl('pages/customers');
+    this.stayStore.dispatch(addSelectCustomer({ customer }));
+    this.cleanCustomer();
+  }
+
+  cleanCustomer() {
+    this.customerId = null;
+    this.customerForm.controls['name'].setValue(null);
+    this.customerForm.controls['name'].setErrors(null);
+
+    this.customerForm.controls['surname'].setValue(null);
+    this.customerForm.controls['surname'].setErrors(null);
+
+    this.customerForm.controls['dni'].setValue(null);
+    this.customerForm.controls['dni'].setErrors(null);
+
+    this.customerForm.controls['email'].setValue(null);
+    this.customerForm.controls['birthday'].setValue(null);
+    this.customerForm.controls['cuil'].setValue(null);
+    this.customerForm.controls['cuit'].setValue(null);
+    this.customerForm.controls['phone'].setValue(null);
+    this.customerForm.controls['celphone'].setValue(null);
   }
 
   checkEmailIsTaked(): AsyncValidatorFn {
@@ -147,7 +154,6 @@ export class AddCustomersComponent implements OnInit, OnDestroy {
         id: this.customerId | 0,
         email: control.value,
       };
-
       return this.reqValidators
         .customerEmailIsValid(this.emailValidPayload)
         .pipe(
@@ -165,10 +171,12 @@ export class AddCustomersComponent implements OnInit, OnDestroy {
         id: this.customerId | 0,
         dni: control.value,
       };
-
       return this.reqValidators.customerDniIsValid(this.dniValidPayload).pipe(
         takeUntil(this.ngUnsubscribe),
         map((res) => {
+          if (res != null) {
+            this.chargeCustomer(res);
+          }
           return res ? { dniTaked: true } : null;
         })
       );
