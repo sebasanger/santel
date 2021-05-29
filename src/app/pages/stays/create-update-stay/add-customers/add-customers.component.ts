@@ -146,6 +146,7 @@ export class AddCustomersComponent implements OnInit, OnDestroy {
     this.customerForm.controls['cuit'].setValue(null);
     this.customerForm.controls['phone'].setValue(null);
     this.customerForm.controls['celphone'].setValue(null);
+    this.customerForm.controls['invoice'].setValue(null);
   }
 
   checkEmailIsTaked(): AsyncValidatorFn {

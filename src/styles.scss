@@ -33,3 +33,15 @@ body {
 .w25 {
   width: 25px;
 }
+
+.room-selected {
+  background-color: rgba(0, 183, 255, 0.342)
+}
+
+.room-occuped {
+  background-color: rgba(229, 255, 0, 0.342)
+}
+
+.room-unavailable {
+  background-color: rgba(255, 0, 0, 0.342)
+}

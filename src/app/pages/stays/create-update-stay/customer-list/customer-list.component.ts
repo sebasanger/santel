@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectSelectedCustomers } from 'src/app/store/stay/stay.selectors';
 import { Customer } from 'src/app/models/customer.model';
+import { removeSelectCustomer } from 'src/app/store/stay/stay.actions';
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
@@ -30,5 +31,7 @@ export class CustomerListComponent implements OnInit {
 
   editCustomer(id: number) {}
 
-  deleteCustomer(id: number) {}
+  deleteCustomer(dni: string) {
+    this.stayStore.dispatch(removeSelectCustomer({ dni: dni }));
+  }
 }

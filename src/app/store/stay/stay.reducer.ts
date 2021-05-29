@@ -35,5 +35,11 @@ export const stayReducer = createReducer(
   on(StayActions.addSelectCustomer, (state, { customer }) => ({
     ...state,
     selectedCustomers: [...state.selectedCustomers, customer],
+  })),
+  on(StayActions.removeSelectCustomer, (state, { dni }) => ({
+    ...state,
+    selectedCustomers: [
+      ...state.selectedCustomers.filter((customer) => customer.dni != dni),
+    ],
   }))
 );

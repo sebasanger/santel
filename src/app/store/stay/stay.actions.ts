@@ -11,3 +11,8 @@ export const addSelectCustomer = createAction(
   '[STAY]  Add selected customer...',
   props<{ customer: Customer }>()
 );
+
+export const removeSelectCustomer = createAction(
+  '[STAY]  Remove selected customer...',
+  props<{ dni: String }>()
+);
