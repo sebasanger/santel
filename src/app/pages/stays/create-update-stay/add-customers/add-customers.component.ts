@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {
   AbstractControl,
   AsyncValidatorFn,
   FormBuilder,
   FormGroup,
+  NgForm,
   ValidationErrors,
   Validators,
 } from '@angular/forms';
@@ -28,6 +29,7 @@ export class AddCustomersComponent implements OnInit, OnDestroy {
   public invoices$: Observable<Invoice[]>;
   private emailValidPayload: EmailValidPayload;
   private dniValidPayload: DniValidPayload;
+  @ViewChild('formDirective') private formDirective: NgForm;
   constructor(
     private stayStore: Store<{ stay: any }>,
     private fb: FormBuilder,
@@ -132,14 +134,8 @@ export class AddCustomersComponent implements OnInit, OnDestroy {
   cleanCustomer() {
     this.customerId = null;
     this.customerForm.controls['name'].setValue(null);
-    this.customerForm.controls['name'].setErrors(null);
-
     this.customerForm.controls['surname'].setValue(null);
-    this.customerForm.controls['surname'].setErrors(null);
-
     this.customerForm.controls['dni'].setValue(null);
-    this.customerForm.controls['dni'].setErrors(null);
-
     this.customerForm.controls['email'].setValue(null);
     this.customerForm.controls['birthday'].setValue(null);
     this.customerForm.controls['cuil'].setValue(null);
@@ -147,6 +143,8 @@ export class AddCustomersComponent implements OnInit, OnDestroy {
     this.customerForm.controls['phone'].setValue(null);
     this.customerForm.controls['celphone'].setValue(null);
     this.customerForm.controls['invoice'].setValue(null);
+
+    this.formDirective.resetForm();
   }
 
   checkEmailIsTaked(): AsyncValidatorFn {

@@ -13,6 +13,15 @@
     </p>
 
     <p>
+      {{ 'STAYS.ENTRYDATE' | translate}}: {{ stay.entryDate | date:'hh:mm dd/MM/yyyy'}}
+    </p>
+
+
+    <p>
+      {{ 'STAYS.OUTDATE' | translate}}: {{ stay.outDate  | date:'hh:mm dd/MM/yyyy'}}
+    </p>
+
+    <p>
       {{ 'STAYS.PAID' | translate}}: {{ stay.paid}}
     </p>
 

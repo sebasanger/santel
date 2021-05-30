@@ -51,17 +51,17 @@
     </ng-container>
 
     <!-- checkIn Column -->
-    <ng-container matColumnDef="checkIn">
+    <ng-container matColumnDef="entryDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.CHECKIN' | translate }} </mat-header-cell>
       <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Check in">
-        {{row.checkIn | date:'dd/MM/yyyy'  }} </mat-cell>
+        {{row.entryDate | date:'dd/MM/yyyy'  }} </mat-cell>
     </ng-container>
 
     <!-- checkOut Column -->
-    <ng-container matColumnDef="checkOut">
+    <ng-container matColumnDef="outDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.CHECKOUT' | translate }} </mat-header-cell>
       <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Check out">
-        {{row.checkOut | date:'dd/MM/yyyy'}} </mat-cell>
+        {{row.outDate | date:'dd/MM/yyyy'}} </mat-cell>
     </ng-container>
 
     <!-- price Column -->

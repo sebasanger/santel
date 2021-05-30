@@ -192,7 +192,8 @@
     "USER": "Encargado",
     "AMOUNT": "Valor",
     "METHOD": "Metodo",
-    "ADD": "Agregar pago"
+    "ADD": "Agregar pago",
+    "QUOTE": "cuotas"
   },
   "CONSUMPTIONS": {
     "CONSUMPTIONS": "Consumiciones",
@@ -210,12 +211,14 @@
   "STAYS": {
     "STAYS": "Estadias",
     "STAY": "Estadia",
+    "ENTRYDATE": "Fecha de entrada",
+    "OUTDATE": "Fecha de salida",
     "ROOM": "Habitacion",
     "ACTIVE": "Activa",
     "FINISHED": "Finalizada",
     "TOTALGUEST": "Total de huespedes",
-    "CHECKIN": "Ingreso",
-    "CHECKOUT": "Egreso",
+    "CHECKIN": "Check in",
+    "CHECKOUT": "check out",
     "STATUS": "Estado",
     "REASON": "Razon",
     "PRICE": "Precio",

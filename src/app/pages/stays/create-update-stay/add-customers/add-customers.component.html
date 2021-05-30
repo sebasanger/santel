@@ -1,4 +1,4 @@
-<form [formGroup]="customerForm" novalidate fxLayout="column">
+<form [formGroup]="customerForm" novalidate fxLayout="column" #formDirective="ngForm">
   <mat-card class="shipping-card animate__animated animate__fadeIn animate__delay-0.4s">
     <mat-card-header>
       <mat-card-title *ngIf="customerId == null">{{ 'CUSTOMERS.CREATE' | translate }}</mat-card-title>
@@ -88,7 +88,8 @@
 
       <mat-card-actions>
         <button mat-raised-button color="warn" type="reset" (click)="cleanCustomer()">Cancel</button>
-        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Add</button>
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()"
+          [disabled]="customerForm.invalid">Add</button>
       </mat-card-actions>
     </mat-card-content>
 

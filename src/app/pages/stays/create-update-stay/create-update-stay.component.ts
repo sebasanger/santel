@@ -1,8 +1,8 @@
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { CreateStayPayload } from 'src/app/interfaces/stay/CreateStayPayload';
 import { GetFreeRoomsPayload } from 'src/app/interfaces/stay/GetFreeRomsPayload';
@@ -13,8 +13,10 @@ import { RoomPrice } from 'src/app/models/room-price.model';
 import { PaymentMethodService } from 'src/app/services/EntityServices/payment-method.service';
 import { ReasonService } from 'src/app/services/EntityServices/reason.service';
 import { RoomPriceService } from 'src/app/services/EntityServices/room-price.service';
+import { StayService } from 'src/app/services/EntityServices/stay.service';
 import { getRoomsAvailables } from 'src/app/store/room/room.api.actions';
 import { selectSelectedCustomers } from 'src/app/store/stay/stay.selectors';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-create-update-stay',
   templateUrl: './create-update-stay.component.html',
@@ -52,7 +54,9 @@ export class CreateUpdateStayComponent implements OnInit {
     private roomStore: Store<{ room: any }>,
     private roomPriceService: RoomPriceService,
     private paymentMethodService: PaymentMethodService,
-    private reasonService: ReasonService
+    private reasonService: ReasonService,
+    private stayService: StayService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -115,17 +119,15 @@ export class CreateUpdateStayComponent implements OnInit {
     this.roomFormGroup.get('room').setValue(roomId);
   }
 
-  showAll() {
+  save() {
     const { start, end, reason, totalGuest } = this.stayFormGroup.value;
 
     const { paid, paymentMethod, roomPrice } = this.paymentFormGroup.value;
 
     const { room } = this.roomFormGroup.value;
 
-    const { customers } = this.customersFormGroup.value;
-
     const createStayPayload: CreateStayPayload = {
-      customers: customers,
+      customers: this.selectedCustomers,
       roomId: room,
       entryDate: start.toISOString().slice(0, 10),
       outDate: end.toISOString().slice(0, 10),
@@ -135,7 +137,11 @@ export class CreateUpdateStayComponent implements OnInit {
       roomPriceId: roomPrice,
       totalGuest: totalGuest,
     };
-    console.log(createStayPayload);
+
+    this.stayService.createStay(createStayPayload).subscribe((res) => {
+      Swal.fire('Success', 'Stay created', 'success');
+      this.router.navigateByUrl('/pages/stays');
+    });
   }
 
   suscribeFormChanges() {

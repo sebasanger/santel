@@ -112,7 +112,8 @@
     "PAYMENTMETHODS": "Payment methods",
     "METHOD": "Method",
     "DESCRIPTION": "Description",
-    "AMOUNTOFPAYMENTS": "Amount of payments"
+    "AMOUNTOFPAYMENTS": "Amount of payments",
+    "QUOTE": "quotes"
   },
   "PRODUCTS": {
     "PRODUCTS": "Products",
@@ -206,6 +207,8 @@
   "STAYS": {
     "STAYS": "Stays",
     "STAY": "Stay",
+    "ENTRYDATE": "Entry date",
+    "OUTDATE": "Out date",
     "ROOM": "Room",
     "TOTALGUEST": "Total guests",
     "CHECKIN": "Check in",

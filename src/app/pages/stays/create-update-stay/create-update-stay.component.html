@@ -89,7 +89,7 @@
             <mat-select formControlName="roomPrice" required>
               <mat-option [value]="option.id" *ngFor="let option of roomPrices$ | async"
                 (click)="setTotalToPay(option.price)">
-                {{ option.price }}
+                {{ option.price }} {{ option.description}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf=" paymentFormGroup.controls['roomPrice'].hasError('required')">
@@ -110,6 +110,7 @@
             <mat-label>{{ 'STAYS.PAYMENTMETHOD' | translate }}</mat-label>
             <mat-select formControlName="paymentMethod">
               <mat-option [value]="option.id" *ngFor="let option of paymentMethods$ | async">{{ option.method }}
+                {{ option.amountOfPayments }} {{ 'PAYMENTMETHOD.QUOTE' | translate}}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -132,11 +133,11 @@
 
   <mat-step>
     <ng-template matStepLabel>Finish</ng-template>
-    <p>You are now done.</p>
+
     <div class="action">
       <button
         [disabled]="roomFormGroup.invalid || stayFormGroup.invalid || customersFormGroup.invalid || paymentFormGroup.invalid"
-        mat-raised-button color="primary" (click)="showAll()">Save</button>
+        mat-raised-button color="primary" (click)="save()">Save</button>
       <button style="margin-left: 15px;" mat-raised-button color="warn">Reset</button>
     </div>
   </mat-step>

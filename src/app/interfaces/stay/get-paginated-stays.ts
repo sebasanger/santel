@@ -6,6 +6,8 @@ export interface GetPaginatedStays {
       totalGuest: number;
       checkIn: Date;
       checkOut: Date;
+      entryDate: Date;
+      outDate: Date;
       active: Boolean;
       reason: string;
       price: number;
