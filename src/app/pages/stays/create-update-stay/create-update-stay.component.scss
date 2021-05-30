@@ -1,5 +1,9 @@
-.mat-form-field {
-  margin-top: 16px;
+.step-stay-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 400px;
+  width: 100%;
 }
 
 .row {
@@ -13,6 +17,8 @@
     flex-direction: column;
   }
 }
+
+
 
 .row mat-form-field {
   width: 30%;

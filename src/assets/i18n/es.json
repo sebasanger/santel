@@ -226,6 +226,12 @@
     "CREATEDAT": "Fecha de creacion",
     "UPDATEDAT": "Fecha de actualizacion",
     "CUSTOMERNAME": "Huesped ",
-    "SELECTROOM": "Seleccionar habitacion"
+    "SELECTROOM": "Seleccionar habitacion",
+    "PAYMENTMETHOD": "Metodo de pago",
+    "DATERANGE": "Rango de fechas de estadia",
+    "START": "Inicio(dd-mm-yyyy)",
+    "END": "Fin(dd-mm-yyyy)",
+    "TOTALDAYS": "Total de dias",
+    "REMAINING": "Faltante"
   }
 }

@@ -222,6 +222,12 @@
     "CREATEDAT": "Creation date",
     "UPDATEDAT": "Update date",
     "CUSTOMERNAME": "Customer ",
-    "SELECTROOM": "Select room "
+    "SELECTROOM": "Select room ",
+    "PAYMENTMETHOD": "Payment method",
+    "DATERANGE": "Stay date range",
+    "START": "Start date(dd-mm-yyyy)",
+    "END": "End date(dd-mm-yyyy)",
+    "TOTALDAYS": "Total days",
+    "REMAINING": "Remaining"
   }
 }

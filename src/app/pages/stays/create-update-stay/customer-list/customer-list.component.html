@@ -13,15 +13,6 @@
     </ng-container>
 
 
-    <!-- delete Column -->
-    <ng-container matColumnDef="edit">
-      <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="edit">
-        <button mat-icon-button color="accent" (click)="editCustomer(row.id)">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
 
     <!-- delete Column -->
     <ng-container matColumnDef="delete">

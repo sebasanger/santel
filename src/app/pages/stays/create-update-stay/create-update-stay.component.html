@@ -3,66 +3,51 @@
   <mat-step [stepControl]="stayFormGroup" errorMessage="Stay data is required.">
     <form [formGroup]="stayFormGroup">
       <ng-template matStepLabel>Stay data</ng-template>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>{{ 'STAYS.TOTALGUEST' | translate}}</mat-label>
-          <input type="number" autocomplete="off" matInput formControlName="totalGuest" required>
-          <mat-error *ngIf="stayFormGroup.controls['totalGuest'].hasError('required')">
-            {{ 'STAYS.TOTALGUEST' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-          </mat-error>
-          <mat-error *ngIf="stayFormGroup.controls['totalGuest'].hasError('min')">
-            {{ 'STAYS.TOTALGUEST' | translate }} <strong>{{ 'MINIMUM' | translate }} 1</strong>
-          </mat-error>
-          <mat-error *ngIf="stayFormGroup.controls['totalGuest'].hasError('max')">
-            {{ 'STAYS.TOTALGUEST' | translate }} <strong>{{ 'MAXIMUM' | translate }} 10</strong>
-          </mat-error>
-        </mat-form-field>
+      <div class="step-stay-form">
+        <div class="row">
+          <mat-form-field>
+            <mat-label>{{ 'STAYS.TOTALGUEST' | translate}}</mat-label>
+            <input type="number" autocomplete="off" matInput formControlName="totalGuest" required>
+            <mat-error *ngIf="stayFormGroup.controls['totalGuest'].hasError('required')">
+              {{ 'STAYS.TOTALGUEST' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+            </mat-error>
+            <mat-error *ngIf="stayFormGroup.controls['totalGuest'].hasError('min')">
+              {{ 'STAYS.TOTALGUEST' | translate }} <strong>{{ 'MINIMUM' | translate }} 1</strong>
+            </mat-error>
+            <mat-error *ngIf="stayFormGroup.controls['totalGuest'].hasError('max')">
+              {{ 'STAYS.TOTALGUEST' | translate }} <strong>{{ 'MAXIMUM' | translate }} 10</strong>
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Enter a date range</mat-label>
-          <mat-date-range-input [formGroup]="stayFormGroup" [rangePicker]="picker" required>
-            <input matStartDate formControlName="start" placeholder="Start date">
-            <input matEndDate formControlName="end" placeholder="End date">
-          </mat-date-range-input>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-date-range-picker #picker></mat-date-range-picker>
-          <mat-error *ngIf="stayFormGroup.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-          <mat-error *ngIf="stayFormGroup.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-        </mat-form-field>
-      </div>
+          <mat-form-field appearance="fill">
+            <mat-label> {{ 'STAYS.DATERANGE' | translate }}</mat-label>
+            <mat-date-range-input [formGroup]="stayFormGroup" [rangePicker]="picker" required>
+              <input matStartDate formControlName="start" placeholder="{{ 'STAYS.START' | translate}}">
+              <input matEndDate formControlName="end" placeholder="{{ 'STAYS.END' | translate}}">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+            <mat-error *ngIf="stayFormGroup.controls.start.hasError('matStartDateInvalid')">Invalid start date
+            </mat-error>
+            <mat-error *ngIf="stayFormGroup.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          </mat-form-field>
+        </div>
 
 
-      <div class="row">
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>{{ 'STAYS.PRICE' | translate }}</mat-label>
-          <mat-select formControlName="roomPrice" required>
-            <mat-option [value]="option.id" *ngFor="let option of roomPrices$ | async">{{ option.price }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="stayFormGroup.controls['roomPrice'].hasError('required')">
-            {{ 'STAYS.PRICE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-          </mat-error>
-        </mat-form-field>
+        <div class="row">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>{{ 'STAYS.REASON' | translate }}</mat-label>
+            <mat-select formControlName="reason">
+              <mat-option [value]="option.id" *ngFor="let option of reasons$ | async">{{ option.reason }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>{{ 'STAYS.REASON' | translate }}</mat-label>
-          <mat-select formControlName="reason">
-            <mat-option [value]="option.id" *ngFor="let option of reasons$ | async">{{ option.reason }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
 
-      <div class="row">
-        <mat-form-field>
-          <mat-label>{{ 'STAYS.PAID' | translate}}</mat-label>
-          <input type="number" autocomplete="off" matInput formControlName="paid">
-        </mat-form-field>
-      </div>
-
-      <div>
-        <button [disabled]="stayFormGroup.invalid" mat-raised-button color="primary" matStepperNext
-          (click)="findRoomsAvailables()">Next</button>
+        <div>
+          <button [disabled]="stayFormGroup.invalid" mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
       </div>
     </form>
   </mat-step>
@@ -70,7 +55,6 @@
   <mat-step [stepControl]="roomFormGroup" errorMessage="Select room." #roomsteep>
     <form [formGroup]="roomFormGroup">
       <ng-template matStepLabel>Select room</ng-template>
-
       <app-rooms-table (selectRoomId)="selectRoom($event)"></app-rooms-table>
 
       <div class="action">
@@ -90,7 +74,58 @@
       </div>
 
       <div class="action">
-        <button [disabled]="roomFormGroup.invalid" mat-raised-button color="primary" matStepperNext>Next</button>
+        <button [disabled]="customersFormGroup.invalid" mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="paymentFormGroup" errorMessage="Payment is required.">
+    <form [formGroup]="paymentFormGroup">
+      <ng-template matStepLabel>Payment</ng-template>
+      <div class="step-stay-form">
+        <div class="row">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>{{ 'STAYS.PRICE' | translate }}</mat-label>
+            <mat-select formControlName="roomPrice" required>
+              <mat-option [value]="option.id" *ngFor="let option of roomPrices$ | async"
+                (click)="setTotalToPay(option.price)">
+                {{ option.price }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf=" paymentFormGroup.controls['roomPrice'].hasError('required')">
+              {{ 'STAYS.PRICE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>{{ 'STAYS.PAID' | translate}}</mat-label>
+            <input type="number" autocomplete="off" matInput formControlName="paid">
+          </mat-form-field>
+
+        </div>
+
+        <div class="row" *ngIf="paymentFormGroup.controls['paid'].value != 0">
+
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>{{ 'STAYS.PAYMENTMETHOD' | translate }}</mat-label>
+            <mat-select formControlName="paymentMethod">
+              <mat-option [value]="option.id" *ngFor="let option of paymentMethods$ | async">{{ option.method }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+
+        <div class="row">
+          <div>{{ 'STAYS.TOTALDAYS' | translate}}:{{ totalDays}}</div>
+          <div>{{ 'STAYS.TOTALTOPAY' | translate}}:{{ totalToPay}}</div>
+          <div>{{ 'STAYS.REMAINING' | translate}}:{{ remaining }}</div>
+        </div>
+
+        <div>
+          <button [disabled]="paymentFormGroup.invalid" mat-raised-button color="primary" matStepperNext
+            (click)="findRoomsAvailables()">Next</button>
+        </div>
       </div>
     </form>
   </mat-step>
@@ -99,9 +134,10 @@
     <ng-template matStepLabel>Finish</ng-template>
     <p>You are now done.</p>
     <div class="action">
-      <button [disabled]="roomFormGroup.invalid || stayFormGroup.invalid || customersFormGroup.invalid"
-        mat-raised-button color="primary">Save</button>
-      <button style="margin-left: 15px;" mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+      <button
+        [disabled]="roomFormGroup.invalid || stayFormGroup.invalid || customersFormGroup.invalid || paymentFormGroup.invalid"
+        mat-raised-button color="primary" (click)="showAll()">Save</button>
+      <button style="margin-left: 15px;" mat-raised-button color="warn">Reset</button>
     </div>
   </mat-step>
 
