@@ -50,7 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     MatSnackBarModule,
   ],
   providers: [
-    //{ provide: ErrorHandler, useClass: GlobalErrorHandlerService },
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

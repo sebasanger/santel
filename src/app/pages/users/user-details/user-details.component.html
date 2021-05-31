@@ -17,19 +17,21 @@
           </mat-card-header>
           <mat-card-content>
             <p>
-              Email: {{user.email}}
+              {{ 'USERS.EMAIL' | translate}}: {{user.email}}
             </p>
             <p>
-              Username: {{user.username}}
+              {{ 'USERS.USERNAME' | translate}}: {{user.username}}
             </p>
             <p>
-              Enable: {{user.enabled}}
+              {{ 'USERS.STATUS' | translate}}:
+              <span *ngIf="user.enabled">{{ 'USERS.ENABLE' | translate}}</span>
+              <span *ngIf="!user.enabled">{{ 'USERS.DISABLED' | translate}}</span>
             </p>
             <p>
-              Created at: {{user.createdAt | date}}
+              {{ 'USERS.CREATEDAT' | translate}}: {{user.createdAt | date}}
             </p>
             <p>
-              Last password changed at: {{user.lastPasswordChangeAt | date}}
+              {{ 'USERS.LASTPASSWORDCHANGE' | translate}}: {{user.lastPasswordChangeAt | date}}
             </p>
           </mat-card-content>
           <mat-card-actions>

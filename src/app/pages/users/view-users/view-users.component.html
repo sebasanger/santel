@@ -17,31 +17,31 @@
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
+      <mat-cell *matCellDef="let row" (click)="onRowClicked(row)" data-label="id"> {{row.id}} </mat-cell>
     </ng-container>
 
     <!-- fullName Column -->
     <ng-container matColumnDef="fullName">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'USERS.FULLNAME' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Full name"> {{row.fullName}} </mat-cell>
+      <mat-cell *matCellDef="let row" (click)="onRowClicked(row)" data-label="Nombre"> {{row.fullName}} </mat-cell>
     </ng-container>
 
     <!-- email Column -->
     <ng-container matColumnDef="email">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'USERS.EMAIL' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
+      <mat-cell *matCellDef="let row" (click)="onRowClicked(row)" data-label="Email"> {{row.email}} </mat-cell>
     </ng-container>
 
     <!-- roles Column -->
     <ng-container matColumnDef="roles">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'USERS.ROLES' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="roles"> {{row.roles}} </mat-cell>
+      <mat-cell *matCellDef="let row" (click)="onRowClicked(row)" data-label="Roles"> {{row.roles}} </mat-cell>
     </ng-container>
 
     <!-- delete Column -->
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="edit">
+      <mat-cell *matCellDef="let row" data-label="Editar">
         <button mat-icon-button color="accent" (click)="editUser(row.id)">
           <mat-icon>edit</mat-icon>
         </button>
@@ -51,7 +51,7 @@
     <!-- delete Column -->
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'DELETE' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="delete">
+      <mat-cell *matCellDef="let row" data-label="Eliminar">
         <button mat-icon-button color="warn" (click)="deleteUser(row.id)">
           <mat-icon>delete</mat-icon>
         </button>
@@ -59,7 +59,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"> </mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
 
 
   </mat-table>

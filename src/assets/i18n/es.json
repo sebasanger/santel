@@ -77,7 +77,13 @@
     },
     "FULLNAME": "Nombre completo",
     "ROLES": "Roles",
-    "EMAIL": "Email"
+    "EMAIL": "Email",
+    "USERNAME": "Nombre de usuario",
+    "LASTPASSWORDCHANGE": "Ultimo cambio de contraseña",
+    "CREATEDAT": "Fecha de creacion",
+    "STATUS": "Estado",
+    "ENABLE": "Activo",
+    "DISABLED": "Inactivo"
   },
   "REASONS": {
     "REASONS": "Razones",

@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 export class GlobalErrorHandlerService implements ErrorHandler {
   constructor(private _snackBar: MatSnackBar) {}
   handleError(errorResponse: HttpErrorResponse): void {
+    console.error(errorResponse);
+
     if (errorResponse.error != null && errorResponse.status == 401) {
       Swal.fire(
         'Error',
@@ -29,6 +31,17 @@ export class GlobalErrorHandlerService implements ErrorHandler {
           panelClass: ['error-snackbar'],
         });
       }
+    } else if (
+      (errorResponse.error != null && errorResponse.status == 500) ||
+      errorResponse.status == 0
+    ) {
+      Swal.fire(
+        'Internal server error',
+        errorResponse.error.message != null
+          ? errorResponse.error.message
+          : 'Unknown error',
+        'error'
+      );
     } else {
       return;
     }
