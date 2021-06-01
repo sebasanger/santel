@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  Input,
   OnInit,
   Output,
   ViewChild,
@@ -13,7 +14,10 @@ import { Store } from '@ngrx/store';
 import { Image } from 'src/app/models/image.model';
 import { Room } from 'src/app/models/room.model';
 import { ViewImagesComponent } from 'src/app/pages/rooms/view-images/view-images.component';
-import { selectAvailableRooms } from 'src/app/store/room/room.selectors';
+import {
+  selectAvailableRooms,
+  selectSelectedRoom,
+} from 'src/app/store/room/room.selectors';
 @Component({
   selector: 'app-rooms-table',
   templateUrl: './rooms-table.component.html',
@@ -24,7 +28,6 @@ export class RoomsTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   public dataSource: MatTableDataSource<Room>;
   public roomSelectedId: number;
-
   @Output() selectRoomId = new EventEmitter<number>();
 
   displayedColumns: string[] = [
@@ -49,6 +52,11 @@ export class RoomsTableComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+    });
+    this.roomStore.select(selectSelectedRoom).subscribe((res) => {
+      console.log(res);
+
+      this.roomSelectedId = res;
     });
   }
 

@@ -5,3 +5,7 @@ export const setAvailablesRooms = createAction(
   '[ROOMS]  Set availables rooms success...',
   props<{ avaiableRooms: Room[] }>()
 );
+export const setSelectedRoom = createAction(
+  '[ROOMS]  Set selected rooms success...',
+  props<{ selectedRoom: number }>()
+);

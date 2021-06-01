@@ -9,3 +9,8 @@ export const selectAvailableRooms = createSelector(
   roomStateSelector,
   (state: fromRoom.State) => state.availableRooms
 );
+
+export const selectSelectedRoom = createSelector(
+  roomStateSelector,
+  (state: fromRoom.State) => state.selectedRoom
+);

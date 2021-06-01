@@ -12,11 +12,13 @@ export interface State extends EntityState<Room> {
   availableRooms: Room[];
   error: HttpErrorResponse;
   loading: boolean;
+  selectedRoom: number;
 }
 export const initialState: State = roomAdapter.getInitialState({
   availableRooms: null,
   error: null,
   loading: false,
+  selectedRoom: null,
 });
 
 export const roomReducer = createReducer(
@@ -26,5 +28,9 @@ export const roomReducer = createReducer(
     availableRooms: avaiableRooms,
     error: null,
     loading: false,
+  })),
+  on(RoomActions.setSelectedRoom, (state, { selectedRoom }) => ({
+    ...state,
+    selectedRoom,
   }))
 );
