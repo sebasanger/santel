@@ -1,7 +1,6 @@
 import {
   Component,
   EventEmitter,
-  Input,
   OnInit,
   Output,
   ViewChild,
@@ -54,8 +53,6 @@ export class RoomsTableComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
     this.roomStore.select(selectSelectedRoom).subscribe((res) => {
-      console.log(res);
-
       this.roomSelectedId = res;
     });
   }
@@ -80,21 +77,5 @@ export class RoomsTableComponent implements OnInit {
   selectRoom(id: number) {
     this.roomSelectedId = id;
     this.selectRoomId.emit(id);
-  }
-
-  getClass(room: Room) {
-    let classes = '';
-
-    if (!room.available) {
-      classes = 'room-unavailable';
-    }
-    if (!room.enabled) {
-      classes = 'room-occuped';
-    }
-    if (room.id == this.roomSelectedId) {
-      classes = 'room-selected';
-    }
-
-    return classes;
   }
 }

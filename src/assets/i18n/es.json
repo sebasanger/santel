@@ -188,7 +188,7 @@
     "DEACTIVATE": "Cerrada",
     "USER": "A cargo",
     "CLOSE": "Cerrar",
-    "CLOSEREGISTER": "Cerrar caja"
+    "CLOSERE": "Cerrar caja"
   },
   "PAYMENTS": {
     "PAYMENTS": "Pagos",

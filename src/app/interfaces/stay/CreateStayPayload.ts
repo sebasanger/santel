@@ -1,6 +1,7 @@
 import { Customer } from 'src/app/models/customer.model';
 
-export interface CreateStayPayload {
+export interface CreateUpdateStayPayload {
+  id?: number;
   customers: Customer[];
   roomId: number;
   paymentMethodId?: number;

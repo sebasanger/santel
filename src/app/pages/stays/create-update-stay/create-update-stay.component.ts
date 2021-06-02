@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CreateStayPayload } from 'src/app/interfaces/stay/CreateStayPayload';
+import { CreateUpdateStayPayload } from 'src/app/interfaces/stay/CreateStayPayload';
 import { GetFreeRoomsPayload } from 'src/app/interfaces/stay/GetFreeRomsPayload';
 import { Customer } from 'src/app/models/customer.model';
 import { PaymentMethod } from 'src/app/models/payment-method.model';
@@ -169,7 +169,7 @@ export class CreateUpdateStayComponent implements OnInit {
 
     const { room } = this.roomFormGroup.value;
 
-    const createUpdateStayPayload: CreateStayPayload = {
+    const createUpdateStayPayload: CreateUpdateStayPayload = {
       customers: this.selectedCustomers,
       roomId: room,
       entryDate: start.toISOString().slice(0, 10),
@@ -183,8 +183,10 @@ export class CreateUpdateStayComponent implements OnInit {
 
     if (this.stayId != null || this.stayId != 0) {
       console.log(createUpdateStayPayload);
-
-      Swal.fire('Success', 'Stay updated', 'success');
+      createUpdateStayPayload.id = this.stayId;
+      this.stayService.createStay(createUpdateStayPayload).subscribe((res) => {
+        Swal.fire('Success', 'Stay updated', 'success');
+      });
     } else {
       this.stayService.createStay(createUpdateStayPayload).subscribe((res) => {
         Swal.fire('Success', 'Stay created', 'success');

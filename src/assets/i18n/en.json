@@ -185,6 +185,7 @@
     "ACTIVE": "In use",
     "DEACTIVATE": "Close",
     "USER": "in charge",
+    "CLOSE": "Close",
     "CLOSEREGISTER": "Close register"
   },
   "PAYMENTS": {

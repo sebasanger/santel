@@ -6,10 +6,8 @@ import {
 } from '@ngrx/data';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { CreateStayPayload } from 'src/app/interfaces/stay/CreateStayPayload';
+import { CreateUpdateStayPayload } from 'src/app/interfaces/stay/CreateStayPayload';
 import { GetPaginatedStays } from 'src/app/interfaces/stay/get-paginated-stays';
-import { GetFreeRoomsPayload } from 'src/app/interfaces/stay/GetFreeRomsPayload';
-import { Room } from 'src/app/models/room.model';
 import { Stay } from 'src/app/models/stay.model';
 import { getStaysPaginated } from 'src/app/store/stay/stay.api.actions';
 import { selectPaginatedStays } from 'src/app/store/stay/stay.selectors';
@@ -31,8 +29,12 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
     this.paginatedStays$ = this.stayStore.pipe(select(selectPaginatedStays));
   }
 
-  createStay(createStayPayload: CreateStayPayload) {
+  createStay(createStayPayload: CreateUpdateStayPayload) {
     return this.http.post<any>(`${base_url}stay/save`, createStayPayload);
+  }
+
+  updateStay(updateStayPayload: CreateUpdateStayPayload) {
+    return this.http.put<any>(`${base_url}stay/update`, updateStayPayload);
   }
 
   paginatedStay(
