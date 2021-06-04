@@ -16,9 +16,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PaymentRouting } from './payment.routing';
+import { AddPaymentComponent } from './add-payment/add-payment.component';
 
 @NgModule({
-  declarations: [PaymentsComponent, ViewPaymentsComponent],
+  declarations: [PaymentsComponent, ViewPaymentsComponent, AddPaymentComponent],
   imports: [
     CommonModule,
     PaymentRouting,

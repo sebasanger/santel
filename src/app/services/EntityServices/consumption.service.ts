@@ -6,6 +6,7 @@ import {
 } from '@ngrx/data';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AddNewConsumptionPayload } from 'src/app/interfaces/consumptions/add-new-consumption-payload';
 import { GetPaginatedConsumptions } from 'src/app/interfaces/consumptions/get-paginated-consumptions';
 import { Consumption } from 'src/app/models/consuption.model';
 import { getConsumptionsPaginated } from 'src/app/store/consumptions/consumption.api.actions';
@@ -26,6 +27,13 @@ export class ConsumptionService extends EntityCollectionServiceBase<Consumption>
     super('Consumption', serviceElementsFactory);
     this.paginatedConsumptions$ = this.consumptionStore.pipe(
       select(selectPaginatedConsumptions)
+    );
+  }
+
+  createConsumption(createConsumptionPayload: AddNewConsumptionPayload) {
+    return this.http.post<any>(
+      `${base_url}consumption/save`,
+      createConsumptionPayload
     );
   }
 

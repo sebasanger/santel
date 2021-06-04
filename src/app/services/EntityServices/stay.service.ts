@@ -44,16 +44,13 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
     pageIndex: number,
     pageSize: number
   ) {
-    return this.http.post<GetPaginatedStays>(
-      `${base_url}stay/paginate-filter`,
-      {
-        params: new HttpParams()
-          .set('page', pageIndex.toString())
-          .set('filter', filter)
-          .set('size', pageSize.toString())
-          .set('sort', `${sort},${sortDirection}`),
-      }
-    );
+    return this.http.get<GetPaginatedStays>(`${base_url}stay/paginate-filter`, {
+      params: new HttpParams()
+        .set('page', pageIndex.toString())
+        .set('filter', filter)
+        .set('size', pageSize.toString())
+        .set('sort', `${sort},${sortDirection}`),
+    });
   }
 
   getPaginatedStay(

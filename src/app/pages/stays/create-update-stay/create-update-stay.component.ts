@@ -184,7 +184,7 @@ export class CreateUpdateStayComponent implements OnInit {
     if (this.stayId != null || this.stayId != 0) {
       console.log(createUpdateStayPayload);
       createUpdateStayPayload.id = this.stayId;
-      this.stayService.createStay(createUpdateStayPayload).subscribe((res) => {
+      this.stayService.updateStay(createUpdateStayPayload).subscribe((res) => {
         Swal.fire('Success', 'Stay updated', 'success');
       });
     } else {

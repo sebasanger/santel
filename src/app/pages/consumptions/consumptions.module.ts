@@ -16,9 +16,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ConsumtionsRouting } from './consumptions.routing';
+import { AddConsumptionComponent } from './add-consumption/add-consumption.component';
 
 @NgModule({
-  declarations: [ConsumptionsComponent, ViewConsumptionsComponent],
+  declarations: [ConsumptionsComponent, ViewConsumptionsComponent, AddConsumptionComponent],
   imports: [
     CommonModule,
     ConsumtionsRouting,
