@@ -193,13 +193,15 @@
   "PAYMENTS": {
     "PAYMENTS": "Pagos",
     "PAYMENT": "Pago",
+    "DESCRIPTION": "Descripcion",
     "STAY": "Estadia",
     "REGISTER": "Caja",
     "USER": "Encargado",
     "AMOUNT": "Valor",
     "METHOD": "Metodo",
     "ADD": "Agregar pago",
-    "QUOTE": "cuotas"
+    "QUOTE": "cuotas",
+    "CREATEDAT": "Fecha"
   },
   "CONSUMPTIONS": {
     "CONSUMPTIONS": "Consumiciones",
@@ -212,7 +214,9 @@
     "PAID": "Pagado",
     "REGISTER": "Caja",
     "PRODUCT": "Producto",
-    "ADD": "Agregar consumicion"
+    "ADD": "Agregar consumicion",
+    "TOTAL": "Total",
+    "CREATEDAT": "Fecha"
   },
   "STAYS": {
     "STAYS": "Estadias",

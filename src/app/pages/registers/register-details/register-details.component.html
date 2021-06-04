@@ -45,15 +45,15 @@
 
         <mat-tab-group class="tabs-extras">
 
-          <mat-tab label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
-            <div *ngIf="payments">
+          <mat-tab *ngIf="payments && payments.length > 0" label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
+            <div>
               <app-payments-table [payments]="payments"></app-payments-table>
             </div>
 
           </mat-tab>
 
-          <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
-            <div *ngIf="consumptions">
+          <mat-tab *ngIf="consumptions && consumptions.length > 0" label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
+            <div>
               <app-consumptions-table [consumptions]="consumptions"></app-consumptions-table>
             </div>
           </mat-tab>

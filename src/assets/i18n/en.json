@@ -192,11 +192,14 @@
     "PAYMENTS": "Payments",
     "PAYMENT": "Payment",
     "STAY": "Stay",
+    "DESCRIPTION": "Description",
     "REGISTER": "Register",
     "USER": "In charge",
     "AMOUNT": "Amount",
     "METHOD": "Method",
-    "ADD": "Add payment"
+    "ADD": "Add payment",
+    "TOTAL": "Total",
+    "CREATEDAT": "Created at"
   },
   "CONSUMPTIONS": {
     "CONSUMPTIONS": "Consumptions",
@@ -209,7 +212,8 @@
     "PAID": "Paid",
     "REGISTER": "Register",
     "PRODUCT": "Product",
-    "ADD": "Add consumption"
+    "ADD": "Add consumption",
+    "CREATEDAT": "Created at"
   },
   "STAYS": {
     "STAYS": "Stays",

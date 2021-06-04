@@ -44,10 +44,10 @@
             </mat-form-field>
           </div>
 
-          <div class="col" *ngIf="consumptionForm.controls['paid'].value != 0">
+          <div class="col">
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>{{ 'CONSUMPTIONS.METHOD' | translate }}</mat-label>
-              <mat-select formControlName="paymentMethod">
+              <mat-select [disabled]="consumptionForm.controls['paid'].value == 0" formControlName="paymentMethod">
                 <mat-option [value]="option.id" *ngFor="let option of paymentMethods$ | async">{{ option.method }}
                 </mat-option>
               </mat-select>

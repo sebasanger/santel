@@ -22,9 +22,11 @@ export class ConsumptionsTableComponent implements OnInit {
   displayedColumns: string[] = [
     'amount',
     'price',
+    'total',
+    'paid',
     'product',
-    'method',
     'user',
+    'createdAt',
     'delete',
   ];
 

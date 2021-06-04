@@ -8,6 +8,12 @@
         <td mat-cell *matCellDef="let row"> {{row.amount}} </td>
       </ng-container>
 
+      <!-- description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.DESCRIPTION' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+      </ng-container>
+
       <!-- Method Column -->
       <ng-container matColumnDef="method">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.METHOD' | translate }} </th>
@@ -18,6 +24,12 @@
       <ng-container matColumnDef="user">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.USER' | translate }} </th>
         <td mat-cell *matCellDef="let row"> {{row.user.fullName}} </td>
+      </ng-container>
+
+      <!-- createdAt Column -->
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.CREATEDAT' | translate }} </th>
+        <td mat-cell *matCellDef="let row"> {{row.createdAt| date:'hh:mm dd/MM/yyyy'}} </td>
       </ng-container>
 
       <!-- delete Column -->

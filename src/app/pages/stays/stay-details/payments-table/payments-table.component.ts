@@ -19,7 +19,14 @@ export class PaymentsTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   public dataSource: MatTableDataSource<Payment>;
 
-  displayedColumns: string[] = ['amount', 'method', 'user', 'delete'];
+  displayedColumns: string[] = [
+    'amount',
+    'description',
+    'method',
+    'user',
+    'createdAt',
+    'delete',
+  ];
 
   constructor(
     public dialog: MatDialog,
