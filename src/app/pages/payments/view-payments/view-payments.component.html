@@ -13,7 +13,7 @@
 </div>
 
 <div class="example-container mat-elevation-z8 animate__animated animate__fadeIn animate__delay-0.4s">
-  <mat-table matSort matSortActive="id" matSortDirection="asc" matSortDisableClear [dataSource]="dataSource">
+  <mat-table matSort matSortActive="id" matSortDirection="desc" matSortDisableClear [dataSource]="dataSource">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
@@ -25,6 +25,13 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.AMOUNT' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="Amount"> {{row.amount }} </mat-cell>
     </ng-container>
+
+    <!-- description Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.DESCRIPTION' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="description"> {{row.description }} </mat-cell>
+    </ng-container>
+
 
     <!-- method Column -->
     <ng-container matColumnDef="method">

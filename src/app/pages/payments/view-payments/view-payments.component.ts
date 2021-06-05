@@ -31,6 +31,7 @@ export class ViewPaymentsComponent implements OnInit {
   public filter: string = '';
   public displayedColumns = [
     'id',
+    'description',
     'amount',
     'method',
     'register',

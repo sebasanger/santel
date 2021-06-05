@@ -1,40 +1,32 @@
 <section>
-  <div class="grid-container animate__animated animate__fadeIn animate__delay-0.4s">
-    <mat-grid-list [cols]="cols" rowHeight="900px">
+  <div class="grid-container stay-details animate__animated animate__fadeIn animate__delay-0.4s">
 
-      <mat-grid-tile>
-        <mat-tab-group mat-align-tabs="start" class="stay-tabs">
-          <mat-tab label="Stay">
-            <app-stay-table [stay]="stay"></app-stay-table>
-          </mat-tab>
-          <div *ngIf="customers != null">
-            <mat-tab *ngFor="let customer of stay.customers" label="{{ customer.name }}">
-              <app-customer-tables [customer]="customer"></app-customer-tables>
-            </mat-tab>
-          </div>
-        </mat-tab-group>
+    <mat-tab-group mat-align-tabs="start" class="stay-tabs">
+      <mat-tab label="Stay">
+        <app-stay-table [stay]="stay"></app-stay-table>
+      </mat-tab>
+      <div *ngIf="customers != null">
+        <mat-tab *ngFor="let customer of stay.customers" label="{{ customer.name }}">
+          <app-customer-tables [customer]="customer"></app-customer-tables>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
 
-      </mat-grid-tile>
+    <mat-tab-group class="tabs-extras">
 
-      <mat-grid-tile *ngIf="consumptions && consumptions.length > 0 || payments && payments.length > 0">
-        <mat-tab-group class="tabs-extras">
+      <div *ngIf="payments && payments.length > 0">
+        <mat-tab label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
+          <app-payments-table [payments]="payments"></app-payments-table>
+        </mat-tab>
+      </div>
 
-          <div *ngIf="payments && payments.length > 0">
-            <mat-tab label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
-              <app-payments-table [payments]="payments"></app-payments-table>
-            </mat-tab>
-          </div>
+      <div *ngIf="consumptions && consumptions.length > 0">
+        <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
+          <app-consumptions-table [consumptions]="consumptions"></app-consumptions-table>
+        </mat-tab>
+      </div>
 
-          <div *ngIf="consumptions && consumptions.length > 0">
-            <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
-              <app-consumptions-table [consumptions]="consumptions"></app-consumptions-table>
-            </mat-tab>
-          </div>
+    </mat-tab-group>
 
-        </mat-tab-group>
-
-      </mat-grid-tile>
-
-    </mat-grid-list>
   </div>
 </section>

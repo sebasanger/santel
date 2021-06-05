@@ -3,6 +3,7 @@ export interface GetPaginatedPayments {
     {
       id: number;
       amount: number;
+      description: string;
       paymentMethod: string;
       register: number;
       stay: number;
