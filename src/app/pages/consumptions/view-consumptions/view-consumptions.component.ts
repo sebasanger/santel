@@ -39,8 +39,6 @@ export class ViewConsumptionsComponent implements OnInit {
     'amount',
     'price',
     'paid',
-    'method',
-    'register',
     'stay',
     'user',
     'edit',

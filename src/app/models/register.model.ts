@@ -12,7 +12,6 @@ export class Register {
   public createdAt: Date;
   public closeTime: Date;
 
-  public consumptions: Consumption[];
   public payments: Payment[];
 
   constructor(registerInterface: RegisterInterface) {
@@ -24,7 +23,6 @@ export class Register {
     this.closeMount = registerInterface.closeMount;
     this.createdAt = registerInterface.createdAt;
     this.closeTime = registerInterface.closeTime;
-    this.consumptions = registerInterface.consumptions;
     this.payments = registerInterface.payments;
   }
 }
@@ -38,6 +36,5 @@ export interface RegisterInterface {
   closeMount?: number;
   createdAt?: Date;
   closeTime?: Date;
-  consumptions?: Consumption[];
   payments?: Payment[];
 }

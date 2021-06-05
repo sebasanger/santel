@@ -20,7 +20,6 @@ export class RegisterDetailsComponent implements OnInit {
   private registerId: number;
   public register: Register;
   public payments: Payment[];
-  public consumptions: Consumption[];
   public cols: number;
   constructor(
     private registerService: RegisterService,
@@ -37,7 +36,6 @@ export class RegisterDetailsComponent implements OnInit {
         this.registerService.getByKey(this.registerId).subscribe((res) => {
           this.register = res;
           this.payments = res.payments;
-          this.consumptions = res.consumptions;
         });
       }
     });
