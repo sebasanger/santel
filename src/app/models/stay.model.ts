@@ -13,7 +13,8 @@ export class Stay {
   public checkOut: Date;
   public entryDate: Date;
   public outDate: Date;
-  public paid: number;
+  public totalPayments: number;
+  public totalConsumptions: number;
   public pricePerDay: number;
   public totalGuest: number;
   public totalToPay: number;
@@ -35,7 +36,8 @@ export class Stay {
     this.checkOut = stayInterface.checkOut;
     this.entryDate = stayInterface.entryDate;
     this.outDate = stayInterface.outDate;
-    this.paid = stayInterface.paid;
+    this.totalPayments = stayInterface.totalPayments;
+    this.totalConsumptions = stayInterface.totalConsumptions;
     this.pricePerDay = stayInterface.pricePerDay;
     this.totalGuest = stayInterface.totalGuest;
     this.totalToPay = stayInterface.totalToPay;
@@ -55,21 +57,22 @@ export class Stay {
 export interface StayInterface {
   id: number;
   active: boolean;
-  checkIn: Date;
-  checkOut: Date;
+  checkIn?: Date;
+  checkOut?: Date;
   entryDate: Date;
   outDate: Date;
-  paid: number;
-  pricePerDay: number;
+  totalPayments?: number;
+  totalConsumptions?: number;
+  pricePerDay?: number;
   totalGuest: number;
-  totalToPay: number;
-  createdAt: number;
-  updatedAt: number;
+  totalToPay?: number;
+  createdAt?: number;
+  updatedAt?: number;
 
   room: Room;
   roomPrice: RoomPrice;
   reason?: Reason;
-  user: User;
+  user?: User;
   customers: Customer[];
   consumptions?: Consumption[];
   payments?: Payment[];

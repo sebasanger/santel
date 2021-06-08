@@ -5,7 +5,7 @@
         <mat-card-title class="title-extras">{{'CONSUMPTIONS.ADD' |translate }}</mat-card-title>
       </mat-card-header>
     </div>
-    <div class="content-extras">
+    <div class="content-extras content">
       <mat-card-content>
 
         <div class="row">
@@ -25,8 +25,8 @@
 
           <div class="col">
             <mat-form-field class="full-width">
-              <input type="number" color="primary" matInput placeholder="{{ 'CONSUMPTIONS.AMOUNT' | translate }}"
-                formControlName="amount">
+              <input autocomplete="off" type="number" color="primary" matInput
+                placeholder="{{ 'CONSUMPTIONS.AMOUNT' | translate }}" formControlName="amount">
               <mat-error *ngIf="consumptionForm.controls['amount'].hasError('required')">
                 {{ 'CONSUMPTIONS.AMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
               </mat-error>
@@ -39,8 +39,8 @@
 
           <div class="col">
             <mat-form-field class="full-width">
-              <input type="number" color="primary" matInput placeholder="{{ 'CONSUMPTIONS.PAID' | translate }}"
-                formControlName="paid">
+              <input autocomplete="off" type="number" color="primary" matInput
+                placeholder="{{ 'CONSUMPTIONS.PAID' | translate }}" formControlName="paid">
             </mat-form-field>
           </div>
 

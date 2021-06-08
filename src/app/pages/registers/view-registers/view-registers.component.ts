@@ -40,7 +40,8 @@ export class ViewRegistersComponent implements OnInit {
   public filter: string = '';
   public displayedColumns = [
     'id',
-    'balance',
+    'actualBalance',
+    'totalPayments',
     'createdAt',
     'closeTime',
     'openMount',

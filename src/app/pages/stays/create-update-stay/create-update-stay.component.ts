@@ -110,7 +110,6 @@ export class CreateUpdateStayComponent implements OnInit {
           if (res.reason) {
             this.stayFormGroup.controls['reason'].setValue(res.reason.id);
           }
-          this.paymentFormGroup.controls['paid'].setValue(res.paid);
           if (res.roomPrice) {
             this.paymentFormGroup.controls['roomPrice'].setValue(
               res.roomPrice.id

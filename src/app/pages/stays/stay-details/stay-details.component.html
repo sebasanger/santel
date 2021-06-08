@@ -22,7 +22,7 @@
 
       <div *ngIf="consumptions && consumptions.length > 0">
         <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
-          <app-consumptions-table [consumptions]="consumptions"></app-consumptions-table>
+          <app-consumptions-table [consumptions]="consumptions" [stayId]="stay.id"></app-consumptions-table>
         </mat-tab>
       </div>
 

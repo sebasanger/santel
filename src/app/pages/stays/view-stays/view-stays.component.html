@@ -43,13 +43,6 @@
       </mat-cell>
     </ng-container>
 
-    <!-- reason Column -->
-    <ng-container matColumnDef="reason">
-      <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'STAYS.REASON' | translate }}
-      </mat-header-cell>
-      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Reason"> {{row.reason}} </mat-cell>
-    </ng-container>
-
     <!-- checkIn Column -->
     <ng-container matColumnDef="entryDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.CHECKIN' | translate }} </mat-header-cell>

@@ -242,6 +242,7 @@
     "START": "Start date(dd-mm-yyyy)",
     "END": "End date(dd-mm-yyyy)",
     "TOTALDAYS": "Total days",
-    "REMAINING": "Remaining"
+    "REMAINING": "Remaining",
+    "TOTALCONSUMPTIONS": "Consumptions costs"
   }
 }

@@ -245,6 +245,7 @@
     "START": "Inicio(dd-mm-yyyy)",
     "END": "Fin(dd-mm-yyyy)",
     "TOTALDAYS": "Total de dias",
-    "REMAINING": "Faltante"
+    "REMAINING": "Faltante",
+    "TOTALCONSUMPTIONS": "Costos de consumiciones"
   }
 }

@@ -21,9 +21,18 @@
     </ng-container>
 
     <!-- balance Column -->
-    <ng-container matColumnDef="balance">
+    <ng-container matColumnDef="actualBalance">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.BALANCE' | translate }} </mat-header-cell>
-      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Balance"> {{ row.balance }} </mat-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Balance"> {{ row.actualBalance }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- total payments Column -->
+    <ng-container matColumnDef="totalPayments">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.BALANCE' | translate }} </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Total for payments">
+        {{ row.totalPayments }}
+      </mat-cell>
     </ng-container>
 
     <!-- createdAt Column -->

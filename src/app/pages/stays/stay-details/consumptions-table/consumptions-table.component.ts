@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Consumption } from 'src/app/models/consuption.model';
 import { ConsumptionService } from 'src/app/services/EntityServices/consumption.service';
+import { StayService } from 'src/app/services/EntityServices/stay.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,10 +15,23 @@ import Swal from 'sweetalert2';
 })
 export class ConsumptionsTableComponent implements OnInit {
   @Input() consumptions: Consumption[];
+  @Input() stayId: number;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   public dataSource: MatTableDataSource<Consumption>;
+
+  constructor(
+    public dialog: MatDialog,
+    private consumptionService: ConsumptionService,
+    private stayService: StayService
+  ) {}
+
+  ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(this.consumptions);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 
   displayedColumns: string[] = [
     'amount',
@@ -29,16 +43,6 @@ export class ConsumptionsTableComponent implements OnInit {
     'createdAt',
     'delete',
   ];
-
-  constructor(
-    public dialog: MatDialog,
-    private consumptionService: ConsumptionService
-  ) {}
-  ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.consumptions);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
 
   delete(consumption: Consumption) {
     Swal.fire({
@@ -52,6 +56,7 @@ export class ConsumptionsTableComponent implements OnInit {
     }).then((result: any) => {
       if (result.isConfirmed) {
         this.consumptionService.delete(consumption.id);
+        this.stayService.getByKey(this.stayId).subscribe();
       } else {
         Swal.fire('Cancelled', 'The consumption is safe', 'success');
       }

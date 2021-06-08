@@ -9,7 +9,10 @@
           </mat-card-header>
           <mat-card-content>
             <p>
-              {{ 'REGISTERS.BALANCE' | translate}}: {{register.balance || ''}}
+              {{ 'REGISTERS.BALANCE' | translate}}: {{register.actualBalance || ''}}
+            </p>
+            <p>
+              {{ 'REGISTERS.BALANCE' | translate}}: {{register.totalPayments || ''}}
             </p>
             <p>
               {{ 'REGISTERS.OPENDATE' | translate}}: {{register.createdAt |  date: 'dd/MM/yyyy'}}

@@ -5,7 +5,6 @@ import {
 } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Consumption } from 'src/app/models/consuption.model';
 import { Payment } from 'src/app/models/payment.model';
 import { Register } from 'src/app/models/register.model';
 import { RegisterService } from 'src/app/services/EntityServices/register.service';
