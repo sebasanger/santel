@@ -9,3 +9,8 @@ export const selectPaginatedPayments = createSelector(
   paymentStateSelector,
   (state: fromPayment.State) => state.paginatedPayment
 );
+
+export const selectSelectedPayments = createSelector(
+  paymentStateSelector,
+  (state: fromPayment.State) => state.selectedPayments
+);

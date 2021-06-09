@@ -12,6 +12,8 @@ import { Consumption } from 'src/app/models/consuption.model';
 import { getConsumptionsPaginated } from 'src/app/store/consumptions/consumption.api.actions';
 import { selectPaginatedConsumptions } from 'src/app/store/consumptions/consumption.selectors';
 import { environment } from 'src/environments/environment';
+import { selectSelectedStayConsumptions } from 'src/app/store/consumptions/consumption.selectors';
+import { setStayConsumptions } from 'src/app/store/consumptions/consumption.actions';
 
 const base_url = environment.base_url;
 @Injectable({
@@ -19,6 +21,7 @@ const base_url = environment.base_url;
 })
 export class ConsumptionService extends EntityCollectionServiceBase<Consumption> {
   public paginatedConsumptions$: Observable<GetPaginatedConsumptions>;
+  public stayConsumptions$: Observable<Consumption[]>;
   constructor(
     serviceElementsFactory: EntityCollectionServiceElementsFactory,
     private http: HttpClient,
@@ -28,13 +31,19 @@ export class ConsumptionService extends EntityCollectionServiceBase<Consumption>
     this.paginatedConsumptions$ = this.consumptionStore.pipe(
       select(selectPaginatedConsumptions)
     );
+    this.stayConsumptions$ = this.consumptionStore.pipe(
+      select(selectSelectedStayConsumptions)
+    );
   }
-
   createConsumption(createConsumptionPayload: AddNewConsumptionPayload) {
     return this.http.post<any>(
       `${base_url}consumption/save`,
       createConsumptionPayload
     );
+  }
+
+  selectStayConsumptions(consumptions: Consumption[]) {
+    this.consumptionStore.dispatch(setStayConsumptions({ consumptions }));
   }
 
   paginatedConsumptions(

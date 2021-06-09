@@ -14,3 +14,8 @@ export const selectSelectedCustomers = createSelector(
   stayStateSelector,
   (state: fromStay.State) => state.selectedCustomers
 );
+
+export const selectSelectedStay = createSelector(
+  stayStateSelector,
+  (state: fromStay.State) => state.selectedStay
+);

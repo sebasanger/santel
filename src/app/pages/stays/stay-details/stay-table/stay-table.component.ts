@@ -20,9 +20,7 @@ export class StayTableComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    setTimeout(() => {}, 500);
-  }
+  ngOnInit(): void {}
 
   editStay(userid: number) {
     this.router.navigateByUrl('pages/stays/update/' + userid);

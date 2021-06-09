@@ -14,6 +14,8 @@ import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { NgrxDataToastService } from './ngrx-data-toast.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { EntityDataModule } from '@ngrx/data';
+import { entityConfig } from './entity-metadata';
 @NgModule({
   declarations: [],
   imports: [
@@ -28,6 +30,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       stay: stayRoot.stayReducer,
       room: roomRoot.roomReducer,
     }),
+
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
@@ -42,6 +45,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
       stayRoot.StayEffects,
       roomRoot.RoomEffects,
     ]),
+    EntityDataModule.forRoot(entityConfig),
     CommonModule,
   ],
   exports: [StoreModule],

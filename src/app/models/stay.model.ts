@@ -15,9 +15,10 @@ export class Stay {
   public outDate: Date;
   public totalPayments: number;
   public totalConsumptions: number;
+  public totalToPay: number;
+  public totalRemaining: number;
   public pricePerDay: number;
   public totalGuest: number;
-  public totalToPay: number;
   public createdAt: number;
   public updatedAt: number;
 
@@ -38,6 +39,7 @@ export class Stay {
     this.outDate = stayInterface.outDate;
     this.totalPayments = stayInterface.totalPayments;
     this.totalConsumptions = stayInterface.totalConsumptions;
+    this.totalRemaining = stayInterface.totalRemaining;
     this.pricePerDay = stayInterface.pricePerDay;
     this.totalGuest = stayInterface.totalGuest;
     this.totalToPay = stayInterface.totalToPay;
@@ -63,6 +65,7 @@ export interface StayInterface {
   outDate: Date;
   totalPayments?: number;
   totalConsumptions?: number;
+  totalRemaining?: number;
   pricePerDay?: number;
   totalGuest: number;
   totalToPay?: number;

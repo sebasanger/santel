@@ -6,10 +6,15 @@ import {
 } from '@ngrx/data';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AddNewPaymentPayload } from 'src/app/interfaces/payments/add-new-payment-payload';
 import { GetPaginatedPayments } from 'src/app/interfaces/payments/get-paginated-payments';
 import { Payment } from 'src/app/models/payment.model';
+import { setSelctedPayments } from 'src/app/store/payments/payment.actions';
 import { getPaymentsPaginated } from 'src/app/store/payments/payment.api.actions';
-import { selectPaginatedPayments } from 'src/app/store/payments/payment.selectors';
+import {
+  selectPaginatedPayments,
+  selectSelectedPayments,
+} from 'src/app/store/payments/payment.selectors';
 import { environment } from 'src/environments/environment';
 
 const base_url = environment.base_url;
@@ -18,6 +23,7 @@ const base_url = environment.base_url;
 })
 export class PaymentService extends EntityCollectionServiceBase<Payment> {
   public paginatedPayments$: Observable<GetPaginatedPayments>;
+  public selectedPayments$: Observable<Payment[]>;
   constructor(
     serviceElementsFactory: EntityCollectionServiceElementsFactory,
     private http: HttpClient,
@@ -27,6 +33,16 @@ export class PaymentService extends EntityCollectionServiceBase<Payment> {
 
     this.paginatedPayments$ = this.paymentStore.pipe(
       select(selectPaginatedPayments)
+    );
+    this.selectedPayments$ = this.paymentStore.pipe(
+      select(selectSelectedPayments)
+    );
+  }
+
+  createPayment(createPaymentPayload: AddNewPaymentPayload) {
+    return this.http.post<Payment>(
+      `${base_url}payment/save`,
+      createPaymentPayload
     );
   }
 
@@ -48,7 +64,9 @@ export class PaymentService extends EntityCollectionServiceBase<Payment> {
       }
     );
   }
-
+  selectPayments(payments: Payment[]) {
+    this.paymentStore.dispatch(setSelctedPayments({ payments }));
+  }
   getPaginatedPayments(
     filter: string,
     sortDirection: string,

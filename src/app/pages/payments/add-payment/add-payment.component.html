@@ -1,1 +1,46 @@
-<p>add-payment works!</p>
+<form [formGroup]="consumptionForm" novalidate (ngSubmit)="onSubmit()">
+  <div class="form-extras">
+    <div class="header-extras">
+      <mat-card-header>
+        <mat-card-title class="title-extras">{{'PAYMENTS.ADD' |translate }}</mat-card-title>
+      </mat-card-header>
+    </div>
+    <div class="content-extras content">
+      <mat-card-content>
+
+        <div class="row">
+
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input autocomplete="off" type="number" color="primary" matInput
+                placeholder="{{ 'PAYMENTS.AMOUNT' | translate }}" formControlName="amount">
+              <mat-error *ngIf="consumptionForm.controls['amount'].hasError('required')">
+                {{ 'PAYMENTS.AMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>{{ 'PAYMENTS.METHOD' | translate }}</mat-label>
+              <mat-select formControlName="paymentMethod">
+                <mat-option [value]="option.id" *ngFor="let option of paymentMethods$ | async">{{ option.method }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="consumptionForm.controls['paymentMethod'].hasError('required')">
+                {{ 'PAYMENTS.METHOD' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+      </mat-card-content>
+    </div>
+    <div class="actions-extras">
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
+      </mat-card-actions>
+    </div>
+  </div>
+
+</form>

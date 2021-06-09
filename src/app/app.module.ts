@@ -46,7 +46,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       },
     }),
     SimpleNotificationsModule.forRoot(),
-    EntityDataModule.forRoot(entityConfig),
     MatSnackBarModule,
   ],
   providers: [

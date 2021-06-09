@@ -10,3 +10,8 @@ export const selectPaginatedConsumptions = createSelector(
   consumptionStateSelector,
   (state: fromConsumption.State) => state.paginatedConsumptions
 );
+
+export const selectSelectedStayConsumptions = createSelector(
+  consumptionStateSelector,
+  (state: fromConsumption.State) => state.stayConsumptions
+);

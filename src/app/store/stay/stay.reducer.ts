@@ -13,12 +13,14 @@ export const stayAdapter: EntityAdapter<Stay> = createEntityAdapter<Stay>();
 const base: Customer[] = [];
 export interface State extends EntityState<Stay> {
   paginatedStays: GetPaginatedStays;
+  selectedStay: Stay;
   selectedCustomers: Customer[];
   error: HttpErrorResponse;
   loading: boolean;
 }
 export const initialState: State = stayAdapter.getInitialState({
   paginatedStays: null,
+  selectedStay: null,
   selectedCustomers: base,
   error: null,
   loading: false,
@@ -31,6 +33,10 @@ export const stayReducer = createReducer(
     paginatedStays,
     error: null,
     loading: false,
+  })),
+  on(StayActions.setSelectedStay, (state, { stay }) => ({
+    ...state,
+    selectedStay: stay,
   })),
   on(StayActions.addSelectCustomer, (state, { customer }) => ({
     ...state,

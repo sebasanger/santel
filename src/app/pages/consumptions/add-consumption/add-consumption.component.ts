@@ -9,6 +9,7 @@ import { Product } from 'src/app/models/product.model';
 import { ConsumptionService } from 'src/app/services/EntityServices/consumption.service';
 import { PaymentMethodService } from 'src/app/services/EntityServices/payment-method.service';
 import { ProductService } from 'src/app/services/EntityServices/product.service';
+import { StayService } from 'src/app/services/EntityServices/stay.service';
 import Swal from 'sweetalert2';
 
 export interface DialogData {
@@ -22,6 +23,7 @@ export interface DialogData {
 })
 export class AddConsumptionComponent implements OnInit {
   constructor(
+    private stayService: StayService,
     private fb: FormBuilder,
     private productService: ProductService,
     private paymentMethodService: PaymentMethodService,
@@ -65,6 +67,9 @@ export class AddConsumptionComponent implements OnInit {
     this.consumptionService
       .createConsumption(createConsumptionPayload)
       .subscribe((res) => {
+        setTimeout(() => {
+          this.stayService.getStayByKey(this.stayId);
+        }, 500);
         Swal.fire(
           'Success',
           'Consumption created at stay number ' + this.stayId,

@@ -6,7 +6,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { DniValidPayload } from 'src/app/interfaces/customers/DniValidPayload';
@@ -16,7 +16,7 @@ import { Invoice } from 'src/app/models/inovice.model';
 import { CustomerService } from 'src/app/services/EntityServices/customer.service';
 import { InvoiceService } from 'src/app/services/EntityServices/invoice.service';
 import { ReqValidatorsService } from 'src/app/services/req-validators.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-create-update-customer',
   templateUrl: './create-update-customer.component.html',
@@ -31,10 +31,10 @@ export class CreateUpdateCustomerComponent implements OnInit, OnDestroy {
   private dniValidPayload: DniValidPayload;
   public title: string = 'Customer';
   constructor(
+    private location: Location,
     private fb: FormBuilder,
     private reqValidators: ReqValidatorsService,
     private route: ActivatedRoute,
-    private router: Router,
     private customerService: CustomerService,
     private invoiceService: InvoiceService
   ) {}
@@ -138,7 +138,8 @@ export class CreateUpdateCustomerComponent implements OnInit, OnDestroy {
     } else {
       this.customerService.add(customer);
     }
-    this.router.navigateByUrl('pages/customers');
+
+    this.location.back();
   }
 
   checkEmailIsTaked(): AsyncValidatorFn {

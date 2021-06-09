@@ -21,7 +21,6 @@ export class ViewStaysComponent implements OnInit {
   constructor(private stayService: StayService, private router: Router) {}
 
   public paginatedStay$ = this.stayService.paginatedStays$;
-  public paginatedStay: GetPaginatedStays;
   public filterSubject = new Subject<string>();
   public loading: boolean;
   public error$: Observable<boolean>;

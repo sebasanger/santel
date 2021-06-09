@@ -12,11 +12,13 @@ export const paymentAdapter: EntityAdapter<Payment> =
 
 export interface State extends EntityState<Payment> {
   paginatedPayment: GetPaginatedPayments;
+  selectedPayments: Payment[];
   error: HttpErrorResponse;
   loading: boolean;
 }
 export const initialState: State = paymentAdapter.getInitialState({
   paginatedPayment: null,
+  selectedPayments: null,
   error: null,
   loading: false,
 });
@@ -28,5 +30,9 @@ export const paymentReducer = createReducer(
     paginatedPayment,
     error: null,
     loading: false,
+  })),
+  on(PaymentActions.setSelctedPayments, (state, { payments }) => ({
+    ...state,
+    selectedPayments: payments,
   }))
 );

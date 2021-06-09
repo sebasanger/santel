@@ -10,7 +10,11 @@ import { CreateUpdateStayPayload } from 'src/app/interfaces/stay/CreateStayPaylo
 import { GetPaginatedStays } from 'src/app/interfaces/stay/get-paginated-stays';
 import { Stay } from 'src/app/models/stay.model';
 import { getStaysPaginated } from 'src/app/store/stay/stay.api.actions';
-import { selectPaginatedStays } from 'src/app/store/stay/stay.selectors';
+import { getStayByIdApi } from 'src/app/store/stay/stay.api.actions';
+import {
+  selectPaginatedStays,
+  selectSelectedStay,
+} from 'src/app/store/stay/stay.selectors';
 import { environment } from 'src/environments/environment';
 
 const base_url = environment.base_url;
@@ -19,6 +23,7 @@ const base_url = environment.base_url;
 })
 export class StayService extends EntityCollectionServiceBase<Stay> {
   public paginatedStays$: Observable<GetPaginatedStays>;
+  public selectedStay$: Observable<Stay>;
   constructor(
     serviceElementsFactory: EntityCollectionServiceElementsFactory,
     private http: HttpClient,
@@ -27,10 +32,19 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
     super('Stay', serviceElementsFactory);
 
     this.paginatedStays$ = this.stayStore.pipe(select(selectPaginatedStays));
+    this.selectedStay$ = this.stayStore.pipe(select(selectSelectedStay));
   }
 
   createStay(createStayPayload: CreateUpdateStayPayload) {
     return this.http.post<any>(`${base_url}stay/save`, createStayPayload);
+  }
+
+  getStayByKey(id: number) {
+    this.stayStore.dispatch(getStayByIdApi({ id }));
+  }
+
+  getById(id: number) {
+    return this.http.get<Stay>(`${base_url}stay/${id}`);
   }
 
   updateStay(updateStayPayload: CreateUpdateStayPayload) {

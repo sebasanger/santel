@@ -12,17 +12,17 @@
       </div>
     </mat-tab-group>
 
-    <mat-tab-group class="tabs-extras">
+    <mat-tab-group class="tabs-extras" *ngIf="paymentsCount > 0 || consumptionsCount > 0">
 
-      <div *ngIf="payments && payments.length > 0">
+      <div *ngIf="paymentsCount > 0">
         <mat-tab label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
-          <app-payments-table [payments]="payments"></app-payments-table>
+          <app-payments-table></app-payments-table>
         </mat-tab>
       </div>
 
-      <div *ngIf="consumptions && consumptions.length > 0">
+      <div *ngIf="consumptionsCount > 0">
         <mat-tab label="{{ 'CONSUMPTIONS.CONSUMPTIONS' | translate}}">
-          <app-consumptions-table [consumptions]="consumptions" [stayId]="stay.id"></app-consumptions-table>
+          <app-consumptions-table></app-consumptions-table>
         </mat-tab>
       </div>
 

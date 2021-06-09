@@ -1,8 +1,10 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { Consumption } from 'src/app/models/consuption.model';
 import { ConsumptionService } from 'src/app/services/EntityServices/consumption.service';
 import { StayService } from 'src/app/services/EntityServices/stay.service';
@@ -13,32 +15,39 @@ import Swal from 'sweetalert2';
   templateUrl: './consumptions-table.component.html',
   styleUrls: ['./consumptions-table.component.scss'],
 })
-export class ConsumptionsTableComponent implements OnInit {
-  @Input() consumptions: Consumption[];
-  @Input() stayId: number;
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+export class ConsumptionsTableComponent implements OnInit, OnDestroy {
   public dataSource: MatTableDataSource<Consumption>;
-
+  private selectedConsumptions$: Observable<Consumption[]>;
+  private subscription: Subscription = new Subscription();
+  private stayId: number;
   constructor(
+    private route: ActivatedRoute,
     public dialog: MatDialog,
     private consumptionService: ConsumptionService,
     private stayService: StayService
-  ) {}
+  ) {
+    this.selectedConsumptions$ = consumptionService.stayConsumptions$;
+  }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.consumptions);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    const sub = this.route.params.subscribe((params) => {
+      this.stayId = params['id'];
+    });
+    const suscription = this.selectedConsumptions$.subscribe(
+      (res: Consumption[]) => {
+        this.dataSource = new MatTableDataSource(res);
+      }
+    );
+
+    this.subscription.add(suscription);
+    this.subscription.add(sub);
   }
 
   displayedColumns: string[] = [
+    'product',
     'amount',
     'price',
     'total',
-    'paid',
-    'product',
     'user',
     'createdAt',
     'delete',
@@ -56,10 +65,16 @@ export class ConsumptionsTableComponent implements OnInit {
     }).then((result: any) => {
       if (result.isConfirmed) {
         this.consumptionService.delete(consumption.id);
-        this.stayService.getByKey(this.stayId).subscribe();
+        setTimeout(() => {
+          this.stayService.getStayByKey(this.stayId);
+        }, 500);
       } else {
         Swal.fire('Cancelled', 'The consumption is safe', 'success');
       }
     });
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

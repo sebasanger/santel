@@ -10,3 +10,10 @@ export const getStaysPaginated = createAction(
     pageSize: number;
   }>()
 );
+
+export const getStayByIdApi = createAction(
+  '[STAY API]  Api get stay by id...',
+  props<{
+    id: number;
+  }>()
+);

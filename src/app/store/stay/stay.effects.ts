@@ -36,4 +36,22 @@ export class StayEffects {
       })
     );
   });
+
+  getStayById$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(stayApiActions.getStayByIdApi),
+      mergeMap((action) => {
+        return this.stayService.getById(action.id).pipe(
+          map((res: any) => {
+            return stayActions.setSelectedStay({
+              stay: res,
+            });
+          }),
+          catchError((error: any) => {
+            throw error;
+          })
+        );
+      })
+    );
+  });
 }
