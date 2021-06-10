@@ -1,0 +1,10 @@
+<button *ngIf="!(activeRegister$ | async)" mat-icon-button (click)="openRegister()">
+  <mat-icon style="color: red;">point_of_sale</mat-icon>
+</button>
+
+
+
+<button *ngIf="(activeRegister$ | async)" mat-icon-button (click)="closeRegister()">
+  <mat-icon style="color: green;">point_of_sale</mat-icon>
+  <span></span>
+</button>

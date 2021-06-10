@@ -172,9 +172,11 @@
     "UPLOADIMAGE": "Upload image"
   },
   "REGISTERS": {
+    "TOTALPAYMENTS": "Total payments",
     "REGISTERS": "Registers",
     "REGISTER": "Register",
     "ADD": "Open register",
+    "DETAILS": "View details",
     "UPDATE": "Update register",
     "BALANCE": "Balance",
     "OPENDATE": "Open date",
@@ -186,7 +188,8 @@
     "DEACTIVATE": "Close",
     "USER": "in charge",
     "CLOSE": "Close",
-    "CLOSEREGISTER": "Close register"
+    "CLOSEREGISTER": "Close register",
+    "OPENREGISTER": "OPen register"
   },
   "PAYMENTS": {
     "PAYMENTS": "Payments",

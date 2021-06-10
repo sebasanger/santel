@@ -59,4 +59,22 @@ export class RegisterEffects {
       })
     );
   });
+
+  getRegisterOpen$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(registerApiActions.apiGetRegisterOpen),
+      mergeMap((action) => {
+        return this.registerService.getRegisterOpen().pipe(
+          map((res: any) => {
+            return registerActions.setRegisterOpen({
+              register: res,
+            });
+          }),
+          catchError((error: any) => {
+            throw error;
+          })
+        );
+      })
+    );
+  });
 }

@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { merge, Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 import { GetPaginatedRegisters } from 'src/app/interfaces/registers/get-paginated-registers';
-import { Register } from 'src/app/models/register.model';
 import { RegisterService } from 'src/app/services/EntityServices/register.service';
 import Swal from 'sweetalert2';
 import { CloseRegisterComponent } from '../close-register/close-register.component';

@@ -78,7 +78,6 @@ const routes: Routes = [
       },
       {
         path: 'registers',
-        canActivate: [AdminGuard],
         component: RegistersComponent,
         loadChildren: () =>
           import('./registers/registers.module').then((m) => m.RegistersModule),

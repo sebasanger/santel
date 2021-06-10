@@ -1,7 +1,7 @@
 <section>
-  <div class="grid-container animate__animated animate__fadeIn animate__delay-0.4s">
-    <mat-grid-list [cols]="cols" rowHeight="550px">
-      <mat-grid-tile>
+  <div class="grid-container register-details animate__animated animate__fadeIn animate__delay-0.4s">
+    <mat-tab-group mat-align-tabs="start" class="register-tabs">
+      <mat-tab label="Register">
         <mat-card *ngIf="register != null">
           <mat-card-header>
             <mat-card-title> {{ 'REGISTERS.USER' | translate}}: {{ register.user.fullName }}</mat-card-title>
@@ -9,19 +9,19 @@
           </mat-card-header>
           <mat-card-content>
             <p>
+              {{ 'REGISTERS.OPENMOUNT' | translate}}: {{register.openMount}}
+            </p>
+            <p>
               {{ 'REGISTERS.BALANCE' | translate}}: {{register.actualBalance || ''}}
             </p>
             <p>
-              {{ 'REGISTERS.BALANCE' | translate}}: {{register.totalPayments || ''}}
+              {{ 'REGISTERS.TOTALPAYMENTS' | translate}}: {{register.totalPayments || ''}}
             </p>
             <p>
               {{ 'REGISTERS.OPENDATE' | translate}}: {{register.createdAt |  date: 'dd/MM/yyyy'}}
             </p>
             <p *ngIf="register.closeTime != null">
               {{ 'REGISTERS.CLOSEDATE' | translate}}: {{register.closeTime |  date: 'dd/MM/yyyy'}}
-            </p>
-            <p>
-              {{ 'REGISTERS.OPENMOUNT' | translate}}: {{register.openMount}}
             </p>
             <p *ngIf="register.closeMount != null">
               {{ 'REGISTERS.CLOSEMOUNT' | translate}}: {{register.closeMount}}
@@ -42,24 +42,18 @@
             </button>
           </mat-card-actions>
         </mat-card>
-      </mat-grid-tile>
+      </mat-tab>
+    </mat-tab-group>
 
-      <mat-grid-tile>
-
-        <mat-tab-group class="tabs-extras">
-
-          <mat-tab *ngIf="payments && payments.length > 0" label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
-            <div>
-              <app-payments-table [payments]="payments"></app-payments-table>
-            </div>
-
-          </mat-tab>
-
-        </mat-tab-group>
-
-      </mat-grid-tile>
+    <mat-tab-group class="tabs-extras">
+      <div>
+        <mat-tab *ngIf="payments && payments.length > 0" label="{{ 'PAYMENTS.PAYMENTS' | translate}}">
+          <app-payments-table [payments]="payments"></app-payments-table>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
 
 
-    </mat-grid-list>
+
   </div>
 </section>

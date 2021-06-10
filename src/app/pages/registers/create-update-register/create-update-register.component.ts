@@ -38,6 +38,7 @@ export class CreateUpdateRegisterComponent implements OnInit {
     const register: Register = new Register(registerInterface);
 
     if (this.data.id != null) {
+      register.id = this.data.id;
       this.registerService.update(register);
     } else {
       this.registerService.add(register);

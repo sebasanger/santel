@@ -17,5 +17,5 @@ export const getIsUserAuthenticated = createSelector(
 
 export const getUserRoles = createSelector(
   UserStateSelector,
-  (state: fromAuth.State) => state.user.roles
+  (state: fromAuth.State) => state.user?.roles
 );

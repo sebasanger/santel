@@ -9,3 +9,8 @@ export const selectPaginatedRegisters = createSelector(
   customerStateSelector,
   (state: fromCustomer.State) => state.paginatedRegisters
 );
+
+export const selectRegisterActive = createSelector(
+  customerStateSelector,
+  (state: fromCustomer.State) => state.registerActive
+);

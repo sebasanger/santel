@@ -15,7 +15,7 @@ export interface State extends EntityState<User> {
   paginatedRegisters: GetPaginatedRegisters;
   error: HttpErrorResponse;
   loading: boolean;
-  activateRegister: Register;
+  registerActive: Register;
 }
 export const initialState: State = registerAdapter.getInitialState({
   entities: null,
@@ -23,7 +23,7 @@ export const initialState: State = registerAdapter.getInitialState({
   loading: false,
   ids: null,
   paginatedRegisters: null,
-  activateRegister: null,
+  registerActive: null,
 });
 
 export const registerReducer = createReducer(
@@ -39,6 +39,10 @@ export const registerReducer = createReducer(
   ),
   on(registerActions.closeRegister, (state) => ({
     ...state,
-    activateRegister: null,
+    registerActive: null,
+  })),
+  on(registerActions.setRegisterOpen, (state, { register }) => ({
+    ...state,
+    registerActive: register,
   }))
 );

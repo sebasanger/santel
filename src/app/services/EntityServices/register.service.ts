@@ -11,7 +11,12 @@ import { CloseRegisterPayload } from 'src/app/interfaces/registers/closer-regist
 import { GetPaginatedRegisters } from 'src/app/interfaces/registers/get-paginated-registers';
 import { Register } from 'src/app/models/register.model';
 import { getRegistersPaginated } from 'src/app/store/register/register.api.actions';
-import { selectPaginatedRegisters } from 'src/app/store/register/register.selectors';
+import { apiGetRegisterOpen } from 'src/app/store/register/register.api.actions';
+import {
+  selectPaginatedRegisters,
+  selectRegisterActive,
+} from 'src/app/store/register/register.selectors';
+
 import { environment } from 'src/environments/environment';
 
 const base_url = environment.base_url;
@@ -20,7 +25,7 @@ const base_url = environment.base_url;
 })
 export class RegisterService extends EntityCollectionServiceBase<Register> {
   public paginatedRegisters$: Observable<GetPaginatedRegisters>;
-
+  public activeRegister$: Observable<Register>;
   constructor(
     serviceElementsFactory: EntityCollectionServiceElementsFactory,
     private http: HttpClient,
@@ -30,6 +35,10 @@ export class RegisterService extends EntityCollectionServiceBase<Register> {
 
     this.paginatedRegisters$ = this.registerStore.pipe(
       select(selectPaginatedRegisters)
+    );
+
+    this.activeRegister$ = this.registerStore.pipe(
+      select(selectRegisterActive)
     );
   }
 
@@ -52,6 +61,10 @@ export class RegisterService extends EntityCollectionServiceBase<Register> {
     );
   }
 
+  selectActiveRegister() {
+    this.registerStore.dispatch(apiGetRegisterOpen());
+  }
+
   getPaginatedRegisters(
     filter: string,
     sortDirection: string,
@@ -72,8 +85,12 @@ export class RegisterService extends EntityCollectionServiceBase<Register> {
 
   closeRegister(closeRegisterPayload: CloseRegisterPayload) {
     return this.http.put<null>(
-      `${base_url}register/close/${closeRegisterPayload.id}`,
+      `${base_url}register/close`,
       closeRegisterPayload
     );
+  }
+
+  getRegisterOpen() {
+    return this.http.get<null>(`${base_url}register/getRegisterOpen`);
   }
 }

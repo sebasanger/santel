@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ComponentPageHeaderComponent } from './component-page-header/component-page-header.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { OpenCloseRegisterComponent } from './open-close-register/open-close-register.component';
 @NgModule({
   declarations: [
     NavigationComponent,
@@ -29,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
     LoaderComponent,
     LangSelectorComponent,
     ComponentPageHeaderComponent,
+    OpenCloseRegisterComponent,
   ],
   exports: [
     NavigationComponent,

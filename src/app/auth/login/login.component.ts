@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LoginRequestPayload } from '../../interfaces/auth/login-request.payload';
 import { Store } from '@ngrx/store';
-import { authRoot } from '../../store/auth/indexAuth';
+import { login } from 'src/app/store/auth/auth.actions';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -43,7 +43,7 @@ export class LoginComponent {
       password: this.loginForm.get('password')?.value,
     };
 
-    this.authStore.dispatch(authRoot.login({ payload: loginRequestPayload }));
+    this.authStore.dispatch(login({ payload: loginRequestPayload }));
     this.showForgot = true;
   }
 }

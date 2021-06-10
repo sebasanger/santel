@@ -18,3 +18,7 @@ export const apiCloseRegister = createAction(
     closeRegisterPayload: CloseRegisterPayload;
   }>()
 );
+
+export const apiGetRegisterOpen = createAction(
+  '[REGISTER API]  Api get register open...'
+);

@@ -174,10 +174,12 @@
     "UPLOADIMAGE": "Cargar imagen"
   },
   "REGISTERS": {
+    "TOTALPAYMENTS": "Total en pagos",
     "REGISTERS": "Cajas",
     "REGISTER": "Caja",
     "ADD": "Abrir caja",
     "UPDATE": "Modificar caja",
+    "DETAILS": "View details",
     "BALANCE": "Saldo",
     "OPENDATE": "Fecha de apertura",
     "CLOSEDATE": "Fecha de cierre",
@@ -188,7 +190,8 @@
     "DEACTIVATE": "Cerrada",
     "USER": "A cargo",
     "CLOSE": "Cerrar",
-    "CLOSERE": "Cerrar caja"
+    "CLOSEREGISTER": "Cerrar caja",
+    "OPENREGISTER": "Abrir caja"
   },
   "PAYMENTS": {
     "PAYMENTS": "Pagos",

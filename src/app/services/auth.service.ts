@@ -10,13 +10,24 @@ import { LoginResponse } from '../interfaces/auth/login-response.payload';
 import { GetUserAuthenticated } from '../interfaces/user/get-user-authenticated';
 import { UpdateAcountPayload } from '../interfaces/user/form-update-acount-payload';
 import { GetUser } from '../interfaces/user/get-user.interface';
+import { select, Store } from '@ngrx/store';
+import { getUserAuth, getUserRoles } from '../store/auth/auth.selectors';
 
 const base_url = environment.base_url;
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  public authUser$: Observable<User>;
+  public roles$: Observable<String[]>;
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private authStore: Store<{ auth: any }>
+  ) {
+    this.authUser$ = this.authStore.pipe(select(getUserAuth));
+    this.roles$ = this.authStore.pipe(select(getUserRoles));
+  }
 
   getJwtToken(): string {
     return localStorage.getItem('authenticationToken');
