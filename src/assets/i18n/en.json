@@ -127,7 +127,9 @@
     "NAME": "Name",
     "PRICE": "Price",
     "STOCK": "Stock",
-    "CODE": "Code"
+    "CODE": "Code",
+    "CREATE": "Create product",
+    "UPDATE": "Update product"
   },
   "CUSTOMERS": {
     "CREATE": "Add customer",
@@ -187,7 +189,7 @@
     "ACTIVE": "In use",
     "DEACTIVATE": "Close",
     "USER": "in charge",
-    "CLOSE": "Close",
+    "CLOSE": "Close register",
     "CLOSEREGISTER": "Close register",
     "OPENREGISTER": "OPen register"
   },

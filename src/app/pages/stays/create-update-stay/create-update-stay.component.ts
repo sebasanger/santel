@@ -180,7 +180,7 @@ export class CreateUpdateStayComponent implements OnInit {
       totalGuest: totalGuest,
     };
 
-    if (this.stayId != null || this.stayId != 0) {
+    if (this.stayId != null && this.stayId != 0) {
       console.log(createUpdateStayPayload);
       createUpdateStayPayload.id = this.stayId;
       this.stayService.updateStay(createUpdateStayPayload).subscribe((res) => {

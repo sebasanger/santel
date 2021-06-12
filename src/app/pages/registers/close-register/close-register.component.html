@@ -10,8 +10,8 @@
       <div class="row-extras">
         <div class="col-extras">
           <mat-form-field class="full-width">
-            <input type="number" color="primary" matInput placeholder="{{ 'REGISTERS.CLOSEMOUNT' | translate }}"
-              formControlName="closeMount">
+            <mat-label>{{ 'REGISTERS.CLOSEMOUNT' | translate }}</mat-label>
+            <input type="number" color="primary" matInput formControlName="closeMount">
             <mat-error *ngIf="closeForm.controls['closeMount'].hasError('required')">
               {{ 'REGISTERS.CLOSEMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
             </mat-error>

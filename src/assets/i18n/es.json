@@ -129,11 +129,13 @@
     "NAME": "Nombre",
     "PRICE": "Precio",
     "STOCK": "Stock",
-    "CODE": "Codigo"
+    "CODE": "Codigo",
+    "CREATE": "Agregar producto",
+    "UPDATE": "Actualizar producto"
   },
   "CUSTOMERS": {
-    "CREATE": "Add customer",
-    "UPDATE": "Update customer",
+    "CREATE": "Agregar cliente",
+    "UPDATE": "Actualizar cliente",
     "CUSTOMER": "Cliente",
     "CUSTOMERS": "Clientes",
     "ADD": "Agregar cliente",
@@ -189,7 +191,7 @@
     "ACTIVE": "En uso",
     "DEACTIVATE": "Cerrada",
     "USER": "A cargo",
-    "CLOSE": "Cerrar",
+    "CLOSE": "Cerrar caja",
     "CLOSEREGISTER": "Cerrar caja",
     "OPENREGISTER": "Abrir caja"
   },

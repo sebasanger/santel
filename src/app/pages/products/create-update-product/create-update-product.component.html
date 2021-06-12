@@ -1,93 +1,90 @@
-<form [formGroup]="productForm" novalidate (ngSubmit)="onSubmit()">
-  <div class="form-extras">
-    <div class="header-extras">
-      <mat-card-header>
-        <mat-card-title class="title-extras">{{ data.title }}</mat-card-title>
-      </mat-card-header>
+<form [formGroup]="productForm" novalidate (ngSubmit)="onSubmit()" fxLayout="column">
+
+  <div class="header-titles">
+    <mat-card-header>
+      <mat-card-title *ngIf="productId == null">{{ 'PRODUCTS.CREATE' | translate }}</mat-card-title>
+      <mat-card-title *ngIf="productId != null">{{ 'PRODUCTS.UPDATE' | translate }}</mat-card-title>
+    </mat-card-header>
+  </div>
+
+  <mat-card-content class="content">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input type="text" color="primary" matInput placeholder="{{ 'PRODUCTS.NAME' | translate }}"
+            formControlName="name">
+          <mat-error *ngIf="productForm.controls['name'].hasError('required')">
+            {{ 'PRODUCTS.NAME' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input type="number" color="primary" matInput placeholder="{{ 'PRODUCTS.STOCK' | translate }}"
+            formControlName="stock">
+          <mat-error *ngIf="productForm.controls['stock'].hasError('required')">
+            {{ 'PRODUCTS.STOCK' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="content-extras">
-      <mat-card-content>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input type="text" color="primary" matInput placeholder="{{ 'PRODUCTS.NAME' | translate }}"
-                formControlName="name">
-              <mat-error *ngIf="productForm.controls['name'].hasError('required')">
-                {{ 'PRODUCTS.NAME' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
 
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input type="number" color="primary" matInput placeholder="{{ 'PRODUCTS.STOCK' | translate }}"
-                formControlName="stock">
-              <mat-error *ngIf="productForm.controls['stock'].hasError('required')">
-                {{ 'PRODUCTS.STOCK' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input type="number" color="primary" matInput placeholder="{{ 'PRODUCTS.PRICE' | translate }}"
+            formControlName="price">
+          <mat-error *ngIf="productForm.controls['price'].hasError('required')">
+            {{ 'PRODUCTS.PRICE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
 
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input type="number" color="primary" matInput placeholder="{{ 'PRODUCTS.PRICE' | translate }}"
-                formControlName="price">
-              <mat-error *ngIf="productForm.controls['price'].hasError('required')">
-                {{ 'PRODUCTS.PRICE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input type="text" color="primary" matInput placeholder="{{ 'PRODUCTS.CODE' | translate }}"
-                formControlName="code">
-              <mat-error *ngIf="productForm.controls['code'].hasError('required')">
-                {{ 'PRODUCTS.CODE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>{{ 'CATEGORIES.CATEGORY' | translate }}</mat-label>
-              <mat-select formControlName="category">
-                <mat-option [value]="option.id" *ngFor="let option of categories$ | async">{{ option.category }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="productForm.controls['category'].hasError('required')">
-                {{ 'CATEGORIES.CATEGORY' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>{{ 'BRANDS.BRAND' | translate }}</mat-label>
-              <mat-select formControlName="brand">
-                <mat-option [value]="option.id" *ngFor="let option of brands$ | async">{{ option.brand }}
-                </mat-option>
-              </mat-select>
-              <mat-error *ngIf="productForm.controls['brand'].hasError('required')">
-                {{ 'BRANDS.BRAND' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-
-
-
-      </mat-card-content>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input type="text" color="primary" matInput placeholder="{{ 'PRODUCTS.CODE' | translate }}"
+            formControlName="code">
+          <mat-error *ngIf="productForm.controls['code'].hasError('required')">
+            {{ 'PRODUCTS.CODE' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="actions-extras">
-      <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
-      </mat-card-actions>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>{{ 'CATEGORIES.CATEGORY' | translate }}</mat-label>
+          <mat-select formControlName="category">
+            <mat-option [value]="option.id" *ngFor="let option of categories$ | async">{{ option.category }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="productForm.controls['category'].hasError('required')">
+            {{ 'CATEGORIES.CATEGORY' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>{{ 'BRANDS.BRAND' | translate }}</mat-label>
+          <mat-select formControlName="brand">
+            <mat-option [value]="option.id" *ngFor="let option of brands$ | async">{{ option.brand }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="productForm.controls['brand'].hasError('required')">
+            {{ 'BRANDS.BRAND' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
+  </mat-card-content>
+
+  <div class="actions-extras">
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
+    </mat-card-actions>
   </div>
 
 </form>

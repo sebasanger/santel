@@ -10,7 +10,6 @@ import { CategoryService } from 'src/app/services/EntityServices/category.servic
 import { ProductService } from 'src/app/services/EntityServices/product.service';
 
 export interface DialogData {
-  title: string;
   id?: number;
   name?: string;
   stock?: number;
@@ -26,6 +25,7 @@ export interface DialogData {
   styleUrls: ['./create-update-product.component.scss'],
 })
 export class CreateUpdateProductComponent implements OnInit {
+  public productId: number;
   constructor(
     private fb: FormBuilder,
     private productService: ProductService,
@@ -42,11 +42,11 @@ export class CreateUpdateProductComponent implements OnInit {
   public selectedBrand: Brand;
 
   ngOnInit(): void {
+    this.productId = this.data.id;
     this.categoryService.getAll();
     this.brandService.getAll();
 
     this.categories$ = this.categoryService.entities$;
-
     this.brands$ = this.brandService.entities$;
   }
 

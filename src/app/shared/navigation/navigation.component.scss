@@ -79,9 +79,23 @@
   margin-left: 20px;
   display: flex;
   flex-direction: row;
-  width: 125px;
+  width: 200px;
   align-items: center;
   justify-content: space-around;
+
+  @media (max-width: 767.98px) {
+    width: 150px;
+  }
+}
+
+.selector-button {
+  justify-content: center;
+  text-align: center;
+  width: 50px;
+
+  @media (max-width: 767.98px) {
+    width: 37.5px;
+  }
 }
 
 .easter-egg {

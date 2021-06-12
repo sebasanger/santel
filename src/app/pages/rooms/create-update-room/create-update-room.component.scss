@@ -9,9 +9,11 @@ mat-card-title {
   font-size: 35px !important;
   margin-top: 30px;
   margin-bottom: 80px;
+
+  @media (max-width: 767.98px) {
+    font-size: 20px !important;
+  }
 }
-
-
 
 mat-card-content {
   display: flex;

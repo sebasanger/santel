@@ -1,36 +1,30 @@
-<form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
-  <div class="form-extras">
-    <div class="header-extras">
-      <mat-card-header>
-        <mat-card-title *ngIf="data.id == null" class="title-extras">{{ 'REGISTERS.ADD' | translate }}</mat-card-title>
-        <mat-card-title *ngIf="data.id != null" class="title-extras">{{ 'REGISTERS.UPDATE' | translate }}
-        </mat-card-title>
-      </mat-card-header>
-    </div>
-    <div class="content-extras">
+<form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()" class="form-extras">
 
-      <mat-card-content>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input type="number" color="primary" matInput placeholder="{{ 'REGISTERS.OPENMOUNT' | translate }}"
-                formControlName="openMount">
-              <mat-error *ngIf="registerForm.controls['openMount'].hasError('required')">
-                {{ 'REGISTERS.OPENMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-
-        </div>
-
-      </mat-card-content>
-    </div>
-    <div class="actions-extras">
-      <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
-      </mat-card-actions>
-    </div>
+  <div class="header-extras">
+    <mat-card-header>
+      <mat-card-title *ngIf="data.id == null" class="title-extras">{{ 'REGISTERS.ADD' | translate }}</mat-card-title>
+      <mat-card-title *ngIf="data.id != null" class="title-extras">{{ 'REGISTERS.UPDATE' | translate }}
+      </mat-card-title>
+    </mat-card-header>
   </div>
 
+  <mat-card-content class="content-extras">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input autocomplete="off" type="number" color="primary" matInput
+            placeholder="{{ 'REGISTERS.OPENMOUNT' | translate }}" formControlName="openMount">
+          <mat-error *ngIf="registerForm.controls['openMount'].hasError('required')">
+            {{ 'REGISTERS.OPENMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <div class="actions-extras">
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">{{ 'SAVE' | translate }}</button>
+    </mat-card-actions>
+  </div>
 </form>

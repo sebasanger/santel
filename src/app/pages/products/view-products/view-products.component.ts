@@ -71,8 +71,8 @@ export class ViewProductsComponent {
     brandId?: number
   ): void {
     const dialogRef = this.dialog.open(CreateUpdateProductComponent, {
-      width: '800px',
-      height: '600px',
+      width: '1000px',
+      height: '800px',
       data: { title, id, name, stock, price, code, categoryId, brandId },
     });
   }

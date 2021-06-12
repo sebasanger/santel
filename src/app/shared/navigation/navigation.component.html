@@ -42,9 +42,13 @@
 
       <span class="title" routerLink="dashboard">{{ title }}</span>
       <div class="selectors">
-        <app-theme-picker></app-theme-picker>
-        <app-lang-selector></app-lang-selector>
-        <app-open-close-register></app-open-close-register>
+        <app-theme-picker class="selector-button"></app-theme-picker>
+        <app-lang-selector class="selector-button"> </app-lang-selector>
+        <button mat-icon-button (click)="addNewStay()" class="selector-button">
+          <mat-icon>edit_calendar</mat-icon>
+          <span></span>
+        </button>
+        <app-open-close-register class="selector-button"></app-open-close-register>
       </div>
       <span class="easter-egg">The<mat-icon>cake</mat-icon>is a lie</span>
 

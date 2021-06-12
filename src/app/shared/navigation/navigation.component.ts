@@ -9,6 +9,7 @@ import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { MenuItem } from 'src/app/interfaces/ui/menu.interface';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 const page_title: string = environment.page_title;
 @Component({
@@ -24,6 +25,7 @@ export class NavigationComponent implements OnInit {
   public title = page_title;
   public actualTitle: string;
   constructor(
+    private router: Router,
     private breakpointObserver: BreakpointObserver,
     private authStore: Store<{ auth: any }>,
     private titleService: Title,
@@ -154,6 +156,10 @@ export class NavigationComponent implements OnInit {
 
   logout() {
     this.authStore.dispatch(apiUserAuthLogout());
+  }
+
+  addNewStay() {
+    this.router.navigateByUrl('pages/stays/create');
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver
