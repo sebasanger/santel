@@ -1,10 +1,5 @@
 <div class="head">
   <div>
-    <button mat-raised-button color="accent" (click)="addNewConsumption()" class="add-button">
-      {{ 'CONSUMPTIONS.ADD' | translate }}
-    </button>
-  </div>
-  <div>
     <mat-form-field class="filter">
       <input matInput placeholder="{{ 'FILTER' | translate }}"
         (keyup)="filterSubject.next($any($event.target).value)" />
@@ -58,16 +53,6 @@
     <ng-container matColumnDef="user">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CONSUMPTIONS.USER' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="User"> {{row.user}} </mat-cell>
-    </ng-container>
-
-    <!-- edit Column -->
-    <ng-container matColumnDef="edit">
-      <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="edit">
-        <button mat-icon-button color="accent" (click)="editConsumption(row.id)">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </mat-cell>
     </ng-container>
 
     <!-- delete Column -->

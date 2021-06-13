@@ -33,11 +33,10 @@ export class ViewPaymentsComponent implements OnInit {
     'id',
     'description',
     'amount',
-    'method',
+    'paymentMethod.type',
     'register',
     'stay',
     'user',
-    'edit',
     'delete',
   ];
 
@@ -93,14 +92,6 @@ export class ViewPaymentsComponent implements OnInit {
 
   public ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  addNewPayment() {
-    this.router.navigateByUrl('pages/payments/create');
-  }
-
-  editPayment(paymentid: number) {
-    this.router.navigateByUrl('pages/payments/update/' + paymentid);
   }
 
   deletePayment(id: number) {

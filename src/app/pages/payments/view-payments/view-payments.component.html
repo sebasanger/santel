@@ -1,10 +1,5 @@
 <div class="head">
   <div>
-    <button mat-raised-button color="accent" (click)="addNewPayment()" class="add-button">
-      {{ 'PAYMENTS.ADD' | translate }}
-    </button>
-  </div>
-  <div>
     <mat-form-field class="filter">
       <input matInput placeholder="{{ 'FILTER' | translate }}"
         (keyup)="filterSubject.next($any($event.target).value)" />
@@ -34,8 +29,8 @@
 
 
     <!-- method Column -->
-    <ng-container matColumnDef="method">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.METHOD' | translate }} </mat-header-cell>
+    <ng-container matColumnDef="paymentMethod.type">
+      <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'PAYMENTS.METHOD' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="dni"> {{row.paymentMethod}} </mat-cell>
     </ng-container>
 
@@ -55,16 +50,6 @@
     <ng-container matColumnDef="user">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.USER' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="User"> {{row.user}} </mat-cell>
-    </ng-container>
-
-    <!-- edit Column -->
-    <ng-container matColumnDef="edit">
-      <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="edit">
-        <button mat-icon-button color="accent" (click)="editPayment(row.id)">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </mat-cell>
     </ng-container>
 
     <!-- delete Column -->

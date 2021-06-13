@@ -41,7 +41,6 @@ export class ViewConsumptionsComponent implements OnInit {
     'paid',
     'stay',
     'user',
-    'edit',
     'delete',
   ];
 
@@ -97,14 +96,6 @@ export class ViewConsumptionsComponent implements OnInit {
 
   public ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  addNewConsumption() {
-    this.router.navigateByUrl('pages/consumptions/create');
-  }
-
-  editConsumption(consumptionid: number) {
-    this.router.navigateByUrl('pages/consumptions/update/' + consumptionid);
   }
 
   deleteConsumption(id: number) {

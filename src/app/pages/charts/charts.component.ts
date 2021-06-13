@@ -4,7 +4,6 @@ import {
   BreakpointState,
 } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-charts',
@@ -35,7 +34,7 @@ export class ChartsComponent implements OnInit {
           this.cols = 2;
         }
         if (state.breakpoints[Breakpoints.Large]) {
-          this.cols = 3;
+          this.cols = 2;
         }
         if (state.breakpoints[Breakpoints.XLarge]) {
           this.cols = 3;

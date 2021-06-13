@@ -10,13 +10,19 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { ProductStockComponent } from './charts/product-stock/product-stock.component';
 @NgModule({
   declarations: [
     SalesChartComponent,
     CustomersChartComponent,
     UploadImageComponent,
+    ProductStockComponent,
   ],
-  exports: [SalesChartComponent, CustomersChartComponent],
+  exports: [
+    SalesChartComponent,
+    CustomersChartComponent,
+    ProductStockComponent,
+  ],
   imports: [
     CommonModule,
     ChartsModule,
