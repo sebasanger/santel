@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 
 export interface DialogData {
   stayId: number;
+  remaining: number;
 }
 
 @Component({
@@ -28,25 +29,33 @@ export class AddPaymentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
   private stayId: number;
+  public remaining: number;
+  public newRemaining: number;
   paymentMethods$: Observable<PaymentMethod[]>;
 
   ngOnInit(): void {
     this.stayId = this.data.stayId;
+    this.remaining = this.data.remaining;
+    this.newRemaining = this.data.remaining;
     this.paymentMethodService.getAll();
+
+    this.patymentForm.get('amount').valueChanges.subscribe((res) => {
+      this.newRemaining = res - this.remaining;
+    });
 
     this.paymentMethods$ = this.paymentMethodService.entities$;
   }
 
-  consumptionForm = this.fb.group({
+  patymentForm = this.fb.group({
     amount: [null, Validators.required],
     paymentMethod: [null, Validators.required],
   });
 
   onSubmit() {
-    if (this.consumptionForm.invalid) {
+    if (this.patymentForm.invalid) {
       return;
     }
-    const { amount, paymentMethod } = this.consumptionForm.value;
+    const { amount, paymentMethod } = this.patymentForm.value;
     const createPaymentPayload: AddNewPaymentPayload = {
       amount: amount,
       paymentMethodId: paymentMethod,

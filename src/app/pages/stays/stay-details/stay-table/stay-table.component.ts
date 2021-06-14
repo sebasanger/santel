@@ -27,17 +27,20 @@ export class StayTableComponent implements OnInit {
   }
   addPayment(stayId: number) {
     const dialogRef = this.dialog.open(AddPaymentComponent, {
-      width: '800px',
-      height: '600px',
-      data: { stayId },
+      width: '00px',
+      height: '500px',
+      data: {
+        stayId,
+        remaining: this.stay.totalRemaining,
+      },
     });
   }
 
   addConsumption(stayId: number): void {
     const dialogRef = this.dialog.open(AddConsumptionComponent, {
-      width: '800px',
-      height: '600px',
-      data: { stayId },
+      width: '900px',
+      height: '700px',
+      data: { stayId, remaining: this.stay.totalRemaining },
     });
   }
 

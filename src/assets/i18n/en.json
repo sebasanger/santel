@@ -204,6 +204,7 @@
     "METHOD": "Method",
     "ADD": "Add payment",
     "TOTAL": "Total",
+    "AFTERPAY": "After pay",
     "CREATEDAT": "Created at"
   },
   "CONSUMPTIONS": {
@@ -218,7 +219,12 @@
     "REGISTER": "Register",
     "PRODUCT": "Product",
     "ADD": "Add consumption",
-    "CREATEDAT": "Created at"
+    "CREATEDAT": "Created at",
+    "TOTALCONSUMPTION": "Total consumption price",
+    "UNITPRICE": "Price per unit",
+    "STAYREMAINING": "Stay remaining",
+    "CONSUMPTIONREMAINING": "Consumption remaining"
+
   },
   "STAYS": {
     "STAYS": "Stays",

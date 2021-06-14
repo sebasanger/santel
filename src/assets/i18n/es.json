@@ -206,6 +206,7 @@
     "METHOD": "Metodo",
     "ADD": "Agregar pago",
     "QUOTE": "cuotas",
+    "AFTERPAY": "Faltante despues del pago",
     "CREATEDAT": "Fecha"
   },
   "CONSUMPTIONS": {
@@ -221,7 +222,11 @@
     "PRODUCT": "Producto",
     "ADD": "Agregar consumicion",
     "TOTAL": "Total",
-    "CREATEDAT": "Fecha"
+    "CREATEDAT": "Fecha",
+    "TOTALCONSUMPTION": "Precio total",
+    "UNITPRICE": "Precio por unidad",
+    "STAYREMAINING": "Faltante de la estadia",
+    "CONSUMPTIONREMAINING": "Faltante de la consumicion"
   },
   "STAYS": {
     "STAYS": "Estadias",

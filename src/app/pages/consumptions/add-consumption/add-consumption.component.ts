@@ -3,7 +3,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { AddNewConsumptionPayload } from 'src/app/interfaces/consumptions/add-new-consumption-payload';
-import { Brand } from 'src/app/models/brand.model';
 import { PaymentMethod } from 'src/app/models/payment-method.model';
 import { Product } from 'src/app/models/product.model';
 import { ConsumptionService } from 'src/app/services/EntityServices/consumption.service';
@@ -14,6 +13,7 @@ import Swal from 'sweetalert2';
 
 export interface DialogData {
   stayId: number;
+  remaining: number;
 }
 
 @Component({
@@ -32,6 +32,14 @@ export class AddConsumptionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
   private stayId: number;
+  public totalToPay: number = 0;
+  public amount: number = 1;
+  public productPrice: number = 0;
+  public stayRemining: number = 0;
+  public paid: number = 0;
+  public consumptionReamining: number = 0;
+  public actualStayRemaining: number;
+  public productStock: number = 0;
   products$: Observable<Product[]>;
   paymentMethods$: Observable<PaymentMethod[]>;
 
@@ -39,13 +47,38 @@ export class AddConsumptionComponent implements OnInit {
     this.stayId = this.data.stayId;
     this.productService.getAll();
     this.paymentMethodService.getAll();
-
     this.products$ = this.productService.entities$;
     this.paymentMethods$ = this.paymentMethodService.entities$;
+    console.log(this.data.remaining);
+
+    this.actualStayRemaining = this.data.remaining;
+    this.consumptionForm.get('amount').valueChanges.subscribe((res: number) => {
+      this.amount = res;
+      this.setTotalToPay();
+    });
+
+    this.consumptionForm.get('paid').valueChanges.subscribe((res: number) => {
+      this.paid = res;
+      this.setTotalToPay();
+    });
+  }
+
+  setProduct(product: Product) {
+    this.productPrice = product.price;
+    this.productStock = product.stock;
+    this.setTotalToPay();
+  }
+
+  private setTotalToPay() {
+    this.totalToPay = this.amount * this.productPrice;
+
+    this.consumptionReamining = this.totalToPay - this.paid;
+
+    this.stayRemining = this.actualStayRemaining + this.totalToPay - this.paid;
   }
 
   consumptionForm = this.fb.group({
-    amount: [null, Validators.required],
+    amount: [1, Validators.required],
     paid: [null],
     paymentMethod: [null],
     product: [null, Validators.required],
@@ -55,6 +88,7 @@ export class AddConsumptionComponent implements OnInit {
     if (this.consumptionForm.invalid) {
       return;
     }
+
     const { amount, paid, paymentMethod, product } = this.consumptionForm.value;
     const createConsumptionPayload: AddNewConsumptionPayload = {
       amount: amount,

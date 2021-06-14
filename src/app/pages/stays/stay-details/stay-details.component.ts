@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { Consumption } from 'src/app/models/consuption.model';
 import { Customer } from 'src/app/models/customer.model';
 import { Payment } from 'src/app/models/payment.model';
 import { Stay } from 'src/app/models/stay.model';
