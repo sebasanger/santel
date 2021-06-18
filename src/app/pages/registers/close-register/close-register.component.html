@@ -5,21 +5,20 @@
       <mat-card-title class="title-extras">{{ 'REGISTERS.CLOSEREGISTER' | translate }}</mat-card-title>
     </mat-card-header>
   </div>
-  <div class="content-extras">
-    <mat-card-content>
-      <div class="row-extras">
-        <div class="col-extras">
-          <mat-form-field class="full-width">
-            <mat-label>{{ 'REGISTERS.CLOSEMOUNT' | translate }}</mat-label>
-            <input type="number" color="primary" matInput formControlName="closeMount">
-            <mat-error *ngIf="closeForm.controls['closeMount'].hasError('required')">
-              {{ 'REGISTERS.CLOSEMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-    </mat-card-content>
-  </div>
+
+
+  <mat-card-content class="content-extras">
+    <div class="row-extras">
+      <mat-form-field class="full-width">
+        <mat-label>{{ 'REGISTERS.CLOSEMOUNT' | translate }}</mat-label>
+        <input type="number" color="primary" matInput formControlName="closeMount">
+        <mat-error *ngIf="closeForm.controls['closeMount'].hasError('required')">
+          {{ 'REGISTERS.CLOSEMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+
   <div class="actions-extras">
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">{{ 'REGISTERS.CLOSE' | translate }}</button>

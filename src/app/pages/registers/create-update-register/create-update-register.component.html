@@ -9,16 +9,14 @@
   </div>
 
   <mat-card-content class="content-extras">
-    <div class="row">
-      <div class="col">
-        <mat-form-field class="full-width">
-          <input autocomplete="off" type="number" color="primary" matInput
-            placeholder="{{ 'REGISTERS.OPENMOUNT' | translate }}" formControlName="openMount">
-          <mat-error *ngIf="registerForm.controls['openMount'].hasError('required')">
-            {{ 'REGISTERS.OPENMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
+    <div class="row-extras">
+      <mat-form-field>
+        <input autocomplete="off" type="number" color="primary" matInput
+          placeholder="{{ 'REGISTERS.OPENMOUNT' | translate }}" formControlName="openMount">
+        <mat-error *ngIf="registerForm.controls['openMount'].hasError('required')">
+          {{ 'REGISTERS.OPENMOUNT' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+        </mat-error>
+      </mat-form-field>
     </div>
   </mat-card-content>
 
