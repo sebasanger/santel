@@ -53,16 +53,11 @@ export class RoomPricesComponent {
     }
   }
 
-  openDialog(
-    title: string,
-    id?: number,
-    price?: number,
-    description?: string
-  ): void {
+  openDialog(id?: number, price?: number, description?: string): void {
     this.dialog.open(CreateEditRoomPriceComponent, {
-      width: '400px',
-      height: '500px',
-      data: { id, price, description, title },
+      width: '600px',
+      height: '700px',
+      data: { id, price, description },
     });
   }
 

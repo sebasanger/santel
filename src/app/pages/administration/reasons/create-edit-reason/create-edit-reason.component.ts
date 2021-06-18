@@ -9,7 +9,6 @@ import Swal from 'sweetalert2';
 export interface DialogData {
   id?: number;
   reason?: string;
-  title: string;
 }
 
 @Component({

@@ -49,7 +49,6 @@ export class AddConsumptionComponent implements OnInit {
     this.paymentMethodService.getAll();
     this.products$ = this.productService.entities$;
     this.paymentMethods$ = this.paymentMethodService.entities$;
-    console.log(this.data.remaining);
 
     this.actualStayRemaining = this.data.remaining;
     this.consumptionForm.get('amount').valueChanges.subscribe((res: number) => {

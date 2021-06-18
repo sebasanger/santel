@@ -83,22 +83,32 @@
     "DISABLED": "Disabled"
   },
   "REASONS": {
+    "ADD": "Add reason",
+    "UPDATE": "Update reason",
     "REASONS": "Reasons",
     "REASON": "Reason"
   },
   "CATEGORIES": {
+    "ADD": "Add category",
+    "UPDATE": "Update category",
     "CATEGORY": "Category",
     "CATEGORIES": "Categories"
   },
   "BRANDS": {
+    "ADD": "Add brand",
+    "UPDATE": "Update brand",
     "BRANDS": "Brands",
     "BRAND": "Brand"
   },
   "INVOICES": {
+    "ADD": "Add invoice type",
+    "UPDATE": "Update invoice type",
     "INVOICES": "Invoices types",
     "INVOICE": "Invoice type"
   },
   "ENTRYPRODUCTS": {
+    "ADD": "Add entry product",
+    "UPDATE": "Update entry product",
     "ENTRYPRODUCTS": "Entry products",
     "ENTRYPRODUCT": "Entry product",
     "INCHARGE": "In charge",
@@ -108,12 +118,16 @@
     "DATE": "Date"
   },
   "ROOMPRICES": {
+    "ADD": "Add room price",
+    "UPDATE": "Update room price",
     "ROOMPRICE": "Room price",
     "ROOMPRICES": "Room prices",
     "PRICE": "Price",
     "DESCRIPTION": "Description"
   },
   "PAYMENTMETHOD": {
+    "ADD": "Add payment method",
+    "UPDATE": "Update payment method",
     "PAYMENTMETHOD": "Payment method",
     "PAYMENTMETHODS": "Payment methods",
     "METHOD": "Method",

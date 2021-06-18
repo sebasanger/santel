@@ -7,7 +7,6 @@ import { InvoiceService } from 'src/app/services/EntityServices/invoice.service'
 export interface DialogData {
   id?: number;
   type?: string;
-  title: string;
 }
 
 @Component({

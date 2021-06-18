@@ -28,14 +28,14 @@ export class OpenCloseRegisterComponent implements OnInit {
   closeRegister() {
     this.dialog.open(CloseRegisterComponent, {
       width: '600px',
-      height: '400px',
+      height: '500px',
     });
   }
 
   openRegister(id?: number, openMount?: number): void {
     this.dialog.open(CreateUpdateRegisterComponent, {
       width: '600px',
-      height: '400px',
+      height: '500px',
       data: { id, openMount },
     });
   }

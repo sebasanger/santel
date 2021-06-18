@@ -53,11 +53,11 @@ export class InvoicesComponent {
     }
   }
 
-  openDialog(title: string, id?: number, type?: string): void {
-    const dialogRef = this.dialog.open(CreateEditInvoiceComponent, {
-      width: '400px',
-      height: '300px',
-      data: { id: id, type: type, title: title },
+  openDialog(id?: number, type?: string): void {
+    this.dialog.open(CreateEditInvoiceComponent, {
+      width: '500px',
+      height: '600px',
+      data: { id: id, type: type },
     });
   }
 

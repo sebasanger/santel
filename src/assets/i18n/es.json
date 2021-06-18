@@ -86,22 +86,32 @@
     "DISABLED": "Inactivo"
   },
   "REASONS": {
+    "ADD": "Agregar razon de viaje",
+    "UPDATE": "Actualizar razon de viaje",
     "REASONS": "Razones",
     "REASON": "Razon"
   },
   "CATEGORIES": {
+    "ADD": "Agregar categoria de productos",
+    "UPDATE": "Actualizar categoria de productos",
     "CATEGORY": "Categoria",
     "CATEGORIES": "Categorias"
   },
   "BRANDS": {
+    "ADD": "Agregar marca de productos",
+    "UPDATE": "Actualizar marca de productos",
     "BRANDS": "Marcas",
     "BRAND": "Marca"
   },
   "INVOICES": {
+    "ADD": "Agregar tipo de factura",
+    "UPDATE": "Actualizar tipo de factura",
     "INVOICES": "Tipos de facturas",
     "INVOICE": "Tipo de factura"
   },
   "ENTRYPRODUCTS": {
+    "ADD": "Agregar entrada de producto",
+    "UPDATE": "Actualizar entrada de producto",
     "ENTRYPRODUCTS": "Entrada de productos",
     "ENTRYPRODUCT": "Entrada de producto",
     "INCHARGE": "A cargo",
@@ -111,12 +121,16 @@
     "DATE": "Fecha"
   },
   "ROOMPRICES": {
+    "ADD": "Agregar precio de habitacion",
+    "UPDATE": "Actualizar precio de habitacion",
     "ROOMPRICE": "Precio de habitacion",
     "ROOMPRICES": "Precios de habitaciones",
     "PRICE": "Precio",
     "DESCRIPTION": "Descripcion"
   },
   "PAYMENTMETHOD": {
+    "ADD": "Agregar metodo de pago",
+    "UPDATE": "Actualizar metodo de pago",
     "PAYMENTMETHOD": "Metodo de pago",
     "PAYMENTMETHODS": "Metodos de pagos",
     "METHOD": "Metodo",

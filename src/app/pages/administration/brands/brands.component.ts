@@ -48,11 +48,11 @@ export class BrandsComponent {
     }
   }
 
-  openDialog(title: string, id?: number, brand?: string): void {
+  openDialog(id?: number, brand?: string): void {
     const dialogRef = this.dialog.open(CreateUpdateBrandsComponent, {
-      width: '400px',
-      height: '300px',
-      data: { id: id, brand: brand, title: title },
+      width: '600px',
+      height: '500px',
+      data: { id: id, brand: brand },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

@@ -4,8 +4,7 @@
       <mat-label>{{ 'FILTER' | translate }}</mat-label>
       <input matInput (keyup)="applyFilter($event)" #input>
     </mat-form-field>
-    <button mat-raised-button class="add"
-      (click)="openDialog('Add new payment method')">{{ 'ADDM' | translate }}</button>
+    <button mat-raised-button class="add" (click)="openDialog()">{{ 'ADDM' | translate }}</button>
   </div>
   <div class="mat-elevation-z8">
     <table class="table" mat-table matSortActive="id" matSortDirection="asc" [dataSource]="dataSource" matSort>
@@ -43,7 +42,7 @@
         <th class="edit-extras" mat-header-cell *matHeaderCellDef> {{ 'EDIT' | translate }} </th>
         <td class="edit-extras" mat-cell *matCellDef="let row">
           <button mat-icon-button color="accent"
-            (click)="openDialog('Edit payment method', row.id ,row.method ,row.amountOfPayments, row.description )">
+            (click)="openDialog(row.id ,row.method ,row.amountOfPayments, row.description )">
             <mat-icon>edit</mat-icon>
           </button>
         </td>

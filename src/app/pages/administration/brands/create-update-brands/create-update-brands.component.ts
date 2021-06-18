@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Brand } from 'src/app/models/brand.model';
@@ -7,7 +7,6 @@ import { BrandService } from 'src/app/services/EntityServices/brand.service';
 export interface DialogData {
   id?: number;
   brand?: string;
-  title: string;
 }
 
 @Component({
@@ -15,7 +14,7 @@ export interface DialogData {
   templateUrl: './create-update-brands.component.html',
   styleUrls: ['./create-update-brands.component.scss'],
 })
-export class CreateUpdateBrandsComponent {
+export class CreateUpdateBrandsComponent implements OnInit {
   brandForm = this.fb.group({
     brand: [this.data.brand, Validators.required],
   });
@@ -26,6 +25,8 @@ export class CreateUpdateBrandsComponent {
     public dialogRef: MatDialogRef<CreateUpdateBrandsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
+
+  ngOnInit(): void {}
 
   onSubmit() {
     if (this.brandForm.invalid) {

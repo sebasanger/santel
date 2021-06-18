@@ -9,7 +9,6 @@ export interface DialogData {
   amountOfPayments?: string;
   method?: string;
   description?: number;
-  title: string;
 }
 
 @Component({

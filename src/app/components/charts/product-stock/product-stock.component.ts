@@ -12,6 +12,16 @@ import { ProductService } from 'src/app/services/EntityServices/product.service'
 export class ProductStockComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+            max: 5,
+          },
+        },
+      ],
+    },
   };
   public barChartLabels: Label[];
   public barChartType: ChartType = 'bar';
@@ -34,7 +44,7 @@ export class ProductStockComponent implements OnInit {
         label.push(product.name);
       });
 
-      this.barChartData = [{ data: data, label: 'Stocks' }];
+      this.barChartData = [{ data: data, label: 'Stock' }];
     });
   }
 }

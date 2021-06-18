@@ -7,7 +7,6 @@ import { CategoryService } from 'src/app/services/EntityServices/category.servic
 export interface DialogData {
   id?: number;
   category?: string;
-  title: string;
 }
 @Component({
   selector: 'app-create-edit-categories',

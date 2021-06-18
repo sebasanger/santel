@@ -50,11 +50,11 @@ export class ReasonsComponent {
     }
   }
 
-  openDialog(title: string, id?: number, reason?: string): void {
+  openDialog(id?: number, reason?: string): void {
     this.dialog.open(CreateEditReasonComponent, {
-      width: '400px',
-      height: '300px',
-      data: { id: id, reason: reason, title: title },
+      width: '500px',
+      height: '600px',
+      data: { id: id, reason: reason },
     });
   }
 

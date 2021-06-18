@@ -61,16 +61,15 @@ export class PaymentMethodsComponent {
   }
 
   openDialog(
-    title: string,
     id?: number,
     method?: string,
     amountOfPayments?: number,
     description?: string
   ): void {
     this.dialog.open(CreateEditPaymentMethodComponent, {
-      width: '500px',
-      height: '600px',
-      data: { id, method, amountOfPayments, description, title },
+      width: '600px',
+      height: '700px',
+      data: { id, method, amountOfPayments, description },
     });
   }
 

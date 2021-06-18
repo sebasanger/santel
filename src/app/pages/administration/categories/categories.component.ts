@@ -51,11 +51,11 @@ export class CategoriesComponent {
     }
   }
 
-  openDialog(title: string, id?: number, category?: string): void {
-    const dialogRef = this.dialog.open(CreateEditCategoriesComponent, {
-      width: '400px',
-      height: '300px',
-      data: { id: id, category: category, title: title },
+  openDialog(id?: number, category?: string): void {
+    this.dialog.open(CreateEditCategoriesComponent, {
+      width: '600px',
+      height: '500px',
+      data: { id: id, category: category },
     });
   }
 

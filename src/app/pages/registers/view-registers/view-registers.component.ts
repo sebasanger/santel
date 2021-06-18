@@ -130,7 +130,7 @@ export class ViewRegistersComponent implements OnInit {
   closeRegister(id: number) {
     const dialogRef = this.dialog.open(CloseRegisterComponent, {
       width: '600px',
-      height: '400px',
+      height: '500px',
       data: { id },
     });
 

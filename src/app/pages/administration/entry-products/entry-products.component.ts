@@ -61,7 +61,6 @@ export class EntryProductsComponent {
   }
 
   openDialog(
-    title: string,
     id?: number,
     amount?: number,
     productId?: number,
@@ -69,10 +68,10 @@ export class EntryProductsComponent {
     createdAt?: Date,
     userId?: number
   ): void {
-    const dialogRef = this.dialog.open(CreateUpdateEntryProductComponent, {
-      width: '800px',
-      height: '500px',
-      data: { title, id, amount, productId, buyPrice, createdAt, userId },
+    this.dialog.open(CreateUpdateEntryProductComponent, {
+      width: '600px',
+      height: '700px',
+      data: { id, amount, productId, buyPrice, createdAt, userId },
     });
   }
 
