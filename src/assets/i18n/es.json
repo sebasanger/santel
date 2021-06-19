@@ -243,6 +243,8 @@
     "CONSUMPTIONREMAINING": "Faltante de la consumicion"
   },
   "STAYS": {
+    "MOREINFO": "Mas informacion",
+    "FINISH": "Finalizar",
     "STAYS": "Estadias",
     "STAY": "Estadia",
     "ENTRYDATE": "Fecha de entrada",
@@ -252,7 +254,7 @@
     "FINISHED": "Finalizada",
     "TOTALGUEST": "Total de huespedes",
     "CHECKIN": "Check in",
-    "CHECKOUT": "check out",
+    "CHECKOUT": "Check out",
     "STATUS": "Estado",
     "REASON": "Razon",
     "PRICE": "Precio",

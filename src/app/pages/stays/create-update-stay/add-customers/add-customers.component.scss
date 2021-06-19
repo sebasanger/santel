@@ -24,7 +24,7 @@ mat-card {
 
 
   @media (max-width: 1200px) {
-    height: 1000px;
+
     width: 90%;
   }
 }
@@ -32,7 +32,7 @@ mat-card {
 mat-form-field {
   width: 280px;
 
-  @media (max-width: 767.98px) {
+  @media (max-width: 1200px) {
     width: 70%;
   }
 }
@@ -47,4 +47,15 @@ mat-form-field {
   @media (max-width: 1200px) {
     flex-direction: column;
   }
+}
+
+
+mat-expansion-panel {
+  width: 100%;
+  box-shadow: none !important;
+}
+
+mat-panel-title {
+  display: block;
+  text-align: center;
 }

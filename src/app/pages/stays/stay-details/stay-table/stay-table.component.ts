@@ -27,7 +27,7 @@ export class StayTableComponent implements OnInit {
   }
   addPayment(stayId: number) {
     const dialogRef = this.dialog.open(AddPaymentComponent, {
-      width: '00px',
+      width: '500px',
       height: '500px',
       data: {
         stayId,
@@ -41,6 +41,30 @@ export class StayTableComponent implements OnInit {
       width: '900px',
       height: '700px',
       data: { stayId, remaining: this.stay.totalRemaining },
+    });
+  }
+
+  finishStay(stayid: number) {
+    Swal.fire({
+      title: 'Finish stay?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, finish!',
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        this.stayService.finishStay(stayid).subscribe(
+          (res) => {
+            //this.loadStayPage();
+          },
+          (err) => {
+            Swal.fire('Error', err.error.message, 'error');
+          }
+        );
+      } else {
+        Swal.fire('Cancelled', 'The stay is still active', 'info');
+      }
     });
   }
 

@@ -40,6 +40,7 @@ export class ViewStaysComponent implements OnInit {
     'pricePerDay',
     'paid',
     'totalToPay',
+    'finishStay',
     'edit',
     'delete',
   ];
@@ -104,6 +105,30 @@ export class ViewStaysComponent implements OnInit {
 
   editStay(stayid: number) {
     this.router.navigateByUrl('pages/stays/update/' + stayid);
+  }
+
+  finishStay(stayid: number) {
+    Swal.fire({
+      title: 'Finish stay?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, finish!',
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        this.stayService.finishStay(stayid).subscribe(
+          (res) => {
+            this.loadStayPage();
+          },
+          (err) => {
+            Swal.fire('Error', err.error.message, 'error');
+          }
+        );
+      } else {
+        Swal.fire('Cancelled', 'The stay is still active', 'info');
+      }
+    });
   }
 
   deleteStay(id: number) {

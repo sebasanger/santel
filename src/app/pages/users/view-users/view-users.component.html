@@ -1,14 +1,15 @@
 <div class="head">
-  <div>
-    <button mat-raised-button color="accent" (click)="addNewUser()" class="add-button">
-      {{ 'USERS.VIEW.ADD' | translate }}
-    </button>
-  </div>
+
   <div>
     <mat-form-field class="filter">
       <input matInput placeholder="{{ 'USERS.VIEW.FILTER' | translate }}"
         (keyup)="filterSubject.next($any($event.target).value)" />
     </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="accent" (click)="addNewUser()" class="add-button">
+      {{ 'USERS.VIEW.ADD' | translate }}
+    </button>
   </div>
 </div>
 
@@ -31,6 +32,7 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'USERS.EMAIL' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" (click)="onRowClicked(row)" data-label="Email"> {{row.email}} </mat-cell>
     </ng-container>
+
 
     <!-- roles Column -->
     <ng-container matColumnDef="roles">

@@ -45,14 +45,14 @@
 
     <!-- checkIn Column -->
     <ng-container matColumnDef="entryDate">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.CHECKIN' | translate }} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.ENTRYDATE' | translate }} </mat-header-cell>
       <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Check in">
         {{row.entryDate | date:'dd/MM/yyyy'  }} </mat-cell>
     </ng-container>
 
     <!-- checkOut Column -->
     <ng-container matColumnDef="outDate">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.CHECKOUT' | translate }} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.OUTDATE' | translate }} </mat-header-cell>
       <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Check out">
         {{row.outDate | date:'dd/MM/yyyy'}} </mat-cell>
     </ng-container>
@@ -87,11 +87,22 @@
       </mat-cell>
     </ng-container>
 
+    <!-- finish Column -->
+    <ng-container matColumnDef="finishStay">
+      <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.FINISH' | translate }} </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Finish stay">
+        <button [disabled]="!row.active || row.totalPayments < row.totalToPay" mat-icon-button color="primary"
+          (click)="finishStay(row.id)">
+          <mat-icon>check</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
     <!-- edit Column -->
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="edit">
-        <button mat-icon-button color="accent" (click)="editStay(row.id)">
+        <button [disabled]="!row.active" mat-icon-button color="accent" (click)="editStay(row.id)">
           <mat-icon>edit</mat-icon>
         </button>
       </mat-cell>
@@ -101,7 +112,7 @@
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'DELETE' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="delete">
-        <button mat-icon-button color="warn" (click)="deleteStay(row.id)">
+        <button [disabled]="!row.active" mat-icon-button color="warn" (click)="deleteStay(row.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>

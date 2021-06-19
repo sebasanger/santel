@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Consumption } from 'src/app/models/consuption.model';
+import { Stay } from 'src/app/models/stay.model';
 import { ConsumptionService } from 'src/app/services/EntityServices/consumption.service';
 import { StayService } from 'src/app/services/EntityServices/stay.service';
 import Swal from 'sweetalert2';
@@ -20,6 +21,7 @@ export class ConsumptionsTableComponent implements OnInit, OnDestroy {
   private selectedConsumptions$: Observable<Consumption[]>;
   private subscription: Subscription = new Subscription();
   private stayId: number;
+  public stay: Observable<Stay>;
   constructor(
     private route: ActivatedRoute,
     public dialog: MatDialog,
@@ -32,6 +34,7 @@ export class ConsumptionsTableComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const sub = this.route.params.subscribe((params) => {
       this.stayId = params['id'];
+      this.stay = this.stayService.getById(this.stayId);
     });
     const suscription = this.selectedConsumptions$.subscribe(
       (res: Consumption[]) => {

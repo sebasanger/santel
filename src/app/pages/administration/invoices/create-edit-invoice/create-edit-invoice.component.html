@@ -8,14 +8,14 @@
   </div>
 
   <mat-card-content class="content-extras">
-    <div class="row-extras">
-      <mat-form-field class="full-width">
-        <input color="primary" matInput placeholder="{{ 'INVOICES.INVOICE' | translate }}" formControlName="type">
-        <mat-error *ngIf="inoviceForm.controls['type'].hasError('required')">
-          {{ 'INVOICES.INVOICES' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
+
+    <mat-form-field>
+      <input color="primary" matInput placeholder="{{ 'INVOICES.INVOICE' | translate }}" formControlName="type">
+      <mat-error *ngIf="inoviceForm.controls['type'].hasError('required')">
+        {{ 'INVOICES.INVOICES' | translate }} <strong>{{ 'REQUIRED' | translate }}</strong>
+      </mat-error>
+    </mat-form-field>
+
   </mat-card-content>
 
   <div class="actions-extras">

@@ -241,6 +241,8 @@
 
   },
   "STAYS": {
+    "MOREINFO": "More info",
+    "FINISH": "Finish",
     "STAYS": "Stays",
     "STAY": "Stay",
     "ENTRYDATE": "Entry date",
