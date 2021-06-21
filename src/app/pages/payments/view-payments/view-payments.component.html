@@ -37,18 +37,23 @@
     <!-- register Column -->
     <ng-container matColumnDef="register">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.REGISTER' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Register"> {{row.registerId  }} </mat-cell>
+      <mat-cell class="selectable tac" (click)="registerDetails(row.registerId)" *matCellDef="let row"
+        data-label="Register">
+        {{row.registerId  }} </mat-cell>
     </ng-container>
 
     <!-- stay Column -->
     <ng-container matColumnDef="stay">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.STAY' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Stay"> {{row.stayId}} </mat-cell>
+      <mat-cell class="selectable" (click)="stayDetails(row.stayId)" *matCellDef="let row" data-label="Stay">
+        {{row.stayId}}
+      </mat-cell>
     </ng-container>
 
     <!-- user Column -->
     <ng-container matColumnDef="user">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.USER' | translate }} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.USER' | translate }}
+      </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="User"> {{row.user}} </mat-cell>
     </ng-container>
 

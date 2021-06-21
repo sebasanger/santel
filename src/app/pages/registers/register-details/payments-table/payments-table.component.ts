@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Payment } from 'src/app/models/payment.model';
 import { PaymentService } from 'src/app/services/EntityServices/payment.service';
 import Swal from 'sweetalert2';
@@ -19,16 +20,27 @@ export class PaymentsTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   public dataSource: MatTableDataSource<Payment>;
 
-  displayedColumns: string[] = ['amount', 'method', 'user', 'delete'];
+  displayedColumns: string[] = [
+    'amount',
+    'description',
+    'method',
+    'user',
+    'delete',
+  ];
 
   constructor(
     public dialog: MatDialog,
-    private paymentService: PaymentService
+    private paymentService: PaymentService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.payments);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  stayDetails(id: number) {
+    this.router.navigateByUrl('pages/stays/details/' + id);
   }
 
   delete(payment: Payment) {

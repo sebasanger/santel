@@ -48,3 +48,30 @@
   width: 100%;
   margin-top: 15px;
 }
+
+
+.resume-containter {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.resume-info {
+  width: 33.3%;
+  height: 40px;
+  font-size: 20px;
+
+
+  @media (max-width: 1200px) {
+    width: 50%;
+  }
+
+  @media (max-width: 767.98px) {
+    width: 100%;
+  }
+}
+
+.resume-data {
+  font-weight: bold;
+}

@@ -46,7 +46,8 @@
     <!-- stay Column -->
     <ng-container matColumnDef="stay">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CONSUMPTIONS.STAY' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Stay"> {{row.stay}} </mat-cell>
+      <mat-cell class="selectable" (click)="stayDetails(row.stay)" *matCellDef="let row" data-label="Stay"> {{row.stay}}
+      </mat-cell>
     </ng-container>
 
     <!-- user Column -->

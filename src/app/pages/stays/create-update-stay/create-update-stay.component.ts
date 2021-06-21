@@ -41,7 +41,8 @@ export class CreateUpdateStayComponent implements OnInit {
   public remaining: number;
   public totalDays: number;
   private stayId: number;
-  selectedCustomers: Customer[];
+  public roomPrice: number;
+  public selectedCustomers: Customer[];
   private ngUnsubscribe: Subject<boolean> = new Subject();
   reasons$: Observable<Reason[]>;
   public stay: Stay;
@@ -229,6 +230,7 @@ export class CreateUpdateStayComponent implements OnInit {
 
   setTotalToPay(price: number) {
     this.totalToPay = price * this.totalDays;
+    this.roomPrice = price;
     this.setRemaining();
   }
 

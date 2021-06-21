@@ -119,6 +119,10 @@ export class ViewConsumptionsComponent implements OnInit {
     });
   }
 
+  stayDetails(id: number) {
+    this.router.navigateByUrl('pages/stays/details/' + id);
+  }
+
   onRowClicked(row: any) {
     this.router.navigateByUrl('pages/consumptions/details/' + row.id);
   }

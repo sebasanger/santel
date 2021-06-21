@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Payment } from 'src/app/models/payment.model';
 import { Stay } from 'src/app/models/stay.model';
@@ -40,7 +40,8 @@ export class PaymentsTableComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     public dialog: MatDialog,
     private paymentService: PaymentService,
-    private stayService: StayService
+    private stayService: StayService,
+    private router: Router
   ) {
     this.selectedPayments$ = paymentService.selectedPayments$;
   }
@@ -76,6 +77,10 @@ export class PaymentsTableComponent implements OnInit, OnDestroy {
         Swal.fire('Cancelled', 'The payment is safe', 'success');
       }
     });
+  }
+
+  registerDetails(id: number) {
+    this.router.navigateByUrl('pages/registers/details/' + id);
   }
 
   public ngOnDestroy(): void {

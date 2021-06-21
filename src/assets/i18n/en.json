@@ -241,6 +241,7 @@
 
   },
   "STAYS": {
+    "RESUME": "Resume",
     "MOREINFO": "More info",
     "FINISH": "Finish",
     "STAYS": "Stays",
@@ -266,8 +267,8 @@
     "SELECTROOM": "Select room ",
     "PAYMENTMETHOD": "Payment method",
     "DATERANGE": "Stay date range",
-    "START": "Start date(dd-mm-yyyy)",
-    "END": "End date(dd-mm-yyyy)",
+    "START": "(dd-mm-yyyy)",
+    "END": "(dd-mm-yyyy)",
     "TOTALDAYS": "Total days",
     "REMAINING": "Remaining",
     "TOTALCONSUMPTIONS": "Consumptions costs"

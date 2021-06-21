@@ -19,7 +19,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="fill">
+          <mat-form-field>
             <mat-label> {{ 'STAYS.DATERANGE' | translate }}</mat-label>
             <mat-date-range-input [formGroup]="stayFormGroup" [rangePicker]="picker" required>
               <input matStartDate formControlName="start" placeholder="{{ 'STAYS.START' | translate}}">
@@ -35,7 +35,7 @@
 
 
         <div class="row">
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field class="full-width">
             <mat-label>{{ 'STAYS.REASON' | translate }}</mat-label>
             <mat-select formControlName="reason">
               <mat-option [value]="option.id" *ngFor="let option of reasons$ | async">{{ option.reason }}
@@ -84,7 +84,7 @@
       <ng-template matStepLabel>Payment</ng-template>
       <div class="step-stay-form">
         <div class="row">
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field class="full-width">
             <mat-label>{{ 'STAYS.PRICE' | translate }}</mat-label>
             <mat-select formControlName="roomPrice" required>
               <mat-option [value]="option.id" *ngFor="let option of roomPrices$ | async"
@@ -106,7 +106,7 @@
 
         <div class="row" *ngIf="paymentFormGroup.controls['paid'].value != 0">
 
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field class="full-width">
             <mat-label>{{ 'STAYS.PAYMENTMETHOD' | translate }}</mat-label>
             <mat-select formControlName="paymentMethod">
               <mat-option [value]="option.id" *ngFor="let option of paymentMethods$ | async">{{ option.method }}
@@ -132,13 +132,52 @@
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel>Finish</ng-template>
+    <ng-template matStepLabel>{{ 'STAYS.RESUME' | translate }}</ng-template>
+
+    <div class="resume-containter">
+
+      <p class="resume-info">{{ 'STAYS.ENTRYDATE' | translate }} : <span
+          class="resume-data">{{  stayFormGroup.controls['start'].value | date:'dd/MM/yyyy'}}</span></p>
+
+      <p class="resume-info">{{ 'STAYS.OUTDATE' | translate }} : <span
+          class="resume-data">{{  stayFormGroup.controls['end'].value | date:'dd/MM/yyyy' }}</span></p>
+
+      <p class="resume-info">{{ 'STAYS.ROOM' | translate }} : <span
+          class="resume-data">{{  roomFormGroup.controls['room'].value }}</span></p>
+
+      <p class="resume-info">{{ 'STAYS.TOTALGUEST' | translate }} : <span
+          class="resume-data">{{  stayFormGroup.controls['totalGuest'].value }}</span></p>
+
+      <p class="resume-info">{{ 'STAYS.REASON' | translate }} : <span
+          class="resume-data">{{  stayFormGroup.controls['reason'].value }}</span></p>
+
+      <p class="resume-info">{{ 'STAYS.PAID' | translate }} : <span
+          class="resume-data">{{  paymentFormGroup.controls['paid'].value }}</span></p>
+
+      <p class="resume-info">{{ 'STAYS.TOTALTOPAY' | translate }} : <span class="resume-data">{{  totalToPay }}</span>
+      </p>
+
+      <p class="resume-info">{{ 'STAYS.REMAINING' | translate }} : <span class="resume-data">{{  remaining }}</span>
+      </p>
+
+
+      <p class="resume-info">{{ 'STAYS.TOTALDAYS' | translate }} : <span class="resume-data">{{  totalDays }}</span>
+      </p>
+
+      <p class="resume-info">{{ 'STAYS.PRICEPERDAY' | translate }} : <span class="resume-data">{{  roomPrice }}</span>
+      </p>
+
+      <p *ngFor="let customerSelected of selectedCustomers; let i = index" class="resume-info">
+        {{ 'CUSTOMERS.CUSTOMER' | translate }} N°{{i+1}} :
+        <span class="resume-data">{{customerSelected.name + " " + customerSelected.surname}}</span></p>
+
+    </div>
 
     <div class="action">
-      <button
+      <button mat-raised-button color="warn">Reset</button>
+      <button style="margin-left: 15px;"
         [disabled]="roomFormGroup.invalid || stayFormGroup.invalid || customersFormGroup.invalid || paymentFormGroup.invalid"
         mat-raised-button color="primary" (click)="save()">Save</button>
-      <button style="margin-left: 15px;" mat-raised-button color="warn">Reset</button>
     </div>
   </mat-step>
 

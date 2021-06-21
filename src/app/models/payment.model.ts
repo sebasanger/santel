@@ -11,10 +11,14 @@ export class Payment {
   public stay: Stay;
   public user: User;
   public createdAt?: Date;
+  public stayId: number;
+  public registerId: number;
 
   constructor(conumptionInterface: PaymentInterface) {
     this.id = conumptionInterface.id;
     this.amount = conumptionInterface.amount;
+    this.registerId = conumptionInterface.registerId;
+    this.stayId = conumptionInterface.stayId;
     this.paymentMethod = conumptionInterface.paymentMethod;
     this.register = conumptionInterface.register;
     this.stay = conumptionInterface.stay;
@@ -26,6 +30,8 @@ export class Payment {
 export interface PaymentInterface {
   id: number;
   amount: number;
+  registerId?: number;
+  stayId?: number;
   paymentMethod: PaymentMethod;
   register: Register;
   stay: Stay;

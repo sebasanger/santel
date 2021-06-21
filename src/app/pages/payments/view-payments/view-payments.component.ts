@@ -115,6 +115,14 @@ export class ViewPaymentsComponent implements OnInit {
     });
   }
 
+  stayDetails(id: number) {
+    this.router.navigateByUrl('pages/stays/details/' + id);
+  }
+
+  registerDetails(id: number) {
+    this.router.navigateByUrl('pages/registers/details/' + id);
+  }
+
   onRowClicked(row: any) {
     this.router.navigateByUrl('pages/payments/details/' + row.id);
   }

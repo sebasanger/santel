@@ -5,7 +5,8 @@
       <!-- description Column -->
       <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'PAYMENTS.DESCRIPTION' | translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Description"> {{row.description}} </mat-cell>
+        <mat-cell class="selectable" (click)="registerDetails(row.registerId)" *matCellDef="let row"
+          data-label="Description"> {{row.description}} </mat-cell>
       </ng-container>
 
       <!-- amount Column -->

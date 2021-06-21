@@ -243,6 +243,7 @@
     "CONSUMPTIONREMAINING": "Faltante de la consumicion"
   },
   "STAYS": {
+    "RESUME": "Resumen",
     "MOREINFO": "Mas informacion",
     "FINISH": "Finalizar",
     "STAYS": "Estadias",
@@ -267,9 +268,9 @@
     "CUSTOMERNAME": "Huesped ",
     "SELECTROOM": "Seleccionar habitacion",
     "PAYMENTMETHOD": "Metodo de pago",
-    "DATERANGE": "Rango de fechas de estadia",
-    "START": "Inicio(dd-mm-yyyy)",
-    "END": "Fin(dd-mm-yyyy)",
+    "DATERANGE": "Rango de fecha",
+    "START": "(dd-mm-yyyy)",
+    "END": "(dd-mm-yyyy)",
     "TOTALDAYS": "Total de dias",
     "REMAINING": "Faltante",
     "TOTALCONSUMPTIONS": "Costos de consumiciones"

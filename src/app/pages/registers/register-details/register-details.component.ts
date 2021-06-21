@@ -46,6 +46,7 @@ export class RegisterDetailsComponent implements OnInit {
       if (this.registerId > 0) {
         this.registerService.getByKey(this.registerId).subscribe((res) => {
           this.register = res;
+
           this.payments = res.payments;
         });
       }

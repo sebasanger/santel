@@ -9,7 +9,7 @@
 
   <mat-card-content class="content-extras">
     <div class="row-extras">
-      <mat-form-field class="full-width">
+      <mat-form-field>
         <mat-label>{{ 'REGISTERS.CLOSEMOUNT' | translate }}</mat-label>
         <input type="number" color="primary" matInput formControlName="closeMount" autocomplete="off">
         <mat-error *ngIf="closeForm.controls['closeMount'].hasError('required')">
