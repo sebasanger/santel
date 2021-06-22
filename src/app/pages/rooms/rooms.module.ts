@@ -44,5 +44,6 @@ import { AddRemoveImagesComponent } from './add-remove-images/add-remove-images.
     FlexLayoutModule,
     NgImageSliderModule,
   ],
+  exports: [ViewImagesComponent],
 })
 export class RoomsModule {}

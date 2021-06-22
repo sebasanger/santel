@@ -28,6 +28,7 @@ import { RoomsTableComponent } from './create-update-stay/rooms-table/rooms-tabl
 import { AddCustomersComponent } from './create-update-stay/add-customers/add-customers.component';
 import { CustomerListComponent } from './create-update-stay/customer-list/customer-list.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RoomsModule } from '../rooms/rooms.module';
 @NgModule({
   declarations: [
     StaysComponent,
@@ -61,6 +62,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatTabsModule,
     MatStepperModule,
     MatExpansionModule,
+    RoomsModule,
   ],
 })
 export class StaysModule {}

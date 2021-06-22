@@ -1,16 +1,15 @@
-.contianer-view {
+.contianer-view-images {
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
   width: 100%;
-  justify-content: space-around;
 }
+
+
+
 
 .middle {
   width: 100%;
-}
-
-.header {
-  font-size: 35px;
+  height: 80% !important;
+  position: relative;
 }
