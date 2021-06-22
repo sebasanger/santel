@@ -8,14 +8,16 @@
     <mat-card-content>
       <div class="row">
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.NAME' | translate }}" type="text" formControlName="name" />
+          <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.NAME' | translate }}" type="text"
+            formControlName="name" />
           <mat-error *ngIf="customerForm.controls['name'].hasError('required')">
             {{ 'CUSTOMERS.NAME' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.SURNAME' | translate }}" type="text" formControlName="surname" />
+          <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.SURNAME' | translate }}" type="text"
+            formControlName="surname" />
           <mat-error *ngIf="customerForm.controls['surname'].hasError('required')">
             {{ 'CUSTOMERS.SURNAME' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
@@ -24,7 +26,8 @@
 
       <div class="row">
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.DNI' | translate }}" formControlName="dni" type="number" />
+          <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.DNI' | translate }}" formControlName="dni"
+            type="number" />
           <mat-error *ngIf="customerForm.controls['dni'].hasError('required')">
             {{ 'CUSTOMERS.DNI' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
@@ -48,27 +51,32 @@
 
       <div class="row">
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.PHONE' | translate }}" type="tel" formControlName="phone" />
+          <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.PHONE' | translate }}" type="tel"
+            formControlName="phone" />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.CELPHONE' | translate }}" type="tel" formControlName="celphone" />
-        </mat-form-field>
-      </div>
-
-      <div class="row">
-        <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.CUIL' | translate }}" type="text" formControlName="cuil" />
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.CUIT' | translate }}" type="text" formControlName="cuit" />
+          <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.CELPHONE' | translate }}" type="tel"
+            formControlName="celphone" />
         </mat-form-field>
       </div>
 
       <div class="row">
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email" type="email" />
+          <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.CUIL' | translate }}" type="number"
+            formControlName="cuil" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.CUIT' | translate }}" type="text"
+            formControlName="cuit" />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email"
+            type="email" />
           <mat-error *ngIf="customerForm.controls['email'].hasError('email')">
             {{ 'VALIDEMAIL' | translate }}
           </mat-error>
@@ -83,6 +91,12 @@
             <mat-option [value]="option.id" *ngFor="let option of invoices$ | async">{{ option.type }}
             </mat-option>
           </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="textarea" appearance="fill">
+          <textarea autocomplete="off" formControlName="note" placeholder="{{ 'CUSTOMERS.NOTE' | translate }}"
+            matInput></textarea>
         </mat-form-field>
       </div>
 

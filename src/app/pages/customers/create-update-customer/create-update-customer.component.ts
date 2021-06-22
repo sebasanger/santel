@@ -57,6 +57,7 @@ export class CreateUpdateCustomerComponent implements OnInit, OnDestroy {
           this.customerForm.controls['cuit'].setValue(res.cuit);
           this.customerForm.controls['phone'].setValue(res.phone);
           this.customerForm.controls['celphone'].setValue(res.celphone);
+          this.customerForm.controls['note'].setValue(res.note);
           if (res.invoiceType) {
             this.customerForm.controls['invoice'].setValue(res.invoiceType.id);
           }
@@ -96,6 +97,7 @@ export class CreateUpdateCustomerComponent implements OnInit, OnDestroy {
     phone: [null],
     celphone: [null],
     invoice: [null],
+    note: [null],
   });
 
   onSubmit() {
@@ -113,6 +115,7 @@ export class CreateUpdateCustomerComponent implements OnInit, OnDestroy {
       celphone,
       birthday,
       invoice,
+      note,
     } = this.customerForm.controls;
     let newInvoice: Invoice;
     if (invoice.value != null) {
@@ -129,7 +132,8 @@ export class CreateUpdateCustomerComponent implements OnInit, OnDestroy {
       celphone.value,
       cuil.value,
       cuit.value,
-      newInvoice
+      newInvoice,
+      note.value
     );
 
     if (this.customerId != null) {

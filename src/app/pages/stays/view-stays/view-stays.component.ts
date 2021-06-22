@@ -35,7 +35,7 @@ export class ViewStaysComponent implements OnInit {
     'totalGuest',
     'entryDate',
     'outDate',
-    'active',
+    'status',
     'price',
     'pricePerDay',
     'paid',

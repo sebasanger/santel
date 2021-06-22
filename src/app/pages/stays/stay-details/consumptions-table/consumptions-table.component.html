@@ -45,7 +45,7 @@
         <mat-header-cell class="delete-extras" class="no-sort" *matHeaderCellDef> {{ 'DELETE' | translate }}
         </mat-header-cell>
         <mat-cell class="delete-extras" mat-cell *matCellDef="let row" data-label="delete">
-          <button [disabled]="!(stay| async)?.active" mat-icon-button color="warn" (click)="delete(row)">
+          <button [disabled]="(stay| async)?.status == 'FINISHED'" mat-icon-button color="warn" (click)="delete(row)">
             <mat-icon>delete</mat-icon>
           </button>
         </mat-cell>

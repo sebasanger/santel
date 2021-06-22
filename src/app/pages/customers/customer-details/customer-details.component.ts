@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Customer } from 'src/app/models/customer.model';
+import { Stay } from 'src/app/models/stay.model';
 import { CustomerService } from 'src/app/services/EntityServices/customer.service';
 import Swal from 'sweetalert2';
 
@@ -10,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./customer-details.component.scss'],
 })
 export class CustomerDetailsComponent implements OnInit {
-  private customerId: number;
+  public customerId: number;
   public customer: Customer;
   constructor(
     private customerService: CustomerService,

@@ -8,7 +8,7 @@ import { Payment } from './payment.model';
 
 export class Stay {
   public id: number;
-  public active: boolean;
+  public status: 'ACTIVE' | 'PENDING' | 'FINISHED';
   public checkIn: Date;
   public checkOut: Date;
   public entryDate: Date;
@@ -32,7 +32,7 @@ export class Stay {
 
   constructor(stayInterface: StayInterface) {
     this.id = stayInterface.id;
-    this.active = stayInterface.active;
+    this.status = stayInterface.status;
     this.checkIn = stayInterface.checkIn;
     this.checkOut = stayInterface.checkOut;
     this.entryDate = stayInterface.entryDate;
@@ -58,7 +58,7 @@ export class Stay {
 
 export interface StayInterface {
   id: number;
-  active: boolean;
+  status: 'ACTIVE' | 'PENDING' | 'FINISHED';
   checkIn?: Date;
   checkOut?: Date;
   entryDate: Date;

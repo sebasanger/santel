@@ -165,7 +165,8 @@
     "CUIT": "Cuit",
     "INVOICETYPE": "Tipo de factura",
     "CREATEDAT": "fecha de creacion",
-    "UPDATEDAT": "Fecha de actualizacion"
+    "UPDATEDAT": "Fecha de actualizacion",
+    "NOTE": "Notas"
   },
   "ROOMS": {
     "ROOMS": "Habitaciones",
@@ -252,6 +253,7 @@
     "OUTDATE": "Fecha de salida",
     "ROOM": "Habitacion",
     "ACTIVE": "Activa",
+    "PENDING": "Pendiente",
     "FINISHED": "Finalizada",
     "TOTALGUEST": "Total de huespedes",
     "CHECKIN": "Check in",

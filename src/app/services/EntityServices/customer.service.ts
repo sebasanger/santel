@@ -8,6 +8,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { GetPaginatedCustomers } from 'src/app/interfaces/customers/get-paginated-customers';
 import { Customer } from 'src/app/models/customer.model';
+import { Stay } from 'src/app/models/stay.model';
 import { getCustomersPaginated } from 'src/app/store/customer/customer.api.actions';
 import { selectPaginatedCustomers } from 'src/app/store/customer/customer.selectors';
 import { environment } from 'src/environments/environment';
@@ -66,5 +67,9 @@ export class CustomerService extends EntityCollectionServiceBase<Customer> {
         sort,
       })
     );
+  }
+
+  getCustomerStays(id: number) {
+    return this.http.get<Stay[]>(`${base_url}customer/stays/${id}`);
   }
 }

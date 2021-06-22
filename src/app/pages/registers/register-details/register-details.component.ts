@@ -23,14 +23,13 @@ export class RegisterDetailsComponent implements OnInit {
   public payments: Payment[];
   private roles$: Observable<String[]>;
   private registerActive$: Observable<Register>;
-  public cols: number;
+
   private registerActive: Register;
   private rolesAuthUser: String[];
   constructor(
     private registerService: RegisterService,
     private route: ActivatedRoute,
     private router: Router,
-    private breakpointObserver: BreakpointObserver,
     private authService: AuthService
   ) {
     this.registerActive$ = registerService.activeRegister$;
@@ -51,31 +50,6 @@ export class RegisterDetailsComponent implements OnInit {
         });
       }
     });
-    this.breakpointObserver
-      .observe([
-        Breakpoints.XSmall,
-        Breakpoints.Small,
-        Breakpoints.Medium,
-        Breakpoints.Large,
-        Breakpoints.XLarge,
-      ])
-      .subscribe((state: BreakpointState) => {
-        if (state.breakpoints[Breakpoints.XSmall]) {
-          this.cols = 1;
-        }
-        if (state.breakpoints[Breakpoints.Small]) {
-          this.cols = 1;
-        }
-        if (state.breakpoints[Breakpoints.Medium]) {
-          this.cols = 1;
-        }
-        if (state.breakpoints[Breakpoints.Large]) {
-          this.cols = 2;
-        }
-        if (state.breakpoints[Breakpoints.XLarge]) {
-          this.cols = 2;
-        }
-      });
   }
 
   editRegister(userid: number) {

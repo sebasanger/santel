@@ -8,8 +8,9 @@
     </p>
     <p>
       {{ 'STAYS.STATUS' | translate}}:
-      <span *ngIf="stay.active">{{ 'STAYS.ACTIVE'| translate}}</span>
-      <span *ngIf="!stay.active">{{ 'STAYS.FINISHED'| translate}}</span>
+      <span *ngIf="stay.status == 'ACTIVE'">{{ 'STAYS.ACTIVE'| translate}}</span>
+      <span *ngIf="stay.status == 'FINISHED'">{{ 'STAYS.FINISHED'| translate}}</span>
+      <span *ngIf="stay.status == 'PENDING'">{{ 'STAYS.FINISHED'| translate}}</span>
     </p>
 
     <p>
@@ -61,20 +62,20 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button [disabled]="!stay.active || stay.totalPayments < stay.totalToPay" mat-icon-button color="accent"
-      (click)="finishStay(stay.id)">
+    <button [disabled]="stay.status == 'FINISHED' || stay.totalPayments < stay.totalToPay" mat-icon-button
+      color="accent" (click)="finishStay(stay.id)">
       <mat-icon>check</mat-icon>
     </button>
-    <button [disabled]="!stay.active" mat-icon-button color="primary" (click)="editStay(stay.id)">
+    <button [disabled]="stay.status == 'FINISHED'" mat-icon-button color="primary" (click)="editStay(stay.id)">
       <mat-icon>edit</mat-icon>
     </button>
-    <button [disabled]="!stay.active" mat-icon-button color="accent" (click)="addConsumption(stay.id)">
+    <button [disabled]="stay.status == 'FINISHED'" mat-icon-button color="accent" (click)="addConsumption(stay.id)">
       <mat-icon>add_shopping_cart</mat-icon>
     </button>
-    <button [disabled]="!stay.active" mat-icon-button color="accent" (click)="addPayment(stay.id)">
+    <button [disabled]="stay.status == 'FINISHED'" mat-icon-button color="accent" (click)="addPayment(stay.id)">
       <mat-icon>monetization_on</mat-icon>
     </button>
-    <button [disabled]="!stay.active" mat-icon-button color="warn" (click)="deleteStay(stay.id)">
+    <button [disabled]="stay.status == 'FINISHED'" mat-icon-button color="warn" (click)="deleteStay(stay.id)">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-card-actions>

@@ -1,4 +1,5 @@
 import { Invoice } from './inovice.model';
+import { Stay } from './stay.model';
 
 export class Customer {
   constructor(
@@ -13,7 +14,9 @@ export class Customer {
     public cuil?: string,
     public cuit?: string,
     public invoiceType?: Invoice,
+    public note?: string,
     public createdAt?: Date,
-    public updatedAt?: Date
+    public updatedAt?: Date,
+    public stays?: Stay[]
   ) {}
 }

@@ -1,7 +1,7 @@
 <section>
-  <div class="grid-container animate__animated animate__fadeIn animate__delay-0.4s">
-    <mat-grid-list cols="1" rowHeight="500">
-      <mat-grid-tile>
+  <div class="grid-container register-details animate__animated animate__fadeIn animate__delay-0.4s">
+    <mat-tab-group mat-align-tabs="start" class="register-tabs">
+      <mat-tab label="{{'CUSTOMERS.CUSTOMER' | translate}}">
         <mat-card *ngIf="customer != null">
           <mat-card-header>
             <mat-card-title>{{customer.name + " " + customer.surname}}</mat-card-title>
@@ -35,6 +35,9 @@
             <p *ngIf="customer.updatedAt != null">
               {{'CUSTOMERS.UPDATEDAT' | translate}}: {{customer.updatedAt |  date: 'dd/MM/yyyy'}}
             </p>
+            <p *ngIf="customer.note != null">
+              {{'CUSTOMERS.NOTE' | translate}}: {{customer.note}}
+            </p>
           </mat-card-content>
           <mat-card-actions>
             <button mat-icon-button color="accent" (click)="editCustomer(customer.id)">
@@ -45,8 +48,18 @@
             </button>
           </mat-card-actions>
         </mat-card>
-      </mat-grid-tile>
-      <!-- <mat-grid-tile>2</mat-grid-tile> -->
-    </mat-grid-list>
+      </mat-tab>
+    </mat-tab-group>
+
+    <mat-tab-group class="tabs-extras">
+      <div>
+        <mat-tab label="{{ 'STAYS.STAYS' | translate}}">
+          <app-stays-table [id]="customerId"></app-stays-table>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+
+
+
   </div>
 </section>

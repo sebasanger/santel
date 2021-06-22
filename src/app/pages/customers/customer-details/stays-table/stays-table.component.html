@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="mat-elevation-z8">
+    <mat-table class="table" matSortActive="createdAt" matSortDirection="desc" [dataSource]="dataSource" matSort>
+
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> Id </mat-header-cell>
+        <mat-cell (click)="stayDetails(row.id)" *matCellDef="let row" data-label="Description">
+          {{row.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="totalPayments">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.PAID' | translate }} </mat-header-cell>
+        <mat-cell (click)="stayDetails(row.id)" *matCellDef="let row" data-label="Total paid"> {{row.totalPayments}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="totalToPay">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.TOTALTOPAY' | translate }} </mat-header-cell>
+        <mat-cell (click)="stayDetails(row.id)" *matCellDef="let row" data-label="Total to pay"> {{row.totalToPay}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="totalGuest">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.TOTALGUEST' | translate }} </mat-header-cell>
+        <mat-cell (click)="stayDetails(row.id)" *matCellDef="let row" data-label="Total guests"> {{row.totalGuest}}
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="entryDate">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.ENTRYDATE' | translate }} </mat-header-cell>
+        <mat-cell (click)="stayDetails(row.id)" *matCellDef="let row" data-label="Entry date">
+          {{row.entryDate| date:'dd/MM/yyyy'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="outDate">
+        <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.OUTDATE' | translate }} </mat-header-cell>
+        <mat-cell (click)="stayDetails(row.id)" *matCellDef="let row" data-label="Out date">
+          {{row.outDate| date:'dd/MM/yyyy'}} </mat-cell>
+      </ng-container>
+
+
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+    </mat-table>
+
+  </div>
+</div>

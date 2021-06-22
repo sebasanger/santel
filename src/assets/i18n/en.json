@@ -163,7 +163,8 @@
     "CUIT": "Cuit",
     "INVOICETYPE": "Invoice type",
     "CREATEDAT": "Created at",
-    "UPDATEDAT": "Updated at"
+    "UPDATEDAT": "Updated at",
+    "NOTE": "Notes"
   },
   "ROOMS": {
     "ROOMS": "Rooms",
@@ -254,6 +255,7 @@
     "CHECKOUT": "Check out",
     "ACTIVE": "Active",
     "FINISHED": "Finished",
+    "PENDING": "Pending",
     "STATUS": "Status",
     "REASON": "Reason",
     "PRICE": "Price",

@@ -13,7 +13,7 @@
 </div>
 
 <div class="example-container mat-elevation-z8 animate__animated animate__fadeIn animate__delay-0.4s">
-  <mat-table matSort matSortActive="active" matSortDirection="desc" matSortDisableClear [dataSource]="dataSource">
+  <mat-table matSort matSortActive="status" matSortDirection="desc" matSortDisableClear [dataSource]="dataSource">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
@@ -34,12 +34,13 @@
       </mat-cell>
     </ng-container>
 
-    <!-- active Column -->
-    <ng-container matColumnDef="active">
+    <!-- status Column -->
+    <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'STAYS.STATUS' | translate }} </mat-header-cell>
       <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Status">
-        <span *ngIf="row.active">{{ 'STAYS.ACTIVE' | translate}}</span>
-        <span *ngIf="!row.active">{{ 'STAYS.FINISHED' | translate}}</span>
+        <span *ngIf="row.status == 'ACTIVE'">{{ 'STAYS.ACTIVE' | translate}}</span>
+        <span *ngIf="row.status == 'FINISHED'">{{ 'STAYS.FINISHED' | translate}}</span>
+        <span *ngIf="row.status == 'PENDING'">{{ 'STAYS.PENDING' | translate}}</span>
       </mat-cell>
     </ng-container>
 
@@ -91,8 +92,8 @@
     <ng-container matColumnDef="finishStay">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.FINISH' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="Finish stay">
-        <button [disabled]="!row.active || row.totalPayments < row.totalToPay" mat-icon-button color="primary"
-          (click)="finishStay(row.id)">
+        <button [disabled]="row.status == 'DISABLED' || row.totalPayments < row.totalToPay" mat-icon-button
+          color="primary" (click)="finishStay(row.id)">
           <mat-icon>check</mat-icon>
         </button>
       </mat-cell>
@@ -102,7 +103,7 @@
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="edit">
-        <button [disabled]="!row.active" mat-icon-button color="accent" (click)="editStay(row.id)">
+        <button [disabled]="row.status == 'DISABLED'" mat-icon-button color="accent" (click)="editStay(row.id)">
           <mat-icon>edit</mat-icon>
         </button>
       </mat-cell>
@@ -112,7 +113,7 @@
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'DELETE' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="delete">
-        <button [disabled]="!row.active" mat-icon-button color="warn" (click)="deleteStay(row.id)">
+        <button [disabled]="row.status == 'DISABLED'" mat-icon-button color="warn" (click)="deleteStay(row.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>

@@ -18,12 +18,15 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { CreateUpdateCustomerComponent } from './create-update-customer/create-update-customer.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTabsModule } from '@angular/material/tabs';
+import { StaysTableComponent } from './customer-details/stays-table/stays-table.component';
 @NgModule({
   declarations: [
     CustomersComponent,
     ViewCustomersComponent,
     CustomerDetailsComponent,
     CreateUpdateCustomerComponent,
+    StaysTableComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +44,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     FlexLayoutModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTabsModule,
   ],
 })
 export class CustomersModule {}
