@@ -1,48 +1,48 @@
 <div class="container">
   <div class="mat-elevation-z8">
-    <table class="table" mat-table matSortActive="amount" matSortDirection="asc" [dataSource]="dataSource" matSort>
+    <mat-table class="table" matSortActive="amount" matSortDirection="asc" [dataSource]="dataSource" matSort>
 
       <!-- amount Column -->
       <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.AMOUNT' | translate }} </th>
-        <td mat-cell *matCellDef="let row"> {{row.amount}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.AMOUNT' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.amount}} </mat-cell>
       </ng-container>
 
       <!-- amount Column -->
       <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.DESCRIPTION' | translate }} </th>
-        <td class="selectable" (click)="stayDetails(row.stayId)" mat-cell *matCellDef="let row"> {{row.description}}
-        </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.DESCRIPTION' | translate }} </mat-header-cell>
+        <mat-cell class="selectable" (click)="stayDetails(row.stayId)" *matCellDef="let row"> {{row.description}}
+        </mat-cell>
       </ng-container>
 
-
-      <!-- Method Column -->
+      <!-- Memat-header-cellod Column -->
       <ng-container matColumnDef="method">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.METHOD' | translate }} </th>
-        <td mat-cell *matCellDef="let row"> {{row.paymentMethod.method}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.METHOD' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.paymentMethod.method}} </mat-cell>
       </ng-container>
 
       <!-- user Column -->
       <ng-container matColumnDef="user">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.USER' | translate }} </th>
-        <td mat-cell *matCellDef="let row"> {{row.user.fullName}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.USER' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.user.fullName}} </mat-cell>
       </ng-container>
 
       <!-- delete Column -->
       <ng-container matColumnDef="delete">
-        <th class="delete-extras" mat-header-cell *matHeaderCellDef> {{ 'DELETE' | translate }} </th>
-        <td class="delete-extras" mat-cell *matCellDef="let row">
+        <mat-header-cell class="delete-extras" *matHeaderCellDef> {{ 'DELETE' | translate }} </mat-header-cell>
+        <mat-cell class="delete-extras" *matCellDef="let row">
           <button mat-icon-button color="warn" (click)="delete(row)">
             <mat-icon>delete</mat-icon>
           </button>
-        </td>
+        </mat-cell>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
 
-    </table>
+    </mat-table>
 
     <mat-paginator [pageSizeOptions]="[5, 10,15]"></mat-paginator>
   </div>

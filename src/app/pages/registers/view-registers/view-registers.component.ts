@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -16,7 +23,7 @@ import { CreateUpdateRegisterComponent } from '../create-update-register/create-
   templateUrl: './view-registers.component.html',
   styleUrls: ['./view-registers.component.scss'],
 })
-export class ViewRegistersComponent implements OnInit {
+export class ViewRegistersComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild('input') input: ElementRef;
@@ -28,15 +35,13 @@ export class ViewRegistersComponent implements OnInit {
   ) {}
 
   public paginatedRegisters$ = this.registerService.paginatedRegisters$;
-  public paginatedRegisters: GetPaginatedRegisters;
   public filterSubject = new Subject<string>();
-  public loading: boolean;
-  public error$: Observable<boolean>;
-  public defaultSort: Sort = { active: 'id', direction: 'asc' };
   public dataSource: MatTableDataSource<any>;
   private subscription: Subscription = new Subscription();
   public totalElements: number = 0;
   public filter: string = '';
+  private startDate: string = '';
+  private endDate: string = '';
   public displayedColumns = [
     'id',
     'actualBalance',
@@ -62,7 +67,16 @@ export class ViewRegistersComponent implements OnInit {
       }
     );
 
+    const sus = this.range.valueChanges.subscribe((res) => {
+      if (res.start != null && res.end != null) {
+        this.startDate = res.start.toISOString().slice(0, 10) + ' 00:00';
+        this.endDate = res.end.toISOString().slice(0, 10) + ' 00:00';
+        this.loadRegisterPage();
+      }
+    });
+
     this.subscription.add(suscription);
+    this.subscription.add(sus);
   }
 
   ngAfterViewInit() {
@@ -94,7 +108,9 @@ export class ViewRegistersComponent implements OnInit {
       this.sort.direction,
       this.sort.active,
       this.paginator.pageIndex,
-      this.paginator.pageSize
+      this.paginator.pageSize,
+      this.startDate,
+      this.endDate
     );
   }
 
@@ -142,6 +158,11 @@ export class ViewRegistersComponent implements OnInit {
   onRowClicked(row: any) {
     this.router.navigateByUrl('pages/registers/details/' + row.id);
   }
+
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
 
   openRegister(id?: number, openMount?: number): void {
     this.dialog.open(CreateUpdateRegisterComponent, {

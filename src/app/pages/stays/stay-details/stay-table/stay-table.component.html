@@ -60,6 +60,7 @@
     <p *ngFor="let customer of stay.customers, let i = index">
       {{ 'STAYS.CUSTOMERNAME' | translate }}{{ i+1 }}: {{   customer.name + " " + customer.surname}}
     </p>
+
   </mat-card-content>
   <mat-card-actions>
     <button [disabled]="stay.status == 'FINISHED' || stay.totalPayments < stay.totalToPay" mat-icon-button
@@ -69,10 +70,12 @@
     <button [disabled]="stay.status == 'FINISHED'" mat-icon-button color="primary" (click)="editStay(stay.id)">
       <mat-icon>edit</mat-icon>
     </button>
-    <button [disabled]="stay.status == 'FINISHED'" mat-icon-button color="accent" (click)="addConsumption(stay.id)">
+    <button [disabled]="stay.status == 'FINISHED' || (registerActive$|async) == null" mat-icon-button color="primary"
+      (click)="addConsumption(stay.id)">
       <mat-icon>add_shopping_cart</mat-icon>
     </button>
-    <button [disabled]="stay.status == 'FINISHED'" mat-icon-button color="accent" (click)="addPayment(stay.id)">
+    <button [disabled]="stay.status == 'FINISHED' || (registerActive$|async) == null" mat-icon-button color="primary"
+      (click)="addPayment(stay.id)">
       <mat-icon>monetization_on</mat-icon>
     </button>
     <button [disabled]="stay.status == 'FINISHED'" mat-icon-button color="warn" (click)="deleteStay(stay.id)">

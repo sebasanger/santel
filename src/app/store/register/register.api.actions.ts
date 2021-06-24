@@ -9,6 +9,8 @@ export const getRegistersPaginated = createAction(
     sort: string;
     pageIndex: number;
     pageSize: number;
+    start: string;
+    end: string;
   }>()
 );
 

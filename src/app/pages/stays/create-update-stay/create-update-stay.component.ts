@@ -10,10 +10,12 @@ import { GetFreeRoomsPayload } from 'src/app/interfaces/stay/GetFreeRomsPayload'
 import { Customer } from 'src/app/models/customer.model';
 import { PaymentMethod } from 'src/app/models/payment-method.model';
 import { Reason } from 'src/app/models/reason.model';
+import { Register } from 'src/app/models/register.model';
 import { RoomPrice } from 'src/app/models/room-price.model';
 import { Stay } from 'src/app/models/stay.model';
 import { PaymentMethodService } from 'src/app/services/EntityServices/payment-method.service';
 import { ReasonService } from 'src/app/services/EntityServices/reason.service';
+import { RegisterService } from 'src/app/services/EntityServices/register.service';
 import { RoomPriceService } from 'src/app/services/EntityServices/room-price.service';
 import { StayService } from 'src/app/services/EntityServices/stay.service';
 import { setSelectedRoom } from 'src/app/store/room/room.actions';
@@ -48,6 +50,9 @@ export class CreateUpdateStayComponent implements OnInit {
   public stay: Stay;
   roomPrices$: Observable<RoomPrice[]>;
   paymentMethods$: Observable<PaymentMethod[]>;
+  public registerActive$: Observable<Register>;
+  public paidDisabled: boolean = false;
+  public paymentMethodFieldStatus: boolean = false;
 
   constructor(
     private stayStore: Store<{ stay: any }>,
@@ -58,8 +63,11 @@ export class CreateUpdateStayComponent implements OnInit {
     private reasonService: ReasonService,
     private stayService: StayService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private registerSerivce: RegisterService
   ) {
+    this.registerActive$ = this.registerSerivce.activeRegister$;
+
     this.stayFormGroup = this._formBuilder.group({
       totalGuest: [
         '',
@@ -80,8 +88,9 @@ export class CreateUpdateStayComponent implements OnInit {
 
     this.paymentFormGroup = this._formBuilder.group({
       roomPrice: ['', Validators.required],
-      paid: [''],
-      paymentMethod: [''],
+      paid: [{ value: '', disabled: this.paidDisabled }],
+
+      paymentMethod: [{ value: '', disabled: this.paymentMethodFieldStatus }],
     });
   }
 
@@ -212,6 +221,12 @@ export class CreateUpdateStayComponent implements OnInit {
     this.stayFormGroup.get('end').valueChanges.subscribe(() => {
       this.setTotalDays();
       this.findRoomsAvailables();
+    });
+
+    this.paymentFormGroup.get('paid').valueChanges.subscribe((res) => {
+      if (res > 0) {
+        this.paymentMethodFieldStatus = true;
+      }
     });
   }
 

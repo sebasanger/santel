@@ -35,8 +35,10 @@ export class PaymentsTableComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.payments);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    setTimeout(() => {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }, 500);
   }
 
   stayDetails(id: number) {

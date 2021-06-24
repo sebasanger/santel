@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Register } from 'src/app/models/register.model';
 import { Stay } from 'src/app/models/stay.model';
 import { AddConsumptionComponent } from 'src/app/pages/consumptions/add-consumption/add-consumption.component';
 import { AddPaymentComponent } from 'src/app/pages/payments/add-payment/add-payment.component';
+import { RegisterService } from 'src/app/services/EntityServices/register.service';
 import { StayService } from 'src/app/services/EntityServices/stay.service';
 import Swal from 'sweetalert2';
 
@@ -14,11 +17,16 @@ import Swal from 'sweetalert2';
 })
 export class StayTableComponent implements OnInit {
   @Input() public stay: Stay;
+  public registerActive$: Observable<Register>;
+
   constructor(
     private router: Router,
     private stayService: StayService,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private registerSerivce: RegisterService
+  ) {
+    this.registerActive$ = this.registerSerivce.activeRegister$;
+  }
 
   ngOnInit(): void {}
 
@@ -27,8 +35,8 @@ export class StayTableComponent implements OnInit {
   }
   addPayment(stayId: number) {
     const dialogRef = this.dialog.open(AddPaymentComponent, {
-      width: '500px',
-      height: '500px',
+      width: '900px',
+      height: '700px',
       data: {
         stayId,
         remaining: this.stay.totalRemaining,

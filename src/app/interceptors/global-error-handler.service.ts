@@ -19,6 +19,16 @@ export class GlobalErrorHandlerService implements ErrorHandler {
           : 'Unknown error',
         'error'
       );
+    } else if (
+      errorResponse.error != null &&
+      errorResponse.status == 400 &&
+      errorResponse.error.message.includes('Regiter not open')
+    ) {
+      Swal.fire(
+        'Register not open',
+        'Plese open register before make a transaction',
+        'error'
+      );
     } else if (errorResponse.error != null && errorResponse.status == 400) {
       const errorMessages = Object.values(errorResponse.error.errors);
       const errorKey = Object.keys(errorResponse.error.errors);

@@ -47,7 +47,9 @@ export class RegisterService extends EntityCollectionServiceBase<Register> {
     sortDirection: string,
     sort: string,
     pageIndex: number,
-    pageSize: number
+    pageSize: number,
+    start?: string,
+    end?: string
   ) {
     return this.http.get<GetPaginatedCustomers>(
       `${base_url}register/paginate-filter`,
@@ -56,7 +58,9 @@ export class RegisterService extends EntityCollectionServiceBase<Register> {
           .set('page', pageIndex.toString())
           .set('filter', filter)
           .set('size', pageSize.toString())
-          .set('sort', `${sort},${sortDirection}`),
+          .set('sort', `${sort},${sortDirection}`)
+          .set('start', start)
+          .set('end', end),
       }
     );
   }
@@ -70,7 +74,9 @@ export class RegisterService extends EntityCollectionServiceBase<Register> {
     sortDirection: string,
     sort: string,
     pageIndex: number,
-    pageSize: number
+    pageSize: number,
+    start: string,
+    end: string
   ) {
     this.registerStore.dispatch(
       getRegistersPaginated({
@@ -79,6 +85,8 @@ export class RegisterService extends EntityCollectionServiceBase<Register> {
         pageSize,
         sortDirection,
         sort,
+        start,
+        end,
       })
     );
   }
