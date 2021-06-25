@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +20,7 @@ import Swal from 'sweetalert2';
   templateUrl: './view-consumptions.component.html',
   styleUrls: ['./view-consumptions.component.scss'],
 })
-export class ViewConsumptionsComponent implements OnInit {
+export class ViewConsumptionsComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild('input') input: ElementRef;
@@ -26,13 +33,12 @@ export class ViewConsumptionsComponent implements OnInit {
     this.consumptionService.paginatedConsumptions$;
   public paginatedConsumptions: GetPaginatedConsumptions;
   public filterSubject = new Subject<string>();
-  public loading: boolean;
-  public error$: Observable<boolean>;
-  public defaultSort: Sort = { active: 'id', direction: 'asc' };
   public dataSource: MatTableDataSource<any>;
   private subscription: Subscription = new Subscription();
   public totalElements: number = 0;
   public filter: string = '';
+  private startDate: string = '';
+  private endDate: string = '';
   public displayedColumns = [
     'id',
     'product',
@@ -40,6 +46,7 @@ export class ViewConsumptionsComponent implements OnInit {
     'price',
     'paid',
     'stay',
+    'createdAt',
     'user',
     'delete',
   ];
@@ -54,7 +61,17 @@ export class ViewConsumptionsComponent implements OnInit {
       }
     );
 
+    const sus = this.range.valueChanges.subscribe((res) => {
+      if (res.start != null && res.end != null) {
+        this.startDate = res.start.toISOString().slice(0, 10) + ' 00:00';
+        this.endDate = res.end.toISOString().slice(0, 10) + ' 00:00';
+        this.loadConsumptionPage();
+      }
+    });
+
     this.subscription.add(suscription);
+
+    this.subscription.add(sus);
   }
 
   ngAfterViewInit() {
@@ -86,7 +103,9 @@ export class ViewConsumptionsComponent implements OnInit {
       this.sort.direction,
       this.sort.active,
       this.paginator.pageIndex,
-      this.paginator.pageSize
+      this.paginator.pageSize,
+      this.startDate,
+      this.endDate
     );
   }
 
@@ -126,4 +145,9 @@ export class ViewConsumptionsComponent implements OnInit {
   onRowClicked(row: any) {
     this.router.navigateByUrl('pages/consumptions/details/' + row.id);
   }
+
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
 }

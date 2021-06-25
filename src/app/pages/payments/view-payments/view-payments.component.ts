@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +20,7 @@ import Swal from 'sweetalert2';
   templateUrl: './view-payments.component.html',
   styleUrls: ['./view-payments.component.scss'],
 })
-export class ViewPaymentsComponent implements OnInit {
+export class ViewPaymentsComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild('input') input: ElementRef;
@@ -22,13 +29,12 @@ export class ViewPaymentsComponent implements OnInit {
   public paginatedPayments$ = this.paymentService.paginatedPayments$;
   public paginatedPayments: GetPaginatedPayments;
   public filterSubject = new Subject<string>();
-  public loading: boolean;
-  public error$: Observable<boolean>;
-  public defaultSort: Sort = { active: 'id', direction: 'asc' };
   public dataSource: MatTableDataSource<any>;
   private subscription: Subscription = new Subscription();
   public totalElements: number = 0;
   public filter: string = '';
+  private startDate: string = '';
+  private endDate: string = '';
   public displayedColumns = [
     'id',
     'description',
@@ -36,6 +42,7 @@ export class ViewPaymentsComponent implements OnInit {
     'paymentMethod.type',
     'register',
     'stay',
+    'createdAt',
     'user',
     'delete',
   ];
@@ -46,11 +53,22 @@ export class ViewPaymentsComponent implements OnInit {
         if (res != null && res.content.length > 0) {
           this.dataSource = new MatTableDataSource(res.content);
           this.totalElements = res.totalElements;
+          console.log(res);
         }
       }
     );
 
+    const sus = this.range.valueChanges.subscribe((res) => {
+      if (res.start != null && res.end != null) {
+        this.startDate = res.start.toISOString().slice(0, 10) + ' 00:00';
+        this.endDate = res.end.toISOString().slice(0, 10) + ' 00:00';
+        this.loadPaymentPage();
+      }
+    });
+
     this.subscription.add(suscription);
+
+    this.subscription.add(sus);
   }
 
   ngAfterViewInit() {
@@ -82,7 +100,9 @@ export class ViewPaymentsComponent implements OnInit {
       this.sort.direction,
       this.sort.active,
       this.paginator.pageIndex,
-      this.paginator.pageSize
+      this.paginator.pageSize,
+      this.startDate,
+      this.endDate
     );
   }
 
@@ -126,4 +146,9 @@ export class ViewPaymentsComponent implements OnInit {
   onRowClicked(row: any) {
     this.router.navigateByUrl('pages/payments/details/' + row.id);
   }
+
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
 }

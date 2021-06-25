@@ -5,6 +5,19 @@
         (keyup)="filterSubject.next($any($event.target).value)" />
     </mat-form-field>
   </div>
+  <div>
+    <mat-form-field>
+      <mat-label> {{ 'STAYS.DATERANGE' | translate }}</mat-label>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker" required>
+        <input matStartDate formControlName="start" placeholder="{{ 'STAYS.START' | translate}}">
+        <input matEndDate formControlName="end" placeholder="{{ 'STAYS.END' | translate}}">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+      <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+      <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    </mat-form-field>
+  </div>
 </div>
 
 <div class="example-container mat-elevation-z8 animate__animated animate__fadeIn animate__delay-0.4s">
@@ -48,6 +61,13 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CONSUMPTIONS.STAY' | translate }} </mat-header-cell>
       <mat-cell class="selectable" (click)="stayDetails(row.stay)" *matCellDef="let row" data-label="Stay"> {{row.stay}}
       </mat-cell>
+    </ng-container>
+
+    <!-- createdAt Column -->
+    <ng-container matColumnDef="createdAt">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.CREATEDAT' | translate }}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" data-label="Created at"> {{row.createdAt | date:'dd/MM/yyyy HH:mm'}} </mat-cell>
     </ng-container>
 
     <!-- user Column -->

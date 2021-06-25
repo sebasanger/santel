@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { act, Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import * as paymentApiActions from './payment.api.actions';
 import * as paymentActions from './payment.actions';
@@ -24,7 +24,9 @@ export class PaymentEffects {
             action.sortDirection,
             action.sort,
             action.pageIndex,
-            action.pageSize
+            action.pageSize,
+            action.start,
+            action.end
           )
           .pipe(
             map((res: any) => {

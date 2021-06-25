@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -22,12 +23,11 @@ export class ViewStaysComponent implements OnInit {
 
   public paginatedStay$ = this.stayService.paginatedStays$;
   public filterSubject = new Subject<string>();
-  public loading: boolean;
-  public error$: Observable<boolean>;
-  public defaultSort: Sort = { active: 'id', direction: 'asc' };
   public dataSource: MatTableDataSource<any>;
   private subscription: Subscription = new Subscription();
   public totalElements: number = 0;
+  private startDate: string = '';
+  private endDate: string = '';
   public filter: string = '';
   public displayedColumns = [
     'id',
@@ -55,7 +55,16 @@ export class ViewStaysComponent implements OnInit {
       }
     );
 
+    const sus = this.range.valueChanges.subscribe((res) => {
+      if (res.start != null && res.end != null) {
+        this.startDate = res.start.toISOString().slice(0, 10);
+        this.endDate = res.end.toISOString().slice(0, 10);
+        this.loadStayPage();
+      }
+    });
+
     this.subscription.add(suscription);
+    this.subscription.add(sus);
   }
 
   ngAfterViewInit() {
@@ -87,7 +96,9 @@ export class ViewStaysComponent implements OnInit {
       this.sort.direction,
       this.sort.active,
       this.paginator.pageIndex,
-      this.paginator.pageSize
+      this.paginator.pageSize,
+      this.startDate,
+      this.endDate
     );
   }
 
@@ -155,4 +166,9 @@ export class ViewStaysComponent implements OnInit {
   onRowClicked(row: any) {
     this.router.navigateByUrl('pages/stays/details/' + row.id);
   }
+
+  range = new FormGroup({
+    start: new FormControl(),
+    end: new FormControl(),
+  });
 }

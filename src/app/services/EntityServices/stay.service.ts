@@ -60,14 +60,18 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
     sortDirection: string,
     sort: string,
     pageIndex: number,
-    pageSize: number
+    pageSize: number,
+    start: string,
+    end: string
   ) {
     return this.http.get<GetPaginatedStays>(`${base_url}stay/paginate-filter`, {
       params: new HttpParams()
         .set('page', pageIndex.toString())
         .set('filter', filter)
         .set('size', pageSize.toString())
-        .set('sort', `${sort},${sortDirection}`),
+        .set('sort', `${sort},${sortDirection}`)
+        .set('start', start)
+        .set('end', end),
     });
   }
 
@@ -76,7 +80,9 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
     sortDirection: string,
     sort: string,
     pageIndex: number,
-    pageSize: number
+    pageSize: number,
+    start: string,
+    end: string
   ) {
     this.stayStore.dispatch(
       getStaysPaginated({
@@ -85,6 +91,8 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
         pageSize,
         sortDirection,
         sort,
+        start,
+        end,
       })
     );
   }

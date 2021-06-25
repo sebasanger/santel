@@ -51,7 +51,9 @@ export class ConsumptionService extends EntityCollectionServiceBase<Consumption>
     sortDirection: string,
     sort: string,
     pageIndex: number,
-    pageSize: number
+    pageSize: number,
+    start: string,
+    end: string
   ) {
     return this.http.get<GetPaginatedConsumptions>(
       `${base_url}consumption/paginate-filter`,
@@ -60,7 +62,9 @@ export class ConsumptionService extends EntityCollectionServiceBase<Consumption>
           .set('page', pageIndex.toString())
           .set('filter', filter)
           .set('size', pageSize.toString())
-          .set('sort', `${sort},${sortDirection}`),
+          .set('sort', `${sort},${sortDirection}`)
+          .set('start', start)
+          .set('end', end),
       }
     );
   }
@@ -70,7 +74,9 @@ export class ConsumptionService extends EntityCollectionServiceBase<Consumption>
     sortDirection: string,
     sort: string,
     pageIndex: number,
-    pageSize: number
+    pageSize: number,
+    start: string,
+    end: string
   ) {
     this.consumptionStore.dispatch(
       getConsumptionsPaginated({
@@ -79,6 +85,8 @@ export class ConsumptionService extends EntityCollectionServiceBase<Consumption>
         pageSize,
         sortDirection,
         sort,
+        start,
+        end,
       })
     );
   }

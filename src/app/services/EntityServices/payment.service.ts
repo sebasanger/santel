@@ -51,7 +51,9 @@ export class PaymentService extends EntityCollectionServiceBase<Payment> {
     sortDirection: string,
     sort: string,
     pageIndex: number,
-    pageSize: number
+    pageSize: number,
+    start: string,
+    end: string
   ) {
     return this.http.get<GetPaginatedPayments>(
       `${base_url}payment/paginate-filter`,
@@ -60,7 +62,9 @@ export class PaymentService extends EntityCollectionServiceBase<Payment> {
           .set('page', pageIndex.toString())
           .set('filter', filter)
           .set('size', pageSize.toString())
-          .set('sort', `${sort},${sortDirection}`),
+          .set('sort', `${sort},${sortDirection}`)
+          .set('start', start)
+          .set('end', end),
       }
     );
   }
@@ -72,7 +76,9 @@ export class PaymentService extends EntityCollectionServiceBase<Payment> {
     sortDirection: string,
     sort: string,
     pageIndex: number,
-    pageSize: number
+    pageSize: number,
+    start: string,
+    end: string
   ) {
     this.paymentStore.dispatch(
       getPaymentsPaginated({
@@ -81,6 +87,8 @@ export class PaymentService extends EntityCollectionServiceBase<Payment> {
         pageSize,
         sortDirection,
         sort,
+        start,
+        end,
       })
     );
   }

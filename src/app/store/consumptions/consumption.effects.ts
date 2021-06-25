@@ -24,7 +24,9 @@ export class ConsumptionEffects {
             action.sortDirection,
             action.sort,
             action.pageIndex,
-            action.pageSize
+            action.pageSize,
+            action.start,
+            action.end
           )
           .pipe(
             map((res: any) => {
