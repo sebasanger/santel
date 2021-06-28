@@ -11,7 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -29,6 +29,8 @@ import { AddCustomersComponent } from './create-update-stay/add-customers/add-cu
 import { CustomerListComponent } from './create-update-stay/customer-list/customer-list.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RoomsModule } from '../rooms/rooms.module';
+import { MatRadioModule } from '@angular/material/radio';
+
 @NgModule({
   declarations: [
     StaysComponent,
@@ -63,6 +65,8 @@ import { RoomsModule } from '../rooms/rooms.module';
     MatStepperModule,
     MatExpansionModule,
     RoomsModule,
+    MatRadioModule,
+    FormsModule,
   ],
 })
 export class StaysModule {}

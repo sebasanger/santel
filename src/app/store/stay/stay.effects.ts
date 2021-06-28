@@ -23,7 +23,8 @@ export class StayEffects {
             action.pageIndex,
             action.pageSize,
             action.start,
-            action.end
+            action.end,
+            action.status
           )
           .pipe(
             map((res: any) => {

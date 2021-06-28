@@ -10,6 +10,7 @@ export const getStaysPaginated = createAction(
     pageSize: number;
     start: string;
     end: string;
+    status: string;
   }>()
 );
 

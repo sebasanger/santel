@@ -254,6 +254,7 @@
     "ROOM": "Habitacion",
     "ACTIVE": "Activa",
     "PENDING": "Pendiente",
+    "ALL": "Todas",
     "FINISHED": "Finalizada",
     "TOTALGUEST": "Total de huespedes",
     "CHECKIN": "Check in",

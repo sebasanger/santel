@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { merge, Observable, Subject, Subscription } from 'rxjs';
+import { merge, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 import { GetPaginatedStays } from 'src/app/interfaces/stay/get-paginated-stays';
 import { StayService } from 'src/app/services/EntityServices/stay.service';
@@ -29,6 +29,7 @@ export class ViewStaysComponent implements OnInit {
   private startDate: string = '';
   private endDate: string = '';
   public filter: string = '';
+  public statusSelected: string = 'ACTIVE';
   public displayedColumns = [
     'id',
     'room',
@@ -98,7 +99,8 @@ export class ViewStaysComponent implements OnInit {
       this.paginator.pageIndex,
       this.paginator.pageSize,
       this.startDate,
-      this.endDate
+      this.endDate,
+      this.statusSelected
     );
   }
 
@@ -165,6 +167,11 @@ export class ViewStaysComponent implements OnInit {
 
   onRowClicked(row: any) {
     this.router.navigateByUrl('pages/stays/details/' + row.id);
+  }
+
+  filterByStatus(status: string) {
+    this.statusSelected = status;
+    this.loadStayPage();
   }
 
   range = new FormGroup({

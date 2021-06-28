@@ -35,13 +35,21 @@
 
 
         <div class="row">
-          <mat-form-field class="full-width">
+          <mat-form-field>
             <mat-label>{{ 'STAYS.REASON' | translate }}</mat-label>
             <mat-select formControlName="reason">
               <mat-option [value]="option.id" *ngFor="let option of reasons$ | async">{{ option.reason }}
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <mat-radio-group>
+            <mat-radio-button value="ACTIVE">{{ 'STAYS.ACTIVE' | translate}}
+            </mat-radio-button>
+            <mat-radio-button value="PENDING">{{ 'STAYS.PENDING' | translate}}
+            </mat-radio-button>
+
+          </mat-radio-group>
         </div>
 
 
@@ -174,7 +182,6 @@
     </div>
 
     <div class="action">
-      <button mat-raised-button color="warn">Reset</button>
       <button style="margin-left: 15px;"
         [disabled]="roomFormGroup.invalid || stayFormGroup.invalid || customersFormGroup.invalid || paymentFormGroup.invalid"
         mat-raised-button color="primary" (click)="save()">Save</button>

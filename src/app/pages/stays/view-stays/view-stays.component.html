@@ -12,6 +12,17 @@
     </mat-form-field>
   </div>
   <div>
+    <mat-radio-group class="tp-radio-group" [(ngModel)]="statusSelected">
+      <mat-radio-button (click)="filterByStatus('ACTIVE')" value="ACTIVE">{{ 'STAYS.ACTIVE' | translate}}
+      </mat-radio-button>
+      <mat-radio-button (click)="filterByStatus('FINISHED')" value="FINISHED">{{ 'STAYS.FINISHED' | translate}}
+      </mat-radio-button>
+      <mat-radio-button (click)="filterByStatus('PENDING')" value="PENDING">{{ 'STAYS.PENDING' | translate}}
+      </mat-radio-button>
+      <mat-radio-button (click)="filterByStatus('ALL')" value="ALL">{{ 'STAYS.ALL' | translate}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div>
     <mat-form-field>
       <mat-label> {{ 'STAYS.DATERANGE' | translate }}</mat-label>
       <mat-date-range-input [formGroup]="range" [rangePicker]="picker" required>
@@ -106,8 +117,8 @@
     <ng-container matColumnDef="finishStay">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.FINISH' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="Finish stay">
-        <button [disabled]="row.status == 'DISABLED' || row.totalPayments < row.totalToPay" mat-icon-button
-          color="primary" (click)="finishStay(row.id)">
+        <button [disabled]="row.status == 'FINISHED' || row.paid < row.totalToPay" mat-icon-button color="primary"
+          (click)="finishStay(row.id)">
           <mat-icon>check</mat-icon>
         </button>
       </mat-cell>
@@ -117,7 +128,7 @@
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'EDIT' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="edit">
-        <button [disabled]="row.status == 'DISABLED'" mat-icon-button color="accent" (click)="editStay(row.id)">
+        <button [disabled]="row.status == 'FINISHED'" mat-icon-button color="accent" (click)="editStay(row.id)">
           <mat-icon>edit</mat-icon>
         </button>
       </mat-cell>
@@ -127,7 +138,7 @@
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'DELETE' | translate }} </mat-header-cell>
       <mat-cell *matCellDef="let row" data-label="delete">
-        <button [disabled]="row.status == 'DISABLED'" mat-icon-button color="warn" (click)="deleteStay(row.id)">
+        <button [disabled]="row.status == 'FINISHED'" mat-icon-button color="warn" (click)="deleteStay(row.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>
