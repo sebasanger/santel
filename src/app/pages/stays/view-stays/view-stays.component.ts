@@ -174,6 +174,30 @@ export class ViewStaysComponent implements OnInit {
     this.loadStayPage();
   }
 
+  checkinStay(stayid: number) {
+    Swal.fire({
+      title: 'Check in stay?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, set check in!',
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        this.stayService.checkinStay(stayid).subscribe(
+          (res) => {
+            this.loadStayPage();
+          },
+          (err) => {
+            Swal.fire('Error', err.error.message, 'error');
+          }
+        );
+      } else {
+        Swal.fire('Cancelled', 'The stay is still pending', 'info');
+      }
+    });
+  }
+
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl(),

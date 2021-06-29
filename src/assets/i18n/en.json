@@ -7,6 +7,7 @@
   "YES": "Yes",
   "NO": "No",
   "COLSE": "Close",
+  "NEXT": "Next",
   "CANCEL": "Cancel",
   "TRUE": "True",
   "FALSE": "False",
@@ -242,9 +243,8 @@
 
   },
   "STAYS": {
-    "RESUME": "Resume",
     "MOREINFO": "More info",
-    "FINISH": "Finish",
+    "FINISH": "Finish/Check in",
     "STAYS": "Stays",
     "STAY": "Stay",
     "ENTRYDATE": "Entry date",
@@ -257,6 +257,8 @@
     "FINISHED": "Finished",
     "PENDING": "Pending",
     "ALL": "All",
+    "DESTINY": "Destiny",
+    "ORIGIN": "Origin",
     "STATUS": "Status",
     "REASON": "Reason",
     "PRICE": "Price",
@@ -275,5 +277,17 @@
     "TOTALDAYS": "Total days",
     "REMAINING": "Remaining",
     "TOTALCONSUMPTIONS": "Consumptions costs"
+  },
+  "CREATESTAY": {
+    "STAYDATA": "Stay data",
+    "STAYDATAERROR": "Missing required data",
+    "SELECTROOM": "Select room",
+    "SELECTROOMERROR": "Please select one room",
+    "RESUME": "Resume",
+    "CUSTOMERS": "Select/add customers",
+    "CUSTOMERSERROR": "Please select at least one customer",
+    "PAYMENT": "Select payment data",
+    "PAYMENTERROR": "Missing required data"
+
   }
 }

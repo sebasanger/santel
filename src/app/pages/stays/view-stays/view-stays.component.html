@@ -116,10 +116,13 @@
     <!-- finish Column -->
     <ng-container matColumnDef="finishStay">
       <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'STAYS.FINISH' | translate }} </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="Finish stay">
-        <button [disabled]="row.status == 'FINISHED' || row.paid < row.totalToPay" mat-icon-button color="primary"
+      <mat-cell *matCellDef="let row" data-label="Finish stay / Check in">
+        <button *ngIf="row.status == 'ACTIVE'" [disabled]="row.paid < row.totalToPay" mat-icon-button color="primary"
           (click)="finishStay(row.id)">
           <mat-icon>check</mat-icon>
+        </button>
+        <button *ngIf="row.status == 'PENDING'" mat-icon-button color="primary" (click)="checkinStay(row.id)">
+          <mat-icon>login</mat-icon>
         </button>
       </mat-cell>
     </ng-container>

@@ -1,8 +1,8 @@
 <mat-vertical-stepper #stepper>
 
-  <mat-step [stepControl]="stayFormGroup" errorMessage="Stay data is required.">
+  <mat-step [stepControl]="stayFormGroup" errorMessage="{{ 'CREATESTAY.STAYDATAERROR' | translate}}">
     <form [formGroup]="stayFormGroup">
-      <ng-template matStepLabel>Stay data</ng-template>
+      <ng-template matStepLabel>{{ 'CREATESTAY.STAYDATA' | translate}}</ng-template>
       <div class="step-stay-form">
         <div class="row">
           <mat-form-field>
@@ -22,8 +22,9 @@
           <mat-form-field>
             <mat-label> {{ 'STAYS.DATERANGE' | translate }}</mat-label>
             <mat-date-range-input [formGroup]="stayFormGroup" [rangePicker]="picker" required>
-              <input matStartDate formControlName="start" placeholder="{{ 'STAYS.START' | translate}}">
-              <input matEndDate formControlName="end" placeholder="{{ 'STAYS.END' | translate}}">
+              <input autocomplete="off" matStartDate formControlName="start"
+                placeholder="{{ 'STAYS.START' | translate}}">
+              <input autocomplete="off" matEndDate formControlName="end" placeholder="{{ 'STAYS.END' | translate}}">
             </mat-date-range-input>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
@@ -33,47 +34,55 @@
           </mat-form-field>
         </div>
 
+        <div class="row">
+          <mat-form-field>
+            <mat-label>{{ 'STAYS.ORIGIN' | translate}}</mat-label>
+            <input type="text" autocomplete="off" matInput formControlName="origin">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>{{ 'STAYS.DESTINY' | translate}}</mat-label>
+            <input type="text" autocomplete="off" matInput formControlName="destiny">
+          </mat-form-field>
+        </div>
+
 
         <div class="row">
           <mat-form-field>
             <mat-label>{{ 'STAYS.REASON' | translate }}</mat-label>
             <mat-select formControlName="reason">
-              <mat-option [value]="option.id" *ngFor="let option of reasons$ | async">{{ option.reason }}
+              <mat-option (click)="setReasonSelected(option.reason)" [value]="option.id"
+                *ngFor="let option of reasons$ | async">{{ option.reason }}
               </mat-option>
             </mat-select>
           </mat-form-field>
-
-          <mat-radio-group>
-            <mat-radio-button value="ACTIVE">{{ 'STAYS.ACTIVE' | translate}}
-            </mat-radio-button>
-            <mat-radio-button value="PENDING">{{ 'STAYS.PENDING' | translate}}
-            </mat-radio-button>
-
-          </mat-radio-group>
         </div>
 
 
         <div>
-          <button [disabled]="stayFormGroup.invalid" mat-raised-button color="primary" matStepperNext>Next</button>
+          <button [disabled]="stayFormGroup.invalid" mat-raised-button color="primary"
+            matStepperNext>{{ 'NEXT' | translate }}</button>
         </div>
       </div>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="roomFormGroup" errorMessage="Select room." #roomsteep>
+  <mat-step [stepControl]="roomFormGroup" errorMessage="{{ 'CREATESTAY.SELECTROOMERROR' | translate }}" #roomsteep>
     <form [formGroup]="roomFormGroup">
-      <ng-template matStepLabel>Select room</ng-template>
-      <app-rooms-table (selectRoomId)="selectRoom($event)"></app-rooms-table>
+      <ng-template matStepLabel>{{ 'CREATESTAY.SELECTROOM' | translate }}</ng-template>
+      <app-rooms-table (selectRoomNumber)="selectRoomNumber($event)" (selectRoomId)="selectRoom($event)">
+      </app-rooms-table>
 
       <div class="action">
-        <button [disabled]="roomFormGroup.invalid" mat-raised-button color="primary" matStepperNext>Next</button>
+        <button [disabled]="roomFormGroup.invalid" mat-raised-button color="primary"
+          matStepperNext>{{ 'NEXT' | translate }}</button>
       </div>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="customersFormGroup" errorMessage="Select/create customers.">
+  <mat-step [stepControl]="customersFormGroup" errorMessage="{{ 'CREATESTAY.CUSTOMERSERROR' | translate }}">
     <form [formGroup]="customersFormGroup">
-      <ng-template matStepLabel>Select/create customers</ng-template>
+      <ng-template matStepLabel>{{ 'CREATESTAY.CUSTOMERS' | translate }}</ng-template>
 
       <div class="customer-site">
         <app-add-customers class="customer-extras"></app-add-customers>
@@ -82,14 +91,15 @@
       </div>
 
       <div class="action">
-        <button [disabled]="customersFormGroup.invalid" mat-raised-button color="primary" matStepperNext>Next</button>
+        <button [disabled]="customersFormGroup.invalid" mat-raised-button color="primary"
+          matStepperNext>{{ 'NEXT' | translate }}</button>
       </div>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="paymentFormGroup" errorMessage="Payment is required.">
+  <mat-step [stepControl]="paymentFormGroup" errorMessage="{{ 'CREATESTAY.PAYMENTERROR' | translate }}">
     <form [formGroup]="paymentFormGroup">
-      <ng-template matStepLabel>Payment</ng-template>
+      <ng-template matStepLabel>{{ 'CREATESTAY.PAYMENT' | translate }}</ng-template>
       <div class="step-stay-form">
         <div class="row">
           <mat-form-field class="full-width">
@@ -117,7 +127,8 @@
           <mat-form-field class="full-width">
             <mat-label>{{ 'STAYS.PAYMENTMETHOD' | translate }}</mat-label>
             <mat-select formControlName="paymentMethod">
-              <mat-option [value]="option.id" *ngFor="let option of paymentMethods$ | async">{{ option.method }}
+              <mat-option (click)="setPaymentMethod(option.method)" [value]="option.id"
+                *ngFor="let option of paymentMethods$ | async">{{ option.method }}
                 {{ option.amountOfPayments }} {{ 'PAYMENTMETHOD.QUOTE' | translate}}
               </mat-option>
             </mat-select>
@@ -133,14 +144,14 @@
 
         <div>
           <button [disabled]="paymentFormGroup.invalid" mat-raised-button color="primary" matStepperNext
-            (click)="findRoomsAvailables()">Next</button>
+            (click)="findRoomsAvailables()">{{ 'NEXT' | translate }}</button>
         </div>
       </div>
     </form>
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel>{{ 'STAYS.RESUME' | translate }}</ng-template>
+    <ng-template matStepLabel>{{ 'CREATESTAY.RESUME' | translate }}</ng-template>
 
     <div class="resume-containter">
 
@@ -150,17 +161,20 @@
       <p class="resume-info">{{ 'STAYS.OUTDATE' | translate }} : <span
           class="resume-data">{{  stayFormGroup.controls['end'].value | date:'dd/MM/yyyy' }}</span></p>
 
-      <p class="resume-info">{{ 'STAYS.ROOM' | translate }} : <span
-          class="resume-data">{{  roomFormGroup.controls['room'].value }}</span></p>
+      <p class="resume-info">{{ 'STAYS.ROOM' | translate }} : <span class="resume-data">{{  roomNumberSelected }}</span>
+      </p>
 
       <p class="resume-info">{{ 'STAYS.TOTALGUEST' | translate }} : <span
           class="resume-data">{{  stayFormGroup.controls['totalGuest'].value }}</span></p>
 
-      <p class="resume-info">{{ 'STAYS.REASON' | translate }} : <span
-          class="resume-data">{{  stayFormGroup.controls['reason'].value }}</span></p>
+      <p class="resume-info">{{ 'STAYS.REASON' | translate }} : <span class="resume-data">{{  reasonSelected }}</span>
+      </p>
 
       <p class="resume-info">{{ 'STAYS.PAID' | translate }} : <span
           class="resume-data">{{  paymentFormGroup.controls['paid'].value }}</span></p>
+
+      <p class="resume-info">{{ 'STAYS.PAYMENTMETHOD' | translate }} : <span
+          class="resume-data">{{ paymentMethodSelected }}</span></p>
 
       <p class="resume-info">{{ 'STAYS.TOTALTOPAY' | translate }} : <span class="resume-data">{{  totalToPay }}</span>
       </p>
@@ -174,6 +188,12 @@
 
       <p class="resume-info">{{ 'STAYS.PRICEPERDAY' | translate }} : <span class="resume-data">{{  roomPrice }}</span>
       </p>
+
+      <p class="resume-info">{{ 'STAYS.DESTINY' | translate }} : <span
+          class="resume-data">{{  stayFormGroup.controls['destiny'].value }}</span></p>
+
+      <p class="resume-info">{{ 'STAYS.ORIGIN' | translate }} : <span
+          class="resume-data">{{  stayFormGroup.controls['origin'].value }}</span></p>
 
       <p *ngFor="let customerSelected of selectedCustomers; let i = index" class="resume-info">
         {{ 'CUSTOMERS.CUSTOMER' | translate }} N°{{i+1}} :

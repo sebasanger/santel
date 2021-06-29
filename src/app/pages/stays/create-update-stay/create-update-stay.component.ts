@@ -51,7 +51,10 @@ export class CreateUpdateStayComponent implements OnInit {
   roomPrices$: Observable<RoomPrice[]>;
   paymentMethods$: Observable<PaymentMethod[]>;
   public registerActive$: Observable<Register>;
-  public paidDisabled: boolean = false;
+  public roomNumberSelected: number;
+  public paymentMethodSelected: string;
+  public reasonSelected: string;
+
   public paymentMethodFieldStatus: boolean = false;
 
   constructor(
@@ -76,6 +79,8 @@ export class CreateUpdateStayComponent implements OnInit {
       start: ['', Validators.required],
       end: ['', Validators.required],
       reason: [''],
+      destiny: [''],
+      origin: [''],
     });
 
     this.roomFormGroup = this._formBuilder.group({
@@ -88,13 +93,20 @@ export class CreateUpdateStayComponent implements OnInit {
 
     this.paymentFormGroup = this._formBuilder.group({
       roomPrice: ['', Validators.required],
-      paid: [{ value: '', disabled: this.paidDisabled }],
+      paid: [''],
 
-      paymentMethod: [{ value: '', disabled: this.paymentMethodFieldStatus }],
+      paymentMethod: [''],
     });
   }
 
   ngOnInit() {
+    this.registerActive$.subscribe((res) => {
+      if (res == null) {
+        this.paymentFormGroup.get('paid').disable();
+      } else {
+        this.paymentFormGroup.get('paid').enable();
+      }
+    });
     this.roomPriceService.getAll();
     this.reasonService.getAll();
     this.paymentMethodService.getAll();
@@ -113,10 +125,19 @@ export class CreateUpdateStayComponent implements OnInit {
       takeUntil(this.ngUnsubscribe);
       if (this.stayId > 0) {
         this.stayService.getByKey(this.stayId).subscribe((res) => {
+          const entry: Date = new Date(res.entryDate);
+          entry.setMinutes(entry.getMinutes() + entry.getTimezoneOffset());
+
+          const out: Date = new Date(res.outDate);
+          out.setMinutes(out.getMinutes() + out.getTimezoneOffset());
+
           this.stay = res;
           this.stayFormGroup.controls['totalGuest'].setValue(res.totalGuest);
-          this.stayFormGroup.controls['start'].setValue(res.entryDate);
-          this.stayFormGroup.controls['end'].setValue(res.outDate);
+          this.stayFormGroup.controls['start'].setValue(entry);
+          this.stayFormGroup.controls['end'].setValue(out);
+          this.stayFormGroup.controls['destiny'].setValue(res.destiny);
+          this.stayFormGroup.controls['origin'].setValue(res.origin);
+
           if (res.reason) {
             this.stayFormGroup.controls['reason'].setValue(res.reason.id);
           }
@@ -172,7 +193,7 @@ export class CreateUpdateStayComponent implements OnInit {
     const start = new Date(this.stayFormGroup.get('start').value);
     const end = new Date(this.stayFormGroup.get('end').value);
 
-    const { reason, totalGuest } = this.stayFormGroup.value;
+    const { reason, totalGuest, destiny, origin } = this.stayFormGroup.value;
 
     const { paid, paymentMethod, roomPrice } = this.paymentFormGroup.value;
 
@@ -186,12 +207,13 @@ export class CreateUpdateStayComponent implements OnInit {
       paid: paid,
       paymentMethodId: paymentMethod,
       reasonId: reason,
+      origin: origin,
+      destiny: destiny,
       roomPriceId: roomPrice,
       totalGuest: totalGuest,
     };
 
     if (this.stayId != null && this.stayId != 0) {
-      console.log(createUpdateStayPayload);
       createUpdateStayPayload.id = this.stayId;
       this.stayService.updateStay(createUpdateStayPayload).subscribe((res) => {
         Swal.fire('Success', 'Stay updated', 'success');
@@ -255,5 +277,17 @@ export class CreateUpdateStayComponent implements OnInit {
 
   selectRoom(roomId: number) {
     this.roomFormGroup.get('room').setValue(roomId);
+  }
+
+  selectRoomNumber(roomNumber: number) {
+    this.roomNumberSelected = roomNumber;
+  }
+
+  setPaymentMethod(paymentMethod: string) {
+    this.paymentMethodSelected = paymentMethod;
+  }
+
+  setReasonSelected(reason: string) {
+    this.reasonSelected = reason;
   }
 }

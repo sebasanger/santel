@@ -2,40 +2,41 @@
   <div class="grid-container register-details animate__animated animate__fadeIn animate__delay-0.4s">
     <mat-tab-group mat-align-tabs="start" class="register-tabs">
       <mat-tab label="{{'CUSTOMERS.CUSTOMER' | translate}}">
-        <mat-card *ngIf="customer != null">
+        <mat-card *ngIf="customer">
           <mat-card-header>
             <mat-card-title>{{customer.name + " " + customer.surname}}</mat-card-title>
-            <mat-card-subtitle>{{customer.dni}}</mat-card-subtitle>
+            <mat-card-subtitle> {{'CUSTOMERS.DNI' | translate}}: {{customer.dni}}
+            </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
-            <p *ngIf="customer.email != null">
+            <p *ngIf="customer.email">
               {{'CUSTOMERS.EMAIL' | translate}}: {{customer.email || ''}}
             </p>
-            <p>
+            <p *ngIf="customer.birthday">
               {{'CUSTOMERS.BIRTHDAY' | translate}}: {{customer.birthday | date: 'dd/MM/yyyy'}}
             </p>
-            <p *ngIf="customer.phone != ''">
+            <p *ngIf="customer.phone">
               {{'CUSTOMERS.PHONE' | translate}}: {{customer.phone || ''}}
             </p>
-            <p *ngIf="customer.celphone != ''">
+            <p *ngIf="customer.celphone">
               {{'CUSTOMERS.CELPHONE' | translate}}: {{customer.celphone}}
             </p>
-            <p *ngIf="customer.invoiceType != null">
+            <p *ngIf="customer.invoiceType">
               {{'CUSTOMERS.INVOICETYPE' | translate}}: {{customer.invoiceType.type}}
             </p>
-            <p *ngIf="customer.cuil != ''">
+            <p *ngIf="customer.cuil">
               {{'CUSTOMERS.CUIL' | translate}}: {{customer.cuil}}
             </p>
-            <p *ngIf="customer.cuit != ''">
+            <p *ngIf="customer.cuit">
               {{'CUSTOMERS.CUIT' | translate}}: {{customer.cuit}}
             </p>
-            <p *ngIf="customer.createdAt != null">
+            <p *ngIf="customer.createdAt">
               {{'CUSTOMERS.CREATEDAT' | translate}} : {{customer.createdAt |  date: 'dd/MM/yyyy'}}
             </p>
-            <p *ngIf="customer.updatedAt != null">
+            <p *ngIf="customer.updatedAt">
               {{'CUSTOMERS.UPDATEDAT' | translate}}: {{customer.updatedAt |  date: 'dd/MM/yyyy'}}
             </p>
-            <p *ngIf="customer.note != null">
+            <p *ngIf="customer.note">
               {{'CUSTOMERS.NOTE' | translate}}: {{customer.note}}
             </p>
           </mat-card-content>

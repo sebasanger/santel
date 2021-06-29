@@ -42,9 +42,22 @@
 
     <!-- total payments Column -->
     <ng-container matColumnDef="totalPayments">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.BALANCE' | translate }} </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.TOTALPAYMENTS' | translate }} </mat-header-cell>
       <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Total for payments">
         {{ row.totalPayments }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- openMount Column -->
+    <ng-container matColumnDef="openMount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.OPENMOUNT' | translate }} </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Open mount"> {{row.openMount}} </mat-cell>
+    </ng-container>
+
+    <!-- closeMount Column -->
+    <ng-container matColumnDef="closeMount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.CLOSEMOUNT' | translate }} </mat-header-cell>
+      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Close mount"> {{row.closeMount}}
       </mat-cell>
     </ng-container>
 
@@ -62,18 +75,8 @@
         {{row.closeTime | date:'hh:mm dd/MM/yyy'}} </mat-cell>
     </ng-container>
 
-    <!-- openMount Column -->
-    <ng-container matColumnDef="openMount">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.OPENMOUNT' | translate }} </mat-header-cell>
-      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Open mount"> {{row.openMount}} </mat-cell>
-    </ng-container>
 
-    <!-- closeMount Column -->
-    <ng-container matColumnDef="closeMount">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'REGISTERS.CLOSEMOUNT' | translate }} </mat-header-cell>
-      <mat-cell (click)="onRowClicked(row)" *matCellDef="let row" data-label="Close mount"> {{row.closeMount}}
-      </mat-cell>
-    </ng-container>
+
 
     <!-- closeMount Column -->
     <ng-container matColumnDef="user">

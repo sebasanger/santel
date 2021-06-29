@@ -11,32 +11,36 @@
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> ID </mat-header-cell>
-        <mat-cell (click)="selectRoom(row.id)" *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
+        <mat-cell (click)="selectRoom(row.id, row.number)" *matCellDef="let row" data-label="id"> {{row.id}} </mat-cell>
       </ng-container>
 
       <!-- number Column -->
       <ng-container matColumnDef="number">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.NUMBER' | translate }} </mat-header-cell>
-        <mat-cell (click)="selectRoom(row.id)" *matCellDef="let row" data-label="Number"> {{row.number}} </mat-cell>
+        <mat-cell (click)="selectRoom(row.id, row.number)" *matCellDef="let row" data-label="Number"> {{row.number}}
+        </mat-cell>
       </ng-container>
 
       <!-- capacity Column -->
       <ng-container matColumnDef="capacity">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.CAPACITY' | translate }} </mat-header-cell>
-        <mat-cell (click)="selectRoom(row.id)" *matCellDef="let row" data-label="Capacity"> {{row.capacity}} </mat-cell>
+        <mat-cell (click)="selectRoom(row.id, row.number)" *matCellDef="let row" data-label="Capacity"> {{row.capacity}}
+        </mat-cell>
       </ng-container>
 
       <!-- floor Column -->
       <ng-container matColumnDef="floor">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ROOMS.FLOOR' | translate }} </mat-header-cell>
-        <mat-cell (click)="selectRoom(row.id)" *matCellDef="let row" data-label="Floor"> {{row.floor}} </mat-cell>
+        <mat-cell (click)="selectRoom(row.id, row.number)" *matCellDef="let row" data-label="Floor"> {{row.floor}}
+        </mat-cell>
       </ng-container>
 
       <!-- singleBed Column -->
       <ng-container matColumnDef="singleBed">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'ROOMS.SINGLEBED' | translate }}
         </mat-header-cell>
-        <mat-cell (click)="selectRoom(row.id)" *matCellDef="let row" data-label="Single bed"> {{row.singleBed }}
+        <mat-cell (click)="selectRoom(row.id, row.number)" *matCellDef="let row" data-label="Single bed">
+          {{row.singleBed }}
         </mat-cell>
       </ng-container>
 
@@ -44,14 +48,15 @@
       <ng-container matColumnDef="doubleBed">
         <mat-header-cell *matHeaderCellDef mat-sort-header class="no-sort"> {{ 'ROOMS.DOUBLEBED' | translate }}
         </mat-header-cell>
-        <mat-cell (click)="selectRoom(row.id)" *matCellDef="let row" data-label="Double bed"> {{row.doubleBed}}
+        <mat-cell (click)="selectRoom(row.id, row.number)" *matCellDef="let row" data-label="Double bed">
+          {{row.doubleBed}}
         </mat-cell>
       </ng-container>
 
       <!-- Available Column -->
       <ng-container matColumnDef="available">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.AVAILABLE' | translate }} </mat-header-cell>
-        <mat-cell (click)="selectRoom(row.id)" *matCellDef="let row" data-label="Available">
+        <mat-cell (click)="selectRoom(row.id, row.number)" *matCellDef="let row" data-label="Available">
           <span *ngIf="row.available">{{ 'YES' | translate}}</span>
           <span *ngIf="!row.available">{{ 'NO' | translate}}</span>
         </mat-cell>
@@ -60,7 +65,7 @@
       <!-- enable Column -->
       <ng-container matColumnDef="enabled">
         <mat-header-cell *matHeaderCellDef class="no-sort"> {{ 'ROOMS.ENABLED' | translate }} </mat-header-cell>
-        <mat-cell (click)="selectRoom(row.id)" *matCellDef="let row" data-label="Enabled">
+        <mat-cell (click)="selectRoom(row.id, row.number)" *matCellDef="let row" data-label="Enabled">
 
           <span *ngIf="row.enabled">{{ 'YES' | translate}}</span>
           <span *ngIf="!row.enabled">{{ 'NO' | translate}}</span>

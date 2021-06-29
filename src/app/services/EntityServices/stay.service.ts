@@ -55,6 +55,10 @@ export class StayService extends EntityCollectionServiceBase<Stay> {
     return this.http.put<any>(`${base_url}stay/finish/${id}`, 'finish');
   }
 
+  checkinStay(id: number) {
+    return this.http.put<any>(`${base_url}stay/checkIn/${id}`, 'checkin');
+  }
+
   paginatedStay(
     filter: string,
     sortDirection: string,

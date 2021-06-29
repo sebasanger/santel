@@ -28,6 +28,7 @@ export class RoomsTableComponent implements OnInit {
   public dataSource: MatTableDataSource<Room>;
   public roomSelectedId: number;
   @Output() selectRoomId = new EventEmitter<number>();
+  @Output() selectRoomNumber = new EventEmitter<number>();
 
   displayedColumns: string[] = [
     'id',
@@ -74,8 +75,9 @@ export class RoomsTableComponent implements OnInit {
     });
   }
 
-  selectRoom(id: number) {
+  selectRoom(id: number, num: number) {
     this.roomSelectedId = id;
+    this.selectRoomNumber.emit(num);
     this.selectRoomId.emit(id);
   }
 }

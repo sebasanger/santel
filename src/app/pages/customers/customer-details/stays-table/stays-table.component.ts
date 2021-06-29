@@ -37,8 +37,6 @@ export class StaysTableComponent implements OnInit {
   ngOnInit(): void {
     if (this.id > 0) {
       this.customerService.getCustomerStays(this.id).subscribe((res) => {
-        console.log(res);
-
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

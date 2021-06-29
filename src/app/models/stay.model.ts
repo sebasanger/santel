@@ -21,6 +21,8 @@ export class Stay {
   public totalGuest: number;
   public createdAt: number;
   public updatedAt: number;
+  public destiny: string;
+  public origin: string;
 
   public room: Room;
   public roomPrice: RoomPrice;
@@ -45,6 +47,8 @@ export class Stay {
     this.totalToPay = stayInterface.totalToPay;
     this.createdAt = stayInterface.createdAt;
     this.updatedAt = stayInterface.updatedAt;
+    this.destiny = stayInterface.destiny;
+    this.origin = stayInterface.origin;
 
     this.room = stayInterface.room;
     this.roomPrice = stayInterface.roomPrice;
@@ -71,6 +75,8 @@ export interface StayInterface {
   totalToPay?: number;
   createdAt?: number;
   updatedAt?: number;
+  destiny?: string;
+  origin?: string;
 
   room: Room;
   roomPrice: RoomPrice;

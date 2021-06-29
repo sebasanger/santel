@@ -18,7 +18,7 @@
     </p>
 
 
-    <p>
+    <p *ngIf="stay.outDate">
       {{ 'STAYS.OUTDATE' | translate}}: {{ stay.outDate  | date:'dd/MM/yyyy'}}
     </p>
 
@@ -42,16 +42,21 @@
       {{ 'STAYS.PRICEPERDAY' | translate}}: {{ stay.pricePerDay}}
     </p>
 
+    <p *ngIf="stay.destiny">
+      {{ 'STAYS.DESTINY' | translate}}: {{ stay.destiny}}
+    </p>
 
-    <p>
+    <p *ngIf="stay.origin">
+      {{ 'STAYS.ORIGIN' | translate}}: {{ stay.origin}}
+    </p>
+
+    <p *ngIf="stay.checkIn">
       {{ 'STAYS.CHECKIN' | translate}}: {{ stay.checkIn | date:'HH:mm dd/MM/yyyy'}}
     </p>
 
-
-    <p>
+    <p *ngIf="stay.checkOut">
       {{ 'STAYS.CHECKOUT' | translate}}: {{ stay.checkOut  | date:'HH:mm dd/MM/yyyy'}}
     </p>
-
 
     <p>
       {{ 'STAYS.CREATEDAT' | translate}}: {{ stay.createdAt  | date:'HH:mm dd/MM/yyyy'}}

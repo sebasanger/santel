@@ -8,6 +8,8 @@ export interface CreateUpdateStayPayload {
   reasonId?: number;
   roomPriceId: number;
   totalGuest: number;
+  destiny?: string;
+  origin?: string;
   paid?: number;
   entryDate: String;
   outDate: String;

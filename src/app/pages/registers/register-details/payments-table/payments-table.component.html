@@ -1,6 +1,6 @@
 <div class="container">
   <div class="mat-elevation-z8">
-    <mat-table class="table" matSortActive="amount" matSortDirection="asc" [dataSource]="dataSource" matSort>
+    <mat-table class="table" matSortActive="createdAt" matSortDirection="asc" [dataSource]="dataSource" matSort>
 
       <!-- amount Column -->
       <ng-container matColumnDef="amount">
@@ -15,11 +15,18 @@
         </mat-cell>
       </ng-container>
 
-      <!-- Memat-header-cellod Column -->
+      <!-- methodColumn -->
       <ng-container matColumnDef="method">
         <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.METHOD' | translate }} </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.paymentMethod.method}} </mat-cell>
       </ng-container>
+
+      <!-- createdAt Column -->
+      <ng-container matColumnDef="createdAt">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'PAYMENTS.CREATEDAT' | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.createdAt | date:'dd/MM/yyyy HH:mm'}} </mat-cell>
+      </ng-container>
+
 
       <!-- user Column -->
       <ng-container matColumnDef="user">

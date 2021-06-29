@@ -24,6 +24,7 @@ export class PaymentsTableComponent implements OnInit {
     'amount',
     'description',
     'method',
+    'createdAt',
     'user',
     'delete',
   ];

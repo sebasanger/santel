@@ -8,7 +8,8 @@
     <mat-card-content>
       <div class="row">
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.DNI' | translate }}" formControlName="dni" type="number" />
+          <input matInput placeholder="{{ 'CUSTOMERS.DNI' | translate }}" formControlName="dni" type="number"
+            autocomplete="off" />
           <mat-error *ngIf="customerForm.controls['dni'].hasError('required') ">
             {{ 'CUSTOMERS.DNI' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
@@ -18,7 +19,8 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.NAME' | translate }}" type="text" formControlName="name" />
+          <input matInput placeholder="{{ 'CUSTOMERS.NAME' | translate }}" type="text" formControlName="name"
+            autocomplete="off" />
           <mat-error *ngIf="customerForm.controls['name'].hasError('required')">
             {{ 'CUSTOMERS.NAME' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
@@ -27,7 +29,8 @@
 
       <div class="row">
         <mat-form-field>
-          <input matInput placeholder="{{ 'CUSTOMERS.SURNAME' | translate }}" type="text" formControlName="surname" />
+          <input matInput placeholder="{{ 'CUSTOMERS.SURNAME' | translate }}" type="text" formControlName="surname"
+            autocomplete="off" />
           <mat-error *ngIf="customerForm.controls['surname'].hasError('required')">
             {{ 'CUSTOMERS.SURNAME' | translate }} is <strong>{{ 'REQUIRED' | translate }}</strong>
           </mat-error>
@@ -50,28 +53,32 @@
         </mat-expansion-panel-header>
         <div class="row">
           <mat-form-field>
-            <input matInput placeholder="{{ 'CUSTOMERS.PHONE' | translate }}" type="tel" formControlName="phone" />
+            <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.PHONE' | translate }}" type="tel"
+              formControlName="phone" />
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="{{ 'CUSTOMERS.CELPHONE' | translate }}" type="tel"
+            <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.CELPHONE' | translate }}" type="tel"
               formControlName="celphone" />
           </mat-form-field>
         </div>
 
         <div class="row">
           <mat-form-field>
-            <input matInput placeholder="{{ 'CUSTOMERS.CUIL' | translate }}" type="text" formControlName="cuil" />
+            <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.CUIL' | translate }}" type="text"
+              formControlName="cuil" />
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="{{ 'CUSTOMERS.CUIT' | translate }}" type="text" formControlName="cuit" />
+            <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.CUIT' | translate }}" type="text"
+              formControlName="cuit" />
           </mat-form-field>
         </div>
 
         <div class="row">
           <mat-form-field>
-            <input matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email" type="email" />
+            <input autocomplete="off" matInput placeholder="{{ 'CUSTOMERS.EMAIL' | translate }}" formControlName="email"
+              type="email" />
             <mat-error *ngIf="customerForm.controls['email'].hasError('email')">
               {{ 'VALIDEMAIL' | translate }}
             </mat-error>

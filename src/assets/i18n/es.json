@@ -4,6 +4,7 @@
   "SAVE": "Guardar",
   "ADDF": "Agregar nueva",
   "ADDM": "Agregar nuevo",
+  "NEXT": "Siguiente",
   "CANCEL": "Cancelar",
   "YES": "Si",
   "NO": "No",
@@ -244,9 +245,8 @@
     "CONSUMPTIONREMAINING": "Faltante de la consumicion"
   },
   "STAYS": {
-    "RESUME": "Resumen",
     "MOREINFO": "Mas informacion",
-    "FINISH": "Finalizar",
+    "FINISH": "Finalizar/Realizar ingreso",
     "STAYS": "Estadias",
     "STAY": "Estadia",
     "ENTRYDATE": "Fecha de entrada",
@@ -255,6 +255,8 @@
     "ACTIVE": "Activa",
     "PENDING": "Pendiente",
     "ALL": "Todas",
+    "DESTINY": "Destino",
+    "ORIGIN": "Origen",
     "FINISHED": "Finalizada",
     "TOTALGUEST": "Total de huespedes",
     "CHECKIN": "Check in",
@@ -277,5 +279,17 @@
     "TOTALDAYS": "Total de dias",
     "REMAINING": "Faltante",
     "TOTALCONSUMPTIONS": "Costos de consumiciones"
+  },
+  "CREATESTAY": {
+    "STAYDATA": "Datos de la estadia",
+    "STAYDATAERROR": "Faltan datos requeridos de la estadia",
+    "SELECTROOM": "Seleccionar habitacion",
+    "SELECTROOMERROR": "Por favor seleccionar una habitacion",
+    "RESUME": "Resumen",
+    "CUSTOMERS": "Seleccionar/agregar huespedes",
+    "CUSTOMERSERROR": "Por favor seleccionar al menos un cliente",
+    "PAYMENT": "Seleccionar datos de pago",
+    "PAYMENTERROR": "Faltan datos requeridos del pago"
   }
+
 }

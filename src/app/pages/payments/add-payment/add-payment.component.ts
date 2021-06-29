@@ -40,7 +40,7 @@ export class AddPaymentComponent implements OnInit {
     this.paymentMethodService.getAll();
 
     this.patymentForm.get('amount').valueChanges.subscribe((res) => {
-      this.newRemaining = res - this.remaining;
+      this.newRemaining = this.remaining - res;
     });
 
     this.paymentMethods$ = this.paymentMethodService.entities$;
