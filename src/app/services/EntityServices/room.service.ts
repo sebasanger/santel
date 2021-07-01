@@ -4,6 +4,7 @@ import {
   EntityCollectionServiceBase,
   EntityCollectionServiceElementsFactory,
 } from '@ngrx/data';
+import { GetAllRoomImages } from 'src/app/interfaces/rooms/getAllRoomImages.interface';
 import { UploadRoomImagePayload } from 'src/app/interfaces/rooms/upload-room-image.interface';
 import { GetFreeRoomsPayload } from 'src/app/interfaces/stay/GetFreeRomsPayload';
 import { Room } from 'src/app/models/room.model';
@@ -42,5 +43,9 @@ export class RoomService extends EntityCollectionServiceBase<Room> {
       `${base_url}room/abailability`,
       getFreeRoomsPayload
     );
+  }
+
+  getAllRoomImages() {
+    return this.http.get<GetAllRoomImages[]>(`${base_url}room/images`);
   }
 }

@@ -20,6 +20,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AdministrationModule } from './administration/administration.module';
 import { PagesRoutingModule } from './pages.routing';
 import { UsersModule } from './users/users.module';
+import { NgImageSliderModule } from 'ng-image-slider';
 @NgModule({
   declarations: [PagesComponent, DashboardComponent, ChartsComponent],
   exports: [PagesComponent, DashboardComponent, ChartsComponent],
@@ -42,6 +43,7 @@ import { UsersModule } from './users/users.module';
     ReactiveFormsModule,
     FlexLayoutModule,
     MatTabsModule,
+    NgImageSliderModule,
   ],
 })
 export class PagesModule {}

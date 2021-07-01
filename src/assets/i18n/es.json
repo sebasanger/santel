@@ -44,7 +44,14 @@
     "CONSUMPTIONS": "Consumiciones"
   },
   "DASHBOARD": {
-    "TITLE": "Inicio"
+    "WELCOME": "Bienvenido",
+    "IMAGES": "Imagenes",
+    "PRICES": "Precios",
+    "INCLUDE": "Inluido",
+    "WELCOME-TITLE": "Bienvenido al hotel santel",
+    "IMAGES-TITLE": "Imagenes de las habitaciones",
+    "PRICES-TITLE": "Precios de las habitaciones por dia",
+    "INCLUDE-TITLE": "Inculido con la habitacion"
   },
   "LOGIN": {
     "TITLE": "Iniciar sesion",
@@ -169,6 +176,9 @@
     "UPDATEDAT": "Fecha de actualizacion",
     "NOTE": "Notas"
   },
+  "CHARTS": {
+    "PRODUCTSTOCKS": "Stock de productos"
+  },
   "ROOMS": {
     "ROOMS": "Habitaciones",
     "ROOM": "Habitacion",
@@ -290,6 +300,13 @@
     "CUSTOMERSERROR": "Por favor seleccionar al menos un cliente",
     "PAYMENT": "Seleccionar datos de pago",
     "PAYMENTERROR": "Faltan datos requeridos del pago"
+  },
+  "DASHBOARD-INCLUDES": {
+    "AC": "Aire acondicionado",
+    "HEATING": "Calefaccion",
+    "BREAKFAST": "Desayuno",
+    "TV": "TV",
+    "WIFI": "WIFI"
   }
 
 }

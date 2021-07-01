@@ -51,6 +51,16 @@
     "PASSWORD": "Password",
     "SUCCESS": "Welcome"
   },
+  "DASHBOARD": {
+    "WELCOME": "Welcome",
+    "IMAGES": "Images",
+    "PRICES": "Prices",
+    "INCLUDE": "Included",
+    "WELCOME-TITLE": "Welcome to hotel santel",
+    "IMAGES-TITLE": "Room images",
+    "PRICES-TITLE": "Prices per day",
+    "INCLUDE-TITLE": "Inculuded in the stay"
+  },
   "FORGOT-PASSWORD": {
     "TITLE": "Recover password",
     "ACEPT": "Send email",
@@ -166,6 +176,9 @@
     "CREATEDAT": "Created at",
     "UPDATEDAT": "Updated at",
     "NOTE": "Notes"
+  },
+  "CHARTS": {
+    "PRODUCTSTOCKS": "Product stocks"
   },
   "ROOMS": {
     "ROOMS": "Rooms",
@@ -288,6 +301,12 @@
     "CUSTOMERSERROR": "Please select at least one customer",
     "PAYMENT": "Select payment data",
     "PAYMENTERROR": "Missing required data"
-
+  },
+  "DASHBOARD-INCLUDES": {
+    "AC": "Air conditioning",
+    "HEATING": "Heating",
+    "BREAKFAST": "Breakfast",
+    "TV": "TV",
+    "WIFI": "WIFI"
   }
 }
