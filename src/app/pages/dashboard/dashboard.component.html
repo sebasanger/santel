@@ -76,7 +76,7 @@
   <!-- INCLUDE -->
 
   <!-- IMAGES -->
-  <mat-grid-tile [colspan]="totalCols" [rowspan]="2">
+  <mat-grid-tile [colspan]="totalCols" [rowspan]="1">
     <mat-card class="dashboard-card animate__animated animate__fadeIn animate__delay-0.4s ">
       <mat-card-header>
         <mat-card-title>
@@ -87,7 +87,7 @@
         <div class="card-title"> {{'DASHBOARD.IMAGES-TITLE'|translate}}</div>
 
         <ng-image-slider *ngIf="imageObject !=null" [images]="imageObject" #slide [infinite]="false" [autoSlide]="1"
-          [imageSize]="{width: '500px', height: '500px'}" slideImage="1"></ng-image-slider>
+          slideImage="1"></ng-image-slider>
 
       </mat-card-content>
     </mat-card>

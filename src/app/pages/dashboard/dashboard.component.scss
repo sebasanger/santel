@@ -6,11 +6,7 @@
   bottom: 15px;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
+
 
 .dashboard-card-content {
   text-align: center;
@@ -21,6 +17,10 @@
 .card-title {
   font-size: 22px;
   font-weight: bold;
+
+  @media (max-width: 767.98px) {
+    font-size: 15px;
+  }
 }
 
 .price-content {
@@ -43,10 +43,18 @@
 
 .price-info {
   font-size: 20px;
+
+  @media (max-width: 767.98px) {
+    font-size: 13px;
+  }
 }
 
 .include-info {
   font-size: 20px;
+
+  @media (max-width: 767.98px) {
+    font-size: 13px;
+  }
 }
 
 .images-card {
@@ -61,8 +69,16 @@
   font-size: 40px;
   font-family: sans-serif;
   font-weight: bold;
+
+  @media (max-width: 767.98px) {
+    font-size: 20px;
+  }
 }
 
 .welcome-text {
   font-size: 22px;
+
+  @media (max-width: 767.98px) {
+    font-size: 17px;
+  }
 }
