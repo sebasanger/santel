@@ -84,6 +84,7 @@
       "ADD": "Add user"
     },
     "FULLNAME": "Full name",
+    "ACTIONS": "Actions",
     "ROLES": "Roles",
     "EMAIL": "Email",
     "USERNAME": "Username",

@@ -13,7 +13,9 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { merge, Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
+import { ResendEmailVerification } from 'src/app/interfaces/auth/resend-email-verification.payload';
 import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import * as userActions from 'src/app/store/user/user.actions';
 import * as userApiActions from 'src/app/store/user/user.api.actions';
 import Swal from 'sweetalert2';
@@ -30,7 +32,8 @@ export class ViewUsersComponent implements AfterViewInit, OnInit, OnDestroy {
 
   constructor(
     private userStore: Store<{ user: any }>,
-    private router: Router
+    private router: Router,
+    private authSerivce: AuthService
   ) {}
   public filterSubject = new Subject<string>();
   public loading: boolean;
@@ -44,6 +47,7 @@ export class ViewUsersComponent implements AfterViewInit, OnInit, OnDestroy {
     'fullName',
     'roles',
     'email',
+    'actions',
     'edit',
     'delete',
   ];
@@ -139,5 +143,15 @@ export class ViewUsersComponent implements AfterViewInit, OnInit, OnDestroy {
 
   onRowClicked(row: any) {
     this.router.navigateByUrl('pages/users/details/' + row.id);
+  }
+
+  public resendEmail(id: number) {
+    const resendPayload: ResendEmailVerification = {
+      id: id,
+      urlRedirect: '',
+    };
+    this.authSerivce.resendEmailVerification(resendPayload).subscribe((res) => {
+      Swal.fire('Success', 'Email resended', 'success');
+    });
   }
 }

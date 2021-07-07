@@ -12,8 +12,10 @@ import { UpdateAcountPayload } from '../interfaces/user/form-update-acount-paylo
 import { GetUser } from '../interfaces/user/get-user.interface';
 import { select, Store } from '@ngrx/store';
 import { getUserAuth, getUserRoles } from '../store/auth/auth.selectors';
+import { ResendEmailVerification } from '../interfaces/auth/resend-email-verification.payload';
 
 const base_url = environment.base_url;
+const client_url = environment.client_url;
 @Injectable({
   providedIn: 'root',
 })
@@ -42,6 +44,15 @@ export class AuthService {
           return data;
         })
       );
+  }
+
+  resendEmailVerification(resendEmailVerification: ResendEmailVerification) {
+    resendEmailVerification.urlRedirect =
+      client_url + 'auth/activate-acount?tokenuid=';
+    return this.httpClient.put<LoginResponse>(
+      base_url + 'auth/resend-email',
+      resendEmailVerification
+    );
   }
 
   setUserDataOnStorageAndRemoveOld(data: LoginResponse) {

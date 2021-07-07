@@ -84,6 +84,7 @@
       "ADD": "Agregar usuario"
     },
     "FULLNAME": "Nombre completo",
+    "ACTIONS": "Acciones",
     "ROLES": "Roles",
     "EMAIL": "Email",
     "USERNAME": "Nombre de usuario",
